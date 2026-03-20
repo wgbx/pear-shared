@@ -12,5 +12,5 @@
       "@pear/shared/*": ["src/*", "*"]
     }
   },
-  "include": [".dumirc.ts", ".fatherrc.ts", "src/**/*"]
+  "include": [".dumirc.ts", ".fatherrc.ts", "src/**/*", ".dumi/theme"]
 }

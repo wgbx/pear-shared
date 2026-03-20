@@ -1,1 +1,2 @@
-export { default as Foo } from './Foo';
+export { default as InfoBanner } from './InfoBanner';
+export * from '../.dumi/theme';
