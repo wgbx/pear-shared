@@ -35,7 +35,7 @@ interface InfoBannerProps {
   }
 }
 
-export default function InfoBanner({ children, description, icon: IconComponent = BookmarkFill, slotProps }: InfoBannerProps) {
+export function InfoBanner({ children, description, icon: IconComponent = BookmarkFill, slotProps }: InfoBannerProps) {
   return (
     <BannerContainer {...slotProps?.root}>
       <Stack sx={{ position: 'absolute', top: 0, right: 12 }}>

@@ -1,2 +1,3 @@
-export { default as InfoBanner } from './InfoBanner';
+export * from './InfoBanner';
 export * from '../.dumi/theme';
+export * from './Notification';

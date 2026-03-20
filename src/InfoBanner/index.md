@@ -6,6 +6,8 @@
 import { InfoBanner } from '@pear/shared';
 
 export default () => {
-  return <InfoBanner description="这里是 InfoBanner 的描述内容" />;
+  return (
+    <InfoBanner description="An information banner is a prominent message displayed at the top or within a page to share important updates, alerts, or guidance with users." />
+  );
 };
 ```
