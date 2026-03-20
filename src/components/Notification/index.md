@@ -4,7 +4,7 @@
 
 > 注意：如果你已在应用全局挂载 `NotificationContainer`，则这里的示例只展示触发方式。
 
-### 触发通知
+### 基本使用
 
 ```tsx
 import React from 'react';
@@ -29,7 +29,7 @@ export default function DemoNotificationSimple() {
 }
 ```
 
-### 配置 title
+### 配置标题
 
 ```tsx
 import React from 'react';
@@ -77,7 +77,7 @@ export default function DemoNotificationDetail() {
 }
 ```
 
-### 配置 close
+### 配置Close
 
 ```tsx
 import React from 'react';

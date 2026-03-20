@@ -2,6 +2,8 @@
 
 展示一个信息提示容器。
 
+### 基本使用
+
 ```tsx
 import { InfoBanner } from '@pear/shared';
 
