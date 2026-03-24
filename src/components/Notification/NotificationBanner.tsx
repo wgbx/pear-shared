@@ -15,8 +15,7 @@ import {
   Stack,
 } from '@mui/material';
 import { useCreation, useMemoizedFn } from 'ahooks';
-import type { ReactElement, ReactNode } from 'react';
-import React from 'react';
+import type { ComponentType, ReactElement, ReactNode } from 'react';
 
 import { NotificationAction } from './NotificationAction';
 
@@ -61,7 +60,7 @@ export type NotificationBannerProps =
 const SEVERITY_CONFIG: Record<
   NotificationSeverityType,
   {
-    icon: React.ComponentType;
+    icon: ComponentType;
     backgroundColor: string;
   }
 > = {

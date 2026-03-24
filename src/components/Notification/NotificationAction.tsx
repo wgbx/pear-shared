@@ -4,7 +4,6 @@ import { CloseFill } from '@mingcute/react';
 import type { AlertProps } from '@mui/material';
 import { IconButton, Stack } from '@mui/material';
 import type { ReactNode } from 'react';
-import React from 'react';
 
 export interface NotificationActionProps {
   showClose?: boolean;

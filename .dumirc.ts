@@ -10,6 +10,7 @@ export default defineConfig({
   themeConfig: {
     name: '@pear/shared',
     logo: false,
+    editLink: false,
     nav: [
       { title: 'Guide', link: 'guide' },
       { title: 'Components', link: 'components/external-link' },

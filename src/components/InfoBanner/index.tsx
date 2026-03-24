@@ -1,4 +1,3 @@
-import React from 'react'
 import { Stack, Typography, type TypographyProps, type StackProps, styled } from '@mui/material'
 import { type ReactNode, type ComponentType, type SVGProps } from 'react'
 

@@ -1,4 +1,3 @@
-import React from 'react'
 import { useAtomValue, useSetAtom } from 'jotai'
 import { NotificationBanner } from './NotificationBanner'
 import { notificationAtom } from './notificationAtom'
