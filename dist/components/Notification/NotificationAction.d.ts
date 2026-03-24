@@ -1,6 +1,5 @@
 import type { AlertProps } from '@mui/material';
 import type { ReactNode } from 'react';
-import React from 'react';
 export interface NotificationActionProps {
     showClose?: boolean;
     onClose?: NonNullable<AlertProps['onClose']>;
@@ -8,4 +7,4 @@ export interface NotificationActionProps {
     bottomAction?: ReactNode;
     color?: string;
 }
-export declare function NotificationAction({ showClose, onClose, action, color, }: NotificationActionProps): React.JSX.Element | null;
+export declare function NotificationAction({ showClose, onClose, action, color, }: NotificationActionProps): import("react/jsx-runtime").JSX.Element | null;

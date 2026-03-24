@@ -1,2 +1,1 @@
-import React from 'react';
-export declare function NotificationContainer(): React.JSX.Element | null;
+export declare function NotificationContainer(): import("react/jsx-runtime").JSX.Element | null;

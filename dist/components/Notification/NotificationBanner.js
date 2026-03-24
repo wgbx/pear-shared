@@ -1,5 +1,4 @@
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
-function _extends() { _extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
 function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
 function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -8,8 +7,9 @@ function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e 
 import { AlertLine, CheckCircleLine, InformationLine, WarningLine } from '@mingcute/react';
 import { Alert, AlertTitle, Snackbar, Stack } from '@mui/material';
 import { useCreation, useMemoizedFn } from 'ahooks';
-import React from 'react';
 import { NotificationAction } from "./NotificationAction";
+import { jsx as _jsx } from "react/jsx-runtime";
+import { jsxs as _jsxs } from "react/jsx-runtime";
 export var NotificationSeverity = ['success', 'warning', 'info', 'error'];
 var SEVERITY_CONFIG = {
   error: {
@@ -54,7 +54,7 @@ export function NotificationBanner(_ref) {
     onClose === null || onClose === void 0 || onClose(event, 'timeout');
   });
   var actionNode = useCreation(function () {
-    return action || showClose ? /*#__PURE__*/React.createElement(NotificationAction, {
+    return action || showClose ? /*#__PURE__*/_jsx(NotificationAction, {
       action: action,
       onClose: handleActionClose,
       showClose: showClose
@@ -66,7 +66,7 @@ export function NotificationBanner(_ref) {
     }
     return null;
   }, [hideAfter]);
-  return /*#__PURE__*/React.createElement(Snackbar, _extends({
+  return /*#__PURE__*/_jsx(Snackbar, _objectSpread(_objectSpread({
     "data-track-location": "Notification",
     anchorOrigin: {
       vertical: 'top',
@@ -79,41 +79,46 @@ export function NotificationBanner(_ref) {
     onClose: onClose,
     open: true,
     transitionDuration: 300
-  }, snackbarProps, {
+  }, snackbarProps), {}, {
     sx: _objectSpread({
       zIndex: 9999,
       pointerEvents: 'none'
-    }, snackbarProps === null || snackbarProps === void 0 ? void 0 : snackbarProps.sx)
-  }), /*#__PURE__*/React.createElement(Alert, {
-    severity: severity,
-    icon: icon !== null && icon !== void 0 ? icon : /*#__PURE__*/React.createElement(DefaultIcon, null),
-    action: actionNode,
-    sx: _objectSpread({
-      background: backgroundColor,
-      pointerEvents: 'auto',
-      borderRadius: 2,
-      color: 'shades.900',
-      boxShadow: '0 7px 9px -4px rgba(0, 0, 0, 0.07), 0 14px 21px 2px rgba(0, 0, 0, 0.05), 0 5px 26px 4px rgba(0, 0, 0, 0.01)',
-      '& .MuiAlert-action': {
-        pt: 0,
-        margin: 0
-      }
-    }, sx)
-  }, /*#__PURE__*/React.createElement(Stack, {
-    sx: {
-      flexDirection: {
-        md: 'row'
-      },
-      gap: 1
-    }
-  }, /*#__PURE__*/React.createElement(Stack, {
-    sx: {
-      gap: 0.5
-    }
-  }, title ? /*#__PURE__*/React.createElement(AlertTitle, {
-    gutterBottom: Boolean(text),
-    sx: {
-      fontWeight: 600
-    }
-  }, title) : null, text !== null && text !== void 0 ? text : null), bottomAction !== null && bottomAction !== void 0 ? bottomAction : null)));
+    }, snackbarProps === null || snackbarProps === void 0 ? void 0 : snackbarProps.sx),
+    children: /*#__PURE__*/_jsx(Alert, {
+      severity: severity,
+      icon: icon !== null && icon !== void 0 ? icon : /*#__PURE__*/_jsx(DefaultIcon, {}),
+      action: actionNode,
+      sx: _objectSpread({
+        background: backgroundColor,
+        pointerEvents: 'auto',
+        borderRadius: 2,
+        color: 'shades.900',
+        boxShadow: '0 7px 9px -4px rgba(0, 0, 0, 0.07), 0 14px 21px 2px rgba(0, 0, 0, 0.05), 0 5px 26px 4px rgba(0, 0, 0, 0.01)',
+        '& .MuiAlert-action': {
+          pt: 0,
+          margin: 0
+        }
+      }, sx),
+      children: /*#__PURE__*/_jsxs(Stack, {
+        sx: {
+          flexDirection: {
+            md: 'row'
+          },
+          gap: 1
+        },
+        children: [/*#__PURE__*/_jsxs(Stack, {
+          sx: {
+            gap: 0.5
+          },
+          children: [title ? /*#__PURE__*/_jsx(AlertTitle, {
+            gutterBottom: Boolean(text),
+            sx: {
+              fontWeight: 600
+            },
+            children: title
+          }) : null, text !== null && text !== void 0 ? text : null]
+        }), bottomAction !== null && bottomAction !== void 0 ? bottomAction : null]
+      })
+    })
+  }));
 }
