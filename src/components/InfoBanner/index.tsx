@@ -1,8 +1,8 @@
 import React from 'react'
 import { Stack, Typography, type TypographyProps, type StackProps, styled } from '@mui/material'
-import { type ReactNode, type ForwardRefExoticComponent, type RefAttributes } from 'react'
+import { type ReactNode, type ComponentType, type SVGProps } from 'react'
 
-import { BookmarkFill, type IconProps } from '@mingcute/react'
+import { ReactComponent as BookmarkSquareIcon } from '@svg/bookmark-square.svg'
 
 const BannerContainer = styled(Stack, {
   name: 'InfoBanner',
@@ -27,19 +27,19 @@ const InfoBannerDescription = styled(Typography, {
 interface InfoBannerProps {
   children?: ReactNode
   description?: ReactNode
-  icon?: ForwardRefExoticComponent<Omit<IconProps, 'ref'> & RefAttributes<SVGSVGElement>>
+  icon?: ComponentType<SVGProps<SVGSVGElement>>
   slotProps?: {
     root?: StackProps
     description?: TypographyProps
-    icon?: Omit<IconProps, 'ref'>
+    icon?: SVGProps<SVGSVGElement>
   }
 }
 
-export function InfoBanner({ children, description, icon: IconComponent = BookmarkFill, slotProps }: InfoBannerProps) {
+export function InfoBanner({ children, description, icon: IconComponent = BookmarkSquareIcon, slotProps }: InfoBannerProps) {
   return (
     <BannerContainer {...slotProps?.root}>
       <Stack sx={{ position: 'absolute', top: 0, right: 12 }}>
-        <IconComponent {...slotProps?.icon} size={slotProps?.icon?.size ?? 12} />
+        <IconComponent {...slotProps?.icon} width={slotProps?.icon?.width ?? 12} height={slotProps?.icon?.height ?? 12} />
       </Stack>
 
       {description ? <InfoBannerDescription {...slotProps?.description}>{description}</InfoBannerDescription> : children}

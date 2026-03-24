@@ -1,6 +1,11 @@
 import { defineConfig } from 'dumi';
 
 export default defineConfig({
+  alias: {
+    '@svg': '/src/svg',
+    '@hooks': '/src/hooks',
+    '@components': '/src/components',
+  },
   outputPath: 'docs-dist',
   themeConfig: {
     name: '@pear/shared',

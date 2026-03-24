@@ -9,7 +9,9 @@
     "paths": {
       "@@/*": [".dumi/tmp/*"],
       "@pear/shared": ["src"],
-      "@pear/shared/*": ["src/*", "*"]
+      "@svg/*": ["src/svg/*"],
+      "@hooks/*": ["src/hooks/*"],
+      "@components/*": ["src/components/*"],
     }
   },
   "include": [".dumirc.ts", ".fatherrc.ts", "src/**/*", ".dumi/theme"]
