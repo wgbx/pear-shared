@@ -1,13 +1,13 @@
-import { type StackProps, type TypographyProps } from '@mui/material';
-import { type ComponentType, type ReactNode, type SVGProps } from 'react';
+import { type StackProps, type SvgIconProps, type TypographyProps } from '@mui/material';
+import { type ComponentType, type ReactNode } from 'react';
 interface InfoBannerProps {
     children?: ReactNode;
     description?: ReactNode;
-    icon?: ComponentType<SVGProps<SVGSVGElement>>;
+    icon?: ComponentType<SvgIconProps>;
     slotProps?: {
         root?: StackProps;
         description?: TypographyProps;
-        icon?: SVGProps<SVGSVGElement>;
+        icon?: SvgIconProps;
     };
 }
 export declare function InfoBanner({ children, description, icon: IconComponent, slotProps, }: InfoBannerProps): import("react/jsx-runtime").JSX.Element;

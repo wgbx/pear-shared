@@ -3,11 +3,11 @@ import {
   type StackProps,
   styled,
   Typography,
+  type SvgIconProps,
   type TypographyProps,
 } from '@mui/material';
-import { type ComponentType, type ReactNode, type SVGProps } from 'react';
-
-import { ReactComponent as BookmarkSquareIcon } from '@svg/bookmark-square.svg';
+import { type ComponentType, type ReactNode } from 'react';
+import { BookmarkSquareIcon } from '@svg/index';
 
 const BannerContainer = styled(Stack, {
   name: 'InfoBanner',
@@ -32,11 +32,11 @@ const InfoBannerDescription = styled(Typography, {
 interface InfoBannerProps {
   children?: ReactNode;
   description?: ReactNode;
-  icon?: ComponentType<SVGProps<SVGSVGElement>>;
+  icon?: ComponentType<SvgIconProps>;
   slotProps?: {
     root?: StackProps;
     description?: TypographyProps;
-    icon?: SVGProps<SVGSVGElement>;
+    icon?: SvgIconProps;
   };
 }
 
