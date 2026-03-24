@@ -4,6 +4,7 @@
   "description": "A react library developed with dumi",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
+  "sideEffects": "false",
   "scripts": {
     "start": "npm run dev",
     "dev": "dumi dev",
@@ -57,9 +58,7 @@
     "ahooks": ">=3.8.1",
     "jotai": "2.6.1",
     "react": ">=18.2.0",
-    "react-dom": ">=18.2.0"
-  },
-  "dependencies": {
+    "react-dom": ">=18.2.0",
     "@mingcute/react": "^1.4.1"
   },
   "devDependencies": {

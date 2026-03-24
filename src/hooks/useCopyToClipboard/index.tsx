@@ -1,6 +1,6 @@
 import { useMemoizedFn } from 'ahooks';
 
-import { useNotification } from '@pear/shared';
+import { useNotification } from '../../components/Notification';
 
 interface UseCopyToClipboardWithNotificationOptions {
   successMessage: string;
