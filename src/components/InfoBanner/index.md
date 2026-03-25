@@ -1,10 +1,10 @@
 # InfoBanner
 
-展示一个信息提示容器，可通过 `description` 快速渲染说明文案，也支持通过 `children` 自定义内容。
+Displays an information banner container. You can quickly render text via `description`, or customize content via `children`.
 
-## 代码演示
+## Examples
 
-### 基本使用
+### Basic Usage
 
 ```tsx
 import { InfoBanner } from '@pear/shared';
@@ -16,7 +16,7 @@ export default () => {
 };
 ```
 
-### 使用 children 自定义内容
+### Custom Content with children
 
 ```tsx
 import { InfoBanner } from '@pear/shared';
@@ -36,9 +36,9 @@ export default () => {
 
 ### InfoBannerProps
 
-| 参数 | 说明 | 类型 | 必选 | 默认值 |
+| Property | Description | Type | Required | Default |
 | --- | --- | --- | --- | --- |
-| children | 自定义内容；当 `description` 不存在时渲染 | `ReactNode` | `-` | `-` |
-| description | 描述文案/节点；有值时优先渲染 | `ReactNode` | `-` | `-` |
-| icon | 右上角图标组件 | `ComponentType<SVGProps<SVGSVGElement>>` | `-` | `BookmarkSquareIcon` |
-| slotProps | 各插槽的属性透传 | `{ root?: StackProps; description?: TypographyProps; icon?: SVGProps<SVGSVGElement> }` | `-` | `-` |
+| children | Custom content; rendered when `description` is not provided | `ReactNode` | `-` | `-` |
+| description | Description text/node; takes priority when provided | `ReactNode` | `-` | `-` |
+| icon | Top-right icon component | `ComponentType<SVGProps<SVGSVGElement>>` | `-` | `BookmarkSquareIcon` |
+| slotProps | Props passed to each slot | `{ root?: StackProps; description?: TypographyProps; icon?: SVGProps<SVGSVGElement> }` | `-` | `-` |

@@ -1,12 +1,12 @@
 # Notification
 
-基于 `jotai` + MUI 封装的通知提示组件。调用 `useNotification()` 触发通知展示。
+A notification component built on `jotai` + MUI. Call `useNotification()` to trigger notifications.
 
-> 注意：如果你已在应用全局挂载 `NotificationContainer`，则这里的示例只展示触发方式。
+> Note: If you have already mounted `NotificationContainer` globally in your app, the examples here only demonstrate how to trigger notifications.
 
-## 代码演示
+## Examples
 
-### 基本使用
+### Basic Usage
 
 ```tsx
 import { useNotification } from '@pear/shared';
@@ -30,7 +30,7 @@ export default function DemoNotificationSimple() {
 }
 ```
 
-### 配置标题
+### With Title
 
 ```tsx
 import { useNotification } from '@pear/shared';
@@ -77,7 +77,7 @@ export default function DemoNotificationDetail() {
 }
 ```
 
-### 配置Close
+### With Close Button
 
 ```tsx
 import { useNotification } from '@pear/shared';
@@ -129,34 +129,34 @@ export default function DemoNotificationDetail() {
 
 ## API
 
-### useNotification 返回值
+### useNotification Return Value
 
-| 参数 | 说明 | 类型 | 必选 | 默认值 |
+| Property | Description | Type | Required | Default |
 | --- | --- | --- | --- | --- |
-| error | 触发错误通知 | `(params: string | NotificationCloseProps | NotificationActionProps) => void` | `✅` | `-` |
-| info | 触发信息通知 | `(params: string | NotificationCloseProps | NotificationActionProps) => void` | `✅` | `-` |
-| success | 触发成功通知 | `(params: string | NotificationCloseProps | NotificationActionProps) => void` | `✅` | `-` |
-| warning | 触发警告通知 | `(params: string | NotificationCloseProps | NotificationActionProps) => void` | `✅` | `-` |
-| customize | 触发自定义（无 severity）通知 | `(params: string | NotificationCloseProps | NotificationActionProps) => void` | `✅` | `-` |
-| closeNotification | 主动关闭当前通知 | `() => void` | `✅` | `-` |
+| error | Trigger an error notification | `(params: string | NotificationCloseProps | NotificationActionProps) => void` | `✅` | `-` |
+| info | Trigger an info notification | `(params: string | NotificationCloseProps | NotificationActionProps) => void` | `✅` | `-` |
+| success | Trigger a success notification | `(params: string | NotificationCloseProps | NotificationActionProps) => void` | `✅` | `-` |
+| warning | Trigger a warning notification | `(params: string | NotificationCloseProps | NotificationActionProps) => void` | `✅` | `-` |
+| customize | Trigger a custom (no severity) notification | `(params: string | NotificationCloseProps | NotificationActionProps) => void` | `✅` | `-` |
+| closeNotification | Manually close the current notification | `() => void` | `✅` | `-` |
 
 ### NotificationCloseProps
 
-| 参数 | 说明 | 类型 | 必选 | 默认值 |
+| Property | Description | Type | Required | Default |
 | --- | --- | --- | --- | --- |
-| text | 通知正文 | `string` | `✅` | `-` |
-| hideAfter | 自动关闭秒数 | `number` | `-` | `-` |
-| title | 通知标题 | `string` | `-` | `-` |
-| sx | 通知样式扩展 | `NotificationBannerProps['sx']` | `-` | `-` |
-| showClose | 是否显示关闭按钮 | `NotificationBannerWithClose['showClose']` | `-` | `-` |
-| icon | 自定义图标 | `NotificationBannerWithClose['icon']` | `-` | `-` |
+| text | Notification body text | `string` | `✅` | `-` |
+| hideAfter | Auto-close delay in seconds | `number` | `-` | `-` |
+| title | Notification title | `string` | `-` | `-` |
+| sx | Notification style override | `NotificationBannerProps['sx']` | `-` | `-` |
+| showClose | Whether to show the close button | `NotificationBannerWithClose['showClose']` | `-` | `-` |
+| icon | Custom icon | `NotificationBannerWithClose['icon']` | `-` | `-` |
 
 ### NotificationActionProps
 
-| 参数 | 说明 | 类型 | 必选 | 默认值 |
+| Property | Description | Type | Required | Default |
 | --- | --- | --- | --- | --- |
-| text | 通知正文 | `string` | `✅` | `-` |
-| action | 自定义操作区渲染函数 | `NotificationBannerWithAction['action']` | `✅` | `-` |
-| hideAfter | 自动关闭秒数 | `number` | `-` | `-` |
-| title | 通知标题 | `string` | `-` | `-` |
-| sx | 通知样式扩展 | `NotificationBannerProps['sx']` | `-` | `-` |
+| text | Notification body text | `string` | `✅` | `-` |
+| action | Custom action area render function | `NotificationBannerWithAction['action']` | `✅` | `-` |
+| hideAfter | Auto-close delay in seconds | `number` | `-` | `-` |
+| title | Notification title | `string` | `-` | `-` |
+| sx | Notification style override | `NotificationBannerProps['sx']` | `-` | `-` |

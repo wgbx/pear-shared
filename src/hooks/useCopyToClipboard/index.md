@@ -1,10 +1,10 @@
 # useCopyToClipboard
 
-把文本复制到剪贴板，并在复制成功或失败时触发 `Notification` 提示（需要你的应用全局挂载 `NotificationContainer`）。
+Copies text to the clipboard and triggers a `Notification` on success or failure (requires `NotificationContainer` to be mounted globally in your app).
 
-## 代码演示
+## Examples
 
-### 基本使用
+### Basic Usage
 
 ```tsx
 import { useCopyToClipboard } from '@pear/shared';
@@ -18,7 +18,7 @@ export default function Demo() {
 }
 ```
 
-### 自定义信息
+### Custom Messages
 
 ```tsx
 import { useCopyToClipboard } from '@pear/shared';
@@ -43,17 +43,17 @@ export default function DemoCustomMessage() {
 
 ## API
 
-### useCopyToClipboard 返回值
+### useCopyToClipboard Return Value
 
-| 参数 | 说明 | 类型 | 必选 | 默认值 |
+| Property | Description | Type | Required | Default |
 | --- | --- | --- | --- | --- |
-| copyToClipboard | 复制文本到剪贴板的方法 | `(text: string | null | undefined, options?: UseCopyToClipboardWithNotificationOptions) => Promise<void>` | `✅` | `-` |
+| copyToClipboard | Method to copy text to clipboard | `(text: string | null | undefined, options?: UseCopyToClipboardWithNotificationOptions) => Promise<void>` | `✅` | `-` |
 
 ### UseCopyToClipboardWithNotificationOptions
 
-| 参数 | 说明 | 类型 | 必选 | 默认值 |
+| Property | Description | Type | Required | Default |
 | --- | --- | --- | --- | --- |
-| successMessage | 复制成功提示文案 | `string` | `✅` | `'Copied to clipboard'` |
-| errorMessage | 复制失败提示文案 | `string` | `✅` | `'Failed to copy to clipboard'` |
-| onSuccess | 复制成功后的回调 | `() => void` | `-` | `-` |
-| onError | 复制失败后的回调 | `(error: unknown) => void` | `-` | `-` |
+| successMessage | Success notification message | `string` | `✅` | `'Copied to clipboard'` |
+| errorMessage | Failure notification message | `string` | `✅` | `'Failed to copy to clipboard'` |
+| onSuccess | Callback after successful copy | `() => void` | `-` | `-` |
+| onError | Callback after failed copy | `(error: unknown) => void` | `-` | `-` |
