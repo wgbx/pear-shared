@@ -1,13 +1,13 @@
 import {
   Stack,
-  type StackProps,
   styled,
   Typography,
+  type StackProps,
   type SvgIconProps,
   type TypographyProps,
 } from '@mui/material';
-import { type ComponentType, type ReactNode } from 'react';
 import { BookmarkSquareIcon } from '@svg/index';
+import { type ComponentType, type ReactNode } from 'react';
 
 const BannerContainer = styled(Stack, {
   name: 'InfoBanner',
@@ -49,11 +49,7 @@ export function InfoBanner({
   return (
     <BannerContainer {...slotProps?.root}>
       <Stack sx={{ position: 'absolute', top: 0, right: 12 }}>
-        <IconComponent
-          {...slotProps?.icon}
-          width={slotProps?.icon?.width ?? 12}
-          height={slotProps?.icon?.height ?? 12}
-        />
+        <IconComponent sx={{ fontSize: 12 }} {...slotProps?.icon} />
       </Stack>
 
       {description ? (

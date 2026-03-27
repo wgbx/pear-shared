@@ -35,7 +35,6 @@ var InfoBannerDescription = styled(Typography, {
   };
 });
 export function InfoBanner(_ref3) {
-  var _slotProps$icon$width, _slotProps$icon, _slotProps$icon$heigh, _slotProps$icon2;
   var children = _ref3.children,
     description = _ref3.description,
     _ref3$icon = _ref3.icon,
@@ -48,10 +47,11 @@ export function InfoBanner(_ref3) {
         top: 0,
         right: 12
       },
-      children: /*#__PURE__*/_jsx(IconComponent, _objectSpread(_objectSpread({}, slotProps === null || slotProps === void 0 ? void 0 : slotProps.icon), {}, {
-        width: (_slotProps$icon$width = slotProps === null || slotProps === void 0 || (_slotProps$icon = slotProps.icon) === null || _slotProps$icon === void 0 ? void 0 : _slotProps$icon.width) !== null && _slotProps$icon$width !== void 0 ? _slotProps$icon$width : 12,
-        height: (_slotProps$icon$heigh = slotProps === null || slotProps === void 0 || (_slotProps$icon2 = slotProps.icon) === null || _slotProps$icon2 === void 0 ? void 0 : _slotProps$icon2.height) !== null && _slotProps$icon$heigh !== void 0 ? _slotProps$icon$heigh : 12
-      }))
+      children: /*#__PURE__*/_jsx(IconComponent, _objectSpread({
+        sx: {
+          fontSize: 12
+        }
+      }, slotProps === null || slotProps === void 0 ? void 0 : slotProps.icon))
     }), description ? /*#__PURE__*/_jsx(InfoBannerDescription, _objectSpread(_objectSpread({}, slotProps === null || slotProps === void 0 ? void 0 : slotProps.description), {}, {
       children: description
     })) : children]
