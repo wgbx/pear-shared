@@ -5,13 +5,13 @@
     "skipLibCheck": true,
     "esModuleInterop": true,
     "jsx": "react-jsx",
-    "baseUrl": "./",
     "paths": {
-      "@@/*": [".dumi/tmp/*"],
-      "@pear/shared": ["src"],
-      "@svg/*": ["src/svg/*"],
-      "@hooks/*": ["src/hooks/*"],
-      "@components/*": ["src/components/*"],
+      "*": ["./*"],
+      "@@/*": ["./.dumi/tmp/*"],
+      "@pear/shared": ["./src"],
+      "@svg/*": ["./src/svg/*"],
+      "@hooks/*": ["./src/hooks/*"],
+      "@components/*": ["./src/components/*"]
     }
   },
   "include": [".dumirc.ts", ".fatherrc.ts", "src/**/*", ".dumi/theme"]

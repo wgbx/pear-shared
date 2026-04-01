@@ -1,16 +1,20 @@
-import path from 'path';
 import { defineConfig } from 'dumi';
+import path from 'path';
 
 const absSrc = path.resolve(__dirname, 'src');
 
 export default defineConfig({
+  locales: [{ id: 'en-US', name: 'English' }],
   alias: {
     '@svg': '/src/svg',
     '@hooks': '/src/hooks',
     '@components': '/src/components',
   },
   chainWebpack(memo) {
-    memo.module.rule('asset').oneOf('fallback').exclude.add(/\.svg$/i);
+    memo.module
+      .rule('asset')
+      .oneOf('fallback')
+      .exclude.add(/\.svg$/i);
     memo.module.rule('svgr').exclude.add(absSrc);
     memo.module.rule('svg').exclude.add(absSrc);
     memo.module
@@ -27,8 +31,8 @@ export default defineConfig({
   },
   outputPath: 'docs-dist',
   themeConfig: {
-    name: '@pear/shared',
-    logo: false,
+    logo: '/favicon.svg',
+    name: 'Shared',
     editLink: false,
     nav: [
       { title: 'Guide', link: 'guide' },
