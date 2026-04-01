@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "buildCommand": "pnpm install && docs:build",
+  "buildCommand": "pnpm install && pnpm docs:build",
   "outputDirectory": "docs-dist",
   "routes": [
     {
