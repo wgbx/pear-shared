@@ -1,6 +1,6 @@
 # useCopyToClipboard
 
-Copies text to the clipboard and triggers a `Notification` on success or failure (requires `NotificationContainer` to be mounted globally in your app).
+Copies text to the clipboard and triggers an `Alert` on success or failure (requires `AlertContainer` to be mounted globally in your app).
 
 ## Examples
 
@@ -47,13 +47,13 @@ export default function DemoCustomMessage() {
 
 | Property | Description | Type | Required | Default |
 | --- | --- | --- | --- | --- |
-| copyToClipboard | Method to copy text to clipboard | `(text: string | null | undefined, options?: UseCopyToClipboardWithNotificationOptions) => Promise<void>` | `✅` | `-` |
+| copyToClipboard | Method to copy text to clipboard | `(text: string | null | undefined, options?: UseCopyToClipboardWithAlertOptions) => Promise<void>` | `✅` | `-` |
 
-### UseCopyToClipboardWithNotificationOptions
+### UseCopyToClipboardWithAlertOptions
 
 | Property | Description | Type | Required | Default |
 | --- | --- | --- | --- | --- |
-| successMessage | Success notification message | `string` | `✅` | `'Copied to clipboard'` |
-| errorMessage | Failure notification message | `string` | `✅` | `'Failed to copy to clipboard'` |
+| successMessage | Success alert message | `string` | `✅` | `'Copied to clipboard'` |
+| errorMessage | Failure alert message | `string` | `✅` | `'Failed to copy to clipboard'` |
 | onSuccess | Callback after successful copy | `() => void` | `-` | `-` |
 | onError | Callback after failed copy | `(error: unknown) => void` | `-` | `-` |

@@ -5,7 +5,7 @@ import type { AlertProps } from '@mui/material';
 import { IconButton, Stack } from '@mui/material';
 import type { ReactNode } from 'react';
 
-export interface NotificationActionProps {
+export interface AlertActionProps {
   showClose?: boolean;
   onClose?: NonNullable<AlertProps['onClose']>;
   action?: (onClose?: NonNullable<AlertProps['onClose']>) => ReactNode;
@@ -13,12 +13,12 @@ export interface NotificationActionProps {
   color?: string;
 }
 
-export function NotificationAction({
+export function AlertAction({
   showClose,
   onClose,
   action,
   color,
-}: NotificationActionProps) {
+}: AlertActionProps) {
   if (showClose) {
     return (
       <IconButton onClick={onClose} size="small">

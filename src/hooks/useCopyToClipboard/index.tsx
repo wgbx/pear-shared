@@ -1,8 +1,8 @@
 import { useMemoizedFn } from 'ahooks';
 
-import { useNotification } from '../../components/Notification';
+import { useAlert } from '../../components/Alert';
 
-interface UseCopyToClipboardWithNotificationOptions {
+interface UseCopyToClipboardWithAlertOptions {
   successMessage: string;
   errorMessage: string;
   onSuccess?: () => void;
@@ -13,7 +13,7 @@ const DEFAULT_SUCCESS_MESSAGE = 'Copied to clipboard';
 const DEFAULT_ERROR_MESSAGE = 'Failed to copy to clipboard';
 
 /**
- * Hook for copying text to clipboard with notification support
+ * Hook for copying text to clipboard with alert support
  *
  * @returns An object containing the `copyToClipboard` function
  *
@@ -53,12 +53,12 @@ const DEFAULT_ERROR_MESSAGE = 'Failed to copy to clipboard';
  * ```
  */
 export function useCopyToClipboard() {
-  const { success, error } = useNotification();
+  const { success, error } = useAlert();
 
   const copyToClipboard = useMemoizedFn(
     async (
       text: string | null | undefined,
-      options: UseCopyToClipboardWithNotificationOptions = {
+      options: UseCopyToClipboardWithAlertOptions = {
         successMessage: DEFAULT_SUCCESS_MESSAGE,
         errorMessage: DEFAULT_ERROR_MESSAGE,
       },

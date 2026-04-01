@@ -17,48 +17,48 @@ import {
 import { useCreation, useMemoizedFn } from 'ahooks';
 import type { ComponentType, ReactElement, ReactNode } from 'react';
 
-import { NotificationAction } from './NotificationAction';
+import { AlertAction } from './AlertAction';
 
-export const NotificationSeverity = [
+export const AlertSeverity = [
   'success',
   'warning',
   'info',
   'error',
 ] as const;
 
-type NotificationSeverityType = (typeof NotificationSeverity)[number];
+type AlertSeverityType = (typeof AlertSeverity)[number];
 
-export interface CommonNotificationBannerProps
+export interface CommonAlertBannerProps
   extends Pick<SnackbarProps, 'onClose'> {
   icon?: ReactNode;
   sx?: SxProps;
   hideAfter?: number | null;
-  severity?: NotificationSeverityType;
+  severity?: AlertSeverityType;
   title?: ReactNode;
   text?: ReactNode;
   snackbarProps?: SnackbarProps;
 }
 
-export interface NotificationBannerWithClose
-  extends CommonNotificationBannerProps {
+export interface AlertBannerWithClose
+  extends CommonAlertBannerProps {
   action?: never;
   bottomAction?: ReactNode;
   showClose?: boolean;
 }
 
-export interface NotificationBannerWithAction
-  extends CommonNotificationBannerProps {
+export interface AlertBannerWithAction
+  extends CommonAlertBannerProps {
   action?: (onClose?: NonNullable<AlertProps['onClose']>) => ReactNode;
   showClose?: never;
   bottomAction?: ReactNode;
 }
 
-export type NotificationBannerProps =
-  | NotificationBannerWithClose
-  | NotificationBannerWithAction;
+export type AlertBannerProps =
+  | AlertBannerWithClose
+  | AlertBannerWithAction;
 
 const SEVERITY_CONFIG: Record<
-  NotificationSeverityType,
+  AlertSeverityType,
   {
     icon: ComponentType;
     backgroundColor: string;
@@ -82,7 +82,7 @@ const SEVERITY_CONFIG: Record<
   },
 };
 
-export function NotificationBanner({
+export function AlertBanner({
   text,
   icon,
   title,
@@ -94,7 +94,7 @@ export function NotificationBanner({
   severity = 'info',
   hideAfter = 8,
   showClose = false,
-}: NotificationBannerProps): ReactElement {
+}: AlertBannerProps): ReactElement {
   const { icon: DefaultIcon, backgroundColor } = SEVERITY_CONFIG[severity];
 
   const handleClickAway = useMemoizedFn<
@@ -111,7 +111,7 @@ export function NotificationBanner({
 
   const actionNode = useCreation(() => {
     return action || showClose ? (
-      <NotificationAction
+      <AlertAction
         action={action}
         onClose={handleActionClose}
         showClose={showClose}
@@ -128,7 +128,7 @@ export function NotificationBanner({
 
   return (
     <Snackbar
-      data-track-location="Notification"
+      data-track-location="Alert"
       anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
       ClickAwayListenerProps={{ onClickAway: handleClickAway }}
       autoHideDuration={autoHideDuration}
