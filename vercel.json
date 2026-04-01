@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "buildCommand": "pnpm install && docs:build",
+  "outputDirectory": "docs-dist",
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ]
+}
