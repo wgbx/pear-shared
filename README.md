@@ -1,6 +1,6 @@
 # @pear/shared
 
-[![NPM version](https://img.shields.io/npm/v/@pear/shared.svg?style=flat)](https://npmjs.org/package/@pear/shared)
+[![NPM version](https://img.shields.io/npm/v/@pear/shared.svg?style=flat)](https://npmjs.org/package/@pear/shared/)
 [![NPM downloads](http://img.shields.io/npm/dm/@pear/shared.svg?style=flat)](https://npmjs.org/package/@pear/shared)
 
 A react library developed with dumi
