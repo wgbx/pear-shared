@@ -3,15 +3,43 @@
 [![NPM version](https://img.shields.io/npm/v/@pear/shared.svg?style=flat)](https://npmjs.org/package/@pear/shared/)
 [![NPM downloads](http://img.shields.io/npm/dm/@pear/shared.svg?style=flat)](https://npmjs.org/package/@pear/shared)
 
-A react library developed with dumi
+A lightweight React shared component and hooks library, built with dumi docs.
 
 ## Usage
+### Install
+```bash
+pnpm add @pear/shared
+```
 
-TODO
+> If this is a private package (GitHub Packages), you need to set `NODE_AUTH_TOKEN` in your environment and make sure `.npmrc` points to the GitHub Packages registry.
+>
+> Example (`.npmrc`):
+> ```text
+> @pear:registry=https://npm.pkg.github.com
+> //npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}
+> ```
+
+### Global Alert Setup
+If you want to use `useAlert()` (and also `useCopyToClipboard()`), you need to mount `AlertContainer` exactly once in your app (typically in your root layout/root component).
+
+```tsx
+import { AlertContainer } from '@pear/shared';
+
+export default function AppLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <>
+      <AlertContainer />
+      {children}
+    </>
+  );
+}
+```
 
 ## Options
+The primary APIs and examples are provided via the `dumi` documentation (component props, hook usage, and examples are defined there).
 
-TODO
+- [Components](/components/external-link)
+- [Hooks](/hooks/use-copy-to-clipboard)
 
 ## Development
 

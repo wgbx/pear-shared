@@ -4,35 +4,20 @@ function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t =
 function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : String(i); }
 function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
-import { useMemoizedFn } from 'ahooks';
-import { useSetAtom } from 'jotai';
-import { notificationAtom } from "./notificationAtom";
-function normalizeParams(params) {
-  return typeof params === 'string' ? {
-    text: params
-  } : params;
-}
-export function useNotification() {
-  var setNotification = useSetAtom(notificationAtom);
-  var notify = useMemoizedFn(function (params, severity) {
-    setNotification(_objectSpread(_objectSpread({}, normalizeParams(params)), {}, {
-      severity: severity
-    }));
-  });
-  var closeNotification = useMemoizedFn(function () {
-    setNotification(undefined);
-  });
-  var createNotifyByType = useMemoizedFn(function (severity) {
-    return function (params) {
-      return notify(params, severity);
-    };
-  });
-  return {
-    error: createNotifyByType('error'),
-    info: createNotifyByType('info'),
-    success: createNotifyByType('success'),
-    warning: createNotifyByType('warning'),
-    customize: createNotifyByType(),
-    closeNotification: closeNotification
+import { useAtomValue, useSetAtom } from 'jotai';
+import { AlertBanner } from "./AlertBanner";
+import { alertAtom } from "./alertAtom";
+import { jsx as _jsx } from "react/jsx-runtime";
+export function AlertContainer() {
+  var alert = useAtomValue(alertAtom);
+  var setAlert = useSetAtom(alertAtom);
+  var handleClose = function handleClose() {
+    setAlert(undefined);
   };
+  if (!alert) {
+    return null;
+  }
+  return /*#__PURE__*/_jsx(AlertBanner, _objectSpread(_objectSpread({}, alert), {}, {
+    onClose: handleClose
+  }));
 }

@@ -1,11 +1,11 @@
-interface UseCopyToClipboardWithNotificationOptions {
+interface UseCopyToClipboardWithAlertOptions {
     successMessage: string;
     errorMessage: string;
     onSuccess?: () => void;
     onError?: (error: unknown) => void;
 }
 /**
- * Hook for copying text to clipboard with notification support
+ * Hook for copying text to clipboard with alert support
  *
  * @returns An object containing the `copyToClipboard` function
  *
@@ -45,6 +45,6 @@ interface UseCopyToClipboardWithNotificationOptions {
  * ```
  */
 export declare function useCopyToClipboard(): {
-    copyToClipboard: (this: unknown, text: string | null | undefined, options?: UseCopyToClipboardWithNotificationOptions | undefined) => Promise<void>;
+    copyToClipboard: (this: unknown, text: string | null | undefined, options?: UseCopyToClipboardWithAlertOptions | undefined) => Promise<void>;
 };
 export {};

@@ -3,7 +3,7 @@
 import { CloseFill } from '@mingcute/react';
 import { IconButton, Stack } from '@mui/material';
 import { jsx as _jsx } from "react/jsx-runtime";
-export function NotificationAction(_ref) {
+export function AlertAction(_ref) {
   var showClose = _ref.showClose,
     onClose = _ref.onClose,
     action = _ref.action,

@@ -7,10 +7,10 @@ function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e 
 import { AlertLine, CheckCircleLine, InformationLine, WarningLine } from '@mingcute/react';
 import { Alert, AlertTitle, Snackbar, Stack } from '@mui/material';
 import { useCreation, useMemoizedFn } from 'ahooks';
-import { NotificationAction } from "./NotificationAction";
+import { AlertAction } from "./AlertAction";
 import { jsx as _jsx } from "react/jsx-runtime";
 import { jsxs as _jsxs } from "react/jsx-runtime";
-export var NotificationSeverity = ['success', 'warning', 'info', 'error'];
+export var AlertSeverity = ['success', 'warning', 'info', 'error'];
 var SEVERITY_CONFIG = {
   error: {
     icon: WarningLine,
@@ -29,7 +29,7 @@ var SEVERITY_CONFIG = {
     backgroundColor: '#EBF5EF'
   }
 };
-export function NotificationBanner(_ref) {
+export function AlertBanner(_ref) {
   var text = _ref.text,
     icon = _ref.icon,
     title = _ref.title,
@@ -54,7 +54,7 @@ export function NotificationBanner(_ref) {
     onClose === null || onClose === void 0 || onClose(event, 'timeout');
   });
   var actionNode = useCreation(function () {
-    return action || showClose ? /*#__PURE__*/_jsx(NotificationAction, {
+    return action || showClose ? /*#__PURE__*/_jsx(AlertAction, {
       action: action,
       onClose: handleActionClose,
       showClose: showClose
@@ -67,7 +67,7 @@ export function NotificationBanner(_ref) {
     return null;
   }, [hideAfter]);
   return /*#__PURE__*/_jsx(Snackbar, _objectSpread(_objectSpread({
-    "data-track-location": "Notification",
+    "data-track-location": "Alert",
     anchorOrigin: {
       vertical: 'top',
       horizontal: 'center'
