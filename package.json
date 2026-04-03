@@ -4,7 +4,17 @@
   "description": "A react library developed with dumi",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
-  "sideEffects": "false",
+  "sideEffects": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bosinc/pear-shared.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "start": "npm run dev",
     "dev": "dumi dev",
@@ -23,9 +33,6 @@
     "wgbx"
   ],
   "license": "MIT",
-  "files": [
-    "dist"
-  ],
   "commitlint": {
     "extends": [
       "@commitlint/config-conventional"
@@ -47,9 +54,6 @@
       "eslint --fix",
       "prettier --parser=typescript --write"
     ]
-  },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
   },
   "peerDependencies": {
     "@emotion/react": ">=11.14.0",
