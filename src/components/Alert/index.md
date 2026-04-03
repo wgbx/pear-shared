@@ -9,7 +9,7 @@ An alert component built on `jotai` + MUI. Call `useAlert()` to trigger alerts.
 ### Basic Usage
 
 ```tsx
-import { useAlert } from '@pear/shared';
+import { useAlert } from '@bosinc/shared';
 
 export default function DemoAlertSimple() {
   const { success, error, warning } = useAlert();
@@ -33,7 +33,7 @@ export default function DemoAlertSimple() {
 ### With Title
 
 ```tsx
-import { useAlert } from '@pear/shared';
+import { useAlert } from '@bosinc/shared';
 
 export default function DemoAlertDetail() {
   const { success, error, warning } = useAlert();
@@ -80,7 +80,7 @@ export default function DemoAlertDetail() {
 ### With Close Button
 
 ```tsx
-import { useAlert } from '@pear/shared';
+import { useAlert } from '@bosinc/shared';
 
 export default function DemoAlertWithClose() {
   const { success, error, warning } = useAlert();

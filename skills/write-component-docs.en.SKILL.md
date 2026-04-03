@@ -55,7 +55,7 @@ Generate `src/components/<ComponentName>/index.md` with this required structure:
 6. **Output final md**
    - Keep copy concise and clear in English
    - Use `tsx` for all code blocks
-   - Keep import source as `@pear/shared`
+- Keep import source as `@bosinc/shared`
 
 ---
 
@@ -71,7 +71,7 @@ Generate `src/components/<ComponentName>/index.md` with this required structure:
 ### Basic Usage
 
 ```tsx
-import { <ComponentName> } from '@pear/shared';
+import { <ComponentName> } from '@bosinc/shared';
 
 export default () => {
   return <ComponentName />;
@@ -93,7 +93,7 @@ If there are extra capabilities, append:
 ### <Capability Name>
 
 ```tsx
-import { <ComponentName> } from '@pear/shared';
+import { <ComponentName> } from '@bosinc/shared';
 
 export default () => {
   return <ComponentName <key-prop-example> />;
@@ -108,7 +108,7 @@ export default () => {
 - Title must match the real exported component name
 - Document must include exactly two major sections: `Demos` and `API`
 - Demo code should explain usage, not implementation
-- Demo imports must come from `@pear/shared`
+- Demo imports must come from `@bosinc/shared`
 - Style should stay consistent with existing repo docs (semicolon, quotes, function style)
 - Do not invent props / hooks / return values that do not exist
 - Keep descriptions within source-of-truth boundaries

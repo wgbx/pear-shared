@@ -7,7 +7,7 @@ A component for rendering external links, built on MUI `Link` with style passthr
 ### Basic Usage
 
 ```tsx
-import { ExternalLink } from '@pear/shared';
+import { ExternalLink } from '@bosinc/shared';
 
 export default () => {
   return (

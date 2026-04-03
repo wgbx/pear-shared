@@ -7,7 +7,7 @@ Copies text to the clipboard and triggers an `Alert` on success or failure (requ
 ### Basic Usage
 
 ```tsx
-import { useCopyToClipboard } from '@pear/shared';
+import { useCopyToClipboard } from '@bosinc/shared';
 
 export default function Demo() {
   const { copyToClipboard } = useCopyToClipboard();
@@ -21,7 +21,7 @@ export default function Demo() {
 ### Custom Messages
 
 ```tsx
-import { useCopyToClipboard } from '@pear/shared';
+import { useCopyToClipboard } from '@bosinc/shared';
 
 export default function DemoCustomMessage() {
   const { copyToClipboard } = useCopyToClipboard();

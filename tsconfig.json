@@ -8,7 +8,7 @@
     "paths": {
       "*": ["./*"],
       "@@/*": ["./.dumi/tmp/*"],
-      "@pear/shared": ["./src"],
+      "@bosinc/shared": ["./src"],
       "@svg/*": ["./src/svg/*"],
       "@hooks/*": ["./src/hooks/*"],
       "@components/*": ["./src/components/*"]

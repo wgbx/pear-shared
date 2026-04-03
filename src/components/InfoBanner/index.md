@@ -7,7 +7,7 @@ Displays an information banner container. You can quickly render text via `descr
 ### Basic Usage
 
 ```tsx
-import { InfoBanner } from '@pear/shared';
+import { InfoBanner } from '@bosinc/shared';
 
 export default () => {
   return (
@@ -19,7 +19,7 @@ export default () => {
 ### Custom Content with children
 
 ```tsx
-import { InfoBanner } from '@pear/shared';
+import { InfoBanner } from '@bosinc/shared';
 
 export default () => {
   return (

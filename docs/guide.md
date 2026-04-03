@@ -5,14 +5,14 @@ order: 1
 
 # Getting Started
 
-`@pear/shared` is a lightweight React component library built for reuse.
+`@bosinc/shared` is a lightweight React component library built for reuse.
 
 ## Installation
 
 Install the package with your preferred package manager:
 
 ```bash
-pnpm add @pear/shared
+pnpm add @bosinc/shared
 ```
 
 This library relies on peer dependencies like React, MUI, Emotion, `jotai`, and `ahooks`.
@@ -22,7 +22,7 @@ This library relies on peer dependencies like React, MUI, Emotion, `jotai`, and 
 If you want to use `useAlert()` (and also `useCopyToClipboard()`), you must mount `AlertContainer` once in your app (typically at the root/layout level).
 
 ```tsx
-import { AlertContainer } from '@pear/shared';
+import { AlertContainer } from '@bosinc/shared';
 
 export default function AppLayout({ children }: { children: React.ReactNode }) {
   return (
