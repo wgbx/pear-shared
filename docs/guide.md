@@ -3,4 +3,41 @@ title: Guide
 order: 1
 ---
 
-This is a guide example.
+# Getting Started
+
+`@pear/shared` is a lightweight React component library built for reuse.
+
+## Installation
+
+Install the package with your preferred package manager:
+
+```bash
+pnpm add @pear/shared
+```
+
+This library relies on peer dependencies like React, MUI, Emotion, `jotai`, and `ahooks`.
+
+## Global Alert Setup
+
+If you want to use `useAlert()` (and also `useCopyToClipboard()`), you must mount `AlertContainer` once in your app (typically at the root/layout level).
+
+```tsx
+import { AlertContainer } from '@pear/shared';
+
+export default function AppLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <>
+      <AlertContainer />
+      {children}
+    </>
+  );
+}
+```
+
+## Shared
+
+For the full APIs and examples, please refer to the docs:
+
+- [Components](/components/external-link)
+
+- [Hooks](/hooks/use-copy-to-clipboard)

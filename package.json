@@ -1,6 +1,6 @@
 {
   "name": "@pear/shared",
-  "version": "v0.0.1",
+  "version": "0.0.1",
   "description": "A react library developed with dumi",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -49,6 +49,7 @@
     ]
   },
   "publishConfig": {
+    "registry": "https://npm.pkg.github.com",
     "access": "public"
   },
   "peerDependencies": {

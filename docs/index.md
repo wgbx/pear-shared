@@ -1,22 +1,10 @@
 ---
 hero:
-  title: library
-  description: A react library developed with dumi
+  title: Shared
+  description: A lightweight React shared component and hooks library, built with dumi docs.
   actions:
-    - text: Hello
-      link: /
-    - text: World
-      link: /
-features:
-  - title: Hello
-    emoji: 💎
-    description: Put hello description here
-  - title: World
-    emoji: 🌈
-    description: Put world description here
-  - title: '!'
-    emoji: 🚀
-    description: Put ! description here
+    - text: Quick Start
+      link: /guide
+    - text: Components
+      link: /components/external-link
 ---
-
-@pear/shared

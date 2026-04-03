@@ -34,6 +34,7 @@ export default defineConfig({
     logo: '/favicon.svg',
     name: 'Shared',
     editLink: false,
+    footer: '',
     nav: [
       { title: 'Guide', link: 'guide' },
       { title: 'Components', link: 'components/external-link' },
