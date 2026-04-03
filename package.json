@@ -49,8 +49,7 @@
     ]
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com",
-    "access": "public"
+    "registry": "https://npm.pkg.github.com"
   },
   "peerDependencies": {
     "@emotion/react": ">=11.14.0",
