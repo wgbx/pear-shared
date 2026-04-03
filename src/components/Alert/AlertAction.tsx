@@ -18,7 +18,8 @@ export function AlertAction({
   onClose,
   action,
   color,
-}: AlertActionProps) {
+}: AlertActionProps) 
+{
   if (showClose) {
     return (
       <IconButton onClick={onClose} size="small">
