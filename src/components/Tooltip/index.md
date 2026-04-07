@@ -39,10 +39,7 @@ export default () => {
 
 ```tsx
 import { Tooltip } from '@bosinc/shared';
-import { Stack, Box, Typography, Button } from '@mui/material';
-import { CloseFill } from '@mingcute/react';
-import { IconButton } from '@mui/material';
-import { useState } from 'react';
+import { Stack, Typography, Button } from '@mui/material';
 
 export default () => {
   return (
