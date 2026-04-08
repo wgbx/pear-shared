@@ -13,12 +13,12 @@ export default () => {
   return (
     <ImageGroup
       items={[
-        { src: 'https://picsum.photos/200?random=1', alt: '1' },
-        { src: 'https://picsum.photos/200?random=2', alt: '2' },
-        { src: 'https://picsum.photos/200?random=3', alt: '3' },
-        { src: 'https://picsum.photos/200?random=4', alt: '4' },
-        { src: 'https://picsum.photos/200?random=5', alt: '5' },
-        { src: 'https://picsum.photos/200?random=6', alt: '6' },
+        { src: 'https://picsum.photos/200?random=1', id: '1' },
+        { src: 'https://picsum.photos/200?random=2', id: '2' },
+        { src: 'https://picsum.photos/200?random=3', id: '3' },
+        { src: 'https://picsum.photos/200?random=4', id: '4' },
+        { src: 'https://picsum.photos/200?random=5', id: '5' },
+        { src: 'https://picsum.photos/200?random=6', id: '6' },
       ]}
     />
   );
@@ -50,12 +50,12 @@ export default () => {
         count: { sx: { fontSize: '1.5rem' } },
       }}
       items={[
-        { src: 'https://picsum.photos/200?random=11' },
-        { src: 'https://picsum.photos/200?random=12' },
-        { src: 'https://picsum.photos/200?random=13' },
-        { src: 'https://picsum.photos/200?random=14' },
-        { src: 'https://picsum.photos/200?random=13' },
-        { src: 'https://picsum.photos/200?random=14' },
+        { src: 'https://picsum.photos/200?random=11', id: '11' },
+        { src: 'https://picsum.photos/200?random=12', id: '12' },
+        { src: 'https://picsum.photos/200?random=13', id: '13' },
+        { src: 'https://picsum.photos/200?random=14', id: '14' },
+        { src: 'https://picsum.photos/200?random=13', id: '15' },
+        { src: 'https://picsum.photos/200?random=14', id: '16' },
       ]}
     />
   );
