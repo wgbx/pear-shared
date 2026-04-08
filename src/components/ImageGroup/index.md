@@ -25,6 +25,31 @@ export default () => {
 };
 ```
 
+### Click Item
+
+```tsx
+import { ImageGroup, useAlert } from '@bosinc/shared';
+
+export default () => {
+  const { success } = useAlert();
+
+  return (
+    <ImageGroup
+      onItemClick={(item) => {
+        success(`clicked: ${item.src}`);
+      }}
+      items={[
+        { src: 'https://picsum.photos/200?random=21', id: '21' },
+        { src: 'https://picsum.photos/200?random=22', id: '22' },
+        { src: 'https://picsum.photos/200?random=23', id: '23' },
+        { src: 'https://picsum.photos/200?random=24', id: '24' },
+        { src: 'https://picsum.photos/200?random=25', id: '25' },
+      ]}
+    />
+  );
+};
+```
+
 ### Customize Style
 
 ```tsx

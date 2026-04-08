@@ -8,6 +8,8 @@ import {
 import { useMemoizedFn } from 'ahooks';
 import type { ImgHTMLAttributes } from 'react';
 
+import { MaybeClickable } from '../MaybeClickable';
+
   export interface ImageGroupItem {
     src: string;
     [key: string]: string;
@@ -71,12 +73,17 @@ export function ImageItem(props: ImageItemProps) {
   });
 
   return (
-    <Item onClick={handleClick} {...slotProps?.item}>
+    <MaybeClickable
+      component={Item}
+      onClick={handleClick}
+      enabled={Boolean(onItemClick)}
+      {...slotProps?.item}
+    >
       <Img src={item.src} alt={item.alt ?? ''} {...slotProps?.img} />
 
       {showCount && (
         <OverflowOverlay {...slotProps?.count}>{`${count}+`}</OverflowOverlay>
       )}
-    </Item>
+    </MaybeClickable>
   );
 }
