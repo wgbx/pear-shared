@@ -10,6 +10,7 @@ export interface ImageGroupProps {
   max?: number;
   overlap?: number;
   onClick?: () => void;
+  itemKey?: string;
   onItemClick?: (item: ImageGroupItem) => void;
   slotSxProps?: {
     root?: any;
@@ -42,6 +43,7 @@ export function ImageGroup(props: ImageGroupProps) {
     onClick,
     onItemClick,
     slotProps,
+    itemKey = 'id',
   } = props;
 
   const visibleItems = useCreation(() => {
@@ -70,7 +72,7 @@ export function ImageGroup(props: ImageGroupProps) {
         const showCount = count > 0 && index === visibleItems.length - 1;
         return (
           <ImageItem
-            key={`${item.src}-${index}`}
+            key={item[itemKey]}
             item={item}
             showCount={showCount}
             count={count}

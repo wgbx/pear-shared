@@ -8,10 +8,10 @@ import {
 import { useMemoizedFn } from 'ahooks';
 import type { ImgHTMLAttributes } from 'react';
 
-export interface ImageGroupItem {
-  src: string;
-  alt?: string;
-}
+  export interface ImageGroupItem {
+    src: string;
+    [key: string]: string;
+  }
 
 const Item = styled(Box, {
   name: 'ImageGroup',
