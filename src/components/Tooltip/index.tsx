@@ -1,18 +1,6 @@
-import {
-  Stack,
-  Tooltip as MuiTooltip,
-  Typography,
-  type TooltipProps as MuiTooltipProps,
-} from '@mui/material';
-import type { ReactNode } from 'react';
-
-export interface TooltipProps extends Omit<MuiTooltipProps, 'title'> {
-  title?: ReactNode;
-  description: ReactNode;
-  action?: ReactNode;
-  arrow?: boolean;
-  customContent?: ReactNode;
-}
+import { Tooltip as MuiTooltip } from '@mui/material';
+import { DefaultContent } from './DefaultContent';
+import { TooltipProps } from './type';
 
 export function Tooltip(props: TooltipProps) {
   const {
@@ -21,7 +9,7 @@ export function Tooltip(props: TooltipProps) {
     action,
     arrow = true,
     slotProps,
-    customContent = false,
+    customContent,
     ...restProps
   } = props;
 
@@ -29,33 +17,8 @@ export function Tooltip(props: TooltipProps) {
     <MuiTooltip
       {...restProps}
       title={
-        customContent ? (
-          customContent
-        ) : (
-          <Stack sx={{ gap: 1, maxWidth: 240 }}>
-            {title && (
-              <Typography
-                sx={{
-                  fontSize: '1rem',
-                  fontWeight: 700,
-                  color: 'common.white',
-                }}
-              >
-                {title}
-              </Typography>
-            )}
-            {description && (
-              <Typography
-                sx={{
-                  fontSize: '0.875rem',
-                  fontWeight: 400,
-                  color: 'common.white',
-                }}
-              >
-                {description}
-              </Typography>
-            )}
-          </Stack>
+        customContent ?? (
+          <DefaultContent title={title} description={description} action={action} />
         )
       }
       arrow={arrow}
