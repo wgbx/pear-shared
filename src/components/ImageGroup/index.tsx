@@ -3,6 +3,7 @@ import type { Theme } from '@mui/material/styles';
 import { useCreation } from 'ahooks';
 import type { ImgHTMLAttributes } from 'react';
 
+import { MaybeClickable } from '../MaybeClickable';
 import { ImageItem, type ImageGroupItem } from './ImageItem';
 
 export interface ImageGroupProps {
@@ -56,7 +57,8 @@ export function ImageGroup(props: ImageGroupProps) {
   }, [items, max]);
 
   return (
-    <Root
+    <MaybeClickable
+      component={Root}
       onClick={onClick}
       sx={{
         ...(overlap && {
@@ -81,6 +83,6 @@ export function ImageGroup(props: ImageGroupProps) {
           />
         );
       })}
-    </Root>
+    </MaybeClickable>
   );
 }
