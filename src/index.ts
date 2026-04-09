@@ -4,6 +4,7 @@ export * from './components/ExternalLink';
 export * from './components/Tooltip';
 export * from './components/ImageGroup';
 export * from './components/MaybeClickable';
+export * from './components/TextAlignToggle';
 
 export * from './hooks/useCopyToClipboard';
 
