@@ -1,38 +1,32 @@
 {
   "name": "@bosinc/shared",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A react library developed with dumi",
-  "module": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "sideEffects": false,
   "repository": {
     "type": "git",
     "url": "https://github.com/bosinc/pear-shared.git"
   },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
-  },
+  "license": "MIT",
+  "sideEffects": false,
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
   "files": [
     "dist"
   ],
   "scripts": {
-    "start": "npm run dev",
-    "dev": "dumi dev",
     "build": "father build",
     "build:watch": "father dev",
+    "dev": "dumi dev",
     "docs:build": "dumi build",
     "docs:preview": "dumi preview",
-    "prepare": "husky install && dumi setup",
     "doctor": "father doctor",
     "lint": "npm run lint:es && npm run lint:css",
     "lint:css": "stylelint --allow-empty-input \"{src,test}/**/*.{css,less}\"",
     "lint:es": "eslint \"{src,test}/**/*.{js,jsx,ts,tsx}\"",
-    "prepublishOnly": "father doctor && npm run build"
+    "prepare": "husky install && dumi setup",
+    "prepublishOnly": "father doctor && npm run build",
+    "start": "npm run dev"
   },
-  "authors": [
-    "wgbx"
-  ],
-  "license": "MIT",
   "commitlint": {
     "extends": [
       "@commitlint/config-conventional"
@@ -55,16 +49,6 @@
       "prettier --parser=typescript --write"
     ]
   },
-  "peerDependencies": {
-    "@emotion/react": ">=11.14.0",
-    "@emotion/styled": ">=11.14.1",
-    "@mingcute/react": "1.4.1",
-    "@mui/material": ">=6.1.5",
-    "ahooks": ">=3.8.1",
-    "jotai": "2.9.3",
-    "react": ">=19.2.4",
-    "react-dom": ">=19.2.4"
-  },
   "devDependencies": {
     "@commitlint/cli": "^17.1.2",
     "@commitlint/config-conventional": "^17.1.0",
@@ -81,5 +65,21 @@
     "prettier-plugin-organize-imports": "^3.0.0",
     "prettier-plugin-packagejson": "^2.2.18",
     "stylelint": "^14.9.1"
-  }
+  },
+  "peerDependencies": {
+    "@emotion/react": ">=11.14.0",
+    "@emotion/styled": ">=11.14.1",
+    "@mingcute/react": "1.4.1",
+    "@mui/material": ">=6.1.5",
+    "ahooks": ">=3.8.1",
+    "jotai": "2.9.3",
+    "react": ">=19.2.4",
+    "react-dom": ">=19.2.4"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "authors": [
+    "wgbx"
+  ]
 }
