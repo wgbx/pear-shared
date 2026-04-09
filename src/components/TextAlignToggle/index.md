@@ -92,9 +92,9 @@ export default function DemoCustomStyles() {
 
 | Property | Description              | Type           |
 | -------- | ------------------------ | -------------- |
-| root     | Root ButtonGroup styles  | `SxProps`      |
-| button   | Individual button styles | `SxProps`      |
-| icon     | Icon styles              | `SvgIconProps` |
+| root     | Root ButtonGroup props   | `ButtonGroupProps` |
+| button   | Individual button props  | `IconButtonProps`  |
+| icon     | Icon props               | `SvgIconProps`     |
 
 ### TextAlign Enum
 
