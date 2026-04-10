@@ -59,10 +59,19 @@ export function StatusTag({
 
   return (
     <StatusTagRoot
-      sx={{ backgroundColor: config.bgcolor }}
       {...slotProps?.root}
+      sx={{
+        backgroundColor: config.bgcolor,
+        ...slotProps?.root?.sx,
+      }}
     >
-      <StatusTagLabel sx={{ color: config.color }} {...slotProps?.text}>
+      <StatusTagLabel
+        {...slotProps?.text}
+        sx={{
+          color: config.color,
+          ...slotProps?.text?.sx,
+        }}
+      >
         {label}
       </StatusTagLabel>
     </StatusTagRoot>
