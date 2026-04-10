@@ -6,6 +6,7 @@ export default defineConfig({
     '@svg': './src/svg',
     '@hooks': './src/hooks',
     '@components': './src/components',
+    '@utils': './src/utils',
   },
   esm: { output: 'dist' },
 });

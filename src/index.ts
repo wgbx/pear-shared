@@ -8,3 +8,5 @@ export * from './components/TextAlignToggle';
 
 export * from './hooks/useCopyToClipboard';
 
+export * from './utils/numeric';
+

@@ -9,6 +9,7 @@ export default defineConfig({
     '@svg': '/src/svg',
     '@hooks': '/src/hooks',
     '@components': '/src/components',
+    '@utils': '/src/utils',
   },
   chainWebpack(memo) {
     memo.module
@@ -39,6 +40,7 @@ export default defineConfig({
       { title: 'Guide', link: 'guide' },
       { title: 'Components', link: 'components/external-link' },
       { title: 'Hooks', link: 'hooks/use-copy-to-clipboard' },
+      { title: 'Utils', link: 'utils/numeric' },
     ],
   },
 
@@ -46,6 +48,7 @@ export default defineConfig({
     atomDirs: [
       { type: 'component', dir: 'src/components' },
       { type: 'hook', dir: 'src/hooks' },
+      { type: 'util', dir: 'src/utils' },
     ],
   },
 });
