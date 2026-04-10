@@ -1,13 +1,9 @@
-import { AlignLeftLine } from '@mingcute/react';
-
-export  interface TextAlignOption {
-  value: TextAlign;
-  Icon: typeof AlignLeftLine;
-  label: string;
-}
+import { type IconToggleOption } from '../IconToggle';
 
 export enum TextAlign {
   LEFT = 'left',
   CENTER = 'center',
   RIGHT = 'right',
 }
+
+export type TextAlignOption = IconToggleOption<TextAlign>;

@@ -3,20 +3,20 @@ import {
   IconButtonProps,
   styled,
   type SvgIconProps,
-  type SxProps,
 } from '@mui/material';
 import { useMemoizedFn } from 'ahooks';
 import { type ReactElement } from 'react';
 
-import type { TextAlign, TextAlignOption } from './type';
+import type { IconToggleOption } from './type';
 
 const StyledIconButton = styled(IconButton, {
-  name: 'TextAlignToggle',
+  name: 'IconToggle',
   slot: 'button',
 })<{ ownerState?: { active?: boolean } }>(({ theme, ownerState }) => ({
   borderRadius: theme.spacing(0.5),
   padding: theme.spacing(0.875),
   color: theme.palette.text.primary,
+  flex: 1, // Make button take up available space evenly
   backgroundColor: ownerState?.active
     ? theme.palette.brand.white
     : 'transparent',
@@ -25,31 +25,39 @@ const StyledIconButton = styled(IconButton, {
       ? theme.palette.brand.white
       : 'transparent',
   },
+  '&.Mui-disabled': {
+    cursor: 'not-allowed',
+    pointerEvents: 'auto', // Override MUI default to show cursor
+  },
   transition: theme.transitions.create(['background-color', 'color'], {
     duration: theme.transitions.duration.shortest,
   }),
 }));
 
-interface TextAlignToggleItemProps {
-  item: TextAlignOption;
-  activeAlign: TextAlign;
+export interface IconToggleItemProps<T> {
+  item: IconToggleOption<T>;
+  activeValue?: T;
   disabled?: boolean;
-  onClick: (value: TextAlign) => void;
+  onClick: (value: T) => void;
   slotProps?: {
     button?: IconButtonProps;
     icon?: SvgIconProps;
   };
 }
 
-export function TextAlignToggleItem({
-  item: { value, Icon, label },
-  activeAlign,
-  disabled,
+export function IconToggleItem<T>({
+  item: { value, icon: Icon, label, disabled: itemDisabled },
+  activeValue,
+  disabled: groupDisabled,
   onClick,
   slotProps,
-}: TextAlignToggleItemProps): ReactElement {
-  const handleClick = useMemoizedFn(() => onClick(value));
-  const active = activeAlign === value;
+}: IconToggleItemProps<T>): ReactElement {
+  const handleClick = useMemoizedFn(() => {
+    if (groupDisabled || itemDisabled) return;
+    onClick(value);
+  });
+  const active = activeValue === value;
+  const disabled = groupDisabled || itemDisabled;
 
   return (
     <StyledIconButton
