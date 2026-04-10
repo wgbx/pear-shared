@@ -124,6 +124,61 @@ export function numericFormat(
 }
 
 /**
+ * Batch addition: sum all values
+ *
+ * @param values - Array of numbers to add
+ * @returns Sum of all values
+ *
+ * @example
+ * ```ts
+ * numericAddMany([1, 2, 3, 4])           // 10
+ * numericAddMany([100, 50, 25])         // 175
+ * numericAddMany(['10.5', '20.3'])      // 30.80
+ * ```
+ */
+export function numericAddMany(values: (number | string)[]): number {
+  return values.reduce((sum: number, value) => currency(sum).add(value).value, 0);
+}
+
+/**
+ * Batch subtraction: subtract all values from first value
+ *
+ * @param values - Array where first value is minuend, rest are subtrahends
+ * @returns Result after subtracting all values
+ *
+ * @example
+ * ```ts
+ * numericSubtractMany([100, 20, 5])      // 75 (100 - 20 - 5)
+ * numericSubtractMany([1000, 100, 50])   // 850
+ * ```
+ */
+export function numericSubtractMany(values: (number | string)[]): number {
+  if (values.length === 0) return 0;
+  const [first, ...rest] = values;
+  return rest.reduce((result: number, value) => currency(result).subtract(value).value, currency(first).value);
+}
+
+/**
+ * Batch multiplication: multiply all values
+ *
+ * @param values - Array of numbers to multiply
+ * @returns Product of all values
+ *
+ * @example
+ * ```ts
+ * numericMultiplyMany([2, 3, 4])         // 24
+ * numericMultiplyMany([100, 0.5, 0.1])   // 5
+ * ```
+ */
+export function numericMultiplyMany(values: (number | string)[]): number {
+  if (values.length === 0) return 0;
+  return values.slice(1).reduce(
+    (product: number, value) => currency(product).multiply(value).value,
+    currency(values[0]).value,
+  );
+}
+
+/**
  * Numeric utilities object
  *
  * @example
@@ -132,6 +187,7 @@ export function numericFormat(
  *
  * numeric.add(100, 50)      // 150
  * numeric.subtract(100, 30) // 70
+ * numeric.addMany([1,2,3])  // 6
  * ```
  */
 export const numeric = {
@@ -140,4 +196,7 @@ export const numeric = {
   multiply: numericMultiply,
   divide: numericDivide,
   format: numericFormat,
+  addMany: numericAddMany,
+  subtractMany: numericSubtractMany,
+  multiplyMany: numericMultiplyMany,
 };
