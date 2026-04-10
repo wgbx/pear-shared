@@ -5,6 +5,7 @@ export * from './components/Tooltip';
 export * from './components/ImageGroup';
 export * from './components/MaybeClickable';
 export * from './components/TextAlignToggle';
+export * from './components/StatusTag';
 
 export * from './hooks/useCopyToClipboard';
 
