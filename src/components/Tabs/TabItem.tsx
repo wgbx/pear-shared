@@ -25,10 +25,10 @@ export const TabItem = forwardRef<HTMLDivElement, TabItemProps>(
     return (
       <StyledTab
         ref={ref}
+        disableRipple
         value={String(value)}
         sx={slotProps?.sx}
         {...restProps}
-
       />
     );
   },

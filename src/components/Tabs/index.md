@@ -87,6 +87,77 @@ export default () => {
 };
 ```
 
+```tsx
+import { Tabs } from '@bosinc/shared';
+import { Fade } from '@mui/material';
+import { useState } from 'react';
+
+const options = [
+  { value: 'overview', label: 'Overview' },
+  { value: 'settings', label: 'Settings' },
+  { value: 'billing', label: 'Billing' },
+];
+
+export default () => {
+  const [value, setValue] = useState('overview');
+
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+      <Tabs
+        options={options}
+        onChange={setValue}
+        value={value}
+        centered
+        sx={(theme) => ({
+          bgcolor: 'unset',
+          px: 0,
+          minHeight: 'unset',
+          height: 36,
+          width: '100%',
+          '& .MuiTabs-indicator': {
+            bottom: 'auto',
+            top: theme.spacing(0.5),
+            height: 28,
+            borderRadius: 2,
+            backgroundColor: 'brand.white',
+            zIndex: 0,
+          },
+          '& .MuiTabs-scroller': {
+            backgroundColor: '#2D2D330D',
+            borderRadius: 2,
+            height: 'unset',
+            '& .MuiTabs-flexContainer': {
+              px: 0.5,
+            },
+          },
+          '& .MuiTabs-centered': { gap: 2.5, height: '100%' },
+        })}
+        slotProps={{
+          tab: {
+            sx: (theme) => ({
+              mx: 0,
+              p: 0,
+              flex: 1,
+              fontSize: '0.875rem',
+              fontWeight: 600,
+              minHeight: 28,
+              height: 28,
+              my: 0.5,
+              position: 'relative',
+              zIndex: 1,
+              transition: theme.transitions.create('color', { duration: 200 }),
+            }),
+          },
+        }}
+      />
+      <Fade key={value} in timeout={200}>
+        <div>{value} content</div>
+      </Fade>
+    </div>
+  );
+};
+```
+
 ## API
 
 ### TabsProps
