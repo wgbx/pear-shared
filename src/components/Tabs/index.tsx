@@ -6,10 +6,10 @@ import { TabOption, TabsProps } from './type';
 export type { TabOption, TabsProps } from './type';
 
 export function Tabs(props: TabsProps) {
-  const { options, disabled = false, slotProps } = props;
+  const { items, disabled = false, slotProps, ...restProps } = props;
   return (
-    <TabsContainer {...props}>
-      {options.map((option: TabOption) => (
+    <TabsContainer {...restProps}>
+      {items.map((option: TabOption) => (
         <TabItem
           key={String(option.value)}
           disabled={disabled ?? option.disabled}

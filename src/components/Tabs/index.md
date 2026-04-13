@@ -10,7 +10,7 @@ A controlled tabs strip built on MUI `Tabs` / `Tab`. Use `value` and `onChange` 
 import { Tabs } from '@bosinc/shared';
 import { useState } from 'react';
 
-const options = [
+const items = [
   { value: 'details', label: 'Details' },
   { value: 'tickets', label: 'Tickets' },
   { value: 'attendees', label: 'Attendees' },
@@ -21,7 +21,7 @@ export default () => {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
-      <Tabs value={value} onChange={setValue} options={options} />
+      <Tabs value={value} onChange={setValue} items={items} />
       <div>{value} content</div>
     </div>
   );
@@ -36,7 +36,7 @@ Use `slotProps` to style the root `Tabs`, each `Tab`, and the underline indicato
 import { Tabs } from '@bosinc/shared';
 import { useState } from 'react';
 
-const options = [
+const items = [
   { value: 'overview', label: 'Overview' },
   { value: 'settings', label: 'Settings' },
   { value: 'billing', label: 'Billing' },
@@ -50,7 +50,7 @@ export default () => {
       <Tabs
         value={value}
         onChange={setValue}
-        options={options}
+        items={items}
         sx={{
           '& .MuiTabs-indicator': {
             display: 'none',
@@ -92,7 +92,7 @@ import { SegmentedTabs } from '@bosinc/shared';
 import { Fade } from '@mui/material';
 import { useState } from 'react';
 
-const options = [
+const items = [
   { value: 'overview', label: 'Overview' },
   { value: 'settings', label: 'Settings' },
   { value: 'billing', label: 'Billing' },
@@ -103,7 +103,7 @@ export default () => {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
-      <SegmentedTabs options={options} onChange={setValue} value={value} />
+      <SegmentedTabs items={items} onChange={setValue} value={value} />
       <Fade in key={value} timeout={200}>
         <div>{value} content</div>
       </Fade>
@@ -120,7 +120,7 @@ export default () => {
 | --------- | ---------------------------------------------------- | ----------------------------- | -------- | ------------- |
 | value     | Active tab value                                     | `T`                           | `✅`     | `-`           |
 | onChange  | Called when the active tab changes                   | `(value: T) => void`          | `✅`     | `-`           |
-| options   | Tab definitions                                      | `TabOption<T>[]`              | `✅`     | `-`           |
+| items     | Tab definitions                                      | `TabOption<T>[]`              | `✅`     | `-`           |
 | variant   | `underline` shows the indicator; `standard` hides it | `'underline' \| 'standard'`   | `-`      | `'underline'` |
 | centered  | Center the tab strip                                 | `boolean`                     | `-`      | `false`       |
 | disabled  | Disable all tabs (per-tab `disabled` still applies)  | `boolean`                     | `-`      | `false`       |

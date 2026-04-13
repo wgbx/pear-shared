@@ -9,7 +9,7 @@ export interface TabOption {
 export interface TabsProps {
   value: string;
   onChange: (value: string) => void;
-  options: TabOption[];
+  items: TabOption[];
   centered?: boolean;
   disabled?: boolean;
   slotProps?: {
