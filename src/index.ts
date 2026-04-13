@@ -7,6 +7,7 @@ export * from './components/MaybeClickable';
 export * from './components/StatusTag';
 export * from './components/TextAlignToggle';
 export * from './components/Tooltip';
+export * from './components/Tabs';
 
 export * from './hooks/useCopyToClipboard';
 
