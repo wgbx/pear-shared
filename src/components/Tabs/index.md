@@ -28,6 +28,33 @@ export default () => {
 };
 ```
 
+### SegmentedTabs
+
+```tsx
+import { SegmentedTabs } from '@bosinc/shared';
+import { Fade } from '@mui/material';
+import { useState } from 'react';
+
+const items = [
+  { value: 'overview', label: 'Overview' },
+  { value: 'settings', label: 'Settings' },
+  { value: 'billing', label: 'Billing' },
+];
+
+export default () => {
+  const [value, setValue] = useState('overview');
+
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+      <SegmentedTabs items={items} onChange={setValue} value={value} />
+      <Fade in key={value} timeout={200}>
+        <div>{value} content</div>
+      </Fade>
+    </div>
+  );
+};
+```
+
 ### Custom Styles
 
 Use `slotProps` to style the root `Tabs`, each `Tab`, and the underline indicator. `slotProps.tab` applies to **every** tab.
@@ -82,31 +109,6 @@ export default () => {
         }}
       />
       <div>{value} content</div>
-    </div>
-  );
-};
-```
-
-```tsx
-import { SegmentedTabs } from '@bosinc/shared';
-import { Fade } from '@mui/material';
-import { useState } from 'react';
-
-const items = [
-  { value: 'overview', label: 'Overview' },
-  { value: 'settings', label: 'Settings' },
-  { value: 'billing', label: 'Billing' },
-];
-
-export default () => {
-  const [value, setValue] = useState('overview');
-
-  return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
-      <SegmentedTabs items={items} onChange={setValue} value={value} />
-      <Fade in key={value} timeout={200}>
-        <div>{value} content</div>
-      </Fade>
     </div>
   );
 };
