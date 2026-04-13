@@ -1,16 +1,15 @@
-import { type ReactElement } from 'react';
-
+import { SegmentedTabs } from './SegmentedTabs';
 import { TabItem } from './TabItem';
 import { TabsContainer } from './TabsContainer';
-import type { TabsProps } from './type';
+import { TabOption, TabsProps } from './type';
 
-export type { TabOption, TabsProps, TabVariant } from './type';
+export type { TabOption, TabsProps } from './type';
 
-export function Tabs(props: TabsProps): ReactElement {
+export function Tabs(props: TabsProps) {
   const { options, disabled = false, slotProps } = props;
   return (
     <TabsContainer {...props}>
-      {options.map((option) => (
+      {options.map((option: TabOption) => (
         <TabItem
           key={String(option.value)}
           disabled={disabled ?? option.disabled}
@@ -21,3 +20,5 @@ export function Tabs(props: TabsProps): ReactElement {
     </TabsContainer>
   );
 }
+
+export { SegmentedTabs };

@@ -1,19 +1,15 @@
-import { type TabProps, type TabsProps as MuiTabsProps } from '@mui/material';
-import { type ReactNode } from 'react';
+import { type TabsProps as MuiTabsProps, type TabProps } from '@mui/material';
 
-export type TabVariant = 'underline' | 'standard';
-
-export interface TabOption<T = string> {
-  value: T;
+export interface TabOption {
+  value: string;
   label: string;
   disabled?: boolean;
 }
 
-export interface TabsProps<T = string> {
-  value: T;
-  onChange: (value: T) => void;
-  options: TabOption<T>[];
-  variant?: TabVariant;
+export interface TabsProps {
+  value: string;
+  onChange: (value: string) => void;
+  options: TabOption[];
   centered?: boolean;
   disabled?: boolean;
   slotProps?: {

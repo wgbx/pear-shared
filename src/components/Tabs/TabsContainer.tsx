@@ -1,13 +1,11 @@
 import { Tabs, styled, type TabProps, type TabsProps } from '@mui/material';
 import { useMemoizedFn } from 'ahooks';
 import { ReactElement, type SyntheticEvent } from 'react';
-import type { TabVariant } from './type';
 
-interface TabsContainerProps<T = string>
+interface TabsContainerProps
   extends Omit<TabsProps, 'value' | 'onChange' | 'variant'> {
-  variant?: TabVariant;
-  value: T;
-  onChange: (value: T) => void;
+  value: string;
+  onChange: (value: string) => void;
   slotProps?: {
     indicator?: TabProps;
   };
@@ -32,7 +30,7 @@ const StyledTabs = styled(Tabs, {
 }));
 
 export function TabsContainer(props: TabsContainerProps): ReactElement {
-  const { variant, value, onChange, slotProps, children, ...restProps } = props;
+  const { value, onChange, slotProps, children, ...restProps } = props;
 
   const handleChange = useMemoizedFn((_: SyntheticEvent, newValue: string) => {
     onChange(newValue);
