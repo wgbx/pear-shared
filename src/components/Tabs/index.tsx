@@ -7,7 +7,7 @@ import type { TabsProps } from './type';
 export type { TabOption, TabsProps, TabVariant } from './type';
 
 export function Tabs(props: TabsProps): ReactElement {
-  const { value, options, disabled = false, slotProps } = props;
+  const { options, disabled = false, slotProps } = props;
   return (
     <TabsContainer {...props}>
       {options.map((option) => (
