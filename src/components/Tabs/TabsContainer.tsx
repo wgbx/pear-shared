@@ -14,8 +14,6 @@ const StyledTabs = styled(Tabs, {
 })(({ theme }) => ({
   height: 48,
   backgroundColor: 'transparent',
-  borderBottom: '1px solid',
-  borderColor: theme.palette.shades[100],
   p: 0,
   '& .MuiTabs-flexContainer': {
     gap: theme.spacing(2),
