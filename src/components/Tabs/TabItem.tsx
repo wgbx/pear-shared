@@ -9,6 +9,7 @@ const StyledTab = styled(Tab, {
   name: 'PearTabs',
   slot: 'tab',
 })(({ theme }) => ({
+  textTransform: 'none',
   fontSize: '0.875rem',
   fontWeight: 600,
   minWidth: 'fit-content',

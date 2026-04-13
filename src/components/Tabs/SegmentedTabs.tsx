@@ -1,22 +1,22 @@
 import { styled } from '@mui/material';
-import { type TabsProps } from './type';
 import { Tabs } from './index';
+import { type TabsProps } from './type';
 
 const StyledSegmentedTabs = styled(Tabs, {
   name: 'PearSegmentedTabs',
   slot: 'root',
-})(({ theme }) => ({
+})(({ theme, slotProps }) => ({
   backgroundColor: 'unset',
   paddingLeft: 0,
   paddingRight: 0,
   minHeight: 'unset',
-  height: 36,
+  height: 48,
   width: '100%',
   borderRadius: theme.spacing(1),
   '& .MuiTabs-indicator': {
     bottom: 'auto',
     top: theme.spacing(0.5),
-    height: 28,
+    height: 40,
     backgroundColor: theme.palette.common.white,
     borderRadius: theme.spacing(1),
     zIndex: 0,
@@ -36,15 +36,16 @@ const StyledSegmentedTabs = styled(Tabs, {
     marginRight: 0,
     padding: 0,
     flex: 1,
-    fontSize: '0.875rem',
+    fontSize: '1rem',
     fontWeight: 600,
-    minHeight: 28,
-    height: 28,
+    minHeight: 40,
+    height: 40,
     marginTop: theme.spacing(0.5),
     marginBottom: theme.spacing(0.5),
     position: 'relative',
     zIndex: 1,
     transition: theme.transitions.create('color', { duration: 200 }),
+    ...slotProps?.tab?.sx,
   },
 }));
 
