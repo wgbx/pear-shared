@@ -103,12 +103,10 @@ export default () => {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
-      <SegmentedTabs
-        options={options}
-        onChange={setValue}
-        value={value}
-      />
-       <div>{value} content</div>
+      <SegmentedTabs options={options} onChange={setValue} value={value} />
+      <Fade in key={value} timeout={200}>
+        <div>{value} content</div>
+      </Fade>
     </div>
   );
 };
