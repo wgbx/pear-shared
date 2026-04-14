@@ -1,5 +1,6 @@
-import { Link, type LinkProps, styled } from '@mui/material';
+import { Link, styled } from '@mui/material';
 import type { ReactNode } from 'react';
+import type { LinkProps } from '@mui/material';
 
 const StyledExternalLink = styled(Link, {
   name: 'ExternalLink',
