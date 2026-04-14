@@ -5,8 +5,8 @@
     "skipLibCheck": true,
     "esModuleInterop": true,
     "jsx": "react-jsx",
+    "baseUrl": ".",
     "paths": {
-      "*": ["./*"],
       "@@/*": ["./.dumi/tmp/*"],
       "@bosinc/shared": ["./src"],
       "@svg/*": ["./src/svg/*"],
