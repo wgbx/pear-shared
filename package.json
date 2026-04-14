@@ -1,6 +1,6 @@
 {
   "name": "@bosinc/shared",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "A react library developed with dumi",
   "repository": {
     "type": "git",
@@ -50,21 +50,21 @@
     ]
   },
   "devDependencies": {
-    "@commitlint/cli": "^17.1.2",
-    "@commitlint/config-conventional": "^17.1.0",
-    "@svgr/webpack": "^8.1.0",
-    "@types/react": "^18.0.0",
-    "@types/react-dom": "^18.0.0",
-    "@umijs/lint": "^4.0.0",
-    "dumi": "^2.4.21",
-    "eslint": "^8.23.0",
-    "father": "^4.1.0",
-    "husky": "^8.0.1",
-    "lint-staged": "^13.0.3",
-    "prettier": "^2.7.1",
-    "prettier-plugin-organize-imports": "^3.0.0",
-    "prettier-plugin-packagejson": "^2.2.18",
-    "stylelint": "^14.9.1"
+    "@commitlint/cli": "17.1.2",
+    "@commitlint/config-conventional": "17.1.0",
+    "@svgr/webpack": "8.1.0",
+    "@types/react": "19.2.4",
+    "@types/react-dom": "19.2.3",
+    "@umijs/lint": "4.0.0",
+    "dumi": "2.4.21",
+    "eslint": "8.23.0",
+    "father": "4.6.17",
+    "husky": "8.0.1",
+    "lint-staged": "13.0.3",
+    "prettier": "2.7.1",
+    "prettier-plugin-organize-imports": "3.0.0",
+    "prettier-plugin-packagejson": "2.2.18",
+    "stylelint": "14.9.1"
   },
   "peerDependencies": {
     "@emotion/react": "11.13.3",
