@@ -7,16 +7,16 @@ A status tag component for displaying different status states with color-coded b
 ### Basic Usage
 
 ```tsx
-import { StatusTag } from '@bosinc/shared';
+import { STATUS_TAG_MAP, StatusTag } from '@bosinc/shared';
 
 export default () => {
   return (
     <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
-      <StatusTag type="default" label="Default" />
-      <StatusTag type="success" label="Success" />
-      <StatusTag type="warning" label="Warning" />
-      <StatusTag type="error" label="Error" />
-      <StatusTag type="info" label="Info" />
+      <StatusTag type={STATUS_TAG_MAP.DEFAULT} label="Default" />
+      <StatusTag type={STATUS_TAG_MAP.SUCCESS} label="Success" />
+      <StatusTag type={STATUS_TAG_MAP.WARNING} label="Warning" />
+      <StatusTag type={STATUS_TAG_MAP.ERROR} label="Error" />
+      <StatusTag type={STATUS_TAG_MAP.INFO} label="Info" />
     </div>
   );
 };
