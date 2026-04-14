@@ -33,8 +33,8 @@ const StyledButtonGroup = styled(ButtonGroup, {
   background: theme.palette.shades[100],
   gap: theme.spacing(0.25),
   padding: theme.spacing(0.25),
-  width: 'fit-content', // Allows it to grow/shrink based on container but fit content by default
-  display: 'flex', // Enable flex layout for children
+  width: 'fit-content',
+  display: 'flex',
 }));
 
 export function IconToggle<T = string>({
@@ -68,5 +68,3 @@ export function IconToggle<T = string>({
     </StyledButtonGroup>
   );
 }
-
-export type { IconToggleOption };

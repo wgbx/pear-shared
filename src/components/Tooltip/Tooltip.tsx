@@ -1,4 +1,5 @@
 import { Tooltip as MuiTooltip } from '@mui/material';
+
 import { DefaultContent } from './DefaultContent';
 import { TooltipProps } from './type';
 

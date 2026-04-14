@@ -17,6 +17,6 @@ export interface StatusTagProps {
 }
 
 export interface StatusConfig {
-  bgcolor: string;
+  bgColor: string;
   color: string;
 }

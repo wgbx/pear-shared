@@ -29,7 +29,7 @@ const InfoBannerDescription = styled(Typography, {
   lineHeight: 1.4,
 }));
 
-interface InfoBannerProps {
+export interface InfoBannerProps {
   children?: ReactNode;
   description?: ReactNode;
   icon?: ComponentType<SvgIconProps>;

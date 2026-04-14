@@ -54,25 +54,25 @@ const eventStatusConfig = {
   UPCOMING: {
     type: STATUS_TAG_MAP.DEFAULT,
     label: 'Upcoming',
-    bgcolor: 'shades.900',
+    bgColor: 'shades.900',
     color: 'orange.100',
   },
   ON_HOLD: {
     type: STATUS_TAG_MAP.WARNING,
     label: 'On Hold',
-    bgcolor: 'orange.900',
+    bgColor: 'orange.900',
     color: 'white.a100',
   },
   COMPLETED: {
     type: STATUS_TAG_MAP.SUCCESS,
     label: 'Completed',
-    bgcolor: 'green.900',
+    bgColor: 'green.900',
     color: 'white.a100',
   },
   CANCELED: {
     type: STATUS_TAG_MAP.ERROR,
     label: 'Canceled',
-    bgcolor: 'red.700',
+    bgColor: 'red.700',
     color: 'shades.100',
   },
 } as const;
@@ -140,7 +140,7 @@ export default () => {
 | --------- | --------------------------------------- | ---------------------------------------------------------- | -------- | ------- |
 | type      | Status type determining base color scheme | `'default' \| 'success' \| 'warning' \| 'error' \| 'info'` | `-`      | `'default'` |
 | label     | Display text for the tag                | `string`                                                   | `-`      | `-`     |
-| config    | Override config for `label/bgcolor/color` | `{ label?: string; bgcolor?: string; color?: string }`     | `-`      | `-`     |
+| config    | Override config for `label/bgColor/color` | `{ label?: string; bgColor?: string; color?: string }`     | `-`      | `-`     |
 | slotProps | Slots props for customization           | `{ root?, text? }`                                         | `-`      | `-`     |
 
 ### Status Types

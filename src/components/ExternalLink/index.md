@@ -29,3 +29,4 @@ export default () => {
 | href | Link URL | `string` | `✅` | `-` |
 | target | How the link opens | `string` | `-` | `'_blank'` |
 | rel | Link relationship attribute | `string` | `-` | `'noopener noreferrer'` |
+

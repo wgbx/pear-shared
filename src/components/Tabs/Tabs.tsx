@@ -1,9 +1,6 @@
-import { SegmentedTabs } from './SegmentedTabs';
+import { TabOption, TabsProps } from './type';
 import { TabItem } from './TabItem';
 import { TabsContainer } from './TabsContainer';
-import { TabOption, TabsProps } from './type';
-
-export type { TabOption, TabsProps } from './type';
 
 export function Tabs(props: TabsProps) {
   const { items, disabled = false, slotProps, ...restProps } = props;
@@ -27,5 +24,3 @@ export function Tabs(props: TabsProps) {
     </TabsContainer>
   );
 }
-
-export { SegmentedTabs };

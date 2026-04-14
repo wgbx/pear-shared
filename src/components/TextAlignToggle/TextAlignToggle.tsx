@@ -8,6 +8,7 @@ import { useMemo, type ReactElement } from 'react';
 import { IconToggle, type IconToggleProps } from '../IconToggle';
 
 import { TextAlign, type TextAlignOption } from './type';
+export { TextAlign } from './type';
 
 export interface TextAlignToggleProps
   extends Omit<IconToggleProps<TextAlign>, 'options'> {
@@ -42,5 +43,3 @@ export function TextAlignToggle({
     />
   );
 }
-
-export { TextAlign };

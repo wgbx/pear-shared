@@ -27,23 +27,23 @@ const StatusTagLabel = styled(Typography, {
 
 const STATUS_CONFIG: Record<StatusType, StatusConfig> = {
   default: {
-    bgcolor: 'shades.100',
+    bgColor: 'shades.100',
     color: 'shades.900',
   },
   success: {
-    bgcolor: 'green.100',
+    bgColor: 'green.100',
     color: 'green.900',
   },
   warning: {
-    bgcolor: 'orange.100',
+    bgColor: 'orange.100',
     color: 'orange.900',
   },
   error: {
-    bgcolor: 'red.700',
+    bgColor: 'red.700',
     color: 'white.a100',
   },
   info: {
-    bgcolor: 'blue.100',
+    bgColor: 'blue.100',
     color: 'blue.900',
   },
 };
@@ -62,7 +62,7 @@ export function StatusTag({
     <StatusTagRoot
       {...slotProps?.root}
       sx={{
-        backgroundColor: config?.bgcolor ?? defaultConfig.bgcolor,
+        backgroundColor: config?.bgColor ?? defaultConfig.bgColor,
         ...slotProps?.root?.sx,
       }}
     >
