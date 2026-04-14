@@ -51,28 +51,29 @@ const STATUS_CONFIG: Record<StatusType, StatusConfig> = {
 export function StatusTag({
   type,
   label,
+  config,
   slotProps,
 }: StatusTagProps): ReactElement {
-  const config = useCreation(() => {
-    return STATUS_CONFIG[type];
+  const defaultConfig = useCreation(() => {
+    return STATUS_CONFIG[type ?? 'default'];
   }, [type]);
 
   return (
     <StatusTagRoot
       {...slotProps?.root}
       sx={{
-        backgroundColor: config.bgcolor,
+        backgroundColor: config?.bgcolor ?? defaultConfig.bgcolor,
         ...slotProps?.root?.sx,
       }}
     >
       <StatusTagLabel
         {...slotProps?.text}
         sx={{
-          color: config.color,
+          color: config?.color ?? defaultConfig.color,
           ...slotProps?.text?.sx,
         }}
       >
-        {label}
+        {config?.label ?? label}
       </StatusTagLabel>
     </StatusTagRoot>
   );
