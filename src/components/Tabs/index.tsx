@@ -7,8 +7,15 @@ export type { TabOption, TabsProps } from './type';
 
 export function Tabs(props: TabsProps) {
   const { items, disabled = false, slotProps, ...restProps } = props;
+
   return (
-    <TabsContainer {...restProps}>
+    <TabsContainer
+      disabled={disabled}
+      scrollButtons="auto"
+      variant="scrollable"
+      allowScrollButtonsMobile={false}
+      {...restProps}
+    >
       {items.map((option: TabOption) => (
         <TabItem
           key={String(option.value)}

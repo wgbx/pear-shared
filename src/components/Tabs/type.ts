@@ -6,11 +6,9 @@ export interface TabOption {
   disabled?: boolean;
 }
 
-export interface TabsProps {
-  value: string;
-  onChange: (value: string) => void;
+export interface TabsProps extends Omit<MuiTabsProps, 'slotProps' | 'onChange'> {
   items: TabOption[];
-  centered?: boolean;
+  onChange: (value: string) => void;
   disabled?: boolean;
   slotProps?: {
     root?: Omit<MuiTabsProps, 'children' | 'value' | 'onChange'>;
