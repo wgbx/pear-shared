@@ -4,6 +4,7 @@ export * from './components/IconToggle';
 export * from './components/ImageGroup';
 export * from './components/InfoBanner';
 export * from './components/MaybeClickable';
+export * from './components/Popover';
 export * from './components/StatusTag';
 export * from './components/TextAlignToggle';
 export * from './components/Tooltip';
