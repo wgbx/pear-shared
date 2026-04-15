@@ -11,7 +11,7 @@ const StyledPopover = styled(MuiPopover, {
 })(({ theme }) => ({
   '& .MuiPaper-root': {
     borderRadius: theme.spacing(1),
-    marginTop: theme.spacing(1),
+    marginTop: theme.spacing(0.5),
   },
 }));
 
