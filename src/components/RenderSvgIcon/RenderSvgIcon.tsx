@@ -17,6 +17,7 @@ export function CreateSvgIconComponent(
         {...defaultProps}
         {...props}
         sx={{ ...defaultProps?.sx, ...props.sx } as SxProps}
+        style={{}}
         component={component}
       />
     );
