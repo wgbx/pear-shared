@@ -30,7 +30,6 @@ const StyledSegmentedTabs = styled(Tabs, {
       paddingRight: theme.spacing(0.5),
     },
   },
-  '& .MuiTabs-centered': { gap: theme.spacing(2.5), height: '100%' },
   '& .MuiTab-root': {
     marginLeft: 0,
     marginRight: 0,
@@ -50,5 +49,5 @@ const StyledSegmentedTabs = styled(Tabs, {
 }));
 
 export function SegmentedTabs(props: TabsProps) {
-  return <StyledSegmentedTabs centered {...props} />;
+  return <StyledSegmentedTabs {...props} />;
 }

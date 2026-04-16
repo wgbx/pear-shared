@@ -3,6 +3,7 @@ export * from './components/ExternalLink';
 export * from './components/IconToggle';
 export * from './components/ImageGroup';
 export * from './components/InfoBanner';
+export * from './components/Menu';
 export * from './components/MaybeClickable';
 export * from './components/Popover';
 export * from './components/StatusTag';
@@ -15,3 +16,4 @@ export * from './hooks/useCopyToClipboard';
 export * from './constants';
 
 export * from './utils/numeric';
+export * from './utils/function';
