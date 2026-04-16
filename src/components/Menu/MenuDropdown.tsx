@@ -7,7 +7,6 @@ const StyledMenu = styled(MuiMenu, {
   name: 'PearMenu',
   slot: 'root',
 })(({ theme }) => ({
-  marginTop: theme.spacing(-1),
   '& .MuiPaper-root': {
     borderRadius: theme.spacing(1),
   },
