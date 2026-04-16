@@ -39,7 +39,7 @@ export default defineConfig({
     footer: '',
     nav: [
       { title: 'Guide', link: 'guide' },
-      { title: 'Components', link: 'components/external-link' },
+      { title: 'Components', link: 'components/alert' },
       { title: 'Hooks', link: 'hooks/use-copy-to-clipboard' },
       { title: 'Constants', link: 'constants' },
       { title: 'Utils', link: 'utils/numeric' },

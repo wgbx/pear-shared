@@ -10,21 +10,22 @@ An alert component built on `jotai` + MUI. Call `useAlert()` to trigger alerts.
 
 ```tsx
 import { useAlert } from '@bosinc/shared';
+import { Button } from '@mui/material';
 
 export default function DemoAlertSimple() {
   const { success, error, warning } = useAlert();
 
   return (
     <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
-      <button onClick={() => success('Here is an example general text.')}>
+      <Button onClick={() => success('Here is an example general text.')}>
         success
-      </button>
-      <button onClick={() => error('Here is an example general text.')}>
+      </Button>
+      <Button onClick={() => error('Here is an example general text.')}>
         error
-      </button>
-      <button onClick={() => warning('Here is an example general text.')}>
+      </Button>
+      <Button onClick={() => warning('Here is an example general text.')}>
         warning
-      </button>
+      </Button>
     </div>
   );
 }
@@ -34,13 +35,14 @@ export default function DemoAlertSimple() {
 
 ```tsx
 import { useAlert } from '@bosinc/shared';
+import { Button } from '@mui/material';
 
 export default function DemoAlertDetail() {
   const { success, error, warning } = useAlert();
 
   return (
     <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
-      <button
+      <Button
         onClick={() =>
           success({
             title: 'Alert title',
@@ -49,9 +51,9 @@ export default function DemoAlertDetail() {
         }
       >
         success
-      </button>
+      </Button>
 
-      <button
+      <Button
         onClick={() =>
           error({
             title: 'Alert title',
@@ -60,9 +62,9 @@ export default function DemoAlertDetail() {
         }
       >
         error
-      </button>
+      </Button>
 
-      <button
+      <Button
         onClick={() =>
           warning({
             title: 'Alert title',
@@ -71,7 +73,7 @@ export default function DemoAlertDetail() {
         }
       >
         warning
-      </button>
+      </Button>
     </div>
   );
 }
@@ -81,13 +83,14 @@ export default function DemoAlertDetail() {
 
 ```tsx
 import { useAlert } from '@bosinc/shared';
+import { Button } from '@mui/material';
 
 export default function DemoAlertWithClose() {
   const { success, error, warning } = useAlert();
 
   return (
     <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
-      <button
+      <Button
         onClick={() =>
           success({
             title: 'Alert title',
@@ -97,9 +100,9 @@ export default function DemoAlertWithClose() {
         }
       >
         success
-      </button>
+      </Button>
 
-      <button
+      <Button
         onClick={() =>
           error({
             title: 'Alert title',
@@ -109,9 +112,9 @@ export default function DemoAlertWithClose() {
         }
       >
         error
-      </button>
+      </Button>
 
-      <button
+      <Button
         onClick={() =>
           warning({
             title: 'Alert title',
@@ -121,7 +124,7 @@ export default function DemoAlertWithClose() {
         }
       >
         warning
-      </button>
+      </Button>
     </div>
   );
 }
