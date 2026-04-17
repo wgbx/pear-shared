@@ -1,0 +1,12 @@
+{
+  "git": {
+    "requireCleanWorkingDir": false
+  },
+  "hooks": {
+    "after:bump": ["pnpm run build"]
+  },
+  "github": {
+    "release": true,
+    "releaseBody": "Release of version ${version}"
+  }
+}
