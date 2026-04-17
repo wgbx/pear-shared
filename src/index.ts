@@ -12,6 +12,7 @@ export * from './components/Tooltip';
 export * from './components/Tabs';
 
 export * from './hooks/useCopyToClipboard';
+export * from './hooks/useWebShareLink';
 
 export * from './constants';
 

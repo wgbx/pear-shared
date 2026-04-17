@@ -62,23 +62,28 @@ const SEVERITY_CONFIG: Record<
   {
     icon: ComponentType;
     backgroundColor: string;
+    fontColor: string;
   }
 > = {
   error: {
     icon: WarningLine,
-    backgroundColor: 'green.800',
+    backgroundColor: '#FAEAED',
+    fontColor: '#4C061C',
   },
   success: {
     icon: CheckCircleLine,
-    backgroundColor: 'green.50',
+    backgroundColor: '#EBF5EF',
+    fontColor: '#082D12',
   },
   warning: {
     icon: AlertLine,
-    backgroundColor: 'orange.50',
+    backgroundColor: '#FFF4E0',
+    fontColor: '#5C2201',
   },
   info: {
     icon: InformationLine,
     backgroundColor: '#EBF5EF',
+    fontColor: '#082D12',
   },
 };
 
@@ -95,7 +100,7 @@ export function AlertBanner({
   hideAfter = 8,
   showClose = false,
 }: AlertBannerProps): ReactElement {
-  const { icon: DefaultIcon, backgroundColor } = SEVERITY_CONFIG[severity];
+  const { icon: DefaultIcon, backgroundColor, fontColor } = SEVERITY_CONFIG[severity];
 
   const handleClickAway = useMemoizedFn<
     NonNullable<ClickAwayListenerProps['onClickAway']>
@@ -115,9 +120,10 @@ export function AlertBanner({
         action={action}
         onClose={handleActionClose}
         showClose={showClose}
+        color={fontColor}
       />
     ) : null;
-  }, [action, showClose]);
+  }, [action, showClose, fontColor]);
 
   const autoHideDuration = useCreation(() => {
     if (hideAfter !== null) {
@@ -146,7 +152,7 @@ export function AlertBanner({
           background: backgroundColor,
           pointerEvents: 'auto',
           borderRadius: 2,
-          color: 'shades.900',
+          color: fontColor,
           boxShadow:
             '0 7px 9px -4px rgba(0, 0, 0, 0.07), 0 14px 21px 2px rgba(0, 0, 0, 0.05), 0 5px 26px 4px rgba(0, 0, 0, 0.01)',
           '& .MuiAlert-action': {

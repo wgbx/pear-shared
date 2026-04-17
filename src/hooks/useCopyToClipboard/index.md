@@ -8,12 +8,13 @@ Copies text to the clipboard and triggers an `Alert` on success or failure (requ
 
 ```tsx
 import { useCopyToClipboard } from '@bosinc/shared';
+import { Button } from '@mui/material';
 
 export default function Demo() {
   const { copyToClipboard } = useCopyToClipboard();
 
   return (
-    <button onClick={() => copyToClipboard('Hello, world!')}>Copy me</button>
+    <Button onClick={() => copyToClipboard('Hello, world!')}>Copy me</Button>
   );
 }
 ```
@@ -22,12 +23,13 @@ export default function Demo() {
 
 ```tsx
 import { useCopyToClipboard } from '@bosinc/shared';
+import { Button } from '@mui/material';
 
 export default function DemoCustomMessage() {
   const { copyToClipboard } = useCopyToClipboard();
 
   return (
-    <button
+    <Button
       onClick={() =>
         copyToClipboard('Copy and prompt', {
           successMessage: 'Already copied',
@@ -36,7 +38,7 @@ export default function DemoCustomMessage() {
       }
     >
       Copy and prompt
-    </button>
+    </Button>
   );
 }
 ```
@@ -53,7 +55,8 @@ export default function DemoCustomMessage() {
 
 | Property | Description | Type | Required | Default |
 | --- | --- | --- | --- | --- |
-| successMessage | Success alert message | `string` | `✅` | `'Copied to clipboard'` |
-| errorMessage | Failure alert message | `string` | `✅` | `'Failed to copy to clipboard'` |
+| silent | When `true`, no success/error alerts are shown | `boolean` | `-` | `false` |
+| successMessage | Success alert message | `string` | `-` | `'Copied to clipboard'` |
+| errorMessage | Failure alert message | `string` | `-` | `'Failed to copy to clipboard'` |
 | onSuccess | Callback after successful copy | `() => void` | `-` | `-` |
 | onError | Callback after failed copy | `(error: unknown) => void` | `-` | `-` |

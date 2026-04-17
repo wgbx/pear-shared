@@ -1,16 +1,18 @@
 import { useMemoizedFn } from 'ahooks';
 
-import { useAlert } from '../../components/Alert';
+import { useAlert } from '@components/Alert';
+import {
+  COPY_TO_CLIPBOARD_DEFAULT_ERROR_MESSAGE,
+  COPY_TO_CLIPBOARD_DEFAULT_SUCCESS_MESSAGE,
+} from '@constants';
 
-interface UseCopyToClipboardWithAlertOptions {
-  successMessage: string;
-  errorMessage: string;
+export interface UseCopyToClipboardWithAlertOptions {
+  showMessage?: boolean;
+  successMessage?: string;
+  errorMessage?: string;
   onSuccess?: () => void;
   onError?: (error: unknown) => void;
 }
-
-const DEFAULT_SUCCESS_MESSAGE = 'Copied to clipboard';
-const DEFAULT_ERROR_MESSAGE = 'Failed to copy to clipboard';
 
 /**
  * Hook for copying text to clipboard with alert support
@@ -58,26 +60,31 @@ export function useCopyToClipboard() {
   const copyToClipboard = useMemoizedFn(
     async (
       text: string | null | undefined,
-      options: UseCopyToClipboardWithAlertOptions = {
-        successMessage: DEFAULT_SUCCESS_MESSAGE,
-        errorMessage: DEFAULT_ERROR_MESSAGE,
-      },
+      options: UseCopyToClipboardWithAlertOptions = {},
     ) => {
-      if (text) {
-        const { successMessage, errorMessage, onSuccess, onError } = options;
+      if (!text) {
+        return;
+      }
 
-        try {
-          await navigator.clipboard.writeText(text);
-          if (successMessage) {
-            success(successMessage);
-          }
-          onSuccess?.();
-        } catch (err) {
-          if (errorMessage) {
-            error(errorMessage);
-          }
-          onError?.(err);
+      const {
+        showMessage = true,
+        successMessage = COPY_TO_CLIPBOARD_DEFAULT_SUCCESS_MESSAGE,
+        errorMessage = COPY_TO_CLIPBOARD_DEFAULT_ERROR_MESSAGE,
+        onSuccess,
+        onError,
+      } = options;
+
+      try {
+        await navigator.clipboard.writeText(text);
+        if (showMessage && successMessage) {
+          success(successMessage);
         }
+        onSuccess?.();
+      } catch (err) {
+        if (showMessage && errorMessage) {
+          error(errorMessage);
+        }
+        onError?.(err);
       }
     },
   );
