@@ -62,7 +62,7 @@ importers:
         version: 8.23.0
       father:
         specifier: 4.6.17
-        version: 4.6.17(@babel/core@7.29.0)(@types/node@20.5.1)(less-loader@12.3.2(less@4.6.4)(webpack@5.105.4(@swc/core@1.9.2(@swc/helpers@0.5.15))))(less@4.6.4)(postcss@8.4.31)(resolve-url-loader@5.0.0)(sass-loader@16.0.7(sass@1.54.0)(webpack@5.105.4(@swc/core@1.9.2(@swc/helpers@0.5.15))))(sass@1.54.0)(styled-components@6.4.0(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(type-fest@2.19.0)(webpack@5.105.4(@swc/core@1.9.2(@swc/helpers@0.5.15)))
+        version: 4.6.17(@babel/core@7.29.0)(@types/node@20.5.1)(less-loader@12.3.2(less@4.6.4)(webpack@5.105.4(@swc/core@1.9.2(@swc/helpers@0.5.15))))(less@4.6.4)(postcss@8.5.8)(resolve-url-loader@5.0.0)(sass-loader@16.0.7(sass@1.98.0)(webpack@5.105.4(@swc/core@1.9.2(@swc/helpers@0.5.15))))(sass@1.98.0)(styled-components@6.4.0(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(type-fest@2.19.0)(webpack@5.105.4(@swc/core@1.9.2(@swc/helpers@0.5.15)))
       husky:
         specifier: 8.0.1
         version: 8.0.1
@@ -79,7 +79,7 @@ importers:
         specifier: 2.2.18
         version: 2.2.18(prettier@2.7.1)
       release-it:
-        specifier: ^20.0.0
+        specifier: 20.0.0
         version: 20.0.0(@types/node@20.5.1)
       stylelint:
         specifier: 14.9.1
@@ -6994,10 +6994,6 @@ packages:
   postcss-value-parser@4.2.0:
     resolution: {integrity: sha512-1NNCs6uurfkVbeXG4S8JFT9t19m45ICnif8zWLd5oPSZ50QnwMfK+H3jv408d4jw/7Bttv5axS5IiHoLaVNHeQ==}
 
-  postcss@8.4.31:
-    resolution: {integrity: sha512-PS08Iboia9mts/2ygV3eLpY5ghnUcfLV/EXTOW1E2qYxJKGGBUtNjN76FYHnMs36RmARn41bC0AZmn+rR0OVpQ==}
-    engines: {node: ^10 || ^12 || >=14}
-
   postcss@8.5.8:
     resolution: {integrity: sha512-OW/rX8O/jXnm82Ey1k44pObPtdblfiuWnrd8X7GJ7emImCOstunGbXUpp7HdBrFQX6rJzn3sPT397Wp5aCwCHg==}
     engines: {node: ^10 || ^12 || >=14}
@@ -10952,7 +10948,7 @@ snapshots:
     dependencies:
       '@babel/core': 7.29.0
       postcss: 8.5.8
-      postcss-syntax: 0.36.2(postcss@8.4.31)
+      postcss-syntax: 0.36.2(postcss@8.5.8)
     transitivePeerDependencies:
       - supports-color
 
@@ -11638,7 +11634,7 @@ snapshots:
       postcss-preset-env: 7.5.0(postcss@8.5.8)
       rollup-plugin-visualizer: 5.9.0(rollup@3.30.0)
       systemjs: 6.15.1
-      vite: 4.5.2(@types/node@20.5.1)(less@4.6.4)(lightningcss@1.22.1)(sass@1.54.0)(terser@5.46.1)
+      vite: 4.5.2(@types/node@20.5.1)(less@4.6.4)(lightningcss@1.22.1)(sass@1.98.0)(terser@5.46.1)
     transitivePeerDependencies:
       - '@types/node'
       - lightningcss
@@ -11811,7 +11807,7 @@ snapshots:
       eslint-plugin-react: 7.33.2(eslint@8.23.0)
       eslint-plugin-react-hooks: 4.6.0(eslint@8.23.0)
       postcss: 8.5.8
-      postcss-syntax: 0.36.2(postcss@8.4.31)
+      postcss-syntax: 0.36.2(postcss@8.5.8)
       stylelint-config-standard: 25.0.0(stylelint@14.9.1)
     transitivePeerDependencies:
       - eslint
@@ -12103,7 +12099,7 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  '@utoo/pack@1.3.2(less-loader@12.3.2(less@4.6.4)(webpack@5.105.4(@swc/core@1.9.2(@swc/helpers@0.5.15))))(less@4.6.4)(postcss@8.4.31)(resolve-url-loader@5.0.0)(sass-loader@16.0.7(sass@1.54.0)(webpack@5.105.4(@swc/core@1.9.2(@swc/helpers@0.5.15))))(sass@1.54.0)':
+  '@utoo/pack@1.3.2(less-loader@12.3.2(less@4.6.4)(webpack@5.105.4(@swc/core@1.9.2(@swc/helpers@0.5.15))))(less@4.6.4)(postcss@8.5.8)(resolve-url-loader@5.0.0)(sass-loader@16.0.7(sass@1.98.0)(webpack@5.105.4(@swc/core@1.9.2(@swc/helpers@0.5.15))))(sass@1.98.0)':
     dependencies:
       '@babel/code-frame': 7.22.5
       '@hono/node-server': 1.19.11(hono@4.12.8)
@@ -12118,10 +12114,10 @@ snapshots:
       less-loader: 12.3.2(less@4.6.4)(webpack@5.105.4(@swc/core@1.9.2(@swc/helpers@0.5.15)))
       nanoid: 3.3.11
       picocolors: 1.1.1
-      postcss: 8.4.31
+      postcss: 8.5.8
       resolve-url-loader: 5.0.0
-      sass: 1.54.0
-      sass-loader: 16.0.7(sass@1.54.0)(webpack@5.105.4(@swc/core@1.9.2(@swc/helpers@0.5.15)))
+      sass: 1.98.0
+      sass-loader: 16.0.7(sass@1.98.0)(webpack@5.105.4(@swc/core@1.9.2(@swc/helpers@0.5.15)))
       send: 0.17.1
       ws: 8.19.0
     optionalDependencies:
@@ -12145,7 +12141,7 @@ snapshots:
       '@babel/plugin-transform-react-jsx-self': 7.27.1(@babel/core@7.29.0)
       '@babel/plugin-transform-react-jsx-source': 7.27.1(@babel/core@7.29.0)
       react-refresh: 0.14.2
-      vite: 4.5.2(@types/node@20.5.1)(less@4.6.4)(lightningcss@1.22.1)(sass@1.54.0)(terser@5.46.1)
+      vite: 4.5.2(@types/node@20.5.1)(less@4.6.4)(lightningcss@1.22.1)(sass@1.98.0)(terser@5.46.1)
     transitivePeerDependencies:
       - supports-color
 
@@ -14323,7 +14319,7 @@ snapshots:
     dependencies:
       reusify: 1.1.0
 
-  father@4.6.17(@babel/core@7.29.0)(@types/node@20.5.1)(less-loader@12.3.2(less@4.6.4)(webpack@5.105.4(@swc/core@1.9.2(@swc/helpers@0.5.15))))(less@4.6.4)(postcss@8.4.31)(resolve-url-loader@5.0.0)(sass-loader@16.0.7(sass@1.54.0)(webpack@5.105.4(@swc/core@1.9.2(@swc/helpers@0.5.15))))(sass@1.54.0)(styled-components@6.4.0(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(type-fest@2.19.0)(webpack@5.105.4(@swc/core@1.9.2(@swc/helpers@0.5.15))):
+  father@4.6.17(@babel/core@7.29.0)(@types/node@20.5.1)(less-loader@12.3.2(less@4.6.4)(webpack@5.105.4(@swc/core@1.9.2(@swc/helpers@0.5.15))))(less@4.6.4)(postcss@8.5.8)(resolve-url-loader@5.0.0)(sass-loader@16.0.7(sass@1.98.0)(webpack@5.105.4(@swc/core@1.9.2(@swc/helpers@0.5.15))))(sass@1.98.0)(styled-components@6.4.0(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(type-fest@2.19.0)(webpack@5.105.4(@swc/core@1.9.2(@swc/helpers@0.5.15))):
     dependencies:
       '@microsoft/api-extractor': 7.43.7(@types/node@20.5.1)
       '@umijs/babel-preset-umi': 4.6.34
@@ -14332,7 +14328,7 @@ snapshots:
       '@umijs/case-sensitive-paths-webpack-plugin': 1.0.1
       '@umijs/core': 4.6.34
       '@umijs/utils': 4.6.34
-      '@utoo/pack': 1.3.2(less-loader@12.3.2(less@4.6.4)(webpack@5.105.4(@swc/core@1.9.2(@swc/helpers@0.5.15))))(less@4.6.4)(postcss@8.4.31)(resolve-url-loader@5.0.0)(sass-loader@16.0.7(sass@1.54.0)(webpack@5.105.4(@swc/core@1.9.2(@swc/helpers@0.5.15))))(sass@1.54.0)
+      '@utoo/pack': 1.3.2(less-loader@12.3.2(less@4.6.4)(webpack@5.105.4(@swc/core@1.9.2(@swc/helpers@0.5.15))))(less@4.6.4)(postcss@8.5.8)(resolve-url-loader@5.0.0)(sass-loader@16.0.7(sass@1.98.0)(webpack@5.105.4(@swc/core@1.9.2(@swc/helpers@0.5.15))))(sass@1.98.0)
       '@vercel/ncc': 0.33.3
       babel-plugin-dynamic-import-node: 2.3.3
       babel-plugin-module-resolver: 4.1.0
@@ -17027,21 +17023,11 @@ snapshots:
       cssesc: 3.0.0
       util-deprecate: 1.0.2
 
-  postcss-syntax@0.36.2(postcss@8.4.31):
-    dependencies:
-      postcss: 8.4.31
-
   postcss-syntax@0.36.2(postcss@8.5.8):
     dependencies:
       postcss: 8.5.8
 
   postcss-value-parser@4.2.0: {}
-
-  postcss@8.4.31:
-    dependencies:
-      nanoid: 3.3.11
-      picocolors: 1.1.1
-      source-map-js: 1.2.1
 
   postcss@8.5.8:
     dependencies:
@@ -17774,13 +17760,6 @@ snapshots:
       webpack: 5.105.4(@swc/core@1.9.2(@swc/helpers@0.5.15))
     optionalDependencies:
       sass: 1.54.0
-
-  sass-loader@16.0.7(sass@1.54.0)(webpack@5.105.4(@swc/core@1.9.2(@swc/helpers@0.5.15))):
-    dependencies:
-      neo-async: 2.6.2
-    optionalDependencies:
-      sass: 1.54.0
-      webpack: 5.105.4(@swc/core@1.9.2(@swc/helpers@0.5.15))
 
   sass-loader@16.0.7(sass@1.98.0)(webpack@5.105.4(@swc/core@1.9.2(@swc/helpers@0.5.15))):
     dependencies:
@@ -18839,7 +18818,7 @@ snapshots:
       unist-util-stringify-position: 3.0.3
       vfile-message: 3.1.4
 
-  vite@4.5.2(@types/node@20.5.1)(less@4.6.4)(lightningcss@1.22.1)(sass@1.54.0)(terser@5.46.1):
+  vite@4.5.2(@types/node@20.5.1)(less@4.6.4)(lightningcss@1.22.1)(sass@1.98.0)(terser@5.46.1):
     dependencies:
       esbuild: 0.18.20
       postcss: 8.5.8
@@ -18849,7 +18828,7 @@ snapshots:
       fsevents: 2.3.3
       less: 4.6.4
       lightningcss: 1.22.1
-      sass: 1.54.0
+      sass: 1.98.0
       terser: 5.46.1
 
   vm-browserify@1.1.2: {}

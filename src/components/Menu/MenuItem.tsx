@@ -88,17 +88,17 @@ export const MenuItem = forwardRef<HTMLLIElement, MenuItemProps>(
       }
     };
 
+    if (isValidElement(label)) {
+      return label;
+    }
+
     return (
       <StyledMenuItem ref={ref} onClick={handleClick} disabled={isDisabled}>
         <MenuItemStack disabled={isDisabled}>
           {icon ? (
             <MenuItemIcon sx={slotProps?.icon?.sx}>{icon}</MenuItemIcon>
           ) : null}
-          {isValidElement(label) ? (
-            label
-          ) : (
-            <MenuItemText sx={slotProps?.text?.sx}>{label}</MenuItemText>
-          )}
+          <MenuItemText sx={slotProps?.text?.sx}>{label}</MenuItemText>
           {loading ? (
             <MenuItemIcon sx={{ marginLeft: 'auto' }}>
               <CircularProgress size={16} thickness={5} />
