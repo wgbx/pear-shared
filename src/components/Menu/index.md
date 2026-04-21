@@ -23,12 +23,12 @@ export default () => {
     {
       items: [
         {
-          icon: <ProfileLine />,
+          icon: ProfileLine,
           label: 'Profile',
           onClick: () => {},
         },
         {
-          icon: <Settings3Line />,
+          icon: Settings3Line,
           label: 'Settings',
           onClick: () => {},
         },
@@ -37,7 +37,7 @@ export default () => {
     {
       items: [
         {
-          icon: <Key4Line />,
+          icon: Key4Line,
           label: 'Sign out',
           onClick: () => {},
         },
@@ -84,7 +84,7 @@ export default () => {
     {
       items: [
         {
-          icon: <ProfileLine />,
+          icon: ProfileLine,
           label: 'Profile',
           autoClose: false,
           onClick: async () => {
@@ -92,7 +92,7 @@ export default () => {
           },
         },
         {
-          icon: <Settings3Line />,
+          icon: Settings3Line,
           label: 'Settings',
           onClick: async () => {
             await sleep(1200);
@@ -103,7 +103,7 @@ export default () => {
     {
       items: [
         {
-          icon: <Key4Line />,
+          icon: Key4Line,
           label: 'Sign out',
           onClick: () => {},
         },
@@ -128,9 +128,9 @@ export default () => {
 };
 ```
 
-### Custom label typography
+### Custom label & icon style
 
-Override the label via **`slotProps.text.sx`**. With default **`autoClose`**, omit calling **`onClose`** inside **`onClick`**; `MenuDropdown` will call it after `onClick`.
+Override the label via **`slotProps.text.sx`** and icon via **`slotProps.icon.sx`**. With default **`autoClose`**, omit calling **`onClose`** inside **`onClick`**; `MenuDropdown` will call it after `onClick`.
 
 ```tsx
 import { Button } from '@mui/material';
@@ -146,7 +146,7 @@ export default () => {
     {
       items: [
         {
-          icon: <ProfileLine />,
+          icon: ProfileLine,
           label: 'Profile',
           onClick: () => {},
           slotProps: {
@@ -158,10 +158,15 @@ export default () => {
           },
         },
         {
-          icon: <Settings3Line />,
+          icon: Settings3Line,
           label: 'Settings',
           onClick: () => {},
           slotProps: {
+            icon: {
+              sx: {
+                color: 'blue.900',
+              },
+            },
             text: {
               sx: {
                 fontWeight: 400,
@@ -174,10 +179,17 @@ export default () => {
     {
       items: [
         {
-          icon: <Key4Line />,
+          icon: Key4Line,
           label: 'Sign out',
           onClick: () => {},
           slotProps: {
+            icon: {
+              sx: {
+                color: 'error.main',
+                width: 24,
+                height: 24,
+              },
+            },
             text: {
               sx: {
                 fontWeight: 400,
@@ -210,13 +222,13 @@ export default () => {
 
 ### MenuDropdownProps
 
-| Property  | Description                                                                                                                                                                                                                                            | Type                                                      | Required | Default |
-| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------- | -------- | ------- |
-| anchorEl  | Anchor element for dropdown positioning                                                                                                                                                                                                                | `HTMLElement \| null`                                     | `true`   | `-`     |
-| open      | Controls menu open state                                                                                                                                                                                                                               | `boolean`                                                 | `true`   | `-`     |
+| Property  | Description                                                                                                                                                                                                                                                                       | Type                                                      | Required | Default |
+| --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------- | -------- | ------- |
+| anchorEl  | Anchor element for dropdown positioning                                                                                                                                                                                                                                           | `HTMLElement \| null`                                     | `true`   | `-`     |
+| open      | Controls menu open state                                                                                                                                                                                                                                                          | `boolean`                                                 | `true`   | `-`     |
 | onClose   | Called when the menu should close (e.g. backdrop, Escape). For an item with default **`autoClose`**, `MenuDropdown` calls **`onClose` after that item’s `onClick` completes** (async handlers are awaited). Items with **`autoClose: false`** do not trigger this automatic call. | `() => void`                                              | `true`   | `-`     |
-| items     | Grouped menu item list                                                                                                                                                                                                                                 | `MenuDropdownGroup[]`                                     | `true`   | `-`     |
-| slotProps | Optional style and prop overrides for menu                                                                                                                                                                                                             | `{ paper?: SxProps<Theme>; menu?: Omit<MenuProps, ...> }` | `-`      | `-`     |
+| items     | Grouped menu item list                                                                                                                                                                                                                                                            | `MenuDropdownGroup[]`                                     | `true`   | `-`     |
+| slotProps | Optional style and prop overrides for menu                                                                                                                                                                                                                                        | `{ paper?: SxProps<Theme>; menu?: Omit<MenuProps, ...> }` | `-`      | `-`     |
 
 ### MenuDropdownGroup
 
@@ -234,10 +246,10 @@ Same shape as **`MenuItemProps`**, plus optional **`autoClose`** (see below). Al
 
 ### MenuItemProps
 
-| Property  | Description                     | Type                                                                 | Required | Default |
-| --------- | ------------------------------- | -------------------------------------------------------------------- | -------- | ------- |
-| icon      | Leading icon                    | `ReactNode`                                                          | `-`      | `-`     |
-| label     | Item text                       | `string`                                                             | `true`   | `-`     |
-| onClick   | Click callback for enabled item | `() => void \| Promise<void>`                                        | `-`      | `-`     |
-| disabled  | Disable click interaction       | `boolean`                                                            | `-`      | `false` |
-| slotProps | Optional style overrides        | `{ icon?: { sx?: SxProps<Theme> }; text?: { sx?: SxProps<Theme> } }` | `-`      | `-`     |
+| Property  | Description                                                 | Type                                                                 | Required | Default |
+| --------- | ----------------------------------------------------------- | -------------------------------------------------------------------- | -------- | ------- |
+| icon      | Leading icon. Pass component reference, e.g. `ProfileLine`. | `ElementType`                                                        | `-`      | `-`     |
+| label     | Item text                                                   | `string`                                                             | `true`   | `-`     |
+| onClick   | Click callback for enabled item                             | `() => void \| Promise<void>`                                        | `-`      | `-`     |
+| disabled  | Disable click interaction                                   | `boolean`                                                            | `-`      | `false` |
+| slotProps | Optional style overrides                                    | `{ icon?: { sx?: SxProps<Theme> }; text?: { sx?: SxProps<Theme> } }` | `-`      | `-`     |

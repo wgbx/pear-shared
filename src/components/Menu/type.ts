@@ -1,5 +1,5 @@
 import { type MenuProps } from '@mui/material';
-import { type ReactNode } from 'react';
+import { type ElementType, type ReactNode } from 'react';
 import { type SxProps } from '@mui/material';
 import { type Theme } from '@mui/material/styles';
 
@@ -19,7 +19,7 @@ export interface MenuDropdownItem extends MenuItemProps {
 }
 
 export interface MenuItemProps {
-  icon?: ReactNode;
+  icon?: ElementType;
   label: ReactNode;
   onClick?: () => void | Promise<void>;
   disabled?: boolean;

@@ -64,7 +64,7 @@ const MenuItemIcon = styled(Box, {
 }));
 
 export const MenuItem = forwardRef<HTMLLIElement, MenuItemProps>(
-  ({ icon, label, onClick, disabled, slotProps }, ref) => {
+  ({ icon: IconComponent, label, onClick, disabled, slotProps }, ref) => {
     const [loading, { setTrue: startLoading, setFalse: stopLoading }] =
       useBoolean(false);
     const isDisabled = Boolean(disabled) || loading;
@@ -95,8 +95,10 @@ export const MenuItem = forwardRef<HTMLLIElement, MenuItemProps>(
     return (
       <StyledMenuItem ref={ref} onClick={handleClick} disabled={isDisabled}>
         <MenuItemStack disabled={isDisabled}>
-          {icon ? (
-            <MenuItemIcon sx={slotProps?.icon?.sx}>{icon}</MenuItemIcon>
+          {IconComponent ? (
+            <MenuItemIcon sx={slotProps?.icon?.sx}>
+              <IconComponent />
+            </MenuItemIcon>
           ) : null}
           <MenuItemText sx={slotProps?.text?.sx}>{label}</MenuItemText>
           {loading ? (
