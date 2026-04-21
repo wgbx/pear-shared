@@ -42,10 +42,12 @@ export function MenuDropdown(props: MenuDropdownProps) {
       {...restProps}
     >
       {items.flatMap((group, groupIndex) => [
-        ...(groupIndex > 0 ? [<StyledDivider key={`group-${groupIndex}-divider`} />] : []),
-        ...group.items.map((item, itemIndex) => (
+        ...(groupIndex > 0
+          ? [<StyledDivider key={`group-${groupIndex}-divider`} />]
+          : []),
+        ...group.map((item, itemIndex) => (
           <MenuDropdownListItem
-            key={`group-${groupIndex}-item-${itemIndex}`}
+            key={`group-${groupIndex}-item-${String(item.label)}-${itemIndex}`}
             item={item}
             onClose={onClose}
           />

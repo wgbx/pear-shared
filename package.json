@@ -1,6 +1,6 @@
 {
   "name": "@bosinc/shared",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "A react library developed with dumi",
   "repository": {
     "type": "git",

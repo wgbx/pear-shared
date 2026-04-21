@@ -20,29 +20,25 @@ export default () => {
   const handleClose = () => setAnchorEl(null);
 
   const items = [
-    {
-      items: [
-        {
-          icon: ProfileLine,
-          label: 'Profile',
-          onClick: () => {},
-        },
-        {
-          icon: Settings3Line,
-          label: 'Settings',
-          onClick: () => {},
-        },
-      ],
-    },
-    {
-      items: [
-        {
-          icon: Key4Line,
-          label: 'Sign out',
-          onClick: () => {},
-        },
-      ],
-    },
+    [
+      {
+        icon: ProfileLine,
+        label: 'Profile',
+        onClick: () => {},
+      },
+      {
+        icon: Settings3Line,
+        label: 'Settings',
+        onClick: () => {},
+      },
+    ],
+    [
+      {
+        icon: Key4Line,
+        label: 'Sign out',
+        onClick: () => {},
+      },
+    ],
   ];
 
   return (
@@ -81,34 +77,30 @@ export default () => {
   const handleClose = () => setAnchorEl(null);
 
   const items = [
-    {
-      items: [
-        {
-          icon: ProfileLine,
-          label: 'Profile',
-          autoClose: false,
-          onClick: async () => {
-            await sleep(1200);
-          },
+    [
+      {
+        icon: ProfileLine,
+        label: 'Profile',
+        autoClose: false,
+        onClick: async () => {
+          await sleep(1200);
         },
-        {
-          icon: Settings3Line,
-          label: 'Settings',
-          onClick: async () => {
-            await sleep(1200);
-          },
+      },
+      {
+        icon: Settings3Line,
+        label: 'Settings',
+        onClick: async () => {
+          await sleep(1200);
         },
-      ],
-    },
-    {
-      items: [
-        {
-          icon: Key4Line,
-          label: 'Sign out',
-          onClick: () => {},
-        },
-      ],
-    },
+      },
+    ],
+    [
+      {
+        icon: Key4Line,
+        label: 'Sign out',
+        onClick: () => {},
+      },
+    ],
   ];
 
   return (
@@ -143,62 +135,58 @@ export default () => {
   const handleClose = () => setAnchorEl(null);
 
   const items = [
-    {
-      items: [
-        {
-          icon: ProfileLine,
-          label: 'Profile',
-          onClick: () => {},
-          slotProps: {
-            text: {
-              sx: {
-                fontWeight: 400,
-              },
+    [
+      {
+        icon: ProfileLine,
+        label: 'Profile',
+        onClick: () => {},
+        slotProps: {
+          text: {
+            sx: {
+              fontWeight: 400,
             },
           },
         },
-        {
-          icon: Settings3Line,
-          label: 'Settings',
-          onClick: () => {},
-          slotProps: {
-            icon: {
-              sx: {
-                color: 'blue.900',
-              },
+      },
+      {
+        icon: Settings3Line,
+        label: 'Settings',
+        onClick: () => {},
+        slotProps: {
+          icon: {
+            sx: {
+              color: 'blue.900',
             },
-            text: {
-              sx: {
-                fontWeight: 400,
-              },
+          },
+          text: {
+            sx: {
+              fontWeight: 400,
             },
           },
         },
-      ],
-    },
-    {
-      items: [
-        {
-          icon: Key4Line,
-          label: 'Sign out',
-          onClick: () => {},
-          slotProps: {
-            icon: {
-              sx: {
-                color: 'error.main',
-                width: 24,
-                height: 24,
-              },
+      },
+    ],
+    [
+      {
+        icon: Key4Line,
+        label: 'Sign out',
+        onClick: () => {},
+        slotProps: {
+          icon: {
+            sx: {
+              color: 'error.main',
+              width: 24,
+              height: 24,
             },
-            text: {
-              sx: {
-                fontWeight: 400,
-              },
+          },
+          text: {
+            sx: {
+              fontWeight: 400,
             },
           },
         },
-      ],
-    },
+      },
+    ],
   ];
 
   return (
@@ -227,14 +215,8 @@ export default () => {
 | anchorEl  | Anchor element for dropdown positioning                                                                                                                                                                                                                                           | `HTMLElement \| null`                                     | `true`   | `-`     |
 | open      | Controls menu open state                                                                                                                                                                                                                                                          | `boolean`                                                 | `true`   | `-`     |
 | onClose   | Called when the menu should close (e.g. backdrop, Escape). For an item with default **`autoClose`**, `MenuDropdown` calls **`onClose` after that item’s `onClick` completes** (async handlers are awaited). Items with **`autoClose: false`** do not trigger this automatic call. | `() => void`                                              | `true`   | `-`     |
-| items     | Grouped menu item list                                                                                                                                                                                                                                                            | `MenuDropdownGroup[]`                                     | `true`   | `-`     |
+| items     | Grouped menu item list (array of groups)                                                                                                                                                                                                                                          | `MenuDropdownItem[][]`                                    | `true`   | `-`     |
 | slotProps | Optional style and prop overrides for menu                                                                                                                                                                                                                                        | `{ paper?: SxProps<Theme>; menu?: Omit<MenuProps, ...> }` | `-`      | `-`     |
-
-### MenuDropdownGroup
-
-| Property | Description | Type                 | Required | Default |
-| -------- | ----------- | -------------------- | -------- | ------- |
-| items    | Group items | `MenuDropdownItem[]` | `true`   | `-`     |
 
 ### MenuDropdownItem
 
@@ -249,7 +231,7 @@ Same shape as **`MenuItemProps`**, plus optional **`autoClose`** (see below). Al
 | Property  | Description                                                 | Type                                                                 | Required | Default |
 | --------- | ----------------------------------------------------------- | -------------------------------------------------------------------- | -------- | ------- |
 | icon      | Leading icon. Pass component reference, e.g. `ProfileLine`. | `ElementType`                                                        | `-`      | `-`     |
-| label     | Item text                                                   | `string`                                                             | `true`   | `-`     |
+| label     | Item text                                                   | `ReactNode`                                                          | `true`   | `-`     |
 | onClick   | Click callback for enabled item                             | `() => void \| Promise<void>`                                        | `-`      | `-`     |
 | disabled  | Disable click interaction                                   | `boolean`                                                            | `-`      | `false` |
 | slotProps | Optional style overrides                                    | `{ icon?: { sx?: SxProps<Theme> }; text?: { sx?: SxProps<Theme> } }` | `-`      | `-`     |

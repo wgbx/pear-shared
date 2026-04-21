@@ -7,7 +7,7 @@ export interface MenuDropdownProps extends Omit<MenuProps, 'slotProps'> {
   anchorEl: HTMLElement | null;
   open: boolean;
   onClose: () => void;
-  items: MenuDropdownGroup[];
+  items: MenuDropdownItem[][];
   slotProps?: {
     paper?: SxProps<Theme>;
     menu?: Omit<MenuProps, 'open' | 'onClose' | 'anchorEl'>;
@@ -31,8 +31,4 @@ export interface MenuItemProps {
       sx?: SxProps<Theme>;
     };
   };
-}
-
-export interface MenuDropdownGroup {
-  items: MenuDropdownItem[];
 }
