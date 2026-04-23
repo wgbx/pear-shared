@@ -32,3 +32,5 @@ export function Button({
     </StyledButton>
   );
 }
+
+Button.displayName = 'Button';
