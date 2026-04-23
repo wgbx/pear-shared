@@ -6,6 +6,7 @@ export * from './components/InfoBanner';
 export * from './components/Menu';
 export * from './components/MaybeClickable';
 export * from './components/Popover';
+export * from './components/Spin';
 export * from './components/StatusTag';
 export * from './components/TextAlignToggle';
 export * from './components/Tooltip';
