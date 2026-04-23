@@ -7,8 +7,7 @@ A popover component built on MUI `Popover` with custom styling. API is fully com
 ### Basic Usage
 
 ```tsx
-import { Popover } from '@bosinc/shared';
-import { Button } from '@mui/material';
+import { Button, Popover } from '@bosinc/shared';
 import { useState } from 'react';
 
 export default function Demo() {
@@ -51,18 +50,19 @@ export default function Demo() {
 
 All props from MUI `Popover` are supported. See [MUI Popover API](https://mui.com/material-ui/api/popover/) for complete documentation.
 
-| Property | Type | Default | Description |
-|----------|------|---------|-------------|
-| anchorEl | `HTMLElement \| null` | - | The element used to set the position of the popover |
-| open | `boolean` | `false` | If `true`, the component is shown |
-| onClose | `(event: {}, reason: 'escapeKeyDown' \| 'backdropClick') => void` | - | Callback fired when the component requests to be closed |
-| anchorOrigin | `{ vertical: 'top' \| 'center' \| 'bottom', horizontal: 'left' \| 'center' \| 'right' }` | `{ vertical: 'top', horizontal: 'left' }` | Anchor position |
-| transformOrigin | `{ vertical: 'top' \| 'center' \| 'bottom', horizontal: 'left' \| 'center' \| 'right' }` | `{ vertical: 'top', horizontal: 'left' }` | Transform origin |
-| children | `ReactNode` | - | The content of the component |
+| Property        | Type                                                                                     | Default                                   | Description                                             |
+| --------------- | ---------------------------------------------------------------------------------------- | ----------------------------------------- | ------------------------------------------------------- |
+| anchorEl        | `HTMLElement \| null`                                                                    | -                                         | The element used to set the position of the popover     |
+| open            | `boolean`                                                                                | `false`                                   | If `true`, the component is shown                       |
+| onClose         | `(event: {}, reason: 'escapeKeyDown' \| 'backdropClick') => void`                        | -                                         | Callback fired when the component requests to be closed |
+| anchorOrigin    | `{ vertical: 'top' \| 'center' \| 'bottom', horizontal: 'left' \| 'center' \| 'right' }` | `{ vertical: 'top', horizontal: 'left' }` | Anchor position                                         |
+| transformOrigin | `{ vertical: 'top' \| 'center' \| 'bottom', horizontal: 'left' \| 'center' \| 'right' }` | `{ vertical: 'top', horizontal: 'left' }` | Transform origin                                        |
+| children        | `ReactNode`                                                                              | -                                         | The content of the component                            |
 
 ## Custom Styles
 
 This component applies custom styles:
+
 - Rounded corners (`borderRadius: 16px`)
 - Enhanced shadow (`boxShadow: theme.shadows[4]`)
 - Top margin (`marginTop: 8px`)

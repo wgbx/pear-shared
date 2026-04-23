@@ -9,9 +9,8 @@ Dropdown menu built on MUI `Menu` and `MenuItem`, with grouped items and optiona
 With default **`autoClose: true`**, `MenuDropdown` calls **`onClose` after your `onClick`**. You normally do **not** call the same dismiss function again inside `onClick`.
 
 ```tsx
-import { Button } from '@mui/material';
 import { useState } from 'react';
-import { MenuDropdown } from '@bosinc/shared';
+import { Button, MenuDropdown } from '@bosinc/shared';
 import { ProfileLine, Settings3Line, Key4Line } from '@mingcute/react';
 
 export default () => {
@@ -36,6 +35,7 @@ export default () => {
       {
         icon: Key4Line,
         label: 'Sign out',
+        type: 'error',
         onClick: () => {},
       },
     ],
@@ -65,9 +65,8 @@ By default **`autoClose` is `true`**: **`MenuDropdown` invokes `onClose` after y
 With **`autoClose: false`**, that item’s click **does not** trigger `onClose` from `MenuDropdown`. When you are ready to dismiss (for example after `await`), **call `handleClose()` yourself** inside `onClick`.
 
 ```tsx
-import { Button } from '@mui/material';
 import { useState } from 'react';
-import { MenuDropdown } from '@bosinc/shared';
+import { Button, MenuDropdown } from '@bosinc/shared';
 import { ProfileLine, Settings3Line, Key4Line } from '@mingcute/react';
 
 const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
@@ -125,9 +124,8 @@ export default () => {
 Override the label via **`slotProps.text.sx`** and icon via **`slotProps.icon.sx`**. With default **`autoClose`**, omit calling **`onClose`** inside **`onClick`**; `MenuDropdown` will call it after `onClick`.
 
 ```tsx
-import { Button } from '@mui/material';
 import { useState } from 'react';
-import { MenuDropdown } from '@bosinc/shared';
+import { Button, MenuDropdown } from '@bosinc/shared';
 import { ProfileLine, Settings3Line, Key4Line } from '@mingcute/react';
 
 export default () => {
@@ -225,13 +223,15 @@ Same shape as **`MenuItemProps`**, plus optional **`autoClose`** (see below). Al
 | Property  | Description                                                                                                                                                                            | Type      | Required | Default |
 | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | -------- | ------- |
 | autoClose | `true` (default): `MenuDropdown` calls `onClose` after your `onClick`. `false`: does not call `onClose` for that item; call your dismiss function inside `onClick` when you are ready. | `boolean` | `-`      | `true`  |
+| type      | Item semantic type. Set `type: 'error'` to render label text in `red.700`.                                                                                                             | `'error'` | `-`      | `-`     |
 
 ### MenuItemProps
 
-| Property  | Description                                                 | Type                                                                 | Required | Default |
-| --------- | ----------------------------------------------------------- | -------------------------------------------------------------------- | -------- | ------- |
-| icon      | Leading icon. Pass component reference, e.g. `ProfileLine`. | `ElementType`                                                        | `-`      | `-`     |
-| label     | Item text                                                   | `ReactNode`                                                          | `true`   | `-`     |
-| onClick   | Click callback for enabled item                             | `() => void \| Promise<void>`                                        | `-`      | `-`     |
-| disabled  | Disable click interaction                                   | `boolean`                                                            | `-`      | `false` |
-| slotProps | Optional style overrides                                    | `{ icon?: { sx?: SxProps<Theme> }; text?: { sx?: SxProps<Theme> } }` | `-`      | `-`     |
+| Property  | Description                                                                | Type                                                                 | Required | Default |
+| --------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------- | -------- | ------- |
+| icon      | Leading icon. Pass component reference, e.g. `ProfileLine`.                | `ElementType`                                                        | `-`      | `-`     |
+| label     | Item text                                                                  | `ReactNode`                                                          | `true`   | `-`     |
+| onClick   | Click callback for enabled item                                            | `() => void \| Promise<void>`                                        | `-`      | `-`     |
+| disabled  | Disable click interaction                                                  | `boolean`                                                            | `-`      | `false` |
+| type      | Item semantic type. Set `type: 'error'` to render label text in `red.700`. | `'error'`                                                            | `-`      | `-`     |
+| slotProps | Optional style overrides                                                   | `{ icon?: { sx?: SxProps<Theme> }; text?: { sx?: SxProps<Theme> } }` | `-`      | `-`     |

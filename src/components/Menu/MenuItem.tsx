@@ -12,6 +12,12 @@ import { forwardRef } from 'react';
 import { isPromiseLike } from '../../utils/function';
 import type { MenuItemProps } from './type';
 
+const ICON_STYLES = {
+  error: {
+    color: 'red.700',
+  },
+};
+
 const StyledMenuItem = styled(MuiMenuItem, {
   name: 'PearMenu',
   slot: 'menuItem',
@@ -64,7 +70,7 @@ const MenuItemIcon = styled(Box, {
 }));
 
 export const MenuItem = forwardRef<HTMLLIElement, MenuItemProps>(
-  ({ icon: IconComponent, label, onClick, disabled, slotProps }, ref) => {
+  ({ icon: IconComponent, label, onClick, disabled, type, slotProps }, ref) => {
     const [loading, { setTrue: startLoading, setFalse: stopLoading }] =
       useBoolean(false);
     const isDisabled = Boolean(disabled) || loading;
@@ -88,6 +94,8 @@ export const MenuItem = forwardRef<HTMLLIElement, MenuItemProps>(
       }
     };
 
+    const errorStyle = type ? ICON_STYLES[type] : {};
+
     if (isValidElement(label)) {
       return label;
     }
@@ -96,11 +104,23 @@ export const MenuItem = forwardRef<HTMLLIElement, MenuItemProps>(
       <StyledMenuItem ref={ref} onClick={handleClick} disabled={isDisabled}>
         <MenuItemStack disabled={isDisabled}>
           {IconComponent ? (
-            <MenuItemIcon sx={slotProps?.icon?.sx}>
+            <MenuItemIcon
+              sx={{
+                ...errorStyle,
+                ...slotProps?.icon?.sx,
+              }}
+            >
               <IconComponent />
             </MenuItemIcon>
           ) : null}
-          <MenuItemText sx={slotProps?.text?.sx}>{label}</MenuItemText>
+          <MenuItemText
+            sx={{
+              ...errorStyle,
+              ...slotProps?.text?.sx,
+            }}
+          >
+            {label}
+          </MenuItemText>
           {loading ? (
             <MenuItemIcon sx={{ marginLeft: 'auto' }}>
               <CircularProgress size={16} thickness={5} />

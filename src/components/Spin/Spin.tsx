@@ -72,8 +72,10 @@ const StyledFullscreenBackdrop = styled(Backdrop, {
   slot: 'fullscreenBackdrop',
 })(({ theme }) => ({
   zIndex: 1201,
-  color: theme.palette.primary.main,
+  color: theme.palette.shades[900],
   flexDirection: 'column',
+  margin: '0px!important',
+  backgroundColor: 'rgba(0, 0, 0, 0.2)',
 }));
 
 export function Spin({

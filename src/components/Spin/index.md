@@ -8,8 +8,8 @@ A loading spinner component built with MUI CircularProgress, providing flexible 
 
 ```tsx
 import { useState } from 'react';
-import { Spin } from '@bosinc/shared';
-import { Button, Stack } from '@mui/material';
+import { Button, Spin } from '@bosinc/shared';
+import { Stack } from '@mui/material';
 
 export default function BasicExample() {
   const [loading, setLoading] = useState(false);
@@ -29,8 +29,8 @@ export default function BasicExample() {
 
 ```tsx
 import { useState } from 'react';
-import { Spin } from '@bosinc/shared';
-import { Box, Button, Stack } from '@mui/material';
+import { Button, Spin } from '@bosinc/shared';
+import { Box, Stack } from '@mui/material';
 
 export default function WrapperExample() {
   const [loading, setLoading] = useState(false);
@@ -52,8 +52,8 @@ export default function WrapperExample() {
 
 ```tsx
 import { useState } from 'react';
-import { Spin } from '@bosinc/shared';
-import { Button, Stack } from '@mui/material';
+import { Button, Spin } from '@bosinc/shared';
+import { Stack } from '@mui/material';
 
 export default function CustomSizeExample() {
   const [loading, setLoading] = useState(false);
@@ -80,8 +80,8 @@ export default function CustomSizeExample() {
 
 ```tsx
 import { useState } from 'react';
-import { Spin } from '@bosinc/shared';
-import { Button, Stack } from '@mui/material';
+import { Button, Spin } from '@bosinc/shared';
+import { Stack } from '@mui/material';
 
 export default function TipExample() {
   const [loading, setLoading] = useState(false);
@@ -99,8 +99,8 @@ export default function TipExample() {
 
 ```tsx
 import { useState } from 'react';
-import { Spin } from '@bosinc/shared';
-import { Button, Stack, Typography } from '@mui/material';
+import { Button, Spin } from '@bosinc/shared';
+import { Stack, Typography } from '@mui/material';
 
 export default function FullscreenExample() {
   const [loading, setLoading] = useState(false);
@@ -128,8 +128,8 @@ export default function FullscreenExample() {
 
 ```tsx
 import { useState } from 'react';
-import { Spin } from '@bosinc/shared';
-import { CircularProgress, Button, Stack } from '@mui/material';
+import { Button, Spin } from '@bosinc/shared';
+import { CircularProgress, Stack } from '@mui/material';
 
 export default function CustomIndicatorExample() {
   const [loading, setLoading] = useState(false);
@@ -148,8 +148,8 @@ export default function CustomIndicatorExample() {
 
 ```tsx
 import { useState, useEffect } from 'react';
-import { Spin } from '@bosinc/shared';
-import { CircularProgress, Button, Stack } from '@mui/material';
+import { Button, Spin } from '@bosinc/shared';
+import { CircularProgress, Stack } from '@mui/material';
 
 export default function ProgressExample() {
   const [loading, setLoading] = useState(false);

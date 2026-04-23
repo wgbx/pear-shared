@@ -23,6 +23,7 @@ export interface MenuItemProps {
   label: ReactNode;
   onClick?: () => void | Promise<void>;
   disabled?: boolean;
+  type?: 'error';
   slotProps?: {
     icon?: {
       sx?: SxProps<Theme>;

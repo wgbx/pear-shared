@@ -24,8 +24,7 @@ Silently copies `url`, then calls `navigator.share` inside a user gesture. Shows
 ### Basic usage
 
 ```tsx
-import { useWebShareLink } from '@bosinc/shared';
-import { Button } from '@mui/material';
+import { Button, useWebShareLink } from '@bosinc/shared';
 
 export default function Demo() {
   const { handleShare } = useWebShareLink({
@@ -41,8 +40,7 @@ export default function Demo() {
 Pass `title` and `text` so the system share sheet shows a readable label and body; `url` is still copied silently and passed as the share `url` field.
 
 ```tsx
-import { useWebShareLink } from '@bosinc/shared';
-import { Button } from '@mui/material';
+import { Button, useWebShareLink } from '@bosinc/shared';
 
 export default function DemoWithPayload() {
   const { handleShare } = useWebShareLink({
@@ -59,23 +57,23 @@ export default function DemoWithPayload() {
 
 ### `UseWebShareLinkReturn`
 
-| Property     | Description                          | Type                   |
-| ------------ | ------------------------------------ | ---------------------- |
-| handleShare  | Async handler to run on user action | `() => Promise<void>` |
+| Property    | Description                         | Type                  |
+| ----------- | ----------------------------------- | --------------------- |
+| handleShare | Async handler to run on user action | `() => Promise<void>` |
 
 ### `UseWebShareLinkOptions`
 
-| Property        | Description                                                                 | Type                            | Default              | Required |
-| --------------- | ----------------------------------------------------------------------------- | ------------------------------- | -------------------- | -------- |
-| url             | Text copied silently and `url` passed to `navigator.share`                  | `string`                        | -                    | Yes      |
-| title           | `title` for `navigator.share`                                               | `string`                        | -                    | No       |
-| text            | `text` for `navigator.share`                                                | `string`                        | -                    | No       |
-| successMessage  | Success alert copy (`useAlert` success)                                      | `string`                        | `'Copied!'`          | No       |
-| errorMessage    | Shown when share rejects and silent copy failed                               | `string`                        | `'Unable to share or copy'` | No       |
-| onShareStart    | Runs before silent copy                                                     | `() => void \| Promise<void>`   | -                    | No       |
-| onShareSuccess  | Runs only when `navigator.share` resolves without throwing                  | `() => void`                    | -                    | No       |
-| onShareCancel   | User cancelled the share sheet (`AbortError`)                               | `() => void`                    | -                    | No       |
-| onShareFail     | Share failed with a non-cancel error                                          | `(error: Error) => void`        | -                    | No       |
+| Property       | Description                                                | Type                          | Default                     | Required |
+| -------------- | ---------------------------------------------------------- | ----------------------------- | --------------------------- | -------- |
+| url            | Text copied silently and `url` passed to `navigator.share` | `string`                      | -                           | Yes      |
+| title          | `title` for `navigator.share`                              | `string`                      | -                           | No       |
+| text           | `text` for `navigator.share`                               | `string`                      | -                           | No       |
+| successMessage | Success alert copy (`useAlert` success)                    | `string`                      | `'Copied!'`                 | No       |
+| errorMessage   | Shown when share rejects and silent copy failed            | `string`                      | `'Unable to share or copy'` | No       |
+| onShareStart   | Runs before silent copy                                    | `() => void \| Promise<void>` | -                           | No       |
+| onShareSuccess | Runs only when `navigator.share` resolves without throwing | `() => void`                  | -                           | No       |
+| onShareCancel  | User cancelled the share sheet (`AbortError`)              | `() => void`                  | -                           | No       |
+| onShareFail    | Share failed with a non-cancel error                       | `(error: Error) => void`      | -                           | No       |
 
 Defaults for `successMessage` / `errorMessage` match `WEB_SHARE_LINK_DEFAULT_*` in `@constants` / `src/constants/webShareLink.ts`.
 
