@@ -1,30 +1,6 @@
-import {
-  type ButtonProps,
-  Stack,
-  Typography,
-  styled,
-  type SxProps,
-  type Theme,
-} from '@mui/material';
-import { type ReactElement, type ReactNode } from 'react';
-import { Button } from '../Button';
+import { Stack, Typography, styled } from '@mui/material';
 import { Drawer } from './Drawer';
-import { type DrawerProps } from './type';
-
-export interface PromptDrawerProps
-  extends Omit<DrawerProps, 'children' | 'footer'> {
-  title: ReactNode;
-  description?: ReactNode;
-  children?: ReactNode;
-  footer?: ReactNode;
-  contentSx?: SxProps<Theme>;
-  onConfirm?: () => void;
-  onCancel?: () => void;
-  confirmText?: ReactNode;
-  cancelText?: ReactNode;
-  confirmButtonProps?: ButtonProps;
-  cancelButtonProps?: ButtonProps;
-}
+import { type DrawerProps, type PromptDrawerProps } from './type';
 
 const PromptContent = styled(Stack, {
   name: 'PromptDrawer',
@@ -53,50 +29,41 @@ const PromptDescription = styled(Typography, {
   color: theme.palette.shades[900],
 }));
 
-const PromptActions = styled(Stack, {
-  name: 'PromptDrawer',
-  slot: 'actions',
-})(({ theme }) => ({
-  flexDirection: 'row',
-  gap: theme.spacing(1.25),
-  padding: theme.spacing(2),
-}));
+function splitPromptDrawerProps(props: PromptDrawerProps) {
+  const {
+    title,
+    description,
+    children,
+    contentSx,
+    onConfirm,
+    onCancel,
+    confirmText,
+    cancelText,
+    confirmButtonProps,
+    cancelButtonProps,
+    ...drawerProps
+  } = props;
+  void contentSx;
+  void onConfirm;
+  void onCancel;
+  void confirmText;
+  void cancelText;
+  void confirmButtonProps;
+  void cancelButtonProps;
+  return {
+    title,
+    description,
+    children,
+    drawerProps: drawerProps as DrawerProps,
+  };
+}
 
-export function PromptDrawer({
-  title,
-  description,
-  children,
-  footer,
-  onClose,
-  onConfirm,
-  onCancel,
-  confirmText = 'Confirm',
-  cancelText = 'Cancel',
-  ...drawerProps
-}: PromptDrawerProps): ReactElement {
+export function PromptDrawer(props: PromptDrawerProps) {
+  const { title, description, children, drawerProps } =
+    splitPromptDrawerProps(props);
+
   return (
-    <Drawer
-      onClose={onClose}
-      footer={
-        footer ?? (
-          <PromptActions>
-            <Button
-              fullWidth
-              label={cancelText}
-              variant="outlined"
-              onClick={onCancel ?? onClose}
-            />
-            <Button
-              fullWidth
-              label={confirmText}
-              variant="contained"
-              onClick={onConfirm}
-            />
-          </PromptActions>
-        )
-      }
-      {...drawerProps}
-    >
+    <Drawer {...drawerProps}>
       <PromptContent>
         {title ? <PromptTitle>{title}</PromptTitle> : null}
         {description ? (

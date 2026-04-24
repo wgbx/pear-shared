@@ -35,7 +35,7 @@ export default () => {
 ## PromptDrawer
 
 ```tsx
-import { Button, PromptDrawer } from '@bosinc/shared';
+import { Button, DrawerFooter, PromptDrawer } from '@bosinc/shared';
 import { useState } from 'react';
 
 export default () => {
@@ -49,9 +49,23 @@ export default () => {
         onClose={() => setOpen(false)}
         title="Dialog Title"
         description="This is where your dialog message or instructions will appear. Keep it concise and relevant to the action being taken."
-        cancelText="Outlined"
-        confirmText="Primary"
-        onConfirm={() => setOpen(false)}
+        footer={
+          <DrawerFooter
+            items={[
+              { label: 'Cancel', type: 'error', onClick: () => setOpen(false) },
+              {
+                label: 'Confirm',
+                variant: 'contained',
+                onClick: async () => {
+                  await new Promise<void>((resolve) => {
+                    setTimeout(resolve, 2000);
+                  });
+                  setOpen(false);
+                },
+              },
+            ]}
+          />
+        }
       />
     </>
   );

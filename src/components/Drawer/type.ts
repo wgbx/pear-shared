@@ -1,4 +1,5 @@
 import {
+  type ButtonProps,
   type DialogProps,
   type DrawerProps as MuiDrawerProps,
   type IconButtonProps,
@@ -47,7 +48,7 @@ export interface DrawerContainerProps {
   >;
 }
 
-export interface DrawerSlotProps {
+interface DrawerSlotProps {
   container?: Omit<DrawerContainerProps, 'children' | 'open' | 'onClose'>;
   header?: Omit<DrawerHeaderProps, 'title' | 'onClose'>;
   content?: {
@@ -68,4 +69,36 @@ export interface DrawerProps {
   fullDrawer?: boolean;
   slotProps?: DrawerSlotProps;
   showHeader?: boolean;
+}
+
+interface DrawerFooterItem {
+  label: ReactNode;
+  onClick?: () => void | Promise<void>;
+  disabled?: boolean;
+  variant?: ButtonProps['variant'];
+  type?: 'error';
+  buttonProps?: Omit<ButtonProps, 'children' | 'onClick'>;
+}
+
+export interface DrawerFooterItemButtonProps {
+  item: DrawerFooterItem;
+}
+
+export interface DrawerFooterProps {
+  items: DrawerFooterItem[];
+}
+
+export interface PromptDrawerProps
+  extends Omit<DrawerProps, 'children' | 'footer'> {
+  title: ReactNode;
+  description?: ReactNode;
+  children?: ReactNode;
+  footer?: ReactNode;
+  contentSx?: SxProps<Theme>;
+  onConfirm?: () => void;
+  onCancel?: () => void;
+  confirmText?: ReactNode;
+  cancelText?: ReactNode;
+  confirmButtonProps?: ButtonProps;
+  cancelButtonProps?: ButtonProps;
 }

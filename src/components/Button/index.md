@@ -8,9 +8,15 @@ Shared button wrapper based on MUI `Button`, with built-in `textTransform: none`
 
 ```tsx
 import { Button } from '@bosinc/shared';
+import { Stack } from '@mui/material';
 
 export default () => {
-  return <Button label="Click me" variant="contained" />;
+  return (
+    <Stack sx={{ gap: 2, flexDirection: 'row' }}>
+      <Button label="Click me" variant="contained" />
+      <Button label="Click me" loading />
+    </Stack>
+  );
 };
 ```
 
@@ -19,9 +25,15 @@ export default () => {
 ```tsx
 import { Button } from '@bosinc/shared';
 import { CloseFill } from '@mingcute/react';
+import { Stack } from '@mui/material';
 
 export default () => {
-  return <Button label="Create" variant="contained" icon={<CloseFill />} />;
+  return (
+    <Stack sx={{ gap: 2, flexDirection: 'row' }}>
+      <Button label="Create" variant="contained" icon={<CloseFill />} />
+      <Button label="Create" loading variant="contained" icon={<CloseFill />} />
+    </Stack>
+  );
 };
 ```
 
@@ -55,3 +67,4 @@ export default () => {
 | -------- | ---------------------------------------------- | ----------- | -------- | ------- |
 | label    | Fallback button text when `children` is absent | `ReactNode` | `-`      | `-`     |
 | icon     | Icon shorthand for start/end icon              | `ReactNode` | `-`      | `-`     |
+| loading  | Shows a spinner and disables the button        | `boolean`   | `-`      | `-`     |
