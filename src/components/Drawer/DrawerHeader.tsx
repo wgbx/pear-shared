@@ -1,6 +1,6 @@
-import { CloseFill } from '@mingcute/react';
-import { IconButton, Stack, styled } from '@mui/material';
+import { Stack, styled } from '@mui/material';
 import { type ReactElement } from 'react';
+import { DrawerClose } from './DrawerClose';
 import { type DrawerHeaderProps } from './type';
 
 const StyledHeader = styled(Stack, {
@@ -27,20 +27,7 @@ export function DrawerHeader({
       }}
     >
       {onClose ? (
-        <IconButton
-          disableRipple
-          aria-label="'Close'"
-          onClick={onClose}
-          {...closeButtonProps}
-          sx={{
-            position: 'absolute',
-            right: 16,
-            color: 'shades.900',
-            ...closeButtonProps?.sx,
-          }}
-        >
-          <CloseFill style={{ width: 20, height: 20 }} />
-        </IconButton>
+        <DrawerClose onClose={onClose} closeButtonProps={closeButtonProps} />
       ) : null}
     </StyledHeader>
   );

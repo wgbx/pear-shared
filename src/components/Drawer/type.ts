@@ -14,7 +14,6 @@ export interface DrawerHeaderProps {
   action?: ReactNode;
   startAdornment?: ReactNode;
   endAdornment?: ReactNode;
-  closeLabel?: ReactNode;
   onClose?: () => void;
   divider?: 'border' | 'none';
   sx?: SxProps<Theme>;
@@ -86,6 +85,11 @@ export interface DrawerFooterItemButtonProps {
 
 export interface DrawerFooterProps {
   items: DrawerFooterItem[];
+}
+
+export interface CustomDrawerProps extends Omit<DrawerProps, 'showHeader'> {
+  showClose?: boolean;
+  closeButtonProps?: IconButtonProps;
 }
 
 export interface PromptDrawerProps
