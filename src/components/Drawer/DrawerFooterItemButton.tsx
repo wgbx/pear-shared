@@ -71,7 +71,7 @@ export function DrawerFooterItemButton({
       label={label}
       onClick={handleClick}
       sx={{
-        ...(type === 'error' ? ERROR_ITEM_SX : {}),
+        ...(type === 'danger' ? ERROR_ITEM_SX : {}),
         ...buttonProps?.sx,
       }}
     />

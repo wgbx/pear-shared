@@ -75,7 +75,7 @@ interface DrawerFooterItem {
   onClick?: () => void | Promise<void>;
   disabled?: boolean;
   variant?: ButtonProps['variant'];
-  type?: 'error';
+  type?: 'danger';
   buttonProps?: Omit<ButtonProps, 'children' | 'onClick'>;
 }
 

@@ -53,7 +53,11 @@ export default () => {
         footer={
           <DrawerFooter
             items={[
-              { label: 'Cancel', type: 'error', onClick: () => setOpen(false) },
+              {
+                label: 'Cancel',
+                type: 'danger',
+                onClick: () => setOpen(false),
+              },
               {
                 label: 'Confirm',
                 variant: 'contained',
@@ -151,11 +155,11 @@ export default () => {
 
 #### `DrawerFooterItem`
 
-| Property      | Description                    | Type                                         | Default |
-| ------------- | ------------------------------ | -------------------------------------------- | ------- |
-| `label`       | Button label                   | `ReactNode`                                  | —       |
-| `onClick`     | Click handler (may be async)   | `() => void \| Promise<void>`                | —       |
-| `disabled`    | Disables the item              | `boolean`                                    | —       |
-| `variant`     | MUI button variant             | `ButtonProps['variant']`                     | —       |
-| `type`        | Visual variant, e.g. `'error'` | `'error'`                                    | —       |
-| `buttonProps` | Extra props for the button     | `Omit<ButtonProps, 'children' \| 'onClick'>` | —       |
+| Property      | Description                     | Type                                         | Default |
+| ------------- | ------------------------------- | -------------------------------------------- | ------- |
+| `label`       | Button label                    | `ReactNode`                                  | —       |
+| `onClick`     | Click handler (may be async)    | `() => void \| Promise<void>`                | —       |
+| `disabled`    | Disables the item               | `boolean`                                    | —       |
+| `variant`     | MUI button variant              | `ButtonProps['variant']`                     | —       |
+| `type`        | Visual variant, e.g. `'danger'` | `'danger'`                                   | —       |
+| `buttonProps` | Extra props for the button      | `Omit<ButtonProps, 'children' \| 'onClick'>` | —       |

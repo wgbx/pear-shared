@@ -13,7 +13,7 @@ import { isPromiseLike } from '../../utils/function';
 import type { MenuItemProps } from './type';
 
 const ICON_STYLES = {
-  error: {
+  danger: {
     color: 'red.700',
   },
 };

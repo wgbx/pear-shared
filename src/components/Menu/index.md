@@ -35,7 +35,7 @@ export default () => {
       {
         icon: Key4Line,
         label: 'Sign out',
-        type: 'error',
+        type: 'danger',
         onClick: () => {},
       },
     ],
@@ -172,7 +172,6 @@ export default () => {
         slotProps: {
           icon: {
             sx: {
-              color: 'error.main',
               width: 24,
               height: 24,
             },
@@ -220,18 +219,18 @@ export default () => {
 
 Same shape as **`MenuItemProps`**, plus optional **`autoClose`** (see below). All other columns match **`MenuItemProps`**.
 
-| Property  | Description                                                                                                                                                                            | Type      | Required | Default |
-| --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | -------- | ------- |
-| autoClose | `true` (default): `MenuDropdown` calls `onClose` after your `onClick`. `false`: does not call `onClose` for that item; call your dismiss function inside `onClick` when you are ready. | `boolean` | `-`      | `true`  |
-| type      | Item semantic type. Set `type: 'error'` to render label text in `red.700`.                                                                                                             | `'error'` | `-`      | `-`     |
+| Property  | Description                                                                                                                                                                            | Type       | Required | Default |
+| --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- | -------- | ------- |
+| autoClose | `true` (default): `MenuDropdown` calls `onClose` after your `onClick`. `false`: does not call `onClose` for that item; call your dismiss function inside `onClick` when you are ready. | `boolean`  | `-`      | `true`  |
+| type      | Item semantic type. Set `type: 'danger'` to render label text in `red.700`.                                                                                                            | `'danger'` | `-`      | `-`     |
 
 ### MenuItemProps
 
-| Property  | Description                                                                | Type                                                                 | Required | Default |
-| --------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------- | -------- | ------- |
-| icon      | Leading icon. Pass component reference, e.g. `ProfileLine`.                | `ElementType`                                                        | `-`      | `-`     |
-| label     | Item text                                                                  | `ReactNode`                                                          | `true`   | `-`     |
-| onClick   | Click callback for enabled item                                            | `() => void \| Promise<void>`                                        | `-`      | `-`     |
-| disabled  | Disable click interaction                                                  | `boolean`                                                            | `-`      | `false` |
-| type      | Item semantic type. Set `type: 'error'` to render label text in `red.700`. | `'error'`                                                            | `-`      | `-`     |
-| slotProps | Optional style overrides                                                   | `{ icon?: { sx?: SxProps<Theme> }; text?: { sx?: SxProps<Theme> } }` | `-`      | `-`     |
+| Property  | Description                                                                 | Type                                                                 | Required | Default |
+| --------- | --------------------------------------------------------------------------- | -------------------------------------------------------------------- | -------- | ------- |
+| icon      | Leading icon. Pass component reference, e.g. `ProfileLine`.                 | `ElementType`                                                        | `-`      | `-`     |
+| label     | Item text                                                                   | `ReactNode`                                                          | `true`   | `-`     |
+| onClick   | Click callback for enabled item                                             | `() => void \| Promise<void>`                                        | `-`      | `-`     |
+| disabled  | Disable click interaction                                                   | `boolean`                                                            | `-`      | `false` |
+| type      | Item semantic type. Set `type: 'danger'` to render label text in `red.700`. | `'danger'`                                                           | `-`      | `-`     |
+| slotProps | Optional style overrides                                                    | `{ icon?: { sx?: SxProps<Theme> }; text?: { sx?: SxProps<Theme> } }` | `-`      | `-`     |
