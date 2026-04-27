@@ -9,22 +9,22 @@ An alert component built on `jotai` + MUI. Call `useAlert()` to trigger alerts.
 ### Basic Usage
 
 ```tsx
-import { useAlert } from '@bosinc/shared';
+import { Button, useAlert } from '@bosinc/shared';
 
 export default function DemoAlertSimple() {
   const { success, error, warning } = useAlert();
 
   return (
     <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
-      <button onClick={() => success('Here is an example general text.')}>
+      <Button onClick={() => success('Here is an example general text.')}>
         success
-      </button>
-      <button onClick={() => error('Here is an example general text.')}>
+      </Button>
+      <Button onClick={() => error('Here is an example general text.')}>
         error
-      </button>
-      <button onClick={() => warning('Here is an example general text.')}>
+      </Button>
+      <Button onClick={() => warning('Here is an example general text.')}>
         warning
-      </button>
+      </Button>
     </div>
   );
 }
@@ -33,14 +33,14 @@ export default function DemoAlertSimple() {
 ### With Title
 
 ```tsx
-import { useAlert } from '@bosinc/shared';
+import { Button, useAlert } from '@bosinc/shared';
 
 export default function DemoAlertDetail() {
   const { success, error, warning } = useAlert();
 
   return (
     <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
-      <button
+      <Button
         onClick={() =>
           success({
             title: 'Alert title',
@@ -49,9 +49,9 @@ export default function DemoAlertDetail() {
         }
       >
         success
-      </button>
+      </Button>
 
-      <button
+      <Button
         onClick={() =>
           error({
             title: 'Alert title',
@@ -60,9 +60,9 @@ export default function DemoAlertDetail() {
         }
       >
         error
-      </button>
+      </Button>
 
-      <button
+      <Button
         onClick={() =>
           warning({
             title: 'Alert title',
@@ -71,7 +71,7 @@ export default function DemoAlertDetail() {
         }
       >
         warning
-      </button>
+      </Button>
     </div>
   );
 }
@@ -80,14 +80,14 @@ export default function DemoAlertDetail() {
 ### With Close Button
 
 ```tsx
-import { useAlert } from '@bosinc/shared';
+import { Button, useAlert } from '@bosinc/shared';
 
 export default function DemoAlertWithClose() {
   const { success, error, warning } = useAlert();
 
   return (
     <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
-      <button
+      <Button
         onClick={() =>
           success({
             title: 'Alert title',
@@ -97,9 +97,9 @@ export default function DemoAlertWithClose() {
         }
       >
         success
-      </button>
+      </Button>
 
-      <button
+      <Button
         onClick={() =>
           error({
             title: 'Alert title',
@@ -109,9 +109,9 @@ export default function DemoAlertWithClose() {
         }
       >
         error
-      </button>
+      </Button>
 
-      <button
+      <Button
         onClick={() =>
           warning({
             title: 'Alert title',
@@ -121,7 +121,7 @@ export default function DemoAlertWithClose() {
         }
       >
         warning
-      </button>
+      </Button>
     </div>
   );
 }
@@ -131,32 +131,32 @@ export default function DemoAlertWithClose() {
 
 ### useAlert Return Value
 
-| Property | Description | Type | Required | Default |
-| --- | --- | --- | --- | --- |
-| error | Trigger an error alert | `(params: string | AlertCloseProps | AlertWithActionProps) => void` | `✅` | `-` |
-| info | Trigger an info alert | `(params: string | AlertCloseProps | AlertWithActionProps) => void` | `✅` | `-` |
-| success | Trigger a success alert | `(params: string | AlertCloseProps | AlertWithActionProps) => void` | `✅` | `-` |
-| warning | Trigger a warning alert | `(params: string | AlertCloseProps | AlertWithActionProps) => void` | `✅` | `-` |
-| customize | Trigger a custom (no severity) alert | `(params: string | AlertCloseProps | AlertWithActionProps) => void` | `✅` | `-` |
-| closeAlert | Manually close the current alert | `() => void` | `✅` | `-` |
+| Property   | Description                          | Type             | Required        | Default                        |
+| ---------- | ------------------------------------ | ---------------- | --------------- | ------------------------------ | ---- | --- |
+| error      | Trigger an error alert               | `(params: string | AlertCloseProps | AlertWithActionProps) => void` | `✅` | `-` |
+| info       | Trigger an info alert                | `(params: string | AlertCloseProps | AlertWithActionProps) => void` | `✅` | `-` |
+| success    | Trigger a success alert              | `(params: string | AlertCloseProps | AlertWithActionProps) => void` | `✅` | `-` |
+| warning    | Trigger a warning alert              | `(params: string | AlertCloseProps | AlertWithActionProps) => void` | `✅` | `-` |
+| customize  | Trigger a custom (no severity) alert | `(params: string | AlertCloseProps | AlertWithActionProps) => void` | `✅` | `-` |
+| closeAlert | Manually close the current alert     | `() => void`     | `✅`            | `-`                            |
 
 ### AlertCloseProps
 
-| Property | Description | Type | Required | Default |
-| --- | --- | --- | --- | --- |
-| text | Alert body text | `string` | `✅` | `-` |
-| hideAfter | Auto-close delay in seconds | `number` | `-` | `-` |
-| title | Alert title | `string` | `-` | `-` |
-| sx | Alert style override | `AlertBannerProps['sx']` | `-` | `-` |
-| showClose | Whether to show the close button | `AlertBannerWithClose['showClose']` | `-` | `-` |
-| icon | Custom icon | `AlertBannerWithClose['icon']` | `-` | `-` |
+| Property  | Description                      | Type                                | Required | Default |
+| --------- | -------------------------------- | ----------------------------------- | -------- | ------- |
+| text      | Alert body text                  | `string`                            | `✅`     | `-`     |
+| hideAfter | Auto-close delay in seconds      | `number`                            | `-`      | `-`     |
+| title     | Alert title                      | `string`                            | `-`      | `-`     |
+| sx        | Alert style override             | `AlertBannerProps['sx']`            | `-`      | `-`     |
+| showClose | Whether to show the close button | `AlertBannerWithClose['showClose']` | `-`      | `-`     |
+| icon      | Custom icon                      | `AlertBannerWithClose['icon']`      | `-`      | `-`     |
 
 ### AlertWithActionProps
 
-| Property | Description | Type | Required | Default |
-| --- | --- | --- | --- | --- |
-| text | Alert body text | `string` | `✅` | `-` |
-| action | Custom action area render function | `AlertBannerWithAction['action']` | `✅` | `-` |
-| hideAfter | Auto-close delay in seconds | `number` | `-` | `-` |
-| title | Alert title | `string` | `-` | `-` |
-| sx | Alert style override | `AlertBannerProps['sx']` | `-` | `-` |
+| Property  | Description                        | Type                              | Required | Default |
+| --------- | ---------------------------------- | --------------------------------- | -------- | ------- |
+| text      | Alert body text                    | `string`                          | `✅`     | `-`     |
+| action    | Custom action area render function | `AlertBannerWithAction['action']` | `✅`     | `-`     |
+| hideAfter | Auto-close delay in seconds        | `number`                          | `-`      | `-`     |
+| title     | Alert title                        | `string`                          | `-`      | `-`     |
+| sx        | Alert style override               | `AlertBannerProps['sx']`          | `-`      | `-`     |

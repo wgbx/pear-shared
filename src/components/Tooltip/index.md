@@ -39,7 +39,8 @@ export default () => {
 
 ```tsx
 import { Tooltip } from '@bosinc/shared';
-import { Stack, Typography, Button } from '@mui/material';
+import { Button } from '@bosinc/shared';
+import { Stack, Typography } from '@mui/material';
 
 export default () => {
   return (

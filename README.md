@@ -6,7 +6,9 @@
 A lightweight React shared component and hooks library, built with dumi docs.
 
 ## Usage
+
 ### Install
+
 ```bash
 pnpm add @bosinc/shared
 ```
@@ -14,12 +16,14 @@ pnpm add @bosinc/shared
 > If this is a private package (GitHub Packages), you need to set `NPM_TOKEN` in your environment and make sure `.npmrc` points to the GitHub Packages registry.
 >
 > Example (`.npmrc`):
+>
 > ```text
 > registry=https://npm.pkg.github.com
 > //npm.pkg.github.com/:_authToken=${NPM_TOKEN}
 > ```
 
 ### Global Alert Setup
+
 If you want to use `useAlert()` (and also `useCopyToClipboard()`), you need to mount `AlertContainer` exactly once in your app (typically in your root layout/root component).
 
 ```tsx
@@ -36,6 +40,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
 ```
 
 ## Options
+
 The primary APIs and examples are provided via the `dumi` documentation (component props, hook usage, and examples are defined there).
 
 - [Components](/components/external-link)
@@ -64,6 +69,12 @@ $ pnpm run docs:preview
 
 # check your project for potential problems
 $ pnpm run doctor
+```
+
+## publish
+
+```shell
+npm run release -- --ci
 ```
 
 ## Where to write docs

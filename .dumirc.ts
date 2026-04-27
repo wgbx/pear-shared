@@ -40,7 +40,7 @@ export default defineConfig({
     nav: [
       { title: 'Guide', link: 'guide' },
       { title: 'Icons', link: 'icons/mingcute-icon' },
-      { title: 'Components', link: 'components/external-link' },
+      { title: 'Components', link: 'components/alert' },
       { title: 'Hooks', link: 'hooks/use-copy-to-clipboard' },
       { title: 'Constants', link: 'constants' },
       { title: 'Utils', link: 'utils/numeric' },

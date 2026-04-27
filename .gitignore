@@ -6,3 +6,6 @@ node_modules
 docs-dist/**
 .claude/**
 dist/**
+
+.idea
+.gfl.config.yml

@@ -1,6 +1,6 @@
 {
   "name": "@bosinc/shared",
-  "version": "0.1.0",
+  "version": "0.1.5",
   "description": "A react library developed with dumi",
   "repository": {
     "type": "git",
@@ -25,6 +25,7 @@
     "lint:es": "eslint \"{src,test}/**/*.{js,jsx,ts,tsx}\"",
     "prepare": "husky install && dumi setup",
     "prepublishOnly": "father doctor && npm run build",
+    "release": "release-it",
     "start": "npm run dev"
   },
   "commitlint": {
@@ -64,6 +65,7 @@
     "prettier": "2.7.1",
     "prettier-plugin-organize-imports": "3.0.0",
     "prettier-plugin-packagejson": "2.2.18",
+    "release-it": "20.0.0",
     "stylelint": "14.9.1"
   },
   "peerDependencies": {
@@ -72,10 +74,10 @@
     "@mingcute/react": "1.4.1",
     "@mui/material": "6.1.5",
     "ahooks": "3.8.1",
+    "currency.js": "2.0.4",
     "jotai": "2.9.3",
     "react": "19.2.4",
-    "react-dom": "19.2.4",
-    "currency.js": "2.0.4"
+    "react-dom": "19.2.4"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
