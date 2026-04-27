@@ -222,7 +222,7 @@ Same shape as **`MenuItemProps`**, plus optional **`autoClose`** (see below). Al
 | Property  | Description                                                                                                                                                                            | Type       | Required | Default |
 | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- | -------- | ------- |
 | autoClose | `true` (default): `MenuDropdown` calls `onClose` after your `onClick`. `false`: does not call `onClose` for that item; call your dismiss function inside `onClick` when you are ready. | `boolean`  | `-`      | `true`  |
-| type      | Item semantic type. Set `type: 'danger'` to render label text in `red.700`.                                                                                                            | `'danger'` | `-`      | `-`     |
+| type      | Item semantic type. Set `type: 'string'` to render label text in `red.700`.                                                                                                            | `'string'` | `-`      | `-`     |
 
 ### MenuItemProps
 
@@ -232,5 +232,5 @@ Same shape as **`MenuItemProps`**, plus optional **`autoClose`** (see below). Al
 | label     | Item text                                                                   | `ReactNode`                                                          | `true`   | `-`     |
 | onClick   | Click callback for enabled item                                             | `() => void \| Promise<void>`                                        | `-`      | `-`     |
 | disabled  | Disable click interaction                                                   | `boolean`                                                            | `-`      | `false` |
-| type      | Item semantic type. Set `type: 'danger'` to render label text in `red.700`. | `'danger'`                                                           | `-`      | `-`     |
+| type      | Item semantic type. Set `type: 'string'` to render label text in `red.700`. | `'string'`                                                           | `-`      | `-`     |
 | slotProps | Optional style overrides                                                    | `{ icon?: { sx?: SxProps<Theme> }; text?: { sx?: SxProps<Theme> } }` | `-`      | `-`     |

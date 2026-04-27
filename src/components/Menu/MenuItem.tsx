@@ -94,7 +94,7 @@ export const MenuItem = forwardRef<HTMLLIElement, MenuItemProps>(
       }
     };
 
-    const errorStyle = type ? ICON_STYLES[type] : {};
+    const errorStyle = type === 'danger' ? ICON_STYLES.danger : {};
 
     if (isValidElement(label)) {
       return label;
