@@ -10,7 +10,7 @@ You can pass custom options to use it as a generic toggle component.
 
 ```tsx
 import { IconToggle, type IconToggleOption } from '@bosinc/shared';
-import { BoldLine, ItalicLine, UnderlineLine } from '@mingcute/react';
+import { BoldLine, ItalicLine, UnderlineLine } from '@bosinc/shared/icons';
 import { useState } from 'react';
 
 const FONT_OPTIONS: IconToggleOption<string>[] = [
@@ -38,7 +38,7 @@ You can disable the entire toggle group or individual options.
 
 ```tsx
 import { IconToggle, type IconToggleOption } from '@bosinc/shared';
-import { BoldLine, ItalicLine, UnderlineLine } from '@mingcute/react';
+import { BoldLine, ItalicLine, UnderlineLine } from '@bosinc/shared/icons';
 
 const FONT_OPTIONS: IconToggleOption<string>[] = [
   { value: 'bold', icon: BoldLine, label: 'Bold' },

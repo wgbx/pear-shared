@@ -39,6 +39,7 @@ export default defineConfig({
     footer: '',
     nav: [
       { title: 'Guide', link: 'guide' },
+      { title: 'Icons', link: 'icons/mingcute-icon' },
       { title: 'Components', link: 'components/alert' },
       { title: 'Hooks', link: 'hooks/use-copy-to-clipboard' },
       { title: 'Constants', link: 'constants' },
@@ -48,6 +49,7 @@ export default defineConfig({
 
   resolve: {
     atomDirs: [
+      { type: 'icon', dir: 'src/icons' },
       { type: 'component', dir: 'src/components' },
       { type: 'hook', dir: 'src/hooks' },
       { type: 'constant', dir: 'src/constants' },
