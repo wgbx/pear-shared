@@ -1,5 +1,6 @@
 export * from './components/Alert';
 export * from './components/Button';
+export * from './components/Collapse';
 export * from './components/Drawer';
 export * from './components/ExternalLink';
 export * from './components/IconToggle';
