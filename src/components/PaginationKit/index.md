@@ -10,7 +10,7 @@ Mobile-first: `visibleCount` defaults to `3` on desktop, `0` (minimal mode) on m
 
 Pass an `apiFunction` (matching `PaginationApiFunctionType`) and an `item` slot to render each row. The component handles pagination, loading, and empty states automatically.
 
-```tsx
+```tsx | pure
 import { PaginationList } from '@webCommon/components/molecules/pagination-query/list';
 import { fetchSubscribers } from '@/api/subscribers';
 
@@ -37,7 +37,7 @@ export default () => (
 
 Pass `params` for search/filter criteria. When params change, the list resets to page 1 and re-fetches.
 
-```tsx
+```tsx | pure
 export default () => {
   const [keyword, setKeyword] = useState('');
 
@@ -66,7 +66,7 @@ export default () => {
 
 Enable row selection with `withSelection`. The `selection` object is available in the `item` slot.
 
-```tsx
+```tsx | pure
 export default () => {
   const [selectedKeys, setSelectedKeys] = useState<Set<number>>(new Set());
 
@@ -102,7 +102,7 @@ export default () => {
 
 Override built-in slots: `contentContainer`, `itemsContainer`, `loadingOverlay`, `empty`, `loading`, `error`, `pagination`. User-provided slots are merged with defaults, so you only need to override what you want to change.
 
-```tsx
+```tsx | pure
 export default () => (
   <PaginationList<Subscriber>
     apiFunction={fetchSubscribers}
@@ -136,7 +136,7 @@ export default () => (
 
 Pass `initialValues` to hydrate server-side data without an extra client-side fetch.
 
-```tsx
+```tsx | pure
 export async function getServerSideProps() {
   const res = await fetchSubscribers({ pageNumber: 1, pageSize: 10 });
   return { props: { initialData: res.items, initialTotal: res.totalCount } };
@@ -159,7 +159,7 @@ export default ({ initialData, initialTotal }) => (
 
 Control page size and prefetch adjacent pages for smoother navigation.
 
-```tsx
+```tsx | pure
 export default () => (
   <PaginationList<Subscriber>
     apiFunction={fetchSubscribers}
@@ -181,7 +181,7 @@ export default () => (
 
 ### usePaginatedStateListener
 
-```tsx
+```tsx | pure
 import { usePaginatedStateListener } from '@pear/pagination-kit';
 ```
 
@@ -189,7 +189,7 @@ import { usePaginatedStateListener } from '@pear/pagination-kit';
 
 The `queryKey` must match the one used by the target `PaginatedContainer` or `PaginationList`.
 
-```tsx
+```tsx | pure
 // Page A renders the list with queryKey={['subscribers']}
 function SubscriberPage() {
   return (
@@ -223,7 +223,7 @@ function Toolbar() {
 
 When the list has `withSelection` enabled, `selection` is available on the listener. Useful for action bars that operate on selected items.
 
-```tsx
+```tsx | pure
 function BulkActionToolbar() {
   const { exists, selection, refetch } = usePaginatedStateListener<Subscriber>([
     'subscribers',
@@ -257,7 +257,7 @@ function BulkActionToolbar() {
 
 Use `onStateChange` to react to every state update — e.g., sync URL, trigger analytics, or update a side panel.
 
-```tsx
+```tsx | pure
 function SubscriberPage() {
   const router = useRouter();
 
@@ -277,7 +277,7 @@ function SubscriberPage() {
 
 The `pagination` object includes full navigation actions. Use it to build external controls.
 
-```tsx
+```tsx | pure
 function ExternalPaginationControls() {
   const { exists, pagination } = usePaginatedStateListener(['subscribers']);
 
@@ -303,7 +303,7 @@ function ExternalPaginationControls() {
 
 The listener exposes `refetch`, `invalidateQueries`, and `removeQueries` from the target container's React Query instance.
 
-```tsx
+```tsx | pure
 function CacheControls() {
   const { exists, refetch, invalidateQueries, removeQueries } =
     usePaginatedStateListener(['subscribers']);
