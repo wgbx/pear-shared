@@ -10,13 +10,13 @@ const StyledSegmentedTabs = styled(Tabs, {
   paddingLeft: 0,
   paddingRight: 0,
   minHeight: 'unset',
-  height: 48,
+  height: 42,
   width: '100%',
   borderRadius: theme.spacing(1),
   '& .MuiTabs-indicator': {
     bottom: 'auto',
     top: theme.spacing(0.5),
-    height: 40,
+    height: 34,
     backgroundColor: theme.palette.common.white,
     borderRadius: theme.spacing(1),
     zIndex: 0,
@@ -37,14 +37,31 @@ const StyledSegmentedTabs = styled(Tabs, {
     flex: 1,
     fontSize: '1rem',
     fontWeight: 600,
-    minHeight: 40,
-    height: 40,
+    minHeight: 34,
+    height: 34,
     marginTop: theme.spacing(0.5),
     marginBottom: theme.spacing(0.5),
     position: 'relative',
     zIndex: 1,
     transition: theme.transitions.create('color', { duration: 200 }),
     ...slotProps?.tab?.sx,
+  },
+  [theme.breakpoints.down('sm')]: {
+    height: 36,
+    '& .MuiTabs-indicator': {
+      top: theme.spacing(0.5),
+      height: 28,
+    },
+    '& .MuiTab-root': {
+      fontSize: 14,
+      minHeight: 28,
+      height: 28,
+    },
+    '& .MuiTabs-scroller': {
+      '& .MuiTabs-flexContainer': {
+        gap: 0,
+      },
+    },
   },
 }));
 
