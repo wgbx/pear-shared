@@ -7,8 +7,7 @@ import {
   Typography,
 } from '@mui/material';
 import { useBoolean } from 'ahooks';
-import { isValidElement } from 'react';
-import { forwardRef } from 'react';
+import { forwardRef, isValidElement } from 'react';
 import { isPromiseLike } from '../../utils/function';
 import type { MenuItemProps } from './type';
 
@@ -23,8 +22,8 @@ const StyledMenuItem = styled(MuiMenuItem, {
   slot: 'menuItem',
 })(({ theme }) => ({
   minWidth: 138,
-  minHeight: 44,
-  height: 44,
+  minHeight: 36,
+  height: 36,
   width: '100%',
   borderRadius: theme.spacing(1),
   padding: theme.spacing(1),
