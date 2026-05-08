@@ -97,7 +97,7 @@ export default () => {
             height: 60,
           },
         },
-        count: { sx: { fontSize: '1.5rem' } },
+        count: { sx: { fontSize: '1.5rem', color: 'red.700' } },
       }}
       items={[
         { src: 'https://picsum.photos/200?random=11', id: '11' },
