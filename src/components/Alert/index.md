@@ -131,14 +131,14 @@ export default function DemoAlertWithClose() {
 
 ### useAlert Return Value
 
-| Property   | Description                          | Type             | Required        | Default                        |
-| ---------- | ------------------------------------ | ---------------- | --------------- | ------------------------------ | ---- | --- |
-| error      | Trigger an error alert               | `(params: string | AlertCloseProps | AlertWithActionProps) => void` | `✅` | `-` |
-| info       | Trigger an info alert                | `(params: string | AlertCloseProps | AlertWithActionProps) => void` | `✅` | `-` |
-| success    | Trigger a success alert              | `(params: string | AlertCloseProps | AlertWithActionProps) => void` | `✅` | `-` |
-| warning    | Trigger a warning alert              | `(params: string | AlertCloseProps | AlertWithActionProps) => void` | `✅` | `-` |
-| customize  | Trigger a custom (no severity) alert | `(params: string | AlertCloseProps | AlertWithActionProps) => void` | `✅` | `-` |
-| closeAlert | Manually close the current alert     | `() => void`     | `✅`            | `-`                            |
+| Property   | Description                          | Type                                                                  | Required | Default |
+| ---------- | ------------------------------------ | --------------------------------------------------------------------- | -------- | ------- |
+| error      | Trigger an error alert               | `(params: string \| AlertCloseProps \| AlertWithActionProps) => void` | `✅`     | `-`     |
+| info       | Trigger an info alert                | `(params: string \| AlertCloseProps \| AlertWithActionProps) => void` | `✅`     | `-`     |
+| success    | Trigger a success alert              | `(params: string \| AlertCloseProps \| AlertWithActionProps) => void` | `✅`     | `-`     |
+| warning    | Trigger a warning alert              | `(params: string \| AlertCloseProps \| AlertWithActionProps) => void` | `✅`     | `-`     |
+| customize  | Trigger a custom (no severity) alert | `(params: string \| AlertCloseProps \| AlertWithActionProps) => void` | `✅`     | `-`     |
+| closeAlert | Manually close the current alert     | `() => void`                                                          | `✅`     | `-`     |
 
 ### AlertCloseProps
 
