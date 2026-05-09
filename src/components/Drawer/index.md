@@ -16,17 +16,20 @@ export default () => {
 
   return (
     <>
-      <Button onClick={() => setOpen(true)}>Open</Button>
+      <Button onClick={() => setOpen(true)}>Edit settings</Button>
       <Drawer
         open={open}
         onClose={() => setOpen(false)}
         footer={
           <Stack sx={{ p: 2 }} onClick={() => setOpen(false)}>
-            <Button>Drawer Footer</Button>
+            <Button variant="contained">Save changes</Button>
           </Stack>
         }
       >
-        <Stack sx={{ p: 2, py: 1 }}>Drawer content</Stack>
+        <Stack sx={{ p: 2, py: 1, gap: 1 }}>
+          <strong>Settings</strong>
+          <span>Update a few options and save when you’re done.</span>
+        </Stack>
       </Drawer>
     </>
   );
@@ -45,13 +48,19 @@ export default () => {
 
   return (
     <>
-      <Button onClick={() => setOpen(true)}>Open CustomDrawer</Button>
+      <Button onClick={() => setOpen(true)}>Edit pricing rules</Button>
       <CustomDrawer showClose open={open} onClose={() => setOpen(false)}>
         <Stack sx={{ p: 2, gap: 1 }}>
-          <Typography variant="h6">Your title here</Typography>
+          <Typography variant="h6">Pricing rules</Typography>
           <Typography variant="body2">
-            Body copy and any footer actions are fully under your control.
+            Review and update the configuration below. Changes take effect after
+            you save.
           </Typography>
+          <Stack sx={{ gap: 1, pt: 1 }}>
+            <Typography variant="body2">- Base rate</Typography>
+            <Typography variant="body2">- Minimum charge</Typography>
+            <Typography variant="body2">- Rounding policy</Typography>
+          </Stack>
         </Stack>
       </CustomDrawer>
     </>
