@@ -30,6 +30,7 @@ export function DrawerContainer({
         disableRestoreFocus={disableRestoreFocus}
         hideBackdrop={hideBackdrop}
         sx={sx}
+        maxWidth="xs"
         PaperProps={PaperProps}
         {...dialogProps}
       >

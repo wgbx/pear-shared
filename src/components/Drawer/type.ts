@@ -70,7 +70,7 @@ export interface DrawerProps {
   showHeader?: boolean;
 }
 
-interface DrawerFooterItem {
+export interface DrawerActionItem {
   label: ReactNode;
   onClick?: () => void | Promise<void>;
   disabled?: boolean;
@@ -80,11 +80,11 @@ interface DrawerFooterItem {
 }
 
 export interface DrawerFooterItemButtonProps {
-  item: DrawerFooterItem;
+  item: DrawerActionItem;
 }
 
 export interface DrawerFooterProps {
-  items: DrawerFooterItem[];
+  items: DrawerActionItem[];
 }
 
 export interface CustomDrawerProps extends Omit<DrawerProps, 'showHeader'> {
@@ -97,7 +97,7 @@ export interface PromptDrawerProps
   title: ReactNode;
   description?: ReactNode;
   children?: ReactNode;
-  footer?: ReactNode;
+  actions?: DrawerActionItem[];
   contentSx?: SxProps<Theme>;
   onConfirm?: () => void;
   onCancel?: () => void;
@@ -107,7 +107,7 @@ export interface PromptDrawerProps
   cancelButtonProps?: ButtonProps;
 }
 
-export interface NoticeDrawerProps
+export interface SingleActionDrawerProps
   extends Omit<DrawerProps, 'children' | 'footer' | 'showHeader'> {
   children?: ReactNode;
   label?: ReactNode;

@@ -1,6 +1,7 @@
 import { Stack, Typography, styled } from '@mui/material';
 import { Drawer } from './Drawer';
-import { type DrawerProps, type PromptDrawerProps } from './type';
+import { type PromptDrawerProps } from './type';
+import { DrawerFooter } from './DrawerFooter';
 
 const PromptContent = styled(Stack, {
   name: 'PromptDrawer',
@@ -29,41 +30,14 @@ const PromptDescription = styled(Typography, {
   color: theme.palette.shades[900],
 }));
 
-function splitPromptDrawerProps(props: PromptDrawerProps) {
-  const {
-    title,
-    description,
-    children,
-    contentSx,
-    onConfirm,
-    onCancel,
-    confirmText,
-    cancelText,
-    confirmButtonProps,
-    cancelButtonProps,
-    ...drawerProps
-  } = props;
-  void contentSx;
-  void onConfirm;
-  void onCancel;
-  void confirmText;
-  void cancelText;
-  void confirmButtonProps;
-  void cancelButtonProps;
-  return {
-    title,
-    description,
-    children,
-    drawerProps: drawerProps as DrawerProps,
-  };
-}
-
 export function PromptDrawer(props: PromptDrawerProps) {
-  const { title, description, children, drawerProps } =
-    splitPromptDrawerProps(props);
+  const { title, description, children, actions, ...resetProps } = props;
 
   return (
-    <Drawer {...drawerProps}>
+    <Drawer
+      footer={actions?.length ? <DrawerFooter items={actions} /> : undefined}
+      {...resetProps}
+    >
       <PromptContent>
         {title ? <PromptTitle>{title}</PromptTitle> : null}
         {description ? (
