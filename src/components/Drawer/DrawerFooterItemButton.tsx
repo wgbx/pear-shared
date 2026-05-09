@@ -19,6 +19,7 @@ const ERROR_ITEM_SX = {
 const StyledFooterItemButton = styled(Button)(() => ({
   flex: 1,
   minWidth: 0,
+  fontWeight: 700,
 }));
 
 export function DrawerFooterItemButton({

@@ -26,8 +26,34 @@ export default () => {
           </Stack>
         }
       >
-        <Stack sx={{ p: 2 }}>Drawer content</Stack>
+        <Stack sx={{ p: 2, py: 1 }}>Drawer content</Stack>
       </Drawer>
+    </>
+  );
+};
+```
+
+### Custom Drawer
+
+```tsx
+import { Button, CustomDrawer } from '@bosinc/shared';
+import { useState } from 'react';
+import { Stack, Typography } from '@mui/material';
+
+export default () => {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <>
+      <Button onClick={() => setOpen(true)}>Open CustomDrawer</Button>
+      <CustomDrawer showClose open={open} onClose={() => setOpen(false)}>
+        <Stack sx={{ p: 2, gap: 1 }}>
+          <Typography variant="h6">Your title here</Typography>
+          <Typography variant="body2">
+            Body copy and any footer actions are fully under your control.
+          </Typography>
+        </Stack>
+      </CustomDrawer>
     </>
   );
 };
@@ -77,27 +103,34 @@ export default () => {
 };
 ```
 
-### Custom Drawer
+### Notice Drawer
 
 ```tsx
-import { Button, CustomDrawer } from '@bosinc/shared';
+import { Button, NoticeDrawer } from '@bosinc/shared';
 import { useState } from 'react';
-import { Stack, Typography } from '@mui/material';
+import { Link, Stack, Typography } from '@mui/material';
 
 export default () => {
   const [open, setOpen] = useState(false);
 
   return (
     <>
-      <Button onClick={() => setOpen(true)}>Open CustomDrawer</Button>
-      <CustomDrawer open={open} onClose={() => setOpen(false)}>
-        <Stack sx={{ p: 2, gap: 1 }}>
-          <Typography variant="h6">Your title here</Typography>
-          <Typography variant="body2">
-            Body copy and any footer actions are fully under your control.
+      <Button onClick={() => setOpen(true)}>Open NoticeDrawer</Button>
+      <NoticeDrawer open={open} onClose={() => setOpen(false)}>
+        <Stack sx={{ p: 2, py: 1, gap: 1.5 }}>
+          <Typography sx={{ fontSize: '1.25rem', fontWeight: 700 }}>
+            This item can’t be removed because it has associated records.
+          </Typography>
+          <Typography sx={{ fontSize: '0.875rem' }}>
+            To protect historical data, items with linked records can’t be
+            removed. If you believe this is a mistake, please contact{' '}
+            <Link href="mailto:support@example.com" underline="always">
+              support@example.com
+            </Link>
+            .
           </Typography>
         </Stack>
-      </CustomDrawer>
+      </NoticeDrawer>
     </>
   );
 };
@@ -146,6 +179,16 @@ export default () => {
 | `description` | Secondary copy under `title`            | `ReactNode` | —       |
 | `children`    | Content after the description block     | `ReactNode` | —       |
 | `footer`      | e.g. `DrawerFooter` or custom actions   | `ReactNode` | —       |
+
+### NoticeDrawer
+
+`NoticeDrawerProps` extends `Omit<DrawerProps, 'children' | 'footer' | 'showHeader'>`. A lightweight wrapper around `Drawer`: no header, and a single primary action button in the footer.
+
+| Property   | Description                          | Type         | Default    |
+| ---------- | ------------------------------------ | ------------ | ---------- |
+| `children` | Main content                         | `ReactNode`  | —          |
+| `label`    | Footer button label                  | `ReactNode`  | `'Got it'` |
+| `onClose`  | Close handler + footer click handler | `() => void` | —          |
 
 ### DrawerFooter
 
