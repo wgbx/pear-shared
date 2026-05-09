@@ -134,16 +134,16 @@ export default () => {
 
 ### CollapseProps
 
-| Property        | Description                                                     | Type                                                                           | Required                                 | Default |
-| --------------- | --------------------------------------------------------------- | ------------------------------------------------------------------------------ | ---------------------------------------- | ------- | --- |
-| trigger         | Clickable trigger UI or render function `(state) => ReactNode`  | `ReactNode                                                                     | (({ expanded, disabled }) => ReactNode)` | `✅`    | `-` |
-| actions         | Optional content rendered on the right side of the header row   | `ReactNode`                                                                    | `-`                                      | `-`     |
-| children        | Content rendered inside the animated collapse panel             | `ReactNode`                                                                    | `✅`                                     | `-`     |
-| defaultExpanded | Initial expanded state in uncontrolled mode                     | `boolean`                                                                      | `-`                                      | `false` |
-| expanded        | Controlled expanded state; omit it to use internal state        | `boolean`                                                                      | `-`                                      | `-`     |
-| onChange        | Called with the next expanded state when the trigger is clicked | `(expanded: boolean) => void`                                                  | `-`                                      | `-`     |
-| disabled        | Prevents toggling and disables the trigger                      | `boolean`                                                                      | `-`                                      | `false` |
-| slotProps       | Slot props for `root`, `trigger`, and `content`                 | `{ root?: StackProps; trigger?: ButtonBaseProps; content?: MuiCollapseProps }` | `-`                                      | `-`     |
+| Property        | Description                                                     | Type                                                                           | Required | Default |
+| --------------- | --------------------------------------------------------------- | ------------------------------------------------------------------------------ | -------- | ------- |
+| trigger         | Clickable trigger UI or render function `(state) => ReactNode`  | `ReactNode \| (({ expanded, disabled }) => ReactNode)`                         | `✅`     | `-`     |
+| actions         | Optional content rendered on the right side of the header row   | `ReactNode`                                                                    | `-`      | `-`     |
+| children        | Content rendered inside the animated collapse panel             | `ReactNode`                                                                    | `✅`     | `-`     |
+| defaultExpanded | Initial expanded state in uncontrolled mode                     | `boolean`                                                                      | `-`      | `false` |
+| expanded        | Controlled expanded state; omit it to use internal state        | `boolean`                                                                      | `-`      | `-`     |
+| onChange        | Called with the next expanded state when the trigger is clicked | `(expanded: boolean) => void`                                                  | `-`      | `-`     |
+| disabled        | Prevents toggling and disables the trigger                      | `boolean`                                                                      | `-`      | `false` |
+| slotProps       | Slot props for `root`, `trigger`, and `content`                 | `{ root?: StackProps; trigger?: ButtonBaseProps; content?: MuiCollapseProps }` | `-`      | `-`     |
 
 Other props extend `Omit<StackProps, 'children' | 'onChange'>` and are forwarded to the root `Stack`. Values passed through `slotProps.root` are spread after the root props.
 
