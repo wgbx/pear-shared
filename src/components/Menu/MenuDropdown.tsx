@@ -1,4 +1,5 @@
 import { Divider as MuiDivider, Menu as MuiMenu, styled } from '@mui/material';
+import { useCreation } from 'ahooks';
 
 import { MenuDropdownListItem } from './MenuDropdownListItem';
 import type { MenuDropdownProps } from './type';
@@ -28,6 +29,22 @@ const StyledDivider = styled(MuiDivider, {
 export function MenuDropdown(props: MenuDropdownProps) {
   const { items, slotProps, onClose, ...restProps } = props;
 
+  const menuContent = useCreation(() => {
+    const nonEmptyGroups = items.filter((group) => group.length > 0);
+    return nonEmptyGroups.flatMap((group, groupIndex) => [
+      ...(groupIndex > 0
+        ? [<StyledDivider key={`group-${groupIndex}-divider`} />]
+        : []),
+      ...group.map((item, itemIndex) => (
+        <MenuDropdownListItem
+          key={`group-${groupIndex}-item-${String(item.label)}-${itemIndex}`}
+          item={item}
+          onClose={onClose}
+        />
+      )),
+    ]);
+  }, [items, onClose]);
+
   return (
     <StyledMenu
       anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
@@ -41,18 +58,7 @@ export function MenuDropdown(props: MenuDropdownProps) {
       }}
       {...restProps}
     >
-      {items.flatMap((group, groupIndex) => [
-        ...(groupIndex > 0
-          ? [<StyledDivider key={`group-${groupIndex}-divider`} />]
-          : []),
-        ...group.map((item, itemIndex) => (
-          <MenuDropdownListItem
-            key={`group-${groupIndex}-item-${String(item.label)}-${itemIndex}`}
-            item={item}
-            onClose={onClose}
-          />
-        )),
-      ])}
+      {menuContent}
     </StyledMenu>
   );
 }
