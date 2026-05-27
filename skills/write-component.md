@@ -18,12 +18,14 @@ Guide development of new React components for the pear-shared library following 
 Generate a complete component with:
 
 1. **File Structure** (exactly 3-4 files):
+
    - `ComponentName.tsx` - Main component implementation
    - `type.ts` - TypeScript type definitions
    - `index.ts` - Public exports
    - `index.md` - Documentation (recommended)
 
 2. **Code Quality**:
+
    - Uses `styled()` API, not inline `sx` props
    - Uses theme variables (spacing, colors)
    - Proper TypeScript typing with `ReactElement` return type
@@ -42,6 +44,7 @@ Generate a complete component with:
 ### Step 1: Create File Structure
 
 Create directory and files:
+
 ```
 src/components/ComponentName/
 ├── ComponentName.tsx
@@ -53,11 +56,13 @@ src/components/ComponentName/
 ### Step 2: Define Types (type.ts)
 
 **Pattern for Simple Wrapper Components:**
+
 ```typescript
 export { type ComponentProps } from '@mui/material';
 ```
 
 **Pattern for Custom Components:**
+
 ```typescript
 import { type ComponentProps as MuiComponentProps } from '@mui/material';
 
@@ -75,6 +80,7 @@ export interface ComponentNameProps {
 ```
 
 **Rules:**
+
 - Use `Omit<>` to exclude conflicting MUI props
 - Name props interface: `ComponentNameProps`
 - Export all types from `index.ts`
@@ -82,6 +88,7 @@ export interface ComponentNameProps {
 ### Step 3: Implement Component (ComponentName.tsx)
 
 **Basic Wrapper Pattern:**
+
 ```typescript
 import { Component as MuiComponent, styled, type ReactElement } from 'react';
 import { type ComponentNameProps } from './type';
@@ -100,6 +107,7 @@ export function ComponentName(props: ComponentNameProps): ReactElement {
 ```
 
 **Component with Children:**
+
 ```typescript
 export function ComponentName(props: ComponentNameProps): ReactElement {
   const { items, disabled = false, slotProps, ...restProps } = props;
@@ -115,6 +123,7 @@ export function ComponentName(props: ComponentNameProps): ReactElement {
 ```
 
 **Component with forwardRef:**
+
 ```typescript
 export const ComponentName = forwardRef<HTMLDivElement, ComponentNameProps>(
   ({ children, onClick, disabled }, ref) => {
@@ -134,6 +143,7 @@ ComponentName.displayName = 'ComponentName';
 ```
 
 **Styled Component Pattern:**
+
 ```typescript
 const StyledComponent = styled(MuiComponent, {
   name: 'ComponentName',
@@ -147,6 +157,7 @@ const StyledComponent = styled(MuiComponent, {
 ```
 
 **Multiple Styled Components:**
+
 ```typescript
 const ComponentRoot = styled(Stack, {
   name: 'ComponentName',
@@ -171,6 +182,7 @@ export * from './type';
 ```
 
 **Add to Main Export** (`src/index.ts`):
+
 ```typescript
 export * from './components/ComponentName';
 ```
@@ -182,6 +194,7 @@ npm run build
 ```
 
 Check for:
+
 - ✅ No TypeScript errors
 - ✅ Component exported correctly
 - ✅ Type definitions generated in `dist/`
@@ -191,11 +204,17 @@ Check for:
 ## Component Patterns by Type
 
 ### 1. Simple MUI Wrapper
+
 **Use when:** Adding custom styling to existing MUI component
 
 **Example:** Popover, Tooltip
+
 ```typescript
-import { Popover as MuiPopover, styled, type ReactElement } from '@mui/material';
+import {
+  Popover as MuiPopover,
+  styled,
+  type ReactElement,
+} from '@mui/material';
 import { type PopoverProps } from './type';
 
 const StyledPopover = styled(MuiPopover, {
@@ -214,9 +233,11 @@ export function Popover(props: PopoverProps): ReactElement {
 ```
 
 ### 2. Component with Sub-components
+
 **Use when:** Component has multiple related parts
 
 **Example:** Tabs (Tabs + TabItem + TabsContainer)
+
 ```typescript
 // Tabs.tsx
 export function Tabs(props: TabsProps) {
@@ -233,9 +254,11 @@ export function Tabs(props: TabsProps) {
 ```
 
 ### 3. Component with Config Items
+
 **Use when:** Component renders data from an items array
 
 **Example:** StatusTag with config, Tabs with items
+
 ```typescript
 // Define item type
 interface TabOption {
@@ -252,9 +275,11 @@ export function Tabs(props: TabsProps) {
 ```
 
 ### 4. Component with Custom State
+
 **Use when:** Component manages internal state
 
 **Example:** AlertContainer with alertAtom
+
 ```typescript
 import { useAtomValue, useSetAtom } from 'jotai';
 import { alertAtom } from './alertAtom';
@@ -276,6 +301,7 @@ export function AlertContainer() {
 ## Styling Rules (CRITICAL)
 
 ### ✅ DO: Use styled() API
+
 ```typescript
 const StyledComponent = styled(MuiComponent, {
   name: 'ComponentName',
@@ -287,28 +313,31 @@ const StyledComponent = styled(MuiComponent, {
 ```
 
 ### ❌ DON'T: Use inline sx props
+
 ```typescript
 // NEVER do this in component files
 <Component sx={{ padding: 8, bgcolor: 'shades.100' }} />
 ```
 
 ### Theme Variables (Always Use)
+
 ```typescript
 // Spacing
-theme.spacing(1)  // 8px
-theme.spacing(2)  // 16px
+theme.spacing(1); // 8px
+theme.spacing(2); // 16px
 
 // Colors
-theme.palette.shades[100]
-theme.palette.primary.main
-theme.palette.error.main
+theme.palette.shades[100];
+theme.palette.primary.main;
+theme.palette.error.main;
 
 // Border Radius
-theme.spacing(1)  // 8px
-theme.spacing(2)  // 16px
+theme.spacing(1); // 8px
+theme.spacing(2); // 16px
 ```
 
 ### ❌ NEVER Hardcode Values
+
 ```typescript
 // Bad
 borderRadius: '8px',
@@ -326,22 +355,26 @@ color: theme.palette.shades[100],
 ## Type Definition Patterns
 
 ### Re-export MUI Types
+
 ```typescript
 // type.ts
 export { type PopoverProps } from '@mui/material';
 ```
 
 ### Extend MUI Types
+
 ```typescript
 import { type TabsProps as MuiTabsProps } from '@mui/material';
 
-export interface TabsProps extends Omit<MuiTabsProps, 'slotProps' | 'onChange'> {
+export interface TabsProps
+  extends Omit<MuiTabsProps, 'slotProps' | 'onChange'> {
   items: TabOption[];
   onChange: (value: string) => void;
 }
 ```
 
 ### Custom Component Props
+
 ```typescript
 export interface MenuItemProps {
   children: ReactNode;
@@ -357,12 +390,14 @@ export interface MenuItemProps {
 **Generate using `write-component-docs` skill after implementation.**
 
 **Must include:**
+
 1. H1 title matching component name
 2. Short intro in English (1-2 sentences)
 3. `## Demos` section with at least Basic Usage
 4. `## API` section with props table
 
 **Example:**
+
 ```markdown
 # Popover
 
@@ -376,7 +411,7 @@ A popover component built on top of MUI Popover with custom styling.
 import { Popover } from '@bosinc/shared';
 
 export default () => {
-  return <Popover open={open} anchorEl={anchorEl}>Content</Popover>;
+return <Popover open={open} anchorEl={anchorEl}>Content</Popover>;
 };
 \`\`\`
 
@@ -384,10 +419,10 @@ export default () => {
 
 ### PopoverProps
 
-| Parameter | Description | Type | Required | Default |
-| --- | --- | --- | --- | --- |
-| open | Whether the popover is open | boolean | ✅ | - |
-| anchorEl | The element to anchor the popover to | HTMLElement \| null | ✅ | - |
+| Parameter | Description                          | Type                | Required | Default |
+| --------- | ------------------------------------ | ------------------- | -------- | ------- |
+| open      | Whether the popover is open          | boolean             | ✅       | -       |
+| anchorEl  | The element to anchor the popover to | HTMLElement \| null | ✅       | -       |
 ```
 
 ---
@@ -395,12 +430,14 @@ export default () => {
 ## Quality Checklist (self-check before completion)
 
 ### File Structure
+
 - [ ] ComponentName.tsx created in `src/components/ComponentName/`
 - [ ] type.ts created with proper type definitions
 - [ ] index.ts exports component and types
 - [ ] index.md documentation created
 
 ### Code Quality
+
 - [ ] Uses `styled()` API, NOT inline `sx` props
 - [ ] All styling uses theme variables (spacing, colors)
 - [ ] Return type is `ReactElement`
@@ -408,17 +445,20 @@ export default () => {
 - [ ] Props interface extends MUI types appropriately
 
 ### Naming & Patterns
+
 - [ ] Files use PascalCase: `ComponentName.tsx`
 - [ ] Styled components have descriptive names with `Styled` prefix
 - [ ] MUI components use `as` alias: `Component as MuiComponent`
 - [ ] Props destructuring separates `slotProps`
 
 ### Exports
+
 - [ ] Component exported from index.ts
 - [ ] Types exported from index.ts
 - [ ] Added to main `src/index.ts`
 
 ### Build
+
 - [ ] `npm run build` passes without errors
 - [ ] Type definitions generated in `dist/`
 - [ ] No TypeScript compilation errors
@@ -439,6 +479,7 @@ export default () => {
 ## Common Mistakes to Avoid
 
 ### ❌ Using inline sx props
+
 ```typescript
 // Wrong
 <Component sx={{ p: 2, bgcolor: 'red' }} />
@@ -451,6 +492,7 @@ const StyledComponent = styled(Component, {...})(({ theme }) => ({
 ```
 
 ### ❌ Hardcoding values
+
 ```typescript
 // Wrong
 padding: '8px',
@@ -462,6 +504,7 @@ borderRadius: theme.spacing(1),
 ```
 
 ### ❌ Not using forwardRef when needed
+
 ```typescript
 // Wrong - ref won't work
 export function Component({ children }) {
@@ -477,6 +520,7 @@ export const Component = forwardRef<HTMLDivElement, ComponentProps>(
 ```
 
 ### ❌ Forgetting to export types
+
 ```typescript
 // Wrong - types not accessible
 export * from './ComponentName';
@@ -491,6 +535,7 @@ export * from './type';
 ## Reference Examples
 
 Study these components for patterns:
+
 - **Simple wrapper:** `src/components/Popover/Popover.tsx`
 - **Multiple styled components:** `src/components/StatusTag/StatusTag.tsx`
 - **Sub-components:** `src/components/Tabs/Tabs.tsx`, `TabItem.tsx`, `TabsContainer.tsx`

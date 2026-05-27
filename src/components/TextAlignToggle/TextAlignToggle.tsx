@@ -1,4 +1,8 @@
-import { AlignCenterLine, AlignLeftLine, AlignRightLine } from '@svg/mingcute';
+import {
+  AlignCenterLine,
+  AlignLeftLine,
+  AlignRightLine,
+} from '@mingcute/react';
 import { useMemo, type ReactElement } from 'react';
 
 import { IconToggle, type IconToggleProps } from '../IconToggle';

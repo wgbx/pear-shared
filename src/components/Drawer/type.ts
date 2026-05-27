@@ -104,7 +104,7 @@ export interface PromptDrawerProps
   cancelButtonProps?: ButtonProps;
 }
 
-export interface SingleActionDrawerProps
+export interface NoticeDrawerProps
   extends Omit<DrawerProps, 'children' | 'footer' | 'showHeader'> {
   children?: ReactNode;
   label?: ReactNode;
