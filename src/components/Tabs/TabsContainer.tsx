@@ -3,7 +3,7 @@ import { useMemoizedFn } from 'ahooks';
 import { type SyntheticEvent } from 'react';
 import type { TabsProps } from './type';
 
-interface TabsContainerProps extends Omit<TabsProps, 'items' | 'slotProps'> {}
+type TabsContainerProps = Omit<TabsProps, 'items' | 'slotProps'>;
 
 const StyledTabs = styled(Tabs, {
   name: 'PearTabs',
@@ -14,6 +14,14 @@ const StyledTabs = styled(Tabs, {
   p: 0,
   '& .MuiTabs-flexContainer': {
     gap: theme.spacing(2),
+  },
+  '& .MuiTabScrollButton-root': {
+    width: 20,
+    minWidth: 20,
+    flex: '0 0 20px',
+  },
+  '& .MuiTabScrollButton-root.Mui-disabled': {
+    display: 'none',
   },
   '& .MuiTabs-indicator': {
     height: 3,
