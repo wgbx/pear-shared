@@ -19,7 +19,13 @@ export default function DemoAlertSimple() {
       <Button onClick={() => success('Here is an example general text.')}>
         success
       </Button>
-      <Button onClick={() => error('Here is an example general text.')}>
+      <Button
+        onClick={() =>
+          error(
+            'This is a longer error message to demonstrate how the alert component handles extended text content with proper alignment and layout.',
+          )
+        }
+      >
         error
       </Button>
       <Button onClick={() => warning('Here is an example general text.')}>

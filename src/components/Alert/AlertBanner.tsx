@@ -150,6 +150,8 @@ export function AlertBanner({
           boxShadow:
             '0 7px 9px -4px rgba(0, 0, 0, 0.07), 0 14px 21px 2px rgba(0, 0, 0, 0.05), 0 5px 26px 4px rgba(0, 0, 0, 0.01)',
           '& .MuiAlert-icon': {
+            position: 'relative',
+            top: 1,
             '& svg': {
               width: 20,
               height: 20,
