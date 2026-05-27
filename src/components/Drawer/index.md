@@ -18,6 +18,7 @@ export default () => {
     <>
       <Button onClick={() => setOpen(true)}>Edit settings</Button>
       <Drawer
+        title="Setting"
         open={open}
         onClose={() => setOpen(false)}
         footer={
@@ -27,7 +28,6 @@ export default () => {
         }
       >
         <Stack sx={{ p: 2, py: 1, gap: 1 }}>
-          <strong>Settings</strong>
           <span>Update a few options and save when you’re done.</span>
         </Stack>
       </Drawer>
@@ -83,7 +83,7 @@ export default () => {
       <PromptDrawer
         open={open}
         onClose={() => setOpen(false)}
-        title="Dialog Title"
+        heading="Dialog Title"
         description="This is where your dialog message or instructions will appear. Keep it concise and relevant to the action being taken."
         actions={[
           {
@@ -145,23 +145,23 @@ export default () => {
 
 ### Drawer
 
-| Property   | Description                                                                                   | Type              | Default |
-| ---------- | --------------------------------------------------------------------------------------------- | ----------------- | ------- |
-| open       | Controls visibility                                                                           | `boolean`         | —       |
-| onClose    | Called when the drawer should close (mask click, escape, etc.)                                | `() => void`      | —       |
-| children   | Scrollable main content                                                                       | `ReactNode`       | —       |
-| title      | On typings only; `Drawer` does not read it — put headings in `children` or `slotProps.header` | `ReactNode`       | —       |
-| footer     | Optional sticky footer area below content                                                     | `ReactNode`       | —       |
-| fullDrawer | Full-height / flex layout on paper                                                            | `boolean`         | —       |
-| showHeader | Renders `DrawerHeader` (close row) when `true`                                                | `boolean`         | `true`  |
-| slotProps  | Slots: `container`, `header`, `content`, `footer` (see below)                                 | `DrawerSlotProps` | —       |
+| Property   | Description                                                    | Type              | Default |
+| ---------- | -------------------------------------------------------------- | ----------------- | ------- |
+| open       | Controls visibility                                            | `boolean`         | —       |
+| onClose    | Called when the drawer should close (mask click, escape, etc.) | `() => void`      | —       |
+| children   | Scrollable main content                                        | `ReactNode`       | —       |
+| title      | Centered heading in `DrawerHeader` when provided               | `ReactNode`       | —       |
+| footer     | Optional sticky footer area below content                      | `ReactNode`       | —       |
+| fullDrawer | Full-height / flex layout on paper                             | `boolean`         | —       |
+| showHeader | Renders `DrawerHeader` (close row) when `true`                 | `boolean`         | `true`  |
+| slotProps  | Slots: `container`, `header`, `content`, `footer` (see below)  | `DrawerSlotProps` | —       |
 
 #### `slotProps`
 
 | Slot        | Type / shape                                                    | Notes                                                                      |
 | ----------- | --------------------------------------------------------------- | -------------------------------------------------------------------------- |
 | `container` | `Omit<DrawerContainerProps, 'children' \| 'open' \| 'onClose'>` | `PaperProps`, `maskClosable`, `anchor`, `dialogProps`, `drawerProps`, etc. |
-| `header`    | `Omit<DrawerHeaderProps, 'title' \| 'onClose'>`                 | `closeButtonProps`, `sx`, `divider`, `titleProps`, adornments              |
+| `header`    | `Omit<DrawerHeaderProps, 'title' \| 'onClose'>`                 | `closeButtonProps`, `sx`, `divider`, `titleProps`                          |
 | `content`   | `{ sx?: SxProps<Theme> }`                                       | Main scroll area                                                           |
 | `footer`    | `{ sx?: SxProps<Theme>; contentSx?: SxProps<Theme> }`           | Footer wrapper and inner stack                                             |
 
@@ -176,12 +176,12 @@ export default () => {
 
 ### PromptDrawer
 
-`PromptDrawerProps` extends `Omit<DrawerProps, 'children' | 'footer'>` and adds prompt layout fields. All other `Drawer` props (`open`, `onClose`, `slotProps`, `fullDrawer`, `showHeader`, …) are forwarded. The implementation currently renders **`title`**, **`description`**, **`children`**, and **`footer`** only; extra fields on the type (e.g. `contentSx`, `onConfirm`) are not used by the component yet.
+`PromptDrawerProps` extends `Omit<DrawerProps, 'children' | 'footer'>` and adds prompt layout fields. All other `Drawer` props (`open`, `onClose`, `slotProps`, `fullDrawer`, `showHeader`, `title`, …) are forwarded. The implementation currently renders **`heading`**, **`description`**, **`children`**, and **`footer`** only; extra fields on the type (e.g. `contentSx`, `onConfirm`) are not used by the component yet.
 
 | Property      | Description                             | Type        | Default |
 | ------------- | --------------------------------------- | ----------- | ------- |
-| `title`       | Primary heading inside the prompt block | `ReactNode` | —       |
-| `description` | Secondary copy under `title`            | `ReactNode` | —       |
+| `heading`     | Primary heading inside the prompt block | `ReactNode` | —       |
+| `description` | Secondary copy under `heading`          | `ReactNode` | —       |
 | `children`    | Content after the description block     | `ReactNode` | —       |
 | `footer`      | e.g. `DrawerFooter` or custom actions   | `ReactNode` | —       |
 

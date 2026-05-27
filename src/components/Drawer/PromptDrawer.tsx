@@ -13,9 +13,9 @@ const PromptContent = styled(Stack, {
   gap: theme.spacing(1),
 }));
 
-const PromptTitle = styled(Typography, {
+const PromptHeading = styled(Typography, {
   name: 'PromptDrawer',
-  slot: 'title',
+  slot: 'heading',
 })(({ theme }) => ({
   fontSize: '1.5rem',
   fontWeight: 700,
@@ -31,7 +31,7 @@ const PromptDescription = styled(Typography, {
 }));
 
 export function PromptDrawer(props: PromptDrawerProps) {
-  const { title, description, children, actions, ...resetProps } = props;
+  const { heading, description, children, actions, ...resetProps } = props;
 
   return (
     <Drawer
@@ -39,7 +39,7 @@ export function PromptDrawer(props: PromptDrawerProps) {
       {...resetProps}
     >
       <PromptContent>
-        {title ? <PromptTitle>{title}</PromptTitle> : null}
+        {heading ? <PromptHeading>{heading}</PromptHeading> : null}
         {description ? (
           <PromptDescription>{description}</PromptDescription>
         ) : null}

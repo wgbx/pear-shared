@@ -35,6 +35,7 @@ export function Drawer({
   children,
   open,
   onClose,
+  title,
   footer,
   fullDrawer,
   slotProps,
@@ -48,6 +49,7 @@ export function Drawer({
   } = slotProps ?? {};
   const isDesktop = useIsDesktop();
   const borderRadius = 5;
+  const showDrawerHeader = showHeader || Boolean(title);
 
   return (
     <DrawerContainer
@@ -74,8 +76,12 @@ export function Drawer({
         },
       }}
     >
-      {showHeader ? (
-        <DrawerHeader onClose={onClose} {...headerSlotProps} />
+      {showDrawerHeader ? (
+        <DrawerHeader
+          title={title}
+          onClose={showHeader ? onClose : undefined}
+          {...headerSlotProps}
+        />
       ) : null}
 
       <DrawerContent sx={contentSlotProps?.sx}>{children}</DrawerContent>

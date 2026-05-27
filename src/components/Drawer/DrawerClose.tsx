@@ -1,4 +1,4 @@
-import { CloseFill } from '@mingcute/react';
+import { CloseLine } from '@mingcute/react';
 import { IconButton, styled, type IconButtonProps } from '@mui/material';
 import { type ReactElement } from 'react';
 
@@ -27,7 +27,7 @@ export function DrawerClose({
       aria-label="Close"
       {...closeButtonProps}
     >
-      <CloseFill style={{ width: 20, height: 20 }} />
+      <CloseLine style={{ width: 20, height: 20 }} />
     </StyledCloseButton>
   );
 }

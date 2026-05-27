@@ -11,9 +11,6 @@ import { type ReactNode } from 'react';
 
 export interface DrawerHeaderProps {
   title?: ReactNode;
-  action?: ReactNode;
-  startAdornment?: ReactNode;
-  endAdornment?: ReactNode;
   onClose?: () => void;
   divider?: 'border' | 'none';
   sx?: SxProps<Theme>;
@@ -94,7 +91,7 @@ export interface CustomDrawerProps extends Omit<DrawerProps, 'showHeader'> {
 
 export interface PromptDrawerProps
   extends Omit<DrawerProps, 'children' | 'footer'> {
-  title: ReactNode;
+  heading: ReactNode;
   description?: ReactNode;
   children?: ReactNode;
   actions?: DrawerActionItem[];
