@@ -19,17 +19,11 @@ import type { ComponentType, ReactElement, ReactNode } from 'react';
 
 import { AlertAction } from './AlertAction';
 
-export const AlertSeverity = [
-  'success',
-  'warning',
-  'info',
-  'error',
-] as const;
+export const AlertSeverity = ['success', 'warning', 'info', 'error'] as const;
 
-type AlertSeverityType = (typeof AlertSeverity)[number];
+type AlertSeverityType = typeof AlertSeverity[number];
 
-export interface CommonAlertBannerProps
-  extends Pick<SnackbarProps, 'onClose'> {
+export interface CommonAlertBannerProps extends Pick<SnackbarProps, 'onClose'> {
   icon?: ReactNode;
   sx?: SxProps;
   hideAfter?: number | null;
@@ -39,23 +33,19 @@ export interface CommonAlertBannerProps
   snackbarProps?: SnackbarProps;
 }
 
-export interface AlertBannerWithClose
-  extends CommonAlertBannerProps {
+export interface AlertBannerWithClose extends CommonAlertBannerProps {
   action?: never;
   bottomAction?: ReactNode;
   showClose?: boolean;
 }
 
-export interface AlertBannerWithAction
-  extends CommonAlertBannerProps {
+export interface AlertBannerWithAction extends CommonAlertBannerProps {
   action?: (onClose?: NonNullable<AlertProps['onClose']>) => ReactNode;
   showClose?: never;
   bottomAction?: ReactNode;
 }
 
-export type AlertBannerProps =
-  | AlertBannerWithClose
-  | AlertBannerWithAction;
+export type AlertBannerProps = AlertBannerWithClose | AlertBannerWithAction;
 
 const SEVERITY_CONFIG: Record<
   AlertSeverityType,
@@ -100,7 +90,11 @@ export function AlertBanner({
   hideAfter = 8,
   showClose = false,
 }: AlertBannerProps): ReactElement {
-  const { icon: DefaultIcon, backgroundColor, fontColor } = SEVERITY_CONFIG[severity];
+  const {
+    icon: DefaultIcon,
+    backgroundColor,
+    fontColor,
+  } = SEVERITY_CONFIG[severity];
 
   const handleClickAway = useMemoizedFn<
     NonNullable<ClickAwayListenerProps['onClickAway']>
@@ -155,6 +149,12 @@ export function AlertBanner({
           color: fontColor,
           boxShadow:
             '0 7px 9px -4px rgba(0, 0, 0, 0.07), 0 14px 21px 2px rgba(0, 0, 0, 0.05), 0 5px 26px 4px rgba(0, 0, 0, 0.01)',
+          '& .MuiAlert-icon': {
+            '& svg': {
+              width: 20,
+              height: 20,
+            },
+          },
           '& .MuiAlert-action': {
             pt: 0,
             margin: 0,
