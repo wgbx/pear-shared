@@ -19,7 +19,7 @@ This library relies on peer dependencies like React, MUI, Emotion, `jotai`, and 
 
 ## Global Alert Setup
 
-If you want to use `useAlert()` (and also `useCopyToClipboard()`), you must mount `AlertContainer` once in your app (typically at the root/layout level).
+If you want to use `useAlert()` (and also `useCopyToClipboard()`), mount `AlertContainer` once at the app root.
 
 ```tsx
 import { AlertContainer } from '@bosinc/shared';
@@ -30,6 +30,24 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
       <AlertContainer />
       {children}
     </>
+  );
+}
+```
+
+## Module State with JotaiProvider
+
+For complex business modules where multiple internal components share one API data source and need to stay in sync after CRUD — wrap the module root with `JotaiProvider` to avoid props drilling. See [JotaiProvider](/components/jotai-provider) for the full pattern.
+
+```tsx
+import { JotaiProvider } from '@bosinc/shared';
+
+export default function OrderModule() {
+  return (
+    <JotaiProvider>
+      <OrderModuleInit />
+      <OrderToolbar />
+      <OrderList />
+    </JotaiProvider>
   );
 }
 ```

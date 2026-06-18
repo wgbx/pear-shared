@@ -4,6 +4,7 @@ export * from './components/Collapse';
 export * from './components/Drawer';
 export * from './components/ExternalLink';
 export * from './components/IconToggle';
+export * from './components/JotaiProvider';
 export * from './components/ImageGroup';
 export * from './components/InfoBanner';
 export * from './components/Menu';

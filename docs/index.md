@@ -6,5 +6,5 @@ hero:
     - text: Quick Start
       link: /guide
     - text: Components
-      link: /components/external-link
+      link: /components/jotai-provider
 ---
