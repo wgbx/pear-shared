@@ -1,3 +1,7 @@
+---
+title: Selection
+---
+
 # Selection
 
 Selection feature for `PaginationList` / `PaginatedContainer` — single select, multi-select, select all page, select all total, and controlled mode.

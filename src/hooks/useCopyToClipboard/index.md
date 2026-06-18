@@ -1,3 +1,7 @@
+---
+title: useCopyToClipboard
+---
+
 # useCopyToClipboard
 
 Copies text to the clipboard and triggers an `Alert` on success or failure (requires `AlertContainer` to be mounted globally in your app).

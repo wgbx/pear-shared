@@ -1,3 +1,7 @@
+---
+title: StatusTag
+---
+
 # StatusTag
 
 A status tag component for displaying different status states with color-coded badges, built on MUI `Stack` and `Typography`.
@@ -81,11 +85,7 @@ export default () => {
   return (
     <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
       {Object.entries(eventStatusConfig).map(([key, config]) => (
-        <StatusTag
-          key={key}
-          type={config.type}
-          config={config}
-        />
+        <StatusTag key={key} type={config.type} config={config} />
       ))}
     </div>
   );
@@ -136,12 +136,12 @@ export default () => {
 
 ### StatusTagProps
 
-| Property  | Description                             | Type                                                       | Required | Default |
-| --------- | --------------------------------------- | ---------------------------------------------------------- | -------- | ------- |
+| Property  | Description                               | Type                                                       | Required | Default     |
+| --------- | ----------------------------------------- | ---------------------------------------------------------- | -------- | ----------- |
 | type      | Status type determining base color scheme | `'default' \| 'success' \| 'warning' \| 'error' \| 'info'` | `-`      | `'default'` |
-| label     | Display text for the tag                | `string`                                                   | `-`      | `-`     |
-| config    | Override config for `label/bgColor/color` | `{ label?: string; bgColor?: string; color?: string }`     | `-`      | `-`     |
-| slotProps | Slots props for customization           | `{ root?, text? }`                                         | `-`      | `-`     |
+| label     | Display text for the tag                  | `string`                                                   | `-`      | `-`         |
+| config    | Override config for `label/bgColor/color` | `{ label?: string; bgColor?: string; color?: string }`     | `-`      | `-`         |
+| slotProps | Slots props for customization             | `{ root?, text? }`                                         | `-`      | `-`         |
 
 ### Status Types
 

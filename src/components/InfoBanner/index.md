@@ -1,3 +1,7 @@
+---
+title: InfoBanner
+---
+
 # InfoBanner
 
 Displays an information banner container. You can quickly render text via `description`, or customize content via `children`.
@@ -36,9 +40,9 @@ export default () => {
 
 ### InfoBannerProps
 
-| Property | Description | Type | Required | Default |
-| --- | --- | --- | --- | --- |
-| children | Custom content; rendered when `description` is not provided | `ReactNode` | `-` | `-` |
-| description | Description text/node; takes priority when provided | `ReactNode` | `-` | `-` |
-| icon | Top-right icon component | `ComponentType<SVGProps<SVGSVGElement>>` | `-` | `BookmarkSquareIcon` |
-| slotProps | Props passed to each slot | `{ root?: StackProps; description?: TypographyProps; icon?: SVGProps<SVGSVGElement> }` | `-` | `-` |
+| Property    | Description                                                 | Type                                                                                   | Required | Default              |
+| ----------- | ----------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------- | -------------------- |
+| children    | Custom content; rendered when `description` is not provided | `ReactNode`                                                                            | `-`      | `-`                  |
+| description | Description text/node; takes priority when provided         | `ReactNode`                                                                            | `-`      | `-`                  |
+| icon        | Top-right icon component                                    | `ComponentType<SVGProps<SVGSVGElement>>`                                               | `-`      | `BookmarkSquareIcon` |
+| slotProps   | Props passed to each slot                                   | `{ root?: StackProps; description?: TypographyProps; icon?: SVGProps<SVGSVGElement> }` | `-`      | `-`                  |

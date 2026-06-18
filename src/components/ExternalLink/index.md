@@ -1,3 +1,7 @@
+---
+title: ExternalLink
+---
+
 # ExternalLink
 
 A component for rendering external links, built on MUI `Link` with style passthrough, opening in a new tab by default.
@@ -23,10 +27,9 @@ export default () => {
 
 ### ExternalLinkProps
 
-| Property | Description | Type | Required | Default |
-| --- | --- | --- | --- | --- |
-| children | Link display content | `ReactNode` | `✅` | `-` |
-| href | Link URL | `string` | `✅` | `-` |
-| target | How the link opens | `string` | `-` | `'_blank'` |
-| rel | Link relationship attribute | `string` | `-` | `'noopener noreferrer'` |
-
+| Property | Description                 | Type        | Required | Default                 |
+| -------- | --------------------------- | ----------- | -------- | ----------------------- |
+| children | Link display content        | `ReactNode` | `✅`     | `-`                     |
+| href     | Link URL                    | `string`    | `✅`     | `-`                     |
+| target   | How the link opens          | `string`    | `-`      | `'_blank'`              |
+| rel      | Link relationship attribute | `string`    | `-`      | `'noopener noreferrer'` |

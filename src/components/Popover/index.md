@@ -1,3 +1,7 @@
+---
+title: Popover
+---
+
 # Popover
 
 A popover component built on MUI `Popover` with custom styling. API is fully compatible with MUI Popover.

@@ -1,3 +1,7 @@
+---
+title: Tabs
+---
+
 # Tabs
 
 A controlled tabs strip built on MUI `Tabs` / `Tab`. Use `value` and `onChange` to switch the active tab. This component only renders the tab labels; render panel content yourself based on `value` (see Basic Usage).

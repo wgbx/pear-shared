@@ -1,3 +1,7 @@
+---
+title: Drawer
+---
+
 # Drawer
 
 Unified responsive drawer component that renders a `Dialog` on desktop and a `Drawer` on mobile.

@@ -1,3 +1,7 @@
+---
+title: Spin
+---
+
 # Spin
 
 A loading spinner component built with MUI CircularProgress, providing flexible loading states for your application.

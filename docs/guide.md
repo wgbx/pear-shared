@@ -52,6 +52,10 @@ export default function OrderModule() {
 }
 ```
 
+## Doc status
+
+Sidebar entries with a ⚠ icon are not ready yet — review before adopting.
+
 ## Shared
 
 For the full APIs and examples, please refer to the docs:

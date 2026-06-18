@@ -1,3 +1,7 @@
+---
+title: Collapse
+---
+
 # Collapse
 
 A compact expand/collapse block built on MUI `Stack`, `ButtonBase`, and `Collapse`. Pass a custom `trigger` node for the clickable header area, optional `actions` for the right side of the header row, and `children` for the animated content panel.

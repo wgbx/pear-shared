@@ -1,3 +1,7 @@
+---
+title: IconToggle
+---
+
 # IconToggle
 
 A generic and highly reusable toggle component that can be customized with any options and icons. Supports both controlled and uncontrolled usage.

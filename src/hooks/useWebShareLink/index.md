@@ -1,3 +1,7 @@
+---
+title: useWebShareLink
+---
+
 # useWebShareLink
 
 Silently copies `url`, then calls `navigator.share` inside a user gesture. Shows success or failure via global `Alert` based on copy and share outcomes.

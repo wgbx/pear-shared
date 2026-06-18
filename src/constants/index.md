@@ -1,11 +1,15 @@
+---
+title: Constants
+---
+
 ## StatusTag Map
 
 `STATUS_TAG_MAP`
 
-| Key | Value |
-| --- | --- |
+| Key       | Value     |
+| --------- | --------- |
 | `DEFAULT` | `default` |
 | `SUCCESS` | `success` |
 | `WARNING` | `warning` |
-| `ERROR` | `error` |
-| `INFO` | `info` |
+| `ERROR`   | `error`   |
+| `INFO`    | `info`    |

@@ -1,3 +1,7 @@
+---
+title: TextAlignToggle
+---
+
 # TextAlignToggle
 
 A toggle component for text alignment selection (left, center, right). Supports both controlled and uncontrolled usage.
@@ -54,9 +58,9 @@ export default function DemoSpecificOptions() {
 
   return (
     <div>
-      <TextAlignToggle 
-        value={align} 
-        onChange={setAlign} 
+      <TextAlignToggle
+        value={align}
+        onChange={setAlign}
         options={[TextAlign.LEFT, TextAlign.RIGHT]} // Only show left and right
       />
     </div>
@@ -103,22 +107,22 @@ export default function DemoCustomStyles() {
 
 ### TextAlignToggle Props
 
-| Property     | Description                           | Type                         | Required | Default                     |
-| ------------ | ------------------------------------- | ---------------------------- | -------- | --------------------------- |
-| value        | Controlled value                      | `TextAlign`                  | `-`      | `-`                         |
-| onChange     | Callback when value changes           | `(value: TextAlign) => void` | `-`      | `-`                         |
-| defaultValue | Initial value for uncontrolled mode   | `TextAlign`                  | `-`      | `'left'`                    |
-| options      | Restrict the displayed options        | `TextAlign[]`                | `-`      | `[LEFT, CENTER, RIGHT]`     |
-| slotProps    | Optional slot props for customization | `SlotProps`                  | `-`      | `-`                         |
-| disabled     | Disable all buttons                   | `boolean`                    | `-`      | `false`                     |
+| Property     | Description                           | Type                         | Required | Default                 |
+| ------------ | ------------------------------------- | ---------------------------- | -------- | ----------------------- |
+| value        | Controlled value                      | `TextAlign`                  | `-`      | `-`                     |
+| onChange     | Callback when value changes           | `(value: TextAlign) => void` | `-`      | `-`                     |
+| defaultValue | Initial value for uncontrolled mode   | `TextAlign`                  | `-`      | `'left'`                |
+| options      | Restrict the displayed options        | `TextAlign[]`                | `-`      | `[LEFT, CENTER, RIGHT]` |
+| slotProps    | Optional slot props for customization | `SlotProps`                  | `-`      | `-`                     |
+| disabled     | Disable all buttons                   | `boolean`                    | `-`      | `false`                 |
 
 ### SlotProps
 
-| Property | Description              | Type               |
-| -------- | ------------------------ | ------------------ |
-| root     | Root ButtonGroup props   | `ButtonGroupProps` |
-| button   | Individual button props  | `IconButtonProps`  |
-| icon     | Icon props               | `SvgIconProps`     |
+| Property | Description             | Type               |
+| -------- | ----------------------- | ------------------ |
+| root     | Root ButtonGroup props  | `ButtonGroupProps` |
+| button   | Individual button props | `IconButtonProps`  |
+| icon     | Icon props              | `SvgIconProps`     |
 
 ### TextAlign Enum
 

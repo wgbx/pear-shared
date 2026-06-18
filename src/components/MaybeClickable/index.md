@@ -1,3 +1,7 @@
+---
+title: MaybeClickable
+---
+
 # MaybeClickable
 
 Wraps content with optional click behavior. When `onClick` is a function, it shows a pointer cursor.

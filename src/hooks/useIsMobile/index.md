@@ -1,3 +1,7 @@
+---
+title: useIsMobile
+---
+
 # useIsMobile
 
 Returns whether the current viewport width is below MUI's `md` breakpoint.

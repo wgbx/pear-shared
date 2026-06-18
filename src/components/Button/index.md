@@ -1,3 +1,7 @@
+---
+title: Button
+---
+
 # Button
 
 Shared button wrapper based on MUI `Button`, with built-in `textTransform: none` and support for `label` + `icon`.

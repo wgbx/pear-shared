@@ -1,3 +1,7 @@
+---
+title: ImageGroup
+---
+
 # ImageGroup
 
 Displays a row of square thumbnails. When `items.length > max`, the overflow count is rendered as an overlay on the last visible item (e.g. `10+`).

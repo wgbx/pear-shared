@@ -1,3 +1,7 @@
+---
+title: Menu
+---
+
 # Menu
 
 Dropdown menu built on MUI `Menu` and `MenuItem`, with grouped items and optional per-item `autoClose`.

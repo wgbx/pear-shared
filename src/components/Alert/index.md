@@ -1,3 +1,7 @@
+---
+title: Alert
+---
+
 # Alert
 
 An alert component built on `jotai` + MUI. Call `useAlert()` to trigger alerts.

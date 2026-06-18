@@ -1,3 +1,7 @@
+---
+title: Tooltip
+---
+
 # Tooltip
 
 Displays informative content when users hover over, focus on, or tap an element. Built on MUI `Tooltip` with custom styling.

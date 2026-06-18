@@ -1,3 +1,7 @@
+---
+title: useIsDesktop
+---
+
 # useIsDesktop
 
 Returns whether the current viewport width is at or above a given MUI breakpoint.

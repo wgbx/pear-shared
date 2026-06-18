@@ -1,3 +1,8 @@
+---
+title: PaginationList
+docStatus: risky
+---
+
 # PaginationList
 
 Paginated list component with built-in loading overlay, error/empty states, and state persistence. Wraps `PaginatedContainer` from `@pear/pagination-kit` and adapts a standard `apiFunction` into paginated data fetching.
