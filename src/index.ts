@@ -7,6 +7,7 @@ export * from './components/IconToggle';
 export * from './components/JotaiProvider';
 export * from './components/ImageGroup';
 export * from './components/InfoBanner';
+export * from './components/ManageButton';
 export * from './components/Menu';
 export * from './components/MaybeClickable';
 export * from './components/Popover';
