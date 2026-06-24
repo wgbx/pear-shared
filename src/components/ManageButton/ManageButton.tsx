@@ -17,10 +17,9 @@ const StyledIconButton = styled(IconButton, {
   name: 'ManageButton',
   slot: 'root',
 })(({ theme }) => ({
-  width: 32,
-  height: 32,
+  fontSize: '1.5rem',
   borderRadius: theme.spacing(0.75),
-  color: theme.palette.shades[500],
+  color: theme.palette.shades[900],
   '&:hover': {
     color: theme.palette.shades[800],
     backgroundColor: theme.palette.shades[100],

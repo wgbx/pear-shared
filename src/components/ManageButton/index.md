@@ -20,10 +20,7 @@ export default () => {
   return (
     <Stack sx={{ gap: 2, flexDirection: 'row', alignItems: 'center' }}>
       <span>Custom Form</span>
-      <ManageButton
-        tooltip="Manage tooltip"
-        onClick={() => alert('open drawer')}
-      />
+      <ManageButton onClick={() => alert('open drawer')} />
     </Stack>
   );
 };
@@ -62,6 +59,7 @@ export default () => {
       <Typography>Shipping Options</Typography>
       <ManageButton
         onClick={() => alert('open drawer')}
+        tooltip="Tooltip"
         tooltipProps={{
           placement: 'bottom',
           description: 'Configure shipping methods and fees',
