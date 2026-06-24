@@ -7,7 +7,6 @@ import {
   styled,
 } from '@mui/material';
 import { Settings5Line } from '@mingcute/react';
-import { useMemoizedFn } from 'ahooks';
 import type { ElementType, ReactNode } from 'react';
 
 import { Tooltip } from '../Tooltip';
@@ -55,27 +54,15 @@ export interface ManageButtonProps
 export function ManageButton({
   Icon = Settings5Line,
   tooltip,
-  onClick,
   iconProps,
   tooltipProps,
-  disabled,
   size = 'small',
   sx,
   ...restProps
 }: ManageButtonProps): ReactNode {
-  const handleClick = useMemoizedFn(
-    (event: React.MouseEvent<HTMLButtonElement>) => {
-      if (!disabled) {
-        onClick?.(event);
-      }
-    },
-  );
-
   const button = (
     <StyledIconButton
-      aria-label={typeof tooltip === 'string' ? tooltip : 'Manage'}
-      disabled={disabled}
-      onClick={handleClick}
+      aria-label={typeof tooltip === 'string' ? tooltip : 'ManageButton'}
       size={size}
       sx={sx}
       {...restProps}
