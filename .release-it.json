@@ -7,6 +7,7 @@
   },
   "github": {
     "release": true,
-    "releaseBody": "Release of version ${version}"
+    "releaseBody": "Release of version ${version}",
+    "tokenRef": "NPM_TOKEN"
   }
 }
