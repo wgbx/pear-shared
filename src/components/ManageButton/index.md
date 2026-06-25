@@ -4,13 +4,15 @@ title: ManageButton
 
 # ManageButton
 
-A reusable icon button with tooltip, designed for compact "Manage" actions alongside form controls (e.g., checkboxes, switches). Replaces text-based "Manage" links with a small icon button that shows a tooltip on desktop hover. Defaults to a `Settings5Line` icon.
+A reusable icon button with tooltip, designed for compact "Manage" actions alongside form controls (e.g., checkboxes, switches). Replaces text-based "Manage" links with a small icon button that shows a tooltip on **desktop hover only**. Defaults to a `Settings5Line` icon.
+
+> **Note:** The tooltip is displayed only on devices that support hover (PC/desktop). On touch devices (mobile), only the icon button is rendered without a tooltip.
 
 ## Examples
 
 ### Basic usage
 
-No need to pass `Icon` — defaults to `Settings5Line`.
+No need to pass `tooltip` — defaults to `"Manage"`. On desktop, hovering shows the "Manage" tooltip.
 
 ```tsx
 import { ManageButton } from '@bosinc/shared';
@@ -73,6 +75,8 @@ export default () => {
 ```
 
 ### Disable tooltip
+
+Pass `tooltip={false}` to completely disable the tooltip on all devices.
 
 ```tsx
 import { ManageButton } from '@bosinc/shared';
@@ -214,9 +218,9 @@ export default () => {
 
 ### ManageButtonProps (extends MUI IconButtonProps)
 
-| Property     | Description                                                                  | Type                             | Required | Default         |
-| ------------ | ---------------------------------------------------------------------------- | -------------------------------- | -------- | --------------- |
-| Icon         | The icon to render                                                           | `ElementType<SvgIconProps>`      | `-`      | `Settings5Line` |
-| tooltip      | Tooltip text on desktop hover. Omit or pass `false` to disable               | `ReactNode \| false`             | `-`      | `-`             |
-| iconProps    | Additional props forwarded to the icon element                               | `SvgIconProps`                   | `-`      | `-`             |
-| tooltipProps | Props forwarded to the wrapping `Tooltip`. Ignored when `tooltip` is `false` | `Omit<TooltipProps, 'children'>` | `-`      | `-`             |
+| Property     | Description                                                                                      | Type                             | Required | Default         |
+| ------------ | ------------------------------------------------------------------------------------------------ | -------------------------------- | -------- | --------------- |
+| Icon         | The icon to render                                                                               | `ElementType<SvgIconProps>`      | `-`      | `Settings5Line` |
+| tooltip      | Tooltip text on desktop hover only. Defaults to `"Manage"`. Pass `false` to disable              | `ReactNode \| false`             | `-`      | `"Manage"`      |
+| iconProps    | Additional props forwarded to the icon element                                                   | `SvgIconProps`                   | `-`      | `-`             |
+| tooltipProps | Props forwarded to the wrapping `Tooltip`. Ignored when `tooltip` is `false` or on touch devices | `Omit<TooltipProps, 'children'>` | `-`      | `-`             |

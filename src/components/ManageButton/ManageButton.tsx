@@ -5,6 +5,7 @@ import {
   type IconButtonProps,
   type SvgIconProps,
   styled,
+  useMediaQuery,
 } from '@mui/material';
 import { Settings5Line } from '@mingcute/react';
 import type { ElementType, ReactNode } from 'react';
@@ -43,7 +44,7 @@ export interface ManageButtonProps
   extends Omit<IconButtonProps, 'title' | 'children'> {
   /** The icon to render. Defaults to `Settings5Line`. */
   Icon?: ElementType<SvgIconProps>;
-  /** Tooltip text shown on PC hover. Omit or pass `false` to disable tooltip. */
+  /** Tooltip text shown on PC hover. Defaults to `"Manage"`. Pass `false` to disable. */
   tooltip?: ReactNode | false;
   /** Additional props forwarded to the icon element. */
   iconProps?: SvgIconProps;
@@ -53,13 +54,15 @@ export interface ManageButtonProps
 
 export function ManageButton({
   Icon = Settings5Line,
-  tooltip,
+  tooltip = 'Manage',
   iconProps,
   tooltipProps,
   size = 'small',
   sx,
   ...restProps
 }: ManageButtonProps): ReactNode {
+  const isTouchDevice = useMediaQuery('(hover: none)');
+
   const button = (
     <StyledIconButton
       aria-label={typeof tooltip === 'string' ? tooltip : 'ManageButton'}
@@ -71,7 +74,8 @@ export function ManageButton({
     </StyledIconButton>
   );
 
-  if (!tooltip) {
+  // No tooltip on touch devices or when explicitly disabled
+  if (!tooltip || isTouchDevice) {
     return button;
   }
 
