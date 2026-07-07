@@ -16,6 +16,22 @@ title: Constants
 
 ## Cloudinary Quality
 
+`CLOUDINARY_CLOUD_NAME`
+
+Default Cloudinary cloud name (`dr9io1zjv`). Override with `NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME`.
+
+`CLOUDINARY_IMAGE_UPLOAD_PATH_PART` / `CLOUDINARY_VIDEO_UPLOAD_PATH_PART`
+
+Path segments used when normalizing Cloudinary upload URLs.
+
+`C_FIT_MAX_DIMENSION`
+
+When `c_fit` width or height exceeds this value (default `200`), optimization skips `w_`/`h_` to avoid soft images with CSS `object-fit: cover`.
+
+`C_FIT_RETINA_DPR`
+
+Default device pixel ratio (`2`) applied to small `c_fit` thumbnails.
+
 `CLOUDINARY_QUALITY_AUTO`
 
 The value `auto`, corresponding to `q_auto` in the Cloudinary URL, which enables the intelligent quality and encoding algorithms.

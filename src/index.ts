@@ -20,9 +20,11 @@ export * from './components/Tabs';
 export * from './hooks/useCopyToClipboard';
 export * from './hooks/useIsDesktop';
 export * from './hooks/useIsMobile';
+export * from './hooks/useOptimizedImageUrl';
 export * from './hooks/useWebShareLink';
 
 export * from './constants';
 
 export * from './utils/numeric';
 export * from './utils/function';
+export * from './utils/image';

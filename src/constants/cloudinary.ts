@@ -17,15 +17,25 @@
  */
 export const CLOUDINARY_QUALITY_AUTO = 'auto' as const;
 
+/** Default Cloudinary cloud name; override via `NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME`. */
+export const CLOUDINARY_CLOUD_NAME = 'dr9io1zjv';
+
+export const CLOUDINARY_IMAGE_UPLOAD_PATH_PART = '/image/upload/';
+
+export const CLOUDINARY_VIDEO_UPLOAD_PATH_PART = '/video/upload/';
+
+/** c_fit above this width/height looks soft with CSS `object-fit: cover` — skip `w_`/`h_`.*/
+export const C_FIT_MAX_DIMENSION = 200;
+
+/** Retina DPR for small-card c_fit URLs (`w_` stays at CSS display size). */
+export const C_FIT_RETINA_DPR = 2;
+
 export const CLOUDINARY_QUALITY_MODE = {
-  /** Optimal balance between file size and visual quality. Defaults to `auto:good`, but may automatically switch to the more aggressive `auto:eco` mode. */
   AUTO: 'auto',
-  /** Less aggressive algorithm. Produces larger files but better visual quality. Target audience: photography sites showcasing high-quality images. */
   BEST: 'auto:best',
-  /** Relatively small file size while maintaining good visual quality. */
+
   GOOD: 'auto:good',
-  /** More aggressive algorithm. Produces smaller files with slightly reduced visual quality. Target audience: high-traffic sites and social networks. */
+
   ECO: 'auto:eco',
-  /** Most aggressive algorithm. Produces the smallest files with lower visual quality. Target audience: sites using thumbnails that link to higher-quality images. */
   LOW: 'auto:low',
 } as const;

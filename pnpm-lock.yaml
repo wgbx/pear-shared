@@ -36,6 +36,9 @@ importers:
         specifier: 19.2.4
         version: 19.2.4(react@19.2.4)
     devDependencies:
+      '@cloudinary/url-gen':
+        specifier: 1.21.0
+        version: 1.21.0
       '@commitlint/cli':
         specifier: 17.1.2
         version: 17.1.2(@swc/core@1.9.2(@swc/helpers@0.5.15))
@@ -793,6 +796,12 @@ packages:
 
   '@bloomberg/record-tuple-polyfill@0.0.4':
     resolution: {integrity: sha512-h0OYmPR3A5Dfbetra/GzxBAzQk8sH7LhRkRUTdagX6nrtlUgJGYCTv4bBK33jsTQw9HDd8PE2x1Ma+iRKEDUsw==}
+
+  '@cloudinary/transformation-builder-sdk@1.21.2':
+    resolution: {integrity: sha512-ehOgKUaP+Nvuf7B0TosmB8iilL0kdiVjzjl8tIK06cjvsNnwSJI3xP9nEJmKkvqNxwwFwvYXT+mxUTqnSv9JOA==}
+
+  '@cloudinary/url-gen@1.21.0':
+    resolution: {integrity: sha512-ctYcCzX3G3vcgnESTU2ET3K1XsBiXcEnBddCGV0QbR3fJhLLrIShjSMEwZoepgh4LAFOHJu9DzvLFr+E8R7c7g==}
 
   '@commitlint/cli@17.1.2':
     resolution: {integrity: sha512-h/4Hlka3bvCLbnxf0Er2ri5A44VMlbMSkdTRp8Adv2tRiklSTRIoPGs7OEXDv3EoDs2AAzILiPookgM4Gi7LOw==}
@@ -9661,6 +9670,14 @@ snapshots:
       '@babel/helper-validator-identifier': 7.28.5
 
   '@bloomberg/record-tuple-polyfill@0.0.4': {}
+
+  '@cloudinary/transformation-builder-sdk@1.21.2':
+    dependencies:
+      '@cloudinary/url-gen': 1.21.0
+
+  '@cloudinary/url-gen@1.21.0':
+    dependencies:
+      '@cloudinary/transformation-builder-sdk': 1.21.2
 
   '@commitlint/cli@17.1.2(@swc/core@1.9.2(@swc/helpers@0.5.15))':
     dependencies:
