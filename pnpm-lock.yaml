@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@cloudinary/url-gen':
+        specifier: 1.21.0
+        version: 1.21.0
       '@emotion/react':
         specifier: 11.13.3
         version: 11.13.3(@types/react@19.2.4)(react@19.2.4)
@@ -36,9 +39,6 @@ importers:
         specifier: 19.2.4
         version: 19.2.4(react@19.2.4)
     devDependencies:
-      '@cloudinary/url-gen':
-        specifier: 1.21.0
-        version: 1.21.0
       '@commitlint/cli':
         specifier: 17.1.2
         version: 17.1.2(@swc/core@1.9.2(@swc/helpers@0.5.15))
