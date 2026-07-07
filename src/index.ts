@@ -5,6 +5,7 @@ export * from './components/Drawer';
 export * from './components/ExternalLink';
 export * from './components/IconToggle';
 export * from './components/JotaiProvider';
+export * from './components/Image';
 export * from './components/ImageGroup';
 export * from './components/InfoBanner';
 export * from './components/ManageButton';
