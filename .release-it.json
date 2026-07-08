@@ -1,6 +1,7 @@
 {
   "git": {
-    "requireCleanWorkingDir": false
+    "requireCleanWorkingDir": false,
+    "commitMessage": "chore(release): ${version}"
   },
   "hooks": {
     "after:bump": ["pnpm run build"]
@@ -8,6 +9,7 @@
   "github": {
     "release": true,
     "releaseBody": "Release of version ${version}",
-    "tokenRef": "NPM_TOKEN"
+    "tokenRef": "NPM_TOKEN",
+    "host": "github.com"
   }
 }
