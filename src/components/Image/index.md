@@ -6,6 +6,8 @@ title: Image
 
 Cloudinary-optimized `<img>` with automatic fallback when `src` is missing or fails to load.
 
+Without `width` / `height`, Cloudinary URLs are optimized with `c_scale,w_1024` (`C_DEFAULT_SCALE_WIDTH`). Pass dimensions to control download size for thumbnails (≤150px uses `c_fit` + 2x DPR).
+
 ## Examples
 
 ### Thumbnail

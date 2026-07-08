@@ -26,11 +26,15 @@ Path segments used when normalizing Cloudinary upload URLs.
 
 `C_FIT_MAX_DIMENSION`
 
-When `c_fit` width or height exceeds this value (default `200`), optimization skips `w_`/`h_` to avoid soft images with CSS `object-fit: cover`.
+When `c_fit` width or height exceeds this value (default `150`), optimization skips `w_`/`h_` to avoid soft images with CSS `object-fit: cover`.
 
 `C_FIT_RETINA_DPR`
 
 Default device pixel ratio (`2`) applied to small `c_fit` thumbnails.
+
+`C_DEFAULT_SCALE_WIDTH`
+
+Default `c_scale` width (`1024`) when no dimensions are provided. Matches katana `ImageWithFallback` fallback optimization.
 
 `CLOUDINARY_QUALITY_AUTO`
 

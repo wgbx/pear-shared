@@ -8,16 +8,17 @@ Cloudinary image URL optimization for web delivery.
 
 ## optimizeImageUrl
 
-Single entry point. Small dimensions (≤ `C_FIT_MAX_DIMENSION`) use `c_fit` with retina DPR; larger sizes apply format + quality only to avoid soft images with CSS `object-fit: cover`.
+Single entry point. Without dimensions, uses `c_scale` at `C_DEFAULT_SCALE_WIDTH` (1024). Small dimensions (≤ `C_FIT_MAX_DIMENSION`) use `c_fit` with retina DPR; larger explicit sizes apply format + quality only to avoid soft images with CSS `object-fit: cover`.
 
 ```ts
 import {
   CLOUDINARY_QUALITY_MODE,
+  C_DEFAULT_SCALE_WIDTH,
   C_FIT_MAX_DIMENSION,
   optimizeImageUrl,
 } from '@bosinc/shared';
 
-// Format + quality only
+// c_scale w_1024 (default when no dimensions)
 optimizeImageUrl(src);
 
 // Thumbnail @2x DPR
@@ -48,4 +49,4 @@ optimizeImageUrl(src, { width: 4096, strategy: 'scale' });
 
 ## Constants
 
-See [Constants](/constants) for `CLOUDINARY_QUALITY_MODE`, `C_FIT_MAX_DIMENSION`, `C_FIT_RETINA_DPR`, and CDN path parts.
+See [Constants](/constants) for `CLOUDINARY_QUALITY_MODE`, `C_DEFAULT_SCALE_WIDTH`, `C_FIT_MAX_DIMENSION`, `C_FIT_RETINA_DPR`, and CDN path parts.

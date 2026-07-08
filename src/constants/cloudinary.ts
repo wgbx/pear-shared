@@ -25,17 +25,18 @@ export const CLOUDINARY_IMAGE_UPLOAD_PATH_PART = '/image/upload/';
 export const CLOUDINARY_VIDEO_UPLOAD_PATH_PART = '/video/upload/';
 
 /** c_fit above this width/height looks soft with CSS `object-fit: cover` — skip `w_`/`h_`.*/
-export const C_FIT_MAX_DIMENSION = 200;
+export const C_FIT_MAX_DIMENSION = 150;
 
 /** Retina DPR for small-card c_fit URLs (`w_` stays at CSS display size). */
 export const C_FIT_RETINA_DPR = 2;
 
+/** Default `c_scale` width when no dimensions are provided (matches katana `ImageWithFallback`). */
+export const C_DEFAULT_SCALE_WIDTH = 1024;
+
 export const CLOUDINARY_QUALITY_MODE = {
   AUTO: 'auto',
   BEST: 'auto:best',
-
   GOOD: 'auto:good',
-
   ECO: 'auto:eco',
   LOW: 'auto:low',
 } as const;

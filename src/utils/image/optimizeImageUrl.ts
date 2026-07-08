@@ -2,6 +2,7 @@ import { Cloudinary } from '@cloudinary/url-gen';
 import { Delivery, Resize } from '@cloudinary/url-gen/actions';
 
 import {
+  C_DEFAULT_SCALE_WIDTH,
   C_FIT_MAX_DIMENSION,
   C_FIT_RETINA_DPR,
   CLOUDINARY_CLOUD_NAME,
@@ -93,8 +94,8 @@ function buildUrl(
  * Optimize a Cloudinary image URL for web delivery.
  *
  * - Non-Cloudinary URLs, GIFs, and videos pass through unchanged.
- * - Without dimensions, or when either dimension exceeds {@link C_FIT_MAX_DIMENSION},
- *   applies format + quality only (no `w_`/`h_`).
+ * - Without dimensions, applies `c_scale` at {@link C_DEFAULT_SCALE_WIDTH} (1024).
+ * - When either dimension exceeds {@link C_FIT_MAX_DIMENSION}, applies format + quality only.
  * - Small dimensions use `c_fit` with retina DPR by default.
  */
 export function optimizeImageUrl(src: string, options?: OptimizeImageOptions) {
@@ -110,7 +111,15 @@ export function optimizeImageUrl(src: string, options?: OptimizeImageOptions) {
   const { width, height, strategy = 'fit' } = options ?? {};
   const hasDimensions = width !== undefined || height !== undefined;
 
-  if (!hasDimensions || exceedsFitLimit(width, height)) {
+  if (!hasDimensions) {
+    return buildUrl(src, {
+      width: C_DEFAULT_SCALE_WIDTH,
+      quality,
+      crop: 'scale',
+    });
+  }
+
+  if (exceedsFitLimit(width, height)) {
     return buildUrl(src, { quality });
   }
 
