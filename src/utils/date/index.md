@@ -15,6 +15,7 @@ Common date-fns format pattern constants.
 | `MONTH_DAY_YEAR`          | `MMM dd, yyyy`        | `Mar 09, 2025`        |
 | `MONTH_DAY_YEAR_NO_COMMA` | `MMM dd yyyy`         | `Mar 09 2025`         |
 | `SLASH_NUMERIC`           | `MM/dd/yyyy`          | `03/09/2025`          |
+| `SLASH_DATE_WITH_TZ`      | `yyyy/MM/dd (zzz)`    | `2026/06/10 (PDT)`    |
 | `ISO_DATE`                | `yyyy-MM-dd`          | `2025-03-09`          |
 | `DATETIME`                | `yyyy-MM-dd HH:mm`    | `2025-03-09 14:30`    |
 | `DATETIME_SECONDS`        | `yyyy-MM-dd HH:mm:ss` | `2025-03-09 14:30:45` |
@@ -93,13 +94,12 @@ Format a date in a specific IANA timezone. Returns `''` for invalid input. Requi
 **Returns:** `string`
 
 ```ts
-import { DATE_FORMAT, formatDateInTimeZone, TIMEZONE } from '@bosinc/shared';
+import { DATE_FORMAT, formatDateInTimeZone } from '@bosinc/shared';
 
-formatDateInTimeZone('2025-03-09T14:30:00Z'); // default PST + DATETIME
-formatDateInTimeZone('2025-03-09T14:30:00Z', {
-  timeZone: TIMEZONE.AMERICA_LOS_ANGELES,
-  format: DATE_FORMAT.DATETIME,
-});
+formatDateInTimeZone('2025-03-09T14:30:00Z'); // default America/Los_Angeles + DATETIME
+formatDateInTimeZone('2026-06-10T12:00:00Z', {
+  format: DATE_FORMAT.SLASH_DATE_WITH_TZ,
+}); // '2026/06/10 (PDT)'
 ```
 
 ## utcToZonedDate
@@ -115,12 +115,9 @@ Convert a UTC date to a `Date` in the target timezone. Requires `date-fns-tz`.
 **Returns:** `Date | null`
 
 ```ts
-import { TIMEZONE, utcToZonedDate } from '@bosinc/shared';
+import { utcToZonedDate } from '@bosinc/shared';
 
-utcToZonedDate('2025-03-09T14:30:00Z');
-utcToZonedDate('2025-03-09T14:30:00Z', {
-  timeZone: TIMEZONE.AMERICA_LOS_ANGELES,
-});
+utcToZonedDate('2025-03-09T14:30:00Z'); // default America/Los_Angeles
 ```
 
 ## zonedToUtc

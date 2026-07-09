@@ -8,6 +8,8 @@ export const DATE_FORMAT = {
   MONTH_DAY_YEAR_NO_COMMA: 'MMM dd yyyy',
   /** `03/09/2025` */
   SLASH_NUMERIC: 'MM/dd/yyyy',
+  /** `2026/06/10 (PDT)` — use with `formatDateInTimeZone` */
+  SLASH_DATE_WITH_TZ: 'yyyy/MM/dd (zzz)',
   /** `2025-03-09` */
   ISO_DATE: 'yyyy-MM-dd',
   /** `2025-03-09 14:30` */

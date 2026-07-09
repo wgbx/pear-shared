@@ -13,12 +13,12 @@ import type { DateInput, FormatDateInTimeZoneOptions } from './types';
  *
  * @example
  * ```ts
- * import { formatDateInTimeZone, TIMEZONE } from '@bosinc/shared';
+ * import { DATE_FORMAT, formatDateInTimeZone } from '@bosinc/shared';
  *
- * formatDateInTimeZone('2025-03-09T14:30:00Z') // default PST + DATETIME
- * formatDateInTimeZone('2025-03-09T14:30:00Z', {
- *   timeZone: TIMEZONE.AMERICA_LOS_ANGELES,
- * })
+ * formatDateInTimeZone('2025-03-09T14:30:00Z') // default America/Los_Angeles + DATETIME
+ * formatDateInTimeZone('2026-06-10T12:00:00Z', {
+ *   format: DATE_FORMAT.SLASH_DATE_WITH_TZ,
+ * }) // '2026/06/10 (PDT)'
  * ```
  */
 export function formatDateInTimeZone(
