@@ -6,6 +6,69 @@ title: function
 
 Function and promise utilities: type guards and helpers for working with settled promise results.
 
+## isUndefined
+
+Check whether a value is `undefined`.
+
+```ts
+import { isUndefined } from '@bosinc/shared';
+
+isUndefined(undefined); // true
+isUndefined(null); // false
+```
+
+## isNull
+
+Check whether a value is `null`.
+
+```ts
+import { isNull } from '@bosinc/shared';
+
+isNull(null); // true
+isNull(undefined); // false
+```
+
+## isNil
+
+Check whether a value is `null` or `undefined`.
+
+```ts
+import { isNil } from '@bosinc/shared';
+
+isNil(null); // true
+isNil(undefined); // true
+isNil(0); // false
+isNil(''); // false
+```
+
+## isEmpty
+
+Check whether a value is empty (`null`, `undefined`, `''`, `[]`, or `{}`).
+
+> **Note:** `null` and `undefined` are treated as empty. This differs from Ramda's `isEmpty`, which returns `false` for both. Use `isNil` when you only need to check for missing values without treating `''`, `[]`, or `{}` as empty.
+
+```ts
+import { isEmpty } from '@bosinc/shared';
+
+isEmpty(null); // true
+isEmpty(undefined); // true
+isEmpty(''); // true
+isEmpty([]); // true
+isEmpty({}); // true
+isEmpty(0); // false
+```
+
+## isString
+
+Check whether a value is a string.
+
+```ts
+import { isString } from '@bosinc/shared';
+
+isString('foo'); // true
+isString(42); // false
+```
+
 ## isFunction
 
 Check whether a value is a function. Useful as a type guard before invoking an optional callback.
