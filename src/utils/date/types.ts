@@ -12,6 +12,12 @@ export interface FormatDateInTimeZoneOptions extends FormatDateOptions {
   timeZone?: TimezoneId | string;
 }
 
+export interface FormatLocalizedDateInTimeZoneOptions
+  extends FormatDateInTimeZoneOptions {
+  /** BCP 47 locale tag(s). Default: `'default'` */
+  locale?: string | string[];
+}
+
 export interface ZonedDateOptions {
   /** IANA timezone ID. Default: `DEFAULT_TIMEZONE` */
   timeZone?: TimezoneId | string;

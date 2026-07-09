@@ -102,6 +102,26 @@ formatDateInTimeZone('2026-06-10T12:00:00Z', {
 }); // '2026/06/10 (PDT)'
 ```
 
+## formatLocalizedDateInTimeZone
+
+Format a date with a locale-aware date and timezone abbreviation (e.g. `06/10/2026 (PDT)`). Returns `''` for invalid input. Requires `date-fns-tz` for the abbreviation.
+
+| Param            | Description    | Type                       | Required | Default                        |
+| ---------------- | -------------- | -------------------------- | -------- | ------------------------------ |
+| value            | Date to format | `Date \| number \| string` | `✅`     | `-`                            |
+| options          | Format options | `object`                   | `-`      | `-`                            |
+| options.locale   | BCP 47 locale  | `string \| string[]`       | `-`      | `'default'`                    |
+| options.timeZone | IANA timezone  | `string`                   | `-`      | `TIMEZONE.AMERICA_LOS_ANGELES` |
+
+**Returns:** `string`
+
+```ts
+import { formatLocalizedDateInTimeZone } from '@bosinc/shared';
+
+formatLocalizedDateInTimeZone('2026-06-10T12:00:00Z'); // browser locale + default timezone
+formatLocalizedDateInTimeZone('2026-06-10T12:00:00Z', { locale: 'en-US' }); // '06/10/2026 (PDT)'
+```
+
 ## utcToZonedDate
 
 Convert a UTC date to a `Date` in the target timezone. Requires `date-fns-tz`.
