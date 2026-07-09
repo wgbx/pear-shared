@@ -68,7 +68,7 @@ export default function DemoFill() {
 
 ### Custom fallback
 
-`src` 加载失败时会切换到 `fallbackSrc`。默认使用 `DEFAULT_IMAGE_FALLBACK
+`src` 加载失败时会切换到 `fallbackSrc`。默认使用 `DEFAULT_IMAGE_FALLBACK`。
 
 ```tsx
 import { Image } from '@bosinc/shared';
@@ -89,95 +89,18 @@ export default function DemoFallback() {
 
 ### ImageProps
 
-<table>
-  <thead>
-    <tr>
-      <th style="white-space: nowrap">Property</th>
-      <th>Description</th>
-      <th style="white-space: nowrap">Type</th>
-      <th style="white-space: nowrap">Required</th>
-      <th style="white-space: nowrap">Default</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="white-space: nowrap"><code>src</code></td>
-      <td>Image URL</td>
-      <td style="white-space: nowrap"><code>string</code></td>
-      <td style="white-space: nowrap"><code>-</code></td>
-      <td style="white-space: nowrap"><code>-</code></td>
-    </tr>
-    <tr>
-      <td style="white-space: nowrap"><code>alt</code></td>
-      <td>Accessible description</td>
-      <td style="white-space: nowrap"><code>string</code></td>
-      <td style="white-space: nowrap">✅</td>
-      <td style="white-space: nowrap"><code>-</code></td>
-    </tr>
-    <tr>
-      <td style="white-space: nowrap"><code>fallbackSrc</code></td>
-      <td>Shown when <code>src</code> is empty or fails</td>
-      <td style="white-space: nowrap"><code>string</code></td>
-      <td style="white-space: nowrap"><code>-</code></td>
-      <td style="white-space: nowrap"><code>DEFAULT_IMAGE_FALLBACK</code></td>
-    </tr>
-    <tr>
-      <td style="white-space: nowrap"><code>width</code></td>
-      <td>CSS width; also used for Cloudinary optimization</td>
-      <td style="white-space: nowrap"><code>number</code></td>
-      <td style="white-space: nowrap"><code>-</code></td>
-      <td style="white-space: nowrap"><code>-</code></td>
-    </tr>
-    <tr>
-      <td style="white-space: nowrap"><code>height</code></td>
-      <td>CSS height; also used for Cloudinary optimization</td>
-      <td style="white-space: nowrap"><code>number</code></td>
-      <td style="white-space: nowrap"><code>-</code></td>
-      <td style="white-space: nowrap"><code>-</code></td>
-    </tr>
-    <tr>
-      <td style="white-space: nowrap"><code>fill</code></td>
-      <td>Stretch to 100% of parent</td>
-      <td style="white-space: nowrap"><code>boolean</code></td>
-      <td style="white-space: nowrap"><code>-</code></td>
-      <td style="white-space: nowrap"><code>false</code></td>
-    </tr>
-    <tr>
-      <td style="white-space: nowrap"><code>disableOptimize</code></td>
-      <td>Skip Cloudinary URL optimization</td>
-      <td style="white-space: nowrap"><code>boolean</code></td>
-      <td style="white-space: nowrap"><code>-</code></td>
-      <td style="white-space: nowrap"><code>false</code></td>
-    </tr>
-    <tr>
-      <td style="white-space: nowrap"><code>quality</code></td>
-      <td>Cloudinary quality mode</td>
-      <td style="white-space: nowrap"><code>CloudinaryQuality</code></td>
-      <td style="white-space: nowrap"><code>-</code></td>
-      <td style="white-space: nowrap"><code>auto:best</code></td>
-    </tr>
-    <tr>
-      <td style="white-space: nowrap"><code>strategy</code></td>
-      <td>Resize strategy when dimensions apply</td>
-      <td style="white-space: nowrap"><code>'fit' | 'scale'</code></td>
-      <td style="white-space: nowrap"><code>-</code></td>
-      <td style="white-space: nowrap"><code>'fit'</code></td>
-    </tr>
-    <tr>
-      <td style="white-space: nowrap"><code>loading</code></td>
-      <td>Native lazy loading</td>
-      <td style="white-space: nowrap"><code>'lazy' | 'eager'</code></td>
-      <td style="white-space: nowrap"><code>-</code></td>
-      <td style="white-space: nowrap"><code>'lazy'</code></td>
-    </tr>
-    <tr>
-      <td style="white-space: nowrap"><code>slotProps</code></td>
-      <td>Props for the root <code>&lt;img&gt;</code></td>
-      <td style="white-space: nowrap"><code>{ root?: ... }</code></td>
-      <td style="white-space: nowrap"><code>-</code></td>
-      <td style="white-space: nowrap"><code>-</code></td>
-    </tr>
-  </tbody>
-</table>
+| Property        | Description                                       | Type                | Required | Default                  |
+| --------------- | ------------------------------------------------- | ------------------- | -------- | ------------------------ |
+| src             | Image URL                                         | `string`            | `-`      | `-`                      |
+| alt             | Accessible description                            | `string`            | `✅`     | `-`                      |
+| fallbackSrc     | Shown when `src` is empty or fails                | `string`            | `-`      | `DEFAULT_IMAGE_FALLBACK` |
+| width           | CSS width; also used for Cloudinary optimization  | `number`            | `-`      | `-`                      |
+| height          | CSS height; also used for Cloudinary optimization | `number`            | `-`      | `-`                      |
+| fill            | Stretch to 100% of parent                         | `boolean`           | `-`      | `false`                  |
+| disableOptimize | Skip Cloudinary URL optimization                  | `boolean`           | `-`      | `false`                  |
+| quality         | Cloudinary quality mode                           | `CloudinaryQuality` | `-`      | `auto:best`              |
+| strategy        | Resize strategy when dimensions apply             | `'fit' \| 'scale'`  | `-`      | `'fit'`                  |
+| loading         | Native lazy loading                               | `'lazy' \| 'eager'` | `-`      | `'lazy'`                 |
+| slotProps       | Props for the root `<img>`                        | `{ root?: ... }`    | `-`      | `-`                      |
 
 See also {@link optimizeImageUrl} and {@link useOptimizedImageUrl}.

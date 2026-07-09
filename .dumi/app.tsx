@@ -4,6 +4,8 @@ import { StrictMode, type ReactNode } from 'react';
 import { AlertContainer } from '@bosinc/shared';
 import { createPearTheme } from './theme';
 
+import './global.less';
+
 export default {
   rootContainer: (LastRootContainer: ReactNode) => {
     const theme = createPearTheme();

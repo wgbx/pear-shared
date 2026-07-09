@@ -396,6 +396,11 @@ export interface MenuItemProps {
 3. `## Demos` section with at least Basic Usage
 4. `## API` section with props table
 
+**API tables:**
+
+- Keep each **Property** (first column) name on a single line in source; do not wrap property names across lines.
+- Rendered docs apply `white-space: nowrap` to the first table column globally (see `.dumi/global.less`).
+
 **Example:**
 
 ```markdown
