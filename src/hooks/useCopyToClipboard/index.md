@@ -47,18 +47,18 @@ export default function DemoCustomMessage() {
 
 ## API
 
-### useCopyToClipboard Return Value
+### `UseCopyToClipboardReturn`
 
-| Property        | Description                      | Type           | Required | Default                                                                    |
-| --------------- | -------------------------------- | -------------- | -------- | -------------------------------------------------------------------------- | ---- | --- |
-| copyToClipboard | Method to copy text to clipboard | `(text: string | null     | undefined, options?: UseCopyToClipboardWithAlertOptions) => Promise<void>` | `✅` | `-` |
+| Property        | Description                      | Type                                                                                                 |
+| --------------- | -------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| copyToClipboard | Method to copy text to clipboard | `(text: string \| null \| undefined, options?: UseCopyToClipboardWithAlertOptions) => Promise<void>` |
 
-### UseCopyToClipboardWithAlertOptions
+### `UseCopyToClipboardWithAlertOptions`
 
-| Property       | Description                                    | Type                       | Required | Default                         |
-| -------------- | ---------------------------------------------- | -------------------------- | -------- | ------------------------------- |
-| silent         | When `true`, no success/error alerts are shown | `boolean`                  | `-`      | `false`                         |
-| successMessage | Success alert message                          | `string`                   | `-`      | `'Copied to clipboard'`         |
-| errorMessage   | Failure alert message                          | `string`                   | `-`      | `'Failed to copy to clipboard'` |
-| onSuccess      | Callback after successful copy                 | `() => void`               | `-`      | `-`                             |
-| onError        | Callback after failed copy                     | `(error: unknown) => void` | `-`      | `-`                             |
+| Property       | Description                                     | Type                       | Default                         |
+| -------------- | ----------------------------------------------- | -------------------------- | ------------------------------- |
+| showMessage    | When `false`, no success/error alerts are shown | `boolean`                  | `true`                          |
+| successMessage | Success alert message                           | `string`                   | `'Copied to clipboard'`         |
+| errorMessage   | Failure alert message                           | `string`                   | `'Failed to copy to clipboard'` |
+| onSuccess      | Callback after successful copy                  | `() => void`               | `-`                             |
+| onError        | Callback after failed copy                      | `(error: unknown) => void` | `-`                             |
