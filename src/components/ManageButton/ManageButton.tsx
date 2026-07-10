@@ -80,7 +80,13 @@ export function ManageButton({
   }
 
   return (
-    <Tooltip description={tooltip} arrow placement="top" {...tooltipProps}>
+    <Tooltip
+      trigger="hover"
+      description={tooltip}
+      arrow
+      placement="top"
+      {...tooltipProps}
+    >
       {button}
     </Tooltip>
   );

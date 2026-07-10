@@ -4,7 +4,7 @@ title: Tooltip
 
 # Tooltip
 
-Displays informative content when users hover over, focus on, or tap an element. Built on MUI `Tooltip` with custom styling.
+Displays informative content when users click the trigger element. Built on MUI `Tooltip` with custom styling. Use `trigger="hover"` to restore hover/focus behavior.
 
 ## Examples
 
@@ -15,8 +15,8 @@ import { Tooltip } from '@bosinc/shared';
 
 export default () => {
   return (
-    <Tooltip description="This is a tooltip—a brief message that appears on hover, focus, or tap to give helpful context without cluttering the UI.">
-      <button>Hover over me</button>
+    <Tooltip description="This is a tooltip—a brief message that appears on click to give helpful context without cluttering the UI.">
+      <button type="button">Click me</button>
     </Tooltip>
   );
 };
@@ -31,10 +31,44 @@ export default () => {
   return (
     <Tooltip
       title="Tooltip Title"
-      description="This is a tooltip—a brief message that appears on hover, focus, or tap to give helpful context without cluttering the UI."
+      description="This is a tooltip—a brief message that appears on click to give helpful context without cluttering the UI."
     >
-      <button>Hover over me</button>
+      <button type="button">Click me</button>
     </Tooltip>
+  );
+};
+```
+
+### InfoTooltip
+
+A preset `InformationLine` icon trigger for common help hints beside labels or form controls.
+
+```tsx
+import { InfoTooltip } from '@bosinc/shared';
+import { Stack, Typography } from '@mui/material';
+
+export default () => {
+  return (
+    <Stack sx={{ flexDirection: 'row', alignItems: 'center', gap: 0.5 }}>
+      <InfoTooltip description="Helpful context shown when the icon is clicked." />
+    </Stack>
+  );
+};
+```
+
+### Custom icon style
+
+Use `sx` to adjust the icon color and size.
+
+```tsx
+import { InfoTooltip } from '@bosinc/shared';
+
+export default () => {
+  return (
+    <InfoTooltip
+      description="Custom icon style."
+      sx={{ color: 'shades.700', fontSize: '2rem' }}
+    />
   );
 };
 ```
@@ -91,7 +125,26 @@ export default () => {
         </Stack>
       }
     >
-      <button>Hover over me</button>
+      <button type="button">Click me</button>
+    </Tooltip>
+  );
+};
+```
+
+### Hover Trigger
+
+Pass `trigger="hover"` to show the tooltip on hover or focus instead of click.
+
+```tsx
+import { Tooltip } from '@bosinc/shared';
+
+export default () => {
+  return (
+    <Tooltip
+      trigger="hover"
+      description="This tooltip appears on hover or focus."
+    >
+      <button type="button">Hover over me</button>
     </Tooltip>
   );
 };
@@ -101,13 +154,14 @@ export default () => {
 
 ### TooltipProps
 
-| Property      | Description                                  | Type           | Required | Default |
-| ------------- | -------------------------------------------- | -------------- | -------- | ------- |
-| children      | Element that triggers the tooltip            | `ReactElement` | `✅`     | `-`     |
-| description   | Tooltip content                              | `ReactNode`    | `✅`     | `-`     |
-| title         | Optional title displayed above description   | `ReactNode`    | `-`      | `-`     |
-| action        | Optional action button or element            | `ReactNode`    | `-`      | `-`     |
-| customContent | Fully custom tooltip content (overrides all) | `ReactNode`    | `-`      | `-`     |
-| arrow         | Display arrow pointing to element            | `boolean`      | `-`      | `true`  |
+| Property      | Description                                  | Type                 | Required | Default   |
+| ------------- | -------------------------------------------- | -------------------- | -------- | --------- |
+| children      | Element that triggers the tooltip            | `ReactElement`       | `✅`     | `-`       |
+| description   | Tooltip content                              | `ReactNode`          | `✅`     | `-`       |
+| title         | Optional title displayed above description   | `ReactNode`          | `-`      | `-`       |
+| action        | Optional action button or element            | `ReactNode`          | `-`      | `-`       |
+| customContent | Fully custom tooltip content (overrides all) | `ReactNode`          | `-`      | `-`       |
+| arrow         | Display arrow pointing to element            | `boolean`            | `-`      | `true`    |
+| trigger       | How the tooltip is triggered                 | `'click' \| 'hover'` | `-`      | `'click'` |
 
 Supports all other MUI Tooltip props (e.g., `open`, `placement`, `disableHoverListener`, etc.).
