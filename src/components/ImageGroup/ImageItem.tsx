@@ -6,14 +6,18 @@ import {
   type StackProps,
 } from '@mui/material';
 import { useMemoizedFn } from 'ahooks';
-import type { ImgHTMLAttributes } from 'react';
 
+import { Image } from '../Image';
+import type { ImageProps } from '../Image/type';
 import { MaybeClickable } from '../MaybeClickable';
 
-  export interface ImageGroupItem {
-    src: string;
-    [key: string]: string;
-  }
+const DEFAULT_ITEM_SIZE = 24;
+
+export interface ImageGroupItem {
+  src: string;
+  alt?: string;
+  [key: string]: string | undefined;
+}
 
 const Item = styled(Box, {
   name: 'ImageGroup',
@@ -43,15 +47,11 @@ const OverflowOverlay = styled(Stack, {
   backgroundColor: 'rgba(0, 0, 0, 0.6)',
 }));
 
-const Img = styled('img', {
-  name: 'ImageGroup',
-  slot: 'img',
-})(() => ({
-  width: '100%',
-  height: '100%',
-  objectFit: 'cover',
-  display: 'block',
-}));
+export type ImageGroupImgSlotProps = Omit<ImageProps, 'src' | 'alt'> & {
+  src?: string;
+  alt?: string;
+  sx?: BoxProps['sx'];
+};
 
 export interface ImageItemProps {
   item: ImageGroupItem;
@@ -60,13 +60,20 @@ export interface ImageItemProps {
   count: number;
   slotProps?: {
     item?: BoxProps;
-    img?: ImgHTMLAttributes<HTMLImageElement> & { sx?: BoxProps['sx'] };
+    img?: ImageGroupImgSlotProps;
     count?: StackProps;
   };
 }
 
 export function ImageItem(props: ImageItemProps) {
   const { item, onItemClick, showCount, count, slotProps } = props;
+  const {
+    sx,
+    width = DEFAULT_ITEM_SIZE,
+    height = DEFAULT_ITEM_SIZE,
+    slotProps: imageSlotProps,
+    ...imgProps
+  } = slotProps?.img ?? {};
 
   const handleClick = useMemoizedFn(() => {
     onItemClick?.(item);
@@ -79,7 +86,21 @@ export function ImageItem(props: ImageItemProps) {
       enabled={Boolean(onItemClick)}
       {...slotProps?.item}
     >
-      <Img src={item.src} alt={item.alt ?? ''} {...slotProps?.img} />
+      <Image
+        src={item.src}
+        alt={item.alt ?? ''}
+        fill
+        width={width}
+        height={height}
+        {...imgProps}
+        slotProps={{
+          ...imageSlotProps,
+          root: {
+            ...imageSlotProps?.root,
+            sx,
+          },
+        }}
+      />
 
       {showCount && (
         <OverflowOverlay {...slotProps?.count}>{`${count}+`}</OverflowOverlay>

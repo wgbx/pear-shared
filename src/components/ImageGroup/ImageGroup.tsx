@@ -1,10 +1,13 @@
 import { Stack, styled, type BoxProps, type StackProps } from '@mui/material';
 import type { Theme } from '@mui/material/styles';
 import { useCreation } from 'ahooks';
-import type { ImgHTMLAttributes } from 'react';
 
 import { MaybeClickable } from '../MaybeClickable';
-import { ImageItem, type ImageGroupItem } from './ImageItem';
+import {
+  ImageItem,
+  type ImageGroupImgSlotProps,
+  type ImageGroupItem,
+} from './ImageItem';
 
 export interface ImageGroupProps {
   items: ImageGroupItem[];
@@ -23,7 +26,7 @@ export interface ImageGroupProps {
     root?: StackProps;
     item?: BoxProps;
     overflowItem?: BoxProps;
-    img?: ImgHTMLAttributes<HTMLImageElement>;
+    img?: ImageGroupImgSlotProps;
   };
 }
 
