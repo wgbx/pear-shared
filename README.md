@@ -107,13 +107,14 @@ Before publishing:
 
 1. Ensure you have publish permission to the target org/repo.
 2. Ensure `NPM_TOKEN` is set and has package publish permission.
-3. Make sure `.npmrc` points to `https://npm.pkg.github.com`.
+3. Configure publish auth for the current shell (repo `.npmrc` intentionally omits the token so CI/Vercel installs do not warn):
 4. Bump version in `package.json`.
 5. Run checks/build locally.
 
 ```bash
 # set token for current shell
 export NPM_TOKEN=YOUR_GITHUB_PACKAGES_TOKEN
+npm config set //npm.pkg.github.com/:_authToken "$NPM_TOKEN" --location=user
 
 # quality check
 pnpm run doctor
