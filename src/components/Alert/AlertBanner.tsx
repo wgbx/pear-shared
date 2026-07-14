@@ -1,9 +1,4 @@
-import {
-  AlertLine,
-  CheckCircleLine,
-  InformationLine,
-  WarningLine,
-} from '@mingcute/react';
+import { AlertLine, CheckCircleLine, WarningLine } from '@mingcute/react';
 import {
   type AlertProps,
   type ClickAwayListenerProps,
@@ -19,7 +14,7 @@ import type { ComponentType, ReactElement, ReactNode } from 'react';
 
 import { AlertAction } from './AlertAction';
 
-export const AlertSeverity = ['success', 'warning', 'info', 'error'] as const;
+export const AlertSeverity = ['success', 'warning', 'error'] as const;
 
 type AlertSeverityType = typeof AlertSeverity[number];
 
@@ -70,11 +65,12 @@ const SEVERITY_CONFIG: Record<
     backgroundColor: '#FFF4E0',
     fontColor: '#5C2201',
   },
-  info: {
-    icon: InformationLine,
-    backgroundColor: '#EBF5EF',
-    fontColor: '#082D12',
-  },
+};
+
+const DEFAULT_CONFIG = {
+  icon: AlertLine,
+  backgroundColor: '#F2F2F2',
+  fontColor: 'rgba(0, 0, 0, 0.87)',
 };
 
 export function AlertBanner({
@@ -86,7 +82,7 @@ export function AlertBanner({
   action,
   onClose,
   bottomAction,
-  severity = 'info',
+  severity,
   hideAfter = 8,
   showClose = false,
 }: AlertBannerProps): ReactElement {
@@ -94,7 +90,7 @@ export function AlertBanner({
     icon: DefaultIcon,
     backgroundColor,
     fontColor,
-  } = SEVERITY_CONFIG[severity];
+  } = severity ? SEVERITY_CONFIG[severity] : DEFAULT_CONFIG;
 
   const handleClickAway = useMemoizedFn<
     NonNullable<ClickAwayListenerProps['onClickAway']>

@@ -144,7 +144,6 @@ export default function DemoAlertWithClose() {
 | Property   | Description                          | Type                                                                  | Required | Default |
 | ---------- | ------------------------------------ | --------------------------------------------------------------------- | -------- | ------- |
 | error      | Trigger an error alert               | `(params: string \| AlertCloseProps \| AlertWithActionProps) => void` | `✅`     | `-`     |
-| info       | Trigger an info alert                | `(params: string \| AlertCloseProps \| AlertWithActionProps) => void` | `✅`     | `-`     |
 | success    | Trigger a success alert              | `(params: string \| AlertCloseProps \| AlertWithActionProps) => void` | `✅`     | `-`     |
 | warning    | Trigger a warning alert              | `(params: string \| AlertCloseProps \| AlertWithActionProps) => void` | `✅`     | `-`     |
 | customize  | Trigger a custom (no severity) alert | `(params: string \| AlertCloseProps \| AlertWithActionProps) => void` | `✅`     | `-`     |
