@@ -15,7 +15,7 @@ Common date-fns format pattern constants.
 | `MONTH_DAY_YEAR`          | `MMM dd, yyyy`        | `Mar 09, 2025`        |
 | `MONTH_DAY_YEAR_NO_COMMA` | `MMM dd yyyy`         | `Mar 09 2025`         |
 | `SLASH_NUMERIC`           | `MM/dd/yyyy`          | `03/09/2025`          |
-| `SLASH_DATE_WITH_TZ`      | `yyyy/MM/dd (zzz)`    | `2026/06/10 (PDT)`    |
+| `SLASH_DATE_WITH_TZ`      | `MM/dd/yyyy (zzz)`    | `06/10/2026 (PDT)`    |
 | `ISO_DATE`                | `yyyy-MM-dd`          | `2025-03-09`          |
 | `DATETIME`                | `yyyy-MM-dd HH:mm`    | `2025-03-09 14:30`    |
 | `DATETIME_SECONDS`        | `yyyy-MM-dd HH:mm:ss` | `2025-03-09 14:30:45` |
@@ -99,27 +99,7 @@ import { DATE_FORMAT, formatDateInTimeZone } from '@bosinc/shared';
 formatDateInTimeZone('2025-03-09T14:30:00Z'); // default America/Los_Angeles + DATETIME
 formatDateInTimeZone('2026-06-10T12:00:00Z', {
   format: DATE_FORMAT.SLASH_DATE_WITH_TZ,
-}); // '2026/06/10 (PDT)'
-```
-
-## formatLocalizedDateInTimeZone
-
-Format a date with a locale-aware date and timezone abbreviation (e.g. `06/10/2026 (PDT)`). Returns `''` for invalid input. Requires `date-fns-tz` for the abbreviation.
-
-| Param            | Description    | Type                       | Required | Default                        |
-| ---------------- | -------------- | -------------------------- | -------- | ------------------------------ |
-| value            | Date to format | `Date \| number \| string` | `✅`     | `-`                            |
-| options          | Format options | `object`                   | `-`      | `-`                            |
-| options.locale   | BCP 47 locale  | `string \| string[]`       | `-`      | `'default'`                    |
-| options.timeZone | IANA timezone  | `string`                   | `-`      | `TIMEZONE.AMERICA_LOS_ANGELES` |
-
-**Returns:** `string`
-
-```ts
-import { formatLocalizedDateInTimeZone } from '@bosinc/shared';
-
-formatLocalizedDateInTimeZone('2026-06-10T12:00:00Z'); // browser locale + default timezone
-formatLocalizedDateInTimeZone('2026-06-10T12:00:00Z', { locale: 'en-US' }); // '06/10/2026 (PDT)'
+}); // '06/10/2026 (PDT)'
 ```
 
 ## utcToZonedDate

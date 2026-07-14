@@ -18,7 +18,7 @@ import type { DateInput, FormatDateInTimeZoneOptions } from './types';
  * formatDateInTimeZone('2025-03-09T14:30:00Z') // default America/Los_Angeles + DATETIME
  * formatDateInTimeZone('2026-06-10T12:00:00Z', {
  *   format: DATE_FORMAT.SLASH_DATE_WITH_TZ,
- * }) // '2026/06/10 (PDT)'
+ * }) // '06/10/2026 (PDT)'
  * ```
  */
 export function formatDateInTimeZone(
