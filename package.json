@@ -65,7 +65,7 @@
     "@umijs/lint": "4.0.0",
     "date-fns": "2.30.0",
     "date-fns-tz": "2.0.1",
-    "dumi": "2.4.21",
+    "dumi": "2.4.44",
     "eslint": "8.23.0",
     "father": "4.6.17",
     "husky": "8.0.1",

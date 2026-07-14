@@ -4,13 +4,14 @@ import path from 'path';
 const absSrc = path.resolve(__dirname, 'src');
 
 export default defineConfig({
+  utoopack: {},
   locales: [{ id: 'en-US', name: 'English' }],
   alias: {
-    '@svg': '/src/svg',
-    '@hooks': '/src/hooks',
-    '@components': '/src/components',
-    '@constants': '/src/constants',
-    '@utils': '/src/utils',
+    '@svg': path.join(absSrc, 'svg'),
+    '@hooks': path.join(absSrc, 'hooks'),
+    '@components': path.join(absSrc, 'components'),
+    '@constants': path.join(absSrc, 'constants'),
+    '@utils': path.join(absSrc, 'utils'),
   },
   chainWebpack(memo) {
     memo.module

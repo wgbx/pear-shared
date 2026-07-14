@@ -2,6 +2,7 @@ node_modules
 .dumi/tmp
 .dumi/tmp-test
 .dumi/tmp-production
+.turbopack
 .DS_Store
 docs-dist/**
 .claude/**
