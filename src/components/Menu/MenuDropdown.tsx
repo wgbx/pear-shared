@@ -10,10 +10,11 @@ const StyledMenu = styled(MuiMenu, {
 })(({ theme }) => ({
   '& .MuiPaper-root': {
     borderRadius: theme.spacing(1),
+    width: 'max-content',
   },
   '& .MuiList-root': {
     padding: theme.spacing(1),
-    minWidth: 260,
+    width: 'max-content',
   },
 }));
 
