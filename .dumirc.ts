@@ -4,7 +4,6 @@ import path from 'path';
 const absSrc = path.resolve(__dirname, 'src');
 
 export default defineConfig({
-  utoopack: {},
   locales: [{ id: 'en-US', name: 'English' }],
   alias: {
     '@svg': path.join(absSrc, 'svg'),
@@ -13,7 +12,7 @@ export default defineConfig({
     '@constants': path.join(absSrc, 'constants'),
     '@utils': path.join(absSrc, 'utils'),
   },
-  chainWebpack(memo) {
+  chainWebpack(memo: any) {
     memo.module
       .rule('asset')
       .oneOf('fallback')
@@ -44,6 +43,7 @@ export default defineConfig({
       { title: 'Hooks', link: 'hooks/use-copy-to-clipboard' },
       { title: 'Constants', link: 'constants' },
       { title: 'Utils', link: 'utils/numeric' },
+      { title: 'Changelog', link: 'changelog' },
     ],
   },
 

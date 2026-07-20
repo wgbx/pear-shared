@@ -93,10 +93,10 @@ git log -1 --oneline
 git tag --sort=-v:refname | head -3
 npm view @bosinc/shared version --registry=https://npm.pkg.github.com
 gh release view "$(node -p "require('./package.json').version")" 2>/dev/null || true
-head -40 CHANGELOG.md
+head -40 docs/changelog.md
 ```
 
-Summarize for the user: old version → new version, tag name, registry URL, GitHub Release link, and that `CHANGELOG.md` was updated.
+Summarize for the user: old version → new version, tag name, registry URL, GitHub Release link, and that `docs/changelog.md` was updated.
 
 ## Project config reference
 
@@ -106,9 +106,9 @@ Summarize for the user: old version → new version, tag name, registry URL, Git
   - `github.release`: true (release body = generated changelog)
   - `git.requireCleanWorkingDir`: false
   - plugin `@release-it/conventional-changelog`:
-    - `infile`: `CHANGELOG.md` (English, Conventional Commits / angular preset)
+    - `infile`: `docs/changelog.md` (English, Conventional Commits / angular preset; also linked as root `CHANGELOG.md`)
     - `ignoreRecommendedBump`: true (version still chosen by user / CLI; do not auto-bump from commits)
-- **Changelog**: `CHANGELOG.md` — created/updated on each release; first release after enabling the plugin backfills history from git tags
+- **Changelog**: `docs/changelog.md` — shown in docs nav as Changelog; created/updated on each release
 - **Registry**: `publishConfig.registry` → `https://npm.pkg.github.com`
 - **Package**: `@bosinc/shared`
 

@@ -16,7 +16,8 @@
       "preset": {
         "name": "angular"
       },
-      "infile": "CHANGELOG.md",
+      "infile": "docs/changelog.md",
+      "header": "---\ntitle: Changelog\norder: 2\n---\n\n# Changelog",
       "ignoreRecommendedBump": true
     }
   }
