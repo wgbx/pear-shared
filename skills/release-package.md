@@ -10,7 +10,7 @@ description: >-
 
 ## Goal
 
-Run a **fully non-interactive** release: version bump → build → git tag/push → `npm publish` to GitHub Packages → GitHub Release.
+Run a **fully non-interactive** release: version bump → update `CHANGELOG.md` → build → git tag/push → `npm publish` to GitHub Packages → GitHub Release (body = changelog).
 
 ## When to use
 
@@ -93,17 +93,22 @@ git log -1 --oneline
 git tag --sort=-v:refname | head -3
 npm view @bosinc/shared version --registry=https://npm.pkg.github.com
 gh release view "$(node -p "require('./package.json').version")" 2>/dev/null || true
+head -40 CHANGELOG.md
 ```
 
-Summarize for the user: old version → new version, tag name, registry URL, GitHub Release link.
+Summarize for the user: old version → new version, tag name, registry URL, GitHub Release link, and that `CHANGELOG.md` was updated.
 
 ## Project config reference
 
 - **Script**: `package.json` → `"release": "release-it"`
 - **Config**: `.release-it.json`
   - `after:bump`: `pnpm run build`
-  - `github.release`: true
+  - `github.release`: true (release body = generated changelog)
   - `git.requireCleanWorkingDir`: false
+  - plugin `@release-it/conventional-changelog`:
+    - `infile`: `CHANGELOG.md` (English, Conventional Commits / angular preset)
+    - `ignoreRecommendedBump`: true (version still chosen by user / CLI; do not auto-bump from commits)
+- **Changelog**: `CHANGELOG.md` — created/updated on each release; first release after enabling the plugin backfills history from git tags
 - **Registry**: `publishConfig.registry` → `https://npm.pkg.github.com`
 - **Package**: `@bosinc/shared`
 

@@ -59,6 +59,7 @@
   "devDependencies": {
     "@commitlint/cli": "17.1.2",
     "@commitlint/config-conventional": "17.1.0",
+    "@release-it/conventional-changelog": "^11.0.1",
     "@svgr/webpack": "8.1.0",
     "@types/react": "19.2.4",
     "@types/react-dom": "19.2.3",

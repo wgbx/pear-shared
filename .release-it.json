@@ -8,8 +8,16 @@
   },
   "github": {
     "release": true,
-    "releaseBody": "Release of version ${version}",
     "tokenRef": "NPM_TOKEN",
     "host": "github.com"
+  },
+  "plugins": {
+    "@release-it/conventional-changelog": {
+      "preset": {
+        "name": "angular"
+      },
+      "infile": "CHANGELOG.md",
+      "ignoreRecommendedBump": true
+    }
   }
 }
