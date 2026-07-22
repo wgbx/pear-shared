@@ -95,7 +95,7 @@ export interface ActionDrawerProps extends Omit<DrawerProps, 'footer'> {
 
 export interface PromptDrawerProps
   extends Omit<DrawerProps, 'children' | 'footer'> {
-  heading: ReactNode;
+  heading?: ReactNode;
   description?: ReactNode;
   children?: ReactNode;
   actions?: DrawerActionItem[];
