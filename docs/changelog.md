@@ -5,6 +5,20 @@ order: 2
 
 # Changelog
 
+## [0.1.18](https://github-work/bosinc/pear-shared/compare/0.1.17...0.1.18) (2026-07-22)
+
+### Bug Fixes
+
+- **Drawer:** make 'heading' prop optional in PromptDrawerProps interface ([706f0ec](https://github-work/bosinc/pear-shared/commit/706f0ec8b5e9d7a34ff2828271a45b260f5b1996))
+- **Drawer:** set default value for 'open' prop to true in Drawer components ([d25f4cc](https://github-work/bosinc/pear-shared/commit/d25f4ccfb832a789fc366741dbb3eec28e93f757))
+
+### Features
+
+- **Drawer:** introduce ActionDrawer component with actions support ([bf026bc](https://github-work/bosinc/pear-shared/commit/bf026bc584af08cf84134dcae69c72c675a5b95e))
+- **Flex:** introduce Flex component with layout-friendly defaults and documentation ([ec38023](https://github-work/bosinc/pear-shared/commit/ec380239f26e05820141dc52dd8b459d4aa37d49))
+- **Row:** add Row and Col components for 24-column layout system ([09e981c](https://github-work/bosinc/pear-shared/commit/09e981ce31ef35c72e806768ccb5f888c0c0e897))
+- **Tooltip:** add EllipsisTooltip component for text truncation with tooltip support ([ba67e8d](https://github-work/bosinc/pear-shared/commit/ba67e8d3eb05fc07fa89fdb0f62006f9ddaf30c4))
+
 ## [0.1.17](https://github.com/bosinc/pear-shared/compare/0.1.16...0.1.17) (2026-07-20)
 
 ### Features
