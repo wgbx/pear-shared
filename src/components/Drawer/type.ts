@@ -89,6 +89,10 @@ export interface CustomDrawerProps extends Omit<DrawerProps, 'showHeader'> {
   closeButtonProps?: IconButtonProps;
 }
 
+export interface ActionDrawerProps extends Omit<DrawerProps, 'footer'> {
+  actions?: DrawerActionItem[];
+}
+
 export interface PromptDrawerProps
   extends Omit<DrawerProps, 'children' | 'footer'> {
   heading: ReactNode;

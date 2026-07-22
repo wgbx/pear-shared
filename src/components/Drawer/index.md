@@ -40,6 +40,49 @@ export default () => {
 };
 ```
 
+### Action Drawer
+
+```tsx
+import { Button, ActionDrawer } from '@bosinc/shared';
+import { useState } from 'react';
+import { Stack } from '@mui/material';
+
+export default () => {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <>
+      <Button onClick={() => setOpen(true)}>Edit settings</Button>
+      <ActionDrawer
+        title="Setting"
+        open={open}
+        onClose={() => setOpen(false)}
+        actions={[
+          {
+            label: 'Cancel',
+            onClick: () => setOpen(false),
+          },
+          {
+            label: 'Save changes',
+            variant: 'contained',
+            onClick: async () => {
+              await new Promise<void>((resolve) => {
+                setTimeout(resolve, 2000);
+              });
+              setOpen(false);
+            },
+          },
+        ]}
+      >
+        <Stack sx={{ p: 2, py: 1, gap: 1 }}>
+          <span>Update a few options and save when you’re done.</span>
+        </Stack>
+      </ActionDrawer>
+    </>
+  );
+};
+```
+
 ### Custom Drawer
 
 ```tsx
@@ -168,6 +211,15 @@ export default () => {
 | `header`    | `Omit<DrawerHeaderProps, 'title' \| 'onClose'>`                 | `closeButtonProps`, `sx`, `divider`, `titleProps`                          |
 | `content`   | `{ sx?: SxProps<Theme> }`                                       | Main scroll area                                                           |
 | `footer`    | `{ sx?: SxProps<Theme>; contentSx?: SxProps<Theme> }`           | Footer wrapper and inner stack                                             |
+
+### ActionDrawer
+
+`ActionDrawerProps` extends `Omit<DrawerProps, 'footer'>` and adds `actions`. A thin wrapper around `Drawer` that renders `DrawerFooter` from `actions`.
+
+| Property   | Description                          | Type                 | Default |
+| ---------- | ------------------------------------ | -------------------- | ------- |
+| `actions`  | Footer action buttons                | `DrawerActionItem[]` | —       |
+| _(others)_ | Same as `Drawer`, except no `footer` | —                    | —       |
 
 ### CustomDrawer
 

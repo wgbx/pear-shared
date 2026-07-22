@@ -1,3 +1,4 @@
+export * from './ActionDrawer';
 export * from './CustomDrawer';
 export * from './Drawer';
 export * from './DrawerFooter';
