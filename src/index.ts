@@ -12,6 +12,7 @@ export * from './components/ManageButton';
 export * from './components/Menu';
 export * from './components/MaybeClickable';
 export * from './components/Popover';
+// Row / Col: not publicly exported yet (see src/components/Row/index.md)
 export * from './components/Spin';
 export * from './components/StatusTag';
 export * from './components/TextAlignToggle';
