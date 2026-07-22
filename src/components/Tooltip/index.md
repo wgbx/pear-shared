@@ -131,6 +131,45 @@ export default () => {
 };
 ```
 
+### EllipsisTooltip
+
+Shows the full text in a tooltip only when the content is truncated. Defaults to hover trigger.
+
+```tsx
+import { EllipsisTooltip } from '@bosinc/shared';
+import { Box, Stack } from '@mui/material';
+
+export default () => {
+  return (
+    <Stack sx={{ gap: 1, width: 160 }}>
+      <EllipsisTooltip>Short label</EllipsisTooltip>
+      <EllipsisTooltip>
+        This is a long label that will be truncated and show the full text on
+        hover.
+      </EllipsisTooltip>
+    </Stack>
+  );
+};
+```
+
+### Multi-line Ellipsis
+
+```tsx
+import { EllipsisTooltip } from '@bosinc/shared';
+import { Box } from '@mui/material';
+
+export default () => {
+  return (
+    <Box sx={{ width: 240 }}>
+      <EllipsisTooltip lines={2}>
+        This paragraph can span up to two lines. Extra content is hidden with an
+        ellipsis, and the tooltip appears only when overflow happens.
+      </EllipsisTooltip>
+    </Box>
+  );
+};
+```
+
 ### Hover Trigger
 
 Pass `trigger="hover"` to show the tooltip on hover or focus instead of click.
@@ -165,3 +204,17 @@ export default () => {
 | trigger       | How the tooltip is triggered                 | `'click' \| 'hover'` | `-`      | `'click'` |
 
 Supports all other MUI Tooltip props (e.g., `open`, `placement`, `disableHoverListener`, etc.).
+
+### EllipsisTooltipProps
+
+Extends MUI `TypographyProps` (except `children`).
+
+| Property     | Description                                            | Type                                              | Default |
+| ------------ | ------------------------------------------------------ | ------------------------------------------------- | ------- |
+| children     | Text content to render                                 | `ReactNode`                                       | —       |
+| tooltip      | Tooltip content when truncated. Defaults to `children` | `ReactNode`                                       | —       |
+| lines        | Max visible lines before truncation                    | `number`                                          | `1`     |
+| tooltipProps | Props forwarded to the wrapping `Tooltip`              | `Omit<TooltipProps, 'children' \| 'description'>` | —       |
+| ...          | Other MUI `Typography` props                           | `TypographyProps`                                 | —       |
+
+`tooltipProps` defaults: `trigger="hover"`, `placement="bottom"`. When the text is not truncated, the wrapping `Tooltip` is not mounted.
