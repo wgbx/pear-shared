@@ -3,6 +3,7 @@ export * from './components/Button';
 export * from './components/Collapse';
 export * from './components/Drawer';
 export * from './components/ExternalLink';
+export * from './components/Flex';
 export * from './components/IconToggle';
 export * from './components/JotaiProvider';
 export * from './components/Image';
