@@ -1,4 +1,4 @@
-import { Stack, Typography, styled } from '@mui/material';
+import { Stack, styled } from '@mui/material';
 import { Drawer } from './Drawer';
 import { type PromptDrawerProps } from './type';
 import { DrawerFooter } from './DrawerFooter';
@@ -13,7 +13,7 @@ const PromptContent = styled(Stack, {
   gap: theme.spacing(1),
 }));
 
-const PromptHeading = styled(Typography, {
+const PromptHeading = styled(Stack, {
   name: 'PromptDrawer',
   slot: 'heading',
 })(({ theme }) => ({
@@ -22,7 +22,7 @@ const PromptHeading = styled(Typography, {
   color: theme.palette.shades[900],
 }));
 
-const PromptDescription = styled(Typography, {
+const PromptDescription = styled(Stack, {
   name: 'PromptDrawer',
   slot: 'description',
 })(({ theme }) => ({

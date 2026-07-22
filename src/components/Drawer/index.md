@@ -151,7 +151,7 @@ export default () => {
 
 | Property   | Description                                                    | Type              | Default |
 | ---------- | -------------------------------------------------------------- | ----------------- | ------- |
-| open       | Controls visibility                                            | `boolean`         | —       |
+| open       | Controls visibility                                            | `boolean`         | `true`  |
 | onClose    | Called when the drawer should close (mask click, escape, etc.) | `() => void`      | —       |
 | children   | Scrollable main content                                        | `ReactNode`       | —       |
 | title      | Centered heading in `DrawerHeader` when provided               | `ReactNode`       | —       |

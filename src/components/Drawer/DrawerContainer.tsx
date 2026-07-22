@@ -5,7 +5,7 @@ import { type DrawerContainerProps } from './type';
 
 export function DrawerContainer({
   children,
-  open,
+  open = true,
   onClose,
   maskClosable = false,
   disableRestoreFocus,

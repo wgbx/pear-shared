@@ -33,7 +33,7 @@ const DrawerFooterContent = styled(Stack, {
 
 export function Drawer({
   children,
-  open,
+  open = true,
   onClose,
   title,
   footer,

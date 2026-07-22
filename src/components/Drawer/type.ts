@@ -20,7 +20,7 @@ export interface DrawerHeaderProps {
 
 export interface DrawerContainerProps {
   children: ReactNode;
-  open: boolean;
+  open?: boolean;
   onClose?: () => void;
   maskClosable?: boolean;
   disableRestoreFocus?: boolean;
@@ -58,7 +58,7 @@ interface DrawerSlotProps {
 
 export interface DrawerProps {
   children: ReactNode;
-  open: boolean;
+  open?: boolean;
   onClose?: () => void;
   title?: ReactNode;
   footer?: ReactNode;
