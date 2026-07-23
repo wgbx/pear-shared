@@ -5,6 +5,12 @@ order: 2
 
 # Changelog
 
+## [0.1.19](https://github-work/bosinc/pear-shared/compare/0.1.18...0.1.19) (2026-07-23)
+
+### Features
+
+- **Tooltip:** enhance EllipsisTooltip with improved truncation handling and update documentation ([2762ddb](https://github-work/bosinc/pear-shared/commit/2762ddbaa6b977a878d02b6283cfb9484be774f6))
+
 ## [0.1.18](https://github-work/bosinc/pear-shared/compare/0.1.17...0.1.18) (2026-07-22)
 
 ### Bug Fixes
