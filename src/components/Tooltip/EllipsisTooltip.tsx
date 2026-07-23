@@ -4,26 +4,24 @@ import { useLayoutEffect, useRef, useState, type ReactElement } from 'react';
 import { Tooltip } from './Tooltip';
 import { type EllipsisTooltipProps } from './type';
 
-const SINGLE_LINE_SX = {
-  display: 'block',
-  minWidth: 0,
-  overflow: 'hidden',
-  textOverflow: 'ellipsis',
-  whiteSpace: 'nowrap',
-} as const;
-
-const MULTI_LINE_SX = {
+/**
+ * Use line-clamp + overflow-wrap (not white-space:nowrap).
+ * nowrap makes unbroken strings inflate min-content width and expand ancestors.
+ */
+const ELLIPSIS_SX = {
   display: '-webkit-box',
   WebkitBoxOrient: 'vertical',
   minWidth: 0,
   overflow: 'hidden',
+  wordBreak: 'normal',
+  overflowWrap: 'anywhere',
 } as const;
 
-function isOverflowing(element: HTMLElement, lines: number): boolean {
-  if (lines === 1) {
-    return element.scrollWidth > element.clientWidth;
-  }
-  return element.scrollHeight > element.clientHeight;
+function isOverflowing(element: HTMLElement): boolean {
+  return (
+    element.scrollHeight > element.clientHeight + 1 ||
+    element.scrollWidth > element.clientWidth + 1
+  );
 }
 
 export function EllipsisTooltip({
@@ -44,7 +42,7 @@ export function EllipsisTooltip({
     if (!element) {
       return;
     }
-    const next = isOverflowing(element, lines);
+    const next = isOverflowing(element);
     setTruncated((prev) => (prev === next ? prev : next));
   });
 
@@ -69,9 +67,7 @@ export function EllipsisTooltip({
       ref={textRef}
       component={component}
       sx={[
-        lines === 1
-          ? SINGLE_LINE_SX
-          : { ...MULTI_LINE_SX, WebkitLineClamp: lines },
+        { ...ELLIPSIS_SX, WebkitLineClamp: lines },
         ...(Array.isArray(sx) ? sx : [sx]),
       ]}
       {...textProps}

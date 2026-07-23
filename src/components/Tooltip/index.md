@@ -135,9 +135,11 @@ export default () => {
 
 Shows the full text in a tooltip only when the content is truncated. Defaults to hover trigger.
 
+Truncation uses `-webkit-line-clamp` + `overflow-wrap: anywhere` (not `white-space: nowrap`), so long unbroken strings do not expand flex/grid ancestors.
+
 ```tsx
 import { EllipsisTooltip } from '@bosinc/shared';
-import { Box, Stack } from '@mui/material';
+import { Stack } from '@mui/material';
 
 export default () => {
   return (
@@ -147,6 +149,28 @@ export default () => {
         This is a long label that will be truncated and show the full text on
         hover.
       </EllipsisTooltip>
+    </Stack>
+  );
+};
+```
+
+### EllipsisTooltip in a flex row
+
+```tsx
+import { EllipsisTooltip } from '@bosinc/shared';
+import { Stack } from '@mui/material';
+
+export default () => {
+  return (
+    <Stack
+      direction="row"
+      sx={{ width: 240, gap: 1, alignItems: 'center', minWidth: 0 }}
+    >
+      <EllipsisTooltip sx={{ flex: 1, minWidth: 0 }}>
+        Long unbroken name that should ellipsis instead of expanding the row
+        123456789012345678901234567890
+      </EllipsisTooltip>
+      <span>Tag</span>
     </Stack>
   );
 };
