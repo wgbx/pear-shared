@@ -5,7 +5,7 @@ import { DrawerHeader } from './DrawerHeader';
 import { type DrawerProps } from './type';
 
 const DRAWER_PAPER_BASE_SX = {
-  maxHeight: '100dvh',
+  maxHeight: '90dvh',
   boxShadow:
     '0px 3px 240px 4px rgba(255, 255, 255, 0.10), 0px 2px 250px 4px rgba(255, 255, 255, 0.08)',
 } as const;
