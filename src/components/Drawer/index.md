@@ -192,16 +192,17 @@ export default () => {
 
 ### Drawer
 
-| Property   | Description                                                    | Type              | Default |
-| ---------- | -------------------------------------------------------------- | ----------------- | ------- |
-| open       | Controls visibility                                            | `boolean`         | `true`  |
-| onClose    | Called when the drawer should close (mask click, escape, etc.) | `() => void`      | —       |
-| children   | Scrollable main content                                        | `ReactNode`       | —       |
-| title      | Centered heading in `DrawerHeader` when provided               | `ReactNode`       | —       |
-| footer     | Optional sticky footer area below content                      | `ReactNode`       | —       |
-| fullDrawer | Full-height / flex layout on paper                             | `boolean`         | —       |
-| showHeader | Renders `DrawerHeader` (close row) when `true`                 | `boolean`         | `true`  |
-| slotProps  | Slots: `container`, `header`, `content`, `footer` (see below)  | `DrawerSlotProps` | —       |
+| Property     | Description                                                                     | Type              | Default |
+| ------------ | ------------------------------------------------------------------------------- | ----------------- | ------- |
+| open         | Controls visibility                                                             | `boolean`         | `true`  |
+| onClose      | Called when the drawer should close (mask click, escape, etc.)                  | `() => void`      | —       |
+| children     | Scrollable main content                                                         | `ReactNode`       | —       |
+| title        | Centered heading in `DrawerHeader` when provided                                | `ReactNode`       | —       |
+| footer       | Optional sticky footer area below content                                       | `ReactNode`       | —       |
+| fullDrawer   | Full-height / flex layout on paper                                              | `boolean`         | —       |
+| stableHeight | Fixed `90dvh` height with scrollable content area; use for async-loaded content | `boolean`         | —       |
+| showHeader   | Renders `DrawerHeader` (close row) when `true`                                  | `boolean`         | `true`  |
+| slotProps    | Slots: `container`, `header`, `content`, `footer` (see below)                   | `DrawerSlotProps` | —       |
 
 #### `slotProps`
 

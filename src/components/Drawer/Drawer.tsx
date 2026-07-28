@@ -10,6 +10,12 @@ const DRAWER_PAPER_BASE_SX = {
     '0px 3px 240px 4px rgba(255, 255, 255, 0.10), 0px 2px 250px 4px rgba(255, 255, 255, 0.08)',
 } as const;
 
+const DRAWER_PAPER_STABLE_HEIGHT_SX = {
+  display: 'flex',
+  flexDirection: 'column',
+  height: '90dvh',
+} as const;
+
 const DrawerContent = styled(Stack, {
   name: 'Drawer',
   slot: 'content',
@@ -23,6 +29,7 @@ const DrawerFooter = styled(Box, {
   name: 'Drawer',
   slot: 'footer',
 })({
+  flexShrink: 0,
   paddingBottom: 'max(env(safe-area-inset-bottom), 0px)',
 });
 
@@ -38,6 +45,7 @@ export function Drawer({
   title,
   footer,
   fullDrawer,
+  stableHeight,
   slotProps,
   showHeader = true,
 }: DrawerProps) {
@@ -66,6 +74,7 @@ export function Drawer({
                 height: { xs: '100%', md: 'unset' },
               }
             : {}),
+          ...(stableHeight ? DRAWER_PAPER_STABLE_HEIGHT_SX : {}),
           ...(isDesktop
             ? { minWidth: 500, borderRadius }
             : {
@@ -81,6 +90,10 @@ export function Drawer({
           title={title}
           onClose={showHeader ? onClose : undefined}
           {...headerSlotProps}
+          sx={{
+            ...(stableHeight ? { flexShrink: 0 } : {}),
+            ...(headerSlotProps?.sx ?? {}),
+          }}
         />
       ) : null}
 

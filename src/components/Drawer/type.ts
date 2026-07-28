@@ -63,6 +63,7 @@ export interface DrawerProps {
   title?: ReactNode;
   footer?: ReactNode;
   fullDrawer?: boolean;
+  stableHeight?: boolean;
   slotProps?: DrawerSlotProps;
   showHeader?: boolean;
 }
