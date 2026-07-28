@@ -5,6 +5,16 @@ order: 2
 
 # Changelog
 
+## [0.1.20](https://github-work/bosinc/pear-shared/compare/0.1.19...0.1.20) (2026-07-28)
+
+### Bug Fixes
+
+- **Drawer:** adjust maxHeight from 100dvh to 90dvh for improved layout ([606a86d](https://github-work/bosinc/pear-shared/commit/606a86dd671353022b1c0d8754264759d4ad4666))
+
+### Features
+
+- **Drawer:** add stableHeight prop for fixed height layout option ([4dafc48](https://github-work/bosinc/pear-shared/commit/4dafc48a7595a015ad5cb540b3f75001e1c9a4b1))
+
 ## [0.1.19](https://github-work/bosinc/pear-shared/compare/0.1.18...0.1.19) (2026-07-23)
 
 ### Features
