@@ -11,29 +11,16 @@ A popover component built on MUI `Popover` with custom styling. API is fully com
 ### Basic Usage
 
 ```tsx
-import { Button, Popover } from '@bosinc/shared';
-import { useState } from 'react';
+import { Button, Popover, useAnchorEl } from '@bosinc/shared';
 
 export default function Demo() {
-  const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
-
-  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-
-  const open = Boolean(anchorEl);
+  const { onClick, ...popoverProps } = useAnchorEl();
 
   return (
     <div>
-      <Button onClick={handleClick}>Open Popover</Button>
+      <Button onClick={onClick}>Open Popover</Button>
       <Popover
-        anchorEl={anchorEl}
-        open={open}
-        onClose={handleClose}
+        {...popoverProps}
         anchorOrigin={{
           vertical: 'bottom',
           horizontal: 'left',

@@ -28,6 +28,20 @@ isNull(null); // true
 isNull(undefined); // false
 ```
 
+## isObject
+
+Check whether a value is a plain object (`{}`). Arrays, `null`, and other object-like values return `false`.
+
+```ts
+import { isObject } from '@bosinc/shared';
+
+isObject({}); // true
+isObject({ a: 1 }); // true
+isObject([]); // false
+isObject(null); // false
+isObject(new Date()); // false
+```
+
 ## isNil
 
 Check whether a value is `null` or `undefined`.

@@ -4,7 +4,7 @@ title: Menu
 
 # Menu
 
-Dropdown menu built on MUI `Menu` and `MenuItem`, with grouped items and optional per-item `autoClose`.
+Dropdown menu built on MUI `Menu` and `MenuItem`, with grouped items and optional per-item `autoClose`. Pair with `useAnchorEl` for anchor state.
 
 ## Examples
 
@@ -13,14 +13,11 @@ Dropdown menu built on MUI `Menu` and `MenuItem`, with grouped items and optiona
 With default **`autoClose: true`**, `MenuDropdown` calls **`onClose` after your `onClick`**. You normally do **not** call the same dismiss function again inside `onClick`.
 
 ```tsx
-import { useState } from 'react';
-import { Button, MenuDropdown } from '@bosinc/shared';
+import { Button, MenuDropdown, useAnchorEl } from '@bosinc/shared';
 import { ProfileLine, Settings3Line, Key4Line } from '@mingcute/react';
 
 export default () => {
-  const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
-
-  const handleClose = () => setAnchorEl(null);
+  const { onClick, ...menuProps } = useAnchorEl();
 
   const items = [
     [
@@ -47,16 +44,8 @@ export default () => {
 
   return (
     <>
-      <Button onClick={(event) => setAnchorEl(event.currentTarget)}>
-        Open Menu
-      </Button>
-
-      <MenuDropdown
-        anchorEl={anchorEl}
-        open={Boolean(anchorEl)}
-        onClose={handleClose}
-        items={items}
-      />
+      <Button onClick={onClick}>Open Menu</Button>
+      <MenuDropdown {...menuProps} items={items} />
     </>
   );
 };
@@ -64,20 +53,18 @@ export default () => {
 
 ### Async click, loading & autoClose
 
-By default **`autoClose` is `true`**: **`MenuDropdown` invokes `onClose` after your `onClick` completes** (for async handlers, that means after `await` settles). You usually **do not** call your dismiss helper (e.g. `handleClose`) again inside `onClick`.
+By default **`autoClose` is `true`**: **`MenuDropdown` invokes `onClose` after your `onClick` completes** (for async handlers, that means after `await` settles). You usually **do not** call your dismiss helper (e.g. `onClose`) again inside `onClick`.
 
-With **`autoClose: false`**, that item’s click **does not** trigger `onClose` from `MenuDropdown`. When you are ready to dismiss (for example after `await`), **call `handleClose()` yourself** inside `onClick`.
+With **`autoClose: false`**, that item’s click **does not** trigger `onClose` from `MenuDropdown`. When you are ready to dismiss (for example after `await`), **call `onClose()` yourself** inside `onClick`.
 
 ```tsx
-import { useState } from 'react';
-import { Button, MenuDropdown } from '@bosinc/shared';
+import { Button, MenuDropdown, useAnchorEl } from '@bosinc/shared';
 import { ProfileLine, Settings3Line, Key4Line } from '@mingcute/react';
 
 const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 export default () => {
-  const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
-  const handleClose = () => setAnchorEl(null);
+  const { onClick, onClose, ...menuProps } = useAnchorEl();
 
   const items = [
     [
@@ -87,6 +74,7 @@ export default () => {
         autoClose: false,
         onClick: async () => {
           await sleep(1200);
+          onClose();
         },
       },
       {
@@ -108,16 +96,8 @@ export default () => {
 
   return (
     <>
-      <Button onClick={(event) => setAnchorEl(event.currentTarget)}>
-        Open Menu
-      </Button>
-
-      <MenuDropdown
-        anchorEl={anchorEl}
-        open={Boolean(anchorEl)}
-        onClose={handleClose}
-        items={items}
-      />
+      <Button onClick={onClick}>Open Menu</Button>
+      <MenuDropdown {...menuProps} onClose={onClose} items={items} />
     </>
   );
 };
@@ -128,13 +108,11 @@ export default () => {
 Override the label via **`slotProps.text.sx`** and icon via **`slotProps.icon.sx`**. With default **`autoClose`**, omit calling **`onClose`** inside **`onClick`**; `MenuDropdown` will call it after `onClick`.
 
 ```tsx
-import { useState } from 'react';
-import { Button, MenuDropdown } from '@bosinc/shared';
+import { Button, MenuDropdown, useAnchorEl } from '@bosinc/shared';
 import { ProfileLine, Settings3Line, Key4Line } from '@mingcute/react';
 
 export default () => {
-  const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
-  const handleClose = () => setAnchorEl(null);
+  const { onClick, ...menuProps } = useAnchorEl();
 
   const items = [
     [
@@ -192,16 +170,8 @@ export default () => {
 
   return (
     <>
-      <Button onClick={(event) => setAnchorEl(event.currentTarget)}>
-        Open Menu
-      </Button>
-
-      <MenuDropdown
-        anchorEl={anchorEl}
-        open={Boolean(anchorEl)}
-        onClose={handleClose}
-        items={items}
-      />
+      <Button onClick={onClick}>Open Menu</Button>
+      <MenuDropdown {...menuProps} items={items} />
     </>
   );
 };

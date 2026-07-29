@@ -14,16 +14,19 @@ export * from './components/Menu';
 export * from './components/MaybeClickable';
 export * from './components/Popover';
 // Row / Col: not publicly exported yet (see src/components/Row/index.md)
+export * from './components/SelectDropdown';
 export * from './components/Spin';
 export * from './components/StatusTag';
 export * from './components/TextAlignToggle';
 export * from './components/Tooltip';
 export * from './components/Tabs';
 
+export * from './hooks/useAnchorEl';
 export * from './hooks/useCopyToClipboard';
 export * from './hooks/useIsDesktop';
 export * from './hooks/useIsMobile';
 export * from './hooks/useOptimizedImageUrl';
+export * from './hooks/useSelectDropdown';
 export * from './hooks/useWebShareLink';
 
 export * from './constants';
