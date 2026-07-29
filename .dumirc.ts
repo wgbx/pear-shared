@@ -43,6 +43,7 @@ export default defineConfig({
       { title: 'Hooks', link: 'hooks/use-copy-to-clipboard' },
       { title: 'Constants', link: 'constants' },
       { title: 'Utils', link: 'utils/numeric' },
+      { title: 'Styles', link: 'styles' },
       { title: 'Changelog', link: 'changelog' },
     ],
   },
@@ -54,6 +55,7 @@ export default defineConfig({
       { type: 'hook', dir: 'src/hooks' },
       { type: 'constant', dir: 'src/constants' },
       { type: 'util', dir: 'src/utils' },
+      { type: 'style', dir: 'src/styles' },
     ],
   },
 });

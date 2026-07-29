@@ -36,3 +36,5 @@ export * from './utils/function';
 export * from './utils/device';
 export * from './utils/date';
 export * from './utils/image';
+
+export * from './styles';

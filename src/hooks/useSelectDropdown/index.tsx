@@ -23,13 +23,13 @@ export interface UseSelectDropdownReturn<
  *
  * @example
  * ```tsx
- * const { onClick, value, ...selectProps } = useSelectDropdown({
+ * const { onClick, ...selectProps } = useSelectDropdown({
  *   defaultValue: 'inter',
  * });
  *
  * return (
  *   <>
- *     <Button onClick={onClick}>{value}</Button>
+ *     <Button onClick={onClick}>{selectProps.value}</Button>
  *     <SelectDropdown {...selectProps} options={options} />
  *   </>
  * );

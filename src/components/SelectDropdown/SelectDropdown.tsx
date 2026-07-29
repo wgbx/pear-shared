@@ -2,6 +2,7 @@ import { Menu as MuiMenu, styled } from '@mui/material';
 import { useMemoizedFn } from 'ahooks';
 import { type ReactElement } from 'react';
 
+import { getThinScrollbarStyles } from '../../styles';
 import { isObject } from '../../utils/function';
 import { SelectDropdownOptionItem } from './SelectDropdownOptionItem';
 import type { SelectDropdownOption, SelectDropdownProps } from './type';
@@ -15,9 +16,18 @@ const SelectDropdownMenu = styled(MuiMenu, {
     marginTop: theme.spacing(0.5),
     width: 'max-content',
     minWidth: 150,
+    overflow: 'hidden',
+    display: 'flex',
+    flexDirection: 'column',
+    // Equal inset on all sides so selected rows keep padding + radius on both edges
+    padding: theme.spacing(1),
+    boxSizing: 'border-box',
   },
   '& .MuiList-root': {
-    padding: theme.spacing(1),
+    padding: 0,
+    flex: 1,
+    minHeight: 0,
+    ...getThinScrollbarStyles(theme),
   },
 }));
 

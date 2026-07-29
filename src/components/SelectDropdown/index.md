@@ -14,13 +14,13 @@ A selection menu panel built on MUI `Menu`. The business owns the trigger; `Sele
 import { Button, SelectDropdown, useSelectDropdown } from '@bosinc/shared';
 
 export default () => {
-  const { onClick, value, ...selectProps } = useSelectDropdown({
+  const { onClick, ...selectProps } = useSelectDropdown({
     defaultValue: 'inter',
   });
 
   return (
     <>
-      <Button onClick={onClick}>{value}</Button>
+      <Button onClick={onClick}>{selectProps.value}</Button>
       <SelectDropdown
         {...selectProps}
         options={[
@@ -29,6 +29,37 @@ export default () => {
           { label: 'Georgia', value: 'georgia' },
         ]}
       />
+    </>
+  );
+};
+```
+
+### Long list (scroll)
+
+Default `menuMaxHeight` is `400`. With many options the panel stays capped and scrolls.
+
+```tsx
+import { useMemo } from 'react';
+import { Button, SelectDropdown, useSelectDropdown } from '@bosinc/shared';
+
+export default () => {
+  const { onClick, ...selectProps } = useSelectDropdown({
+    defaultValue: 1,
+  });
+
+  const options = useMemo(
+    () =>
+      Array.from({ length: 100 }, (_, index) => {
+        const value = index + 1;
+        return { label: `Option ${value}`, value };
+      }),
+    [],
+  );
+
+  return (
+    <>
+      <Button onClick={onClick}>Option {selectProps.value}</Button>
+      <SelectDropdown {...selectProps} options={options} />
     </>
   );
 };
@@ -79,13 +110,13 @@ export default () => {
 import { Button, SelectDropdown, useSelectDropdown } from '@bosinc/shared';
 
 export default () => {
-  const { onClick, value, ...selectProps } = useSelectDropdown({
+  const { onClick, ...selectProps } = useSelectDropdown({
     defaultValue: 700,
   });
 
   return (
     <>
-      <Button onClick={onClick}>Weight {value}</Button>
+      <Button onClick={onClick}>Weight {selectProps.value}</Button>
       <SelectDropdown
         {...selectProps}
         options={[

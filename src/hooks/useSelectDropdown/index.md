@@ -6,7 +6,7 @@ title: useSelectDropdown
 
 Combines `useAnchorEl` with selected-value state for `SelectDropdown`. Supports controlled (`value`) and uncontrolled (`defaultValue`) modes.
 
-Keep `onClick` / `value` for the trigger, spread the rest onto `SelectDropdown`.
+Keep `onClick` for the trigger; spread the rest (including `value`) onto `SelectDropdown`.
 
 ## Examples
 
@@ -16,13 +16,13 @@ Keep `onClick` / `value` for the trigger, spread the rest onto `SelectDropdown`.
 import { Button, SelectDropdown, useSelectDropdown } from '@bosinc/shared';
 
 export default () => {
-  const { onClick, value, ...selectProps } = useSelectDropdown({
+  const { onClick, ...selectProps } = useSelectDropdown({
     defaultValue: 'inter',
   });
 
   return (
     <>
-      <Button onClick={onClick}>{value}</Button>
+      <Button onClick={onClick}>{selectProps.value}</Button>
       <SelectDropdown
         {...selectProps}
         options={[
