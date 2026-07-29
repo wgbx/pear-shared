@@ -44,7 +44,6 @@ export function Drawer({
   onClose,
   title,
   footer,
-  fullDrawer,
   stableHeight,
   slotProps,
   showHeader = true,
@@ -68,18 +67,12 @@ export function Drawer({
         ...containerSlotProps?.PaperProps,
         sx: {
           ...DRAWER_PAPER_BASE_SX,
-          ...(fullDrawer
-            ? {
-                flex: 1,
-                height: { xs: '100%', md: 'unset' },
-              }
-            : {}),
           ...(stableHeight ? DRAWER_PAPER_STABLE_HEIGHT_SX : {}),
           ...(isDesktop
             ? { minWidth: 500, borderRadius }
             : {
-                borderTopLeftRadius: fullDrawer ? 0 : 20,
-                borderTopRightRadius: fullDrawer ? 0 : 20,
+                borderTopLeftRadius: 20,
+                borderTopRightRadius: 20,
               }),
           ...containerSlotProps?.PaperProps?.sx,
         },

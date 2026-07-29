@@ -40,6 +40,53 @@ export default () => {
 };
 ```
 
+### Full Drawer
+
+```tsx
+import { Button, FullDrawer } from '@bosinc/shared';
+import { useState } from 'react';
+import { Stack, Typography } from '@mui/material';
+
+export default () => {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <>
+      <Button onClick={() => setOpen(true)}>Open full drawer</Button>
+      <FullDrawer
+        title="Configure"
+        open={open}
+        onClose={() => setOpen(false)}
+        actions={[
+          {
+            label: 'Close',
+            variant: 'outlined',
+            onClick: () => setOpen(false),
+          },
+          {
+            label: 'Save',
+            variant: 'contained',
+            onClick: () => setOpen(false),
+          },
+        ]}
+      >
+        <Stack sx={{ p: 2, gap: 1 }}>
+          <Typography variant="body2">
+            Full-height drawer with no backdrop. On desktop it is centered with
+            a max width of 744px and a small top margin.
+          </Typography>
+          {Array.from({ length: 12 }, (_, index) => (
+            <Typography key={index} variant="body2">
+              Section {index + 1}
+            </Typography>
+          ))}
+        </Stack>
+      </FullDrawer>
+    </>
+  );
+};
+```
+
 ### Action Drawer
 
 ```tsx
@@ -199,7 +246,6 @@ export default () => {
 | children     | Scrollable main content                                                         | `ReactNode`       | —       |
 | title        | Centered heading in `DrawerHeader` when provided                                | `ReactNode`       | —       |
 | footer       | Optional sticky footer area below content                                       | `ReactNode`       | —       |
-| fullDrawer   | Full-height / flex layout on paper                                              | `boolean`         | —       |
 | stableHeight | Fixed `90dvh` height with scrollable content area; use for async-loaded content | `boolean`         | —       |
 | showHeader   | Renders `DrawerHeader` (close row) when `true`                                  | `boolean`         | `true`  |
 | slotProps    | Slots: `container`, `header`, `content`, `footer` (see below)                   | `DrawerSlotProps` | —       |
@@ -222,6 +268,15 @@ export default () => {
 | `actions`  | Footer action buttons                | `DrawerActionItem[]` | —       |
 | _(others)_ | Same as `Drawer`, except no `footer` | —                    | —       |
 
+### FullDrawer
+
+`FullDrawerProps` is the same as `ActionDrawerProps`. A wrapper around `ActionDrawer` that applies a full-height layout: no backdrop, no border radius, full height, desktop max width `744` with centered margins. Extra `slotProps` are merged and can override the defaults.
+
+| Property   | Description            | Type                 | Default |
+| ---------- | ---------------------- | -------------------- | ------- |
+| `actions`  | Footer action buttons  | `DrawerActionItem[]` | —       |
+| _(others)_ | Same as `ActionDrawer` | —                    | —       |
+
 ### CustomDrawer
 
 `CustomDrawerProps` extends `Omit<DrawerProps, 'showHeader'>`. The underlying `Drawer` always uses `showHeader={false}`; a top-right close control is rendered when `onClose` is provided.
@@ -233,7 +288,7 @@ export default () => {
 
 ### PromptDrawer
 
-`PromptDrawerProps` extends `Omit<DrawerProps, 'children' | 'footer'>` and adds prompt layout fields. All other `Drawer` props (`open`, `onClose`, `slotProps`, `fullDrawer`, `showHeader`, `title`, …) are forwarded. The implementation currently renders **`heading`**, **`description`**, **`children`**, and **`footer`** only; extra fields on the type (e.g. `contentSx`, `onConfirm`) are not used by the component yet.
+`PromptDrawerProps` extends `Omit<DrawerProps, 'children' | 'footer'>` and adds prompt layout fields. All other `Drawer` props (`open`, `onClose`, `slotProps`, `showHeader`, `title`, …) are forwarded. The implementation currently renders **`heading`**, **`description`**, **`children`**, and **`footer`** only; extra fields on the type (e.g. `contentSx`, `onConfirm`) are not used by the component yet.
 
 | Property      | Description                             | Type        | Default |
 | ------------- | --------------------------------------- | ----------- | ------- |

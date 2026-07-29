@@ -62,7 +62,6 @@ export interface DrawerProps {
   onClose?: () => void;
   title?: ReactNode;
   footer?: ReactNode;
-  fullDrawer?: boolean;
   stableHeight?: boolean;
   slotProps?: DrawerSlotProps;
   showHeader?: boolean;
@@ -93,6 +92,8 @@ export interface CustomDrawerProps extends Omit<DrawerProps, 'showHeader'> {
 export interface ActionDrawerProps extends Omit<DrawerProps, 'footer'> {
   actions?: DrawerActionItem[];
 }
+
+export type FullDrawerProps = ActionDrawerProps;
 
 export interface PromptDrawerProps
   extends Omit<DrawerProps, 'children' | 'footer'> {
