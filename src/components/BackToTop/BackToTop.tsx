@@ -13,10 +13,13 @@ const StyledIconButton = styled(IconButton, {
   name: 'BackToTop',
   slot: 'root',
 })(({ theme }) => ({
-  position: 'absolute',
-  right: 24,
-  bottom: 24,
-  minWidth: 'unset',
+  position: 'fixed',
+  // Same inset on both viewports: mobile uses viewport edge; md+ uses 744 content column.
+  right: 27,
+  bottom: 80,
+  padding: 0,
+  minWidth: 36,
+  minHeight: 36,
   width: 36,
   height: 36,
   color: theme.palette.brand.black,
@@ -26,6 +29,10 @@ const StyledIconButton = styled(IconButton, {
   zIndex: theme.zIndex.appBar,
   '&:hover': {
     backgroundColor: theme.palette.white.a100,
+  },
+  // 744/2 = 372; keep the same 27px inset from the content column's right edge.
+  [theme.breakpoints.up('md')]: {
+    right: 'calc(50% - 345px)',
   },
 }));
 
