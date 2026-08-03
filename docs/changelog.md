@@ -5,6 +5,15 @@ order: 2
 
 # Changelog
 
+## [0.1.21](https://github-work/bosinc/pear-shared/compare/0.1.20...0.1.21) (2026-08-03)
+
+### Features
+
+- **BackToTop:** add BackToTop component for smooth scrolling to top functionality and update documentation ([7b75aad](https://github-work/bosinc/pear-shared/commit/7b75aadc114da33bd76b7a473af86a63d484ba8e))
+- **Drawer:** introduce FullDrawer component for full-height layout and update documentation ([daf0c08](https://github-work/bosinc/pear-shared/commit/daf0c0842339e7990a912e25eacb655ad85cc9c1))
+- **SelectDropdown:** add SelectDropdown component with hooks for state management and update documentation ([3dc8e12](https://github-work/bosinc/pear-shared/commit/3dc8e121afacf76d63eab9816dcb8324ff656936))
+- **styles:** add shared style helpers including thin scrollbar styles and update SelectDropdown documentation ([c760d64](https://github-work/bosinc/pear-shared/commit/c760d6468c7b5a4666d755d7b700d91dde992b0b))
+
 ## [0.1.20](https://github-work/bosinc/pear-shared/compare/0.1.19...0.1.20) (2026-07-28)
 
 ### Bug Fixes
