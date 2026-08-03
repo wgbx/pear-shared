@@ -5,6 +5,12 @@ order: 2
 
 # Changelog
 
+## [0.1.22](https://github-work/bosinc/pear-shared/compare/0.1.21...0.1.22) (2026-08-03)
+
+### Features
+
+- **link-local-to-katana:** add documentation for syncing local shared with katana-web for debugging ([7d3ba1a](https://github-work/bosinc/pear-shared/commit/7d3ba1a55fae370d80baa4305ca7d2380b9f25b4))
+
 ## [0.1.21](https://github-work/bosinc/pear-shared/compare/0.1.20...0.1.21) (2026-08-03)
 
 ### Features
