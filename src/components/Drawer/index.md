@@ -8,85 +8,6 @@ Unified responsive drawer component that renders a `Dialog` on desktop and a `Dr
 
 ## Example
 
-### Basic Usage
-
-```tsx
-import { Button, Drawer } from '@bosinc/shared';
-import { useState } from 'react';
-import { Stack } from '@mui/material';
-
-export default () => {
-  const [open, setOpen] = useState(false);
-
-  return (
-    <>
-      <Button onClick={() => setOpen(true)}>Edit settings</Button>
-      <Drawer
-        title="Setting"
-        open={open}
-        onClose={() => setOpen(false)}
-        footer={
-          <Stack sx={{ p: 2 }} onClick={() => setOpen(false)}>
-            <Button variant="contained">Save changes</Button>
-          </Stack>
-        }
-      >
-        <Stack sx={{ p: 2, py: 1, gap: 1 }}>
-          <span>Update a few options and save when you’re done.</span>
-        </Stack>
-      </Drawer>
-    </>
-  );
-};
-```
-
-### Full Drawer
-
-```tsx
-import { Button, FullDrawer } from '@bosinc/shared';
-import { useState } from 'react';
-import { Stack, Typography } from '@mui/material';
-
-export default () => {
-  const [open, setOpen] = useState(false);
-
-  return (
-    <>
-      <Button onClick={() => setOpen(true)}>Open full drawer</Button>
-      <FullDrawer
-        title="Configure"
-        open={open}
-        onClose={() => setOpen(false)}
-        actions={[
-          {
-            label: 'Close',
-            variant: 'outlined',
-            onClick: () => setOpen(false),
-          },
-          {
-            label: 'Save',
-            variant: 'contained',
-            onClick: () => setOpen(false),
-          },
-        ]}
-      >
-        <Stack sx={{ p: 2, gap: 1 }}>
-          <Typography variant="body2">
-            Full-height drawer with no backdrop. On desktop it is centered with
-            a max width of 744px and a small top margin.
-          </Typography>
-          {Array.from({ length: 12 }, (_, index) => (
-            <Typography key={index} variant="body2">
-              Section {index + 1}
-            </Typography>
-          ))}
-        </Stack>
-      </FullDrawer>
-    </>
-  );
-};
-```
-
 ### Action Drawer
 
 ```tsx
@@ -162,46 +83,6 @@ export default () => {
 };
 ```
 
-### Prompt Drawer
-
-```tsx
-import { Button, PromptDrawer } from '@bosinc/shared';
-import { useState } from 'react';
-
-export default () => {
-  const [open, setOpen] = useState(false);
-
-  return (
-    <>
-      <Button onClick={() => setOpen(true)}>Open PromptDrawer</Button>
-      <PromptDrawer
-        open={open}
-        onClose={() => setOpen(false)}
-        heading="Dialog Title"
-        description="This is where your dialog message or instructions will appear. Keep it concise and relevant to the action being taken."
-        actions={[
-          {
-            label: 'Delete',
-            type: 'danger',
-            onClick: () => setOpen(false),
-          },
-          {
-            label: 'Confirm',
-            variant: 'contained',
-            onClick: async () => {
-              await new Promise<void>((resolve) => {
-                setTimeout(resolve, 2000);
-              });
-              setOpen(false);
-            },
-          },
-        ]}
-      />
-    </>
-  );
-};
-```
-
 ### Notice Drawer
 
 ```tsx
@@ -230,6 +111,38 @@ export default () => {
           </Typography>
         </Stack>
       </NoticeDrawer>
+    </>
+  );
+};
+```
+
+### Basic Usage
+
+```tsx
+import { Button, Drawer } from '@bosinc/shared';
+import { useState } from 'react';
+import { Stack } from '@mui/material';
+
+export default () => {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <>
+      <Button onClick={() => setOpen(true)}>Edit settings</Button>
+      <Drawer
+        title="Setting"
+        open={open}
+        onClose={() => setOpen(false)}
+        footer={
+          <Stack sx={{ p: 2 }} onClick={() => setOpen(false)}>
+            <Button variant="contained">Save changes</Button>
+          </Stack>
+        }
+      >
+        <Stack sx={{ p: 2, py: 1, gap: 1 }}>
+          <span>Update a few options and save when you’re done.</span>
+        </Stack>
+      </Drawer>
     </>
   );
 };
