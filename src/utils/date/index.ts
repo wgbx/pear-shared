@@ -2,6 +2,7 @@ export * from './constants';
 export * from './defaults';
 export * from './formatDate';
 export * from './formatDateInTimeZone';
+export * from './formatDateTimeDisplay';
 export * from './getLocalTimezone';
 export * from './toDate';
 export * from './types';

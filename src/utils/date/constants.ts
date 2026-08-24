@@ -4,6 +4,8 @@
 export const DATE_FORMAT = {
   /** `Mar 09, 2025` */
   MONTH_DAY_YEAR: 'MMM dd, yyyy',
+  /** `Sep 22, 2026 6:00PM` */
+  MONTH_DAY_YEAR_TIME: 'MMM dd, yyyy h:mma',
   /** `Mar 09 2025` */
   MONTH_DAY_YEAR_NO_COMMA: 'MMM dd yyyy',
   /** `03/09/2025` */

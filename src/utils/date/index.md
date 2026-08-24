@@ -13,6 +13,7 @@ Common date-fns format pattern constants.
 | Property                  | Pattern               | Example               |
 | ------------------------- | --------------------- | --------------------- |
 | `MONTH_DAY_YEAR`          | `MMM dd, yyyy`        | `Mar 09, 2025`        |
+| `MONTH_DAY_YEAR_TIME`     | `MMM dd, yyyy h:mma`  | `Sep 22, 2026 6:00PM` |
 | `MONTH_DAY_YEAR_NO_COMMA` | `MMM dd yyyy`         | `Mar 09 2025`         |
 | `SLASH_NUMERIC`           | `MM/dd/yyyy`          | `03/09/2025`          |
 | `SLASH_DATE_WITH_TZ`      | `MM/dd/yyyy (zzz)`    | `06/10/2026 (PDT)`    |
@@ -100,6 +101,36 @@ formatDateInTimeZone('2025-03-09T14:30:00Z'); // default America/Los_Angeles + D
 formatDateInTimeZone('2026-06-10T12:00:00Z', {
   format: DATE_FORMAT.SLASH_DATE_WITH_TZ,
 }); // '06/10/2026 (PDT)'
+```
+
+## formatDateTimeDisplay
+
+Format an instant for display. Only `Date` input is supported. Invalid or missing input returns `''`.
+
+`timeZone` is used for display conversion and defaults to `TIMEZONE.UTC`. If your business logic starts with an ISO string, convert it to `Date` before calling this method.
+
+| Param                | Description                                          | Type      | Required | Default                           |
+| -------------------- | ---------------------------------------------------- | --------- | -------- | --------------------------------- |
+| value                | Start date                                           | `Date`    | `-`      | `-`                               |
+| options              | Display options                                      | `object`  | `-`      | `-`                               |
+| options.end          | End date; identical start/end collapses to one value | `Date`    | `-`      | `-`                               |
+| options.timeZone     | IANA timezone used for display conversion            | `string`  | `-`      | `TIMEZONE.UTC`                    |
+| options.hideTimezone | Hide the timezone suffix                             | `boolean` | `-`      | `false`                           |
+| options.format       | Pattern for display                                  | `string`  | `-`      | `DATE_FORMAT.MONTH_DAY_YEAR_TIME` |
+
+**Returns:** `string`
+
+```ts
+import { formatDateTimeDisplay, TIMEZONE } from '@bosinc/shared';
+
+formatDateTimeDisplay(new Date('2026-09-22T18:00:00Z'), {
+  timeZone: TIMEZONE.AMERICA_LOS_ANGELES,
+}); // 'Sep 22, 2026 11:00AM (PDT)'
+
+formatDateTimeDisplay(new Date('2026-09-22T18:00:00Z'), {
+  end: new Date('2026-09-22T20:00:00Z'),
+  timeZone: TIMEZONE.AMERICA_LOS_ANGELES,
+}); // 'Sep 22, 2026 11:00AM - Sep 22, 2026 1:00PM (PDT)'
 ```
 
 ## utcToZonedDate
