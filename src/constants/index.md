@@ -2,6 +2,66 @@
 title: Constants
 ---
 
+## Date Format
+
+`DATE_FORMAT`
+
+Common [date-fns](https://date-fns.org/) format pattern constants. Used by `@utils/date` formatters.
+
+| Property                  | Pattern               | Example               |
+| ------------------------- | --------------------- | --------------------- |
+| `MONTH_DAY_YEAR`          | `MMM dd, yyyy`        | `Mar 09, 2025`        |
+| `MONTH_DAY_YEAR_TIME`     | `MMM dd, yyyy h:mma`  | `Sep 22, 2026 6:00PM` |
+| `MONTH_DAY_YEAR_NO_COMMA` | `MMM dd yyyy`         | `Mar 09 2025`         |
+| `SLASH_NUMERIC`           | `MM/dd/yyyy`          | `03/09/2025`          |
+| `SLASH_DATE_WITH_TZ`      | `MM/dd/yyyy (zzz)`    | `06/10/2026 (PDT)`    |
+| `ISO_DATE`                | `yyyy-MM-dd`          | `2025-03-09`          |
+| `DATETIME`                | `yyyy-MM-dd HH:mm`    | `2025-03-09 14:30`    |
+| `DATETIME_SECONDS`        | `yyyy-MM-dd HH:mm:ss` | `2025-03-09 14:30:45` |
+| `TIME`                    | `HH:mm`               | `14:30`               |
+| `TIME_SECONDS`            | `HH:mm:ss`            | `14:30:45`            |
+
+```ts
+import { DATE_FORMAT, formatDate } from '@bosinc/shared';
+
+formatDate('2025-03-09T14:30:00', { format: DATE_FORMAT.DATETIME });
+```
+
+## Default Timezone
+
+`DEFAULT_TIMEZONE`
+
+Default business timezone: `'America/Los_Angeles'` (US Pacific). Equivalent to `TIMEZONE_MAP.AMERICA_LOS_ANGELES`.
+
+Used as the default `timeZone` for `formatDateInTimeZone`, `utcToZonedDate`, and `zonedToUtc`.
+
+```ts
+import { DEFAULT_TIMEZONE, formatDateInTimeZone } from '@bosinc/shared';
+
+formatDateInTimeZone(new Date(), { timeZone: DEFAULT_TIMEZONE });
+// Uses America/Los_Angeles when timeZone is omitted
+```
+
+## Timezone Map
+
+`TIMEZONE_MAP`
+
+Common IANA timezone identifiers for `@utils/date` formatters and converters.
+
+| Property              | IANA ID               | Region / notes             |
+| --------------------- | --------------------- | -------------------------- |
+| `UTC`                 | `UTC`                 | Coordinated Universal Time |
+| `AMERICA_LOS_ANGELES` | `America/Los_Angeles` | US Pacific (PST/PDT)       |
+| `AMERICA_NEW_YORK`    | `America/New_York`    | US Eastern (EST/EDT)       |
+| `ASIA_SHANGHAI`       | `Asia/Shanghai`       | China (CST)                |
+
+```ts
+import { TIMEZONE_MAP, formatDateTimeDisplay } from '@bosinc/shared';
+
+formatDateTimeDisplay(new Date(), { timeZone: TIMEZONE_MAP.AMERICA_NEW_YORK });
+// e.g. 'Aug 25, 2026 5:00PM (EDT)'
+```
+
 ## StatusTag Map
 
 `STATUS_TAG_MAP`

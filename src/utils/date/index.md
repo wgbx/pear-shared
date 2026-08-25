@@ -6,44 +6,7 @@ title: date
 
 Date formatting utilities powered by [date-fns](https://date-fns.org/) and [date-fns-tz](https://github.com/marnusw/date-fns-tz) for timezone support. Invalid input returns `''` for formatters and `null` for parsers.
 
-## DATE_FORMAT
-
-Common date-fns format pattern constants.
-
-| Property                  | Pattern               | Example               |
-| ------------------------- | --------------------- | --------------------- |
-| `MONTH_DAY_YEAR`          | `MMM dd, yyyy`        | `Mar 09, 2025`        |
-| `MONTH_DAY_YEAR_TIME`     | `MMM dd, yyyy h:mma`  | `Sep 22, 2026 6:00PM` |
-| `MONTH_DAY_YEAR_NO_COMMA` | `MMM dd yyyy`         | `Mar 09 2025`         |
-| `SLASH_NUMERIC`           | `MM/dd/yyyy`          | `03/09/2025`          |
-| `SLASH_DATE_WITH_TZ`      | `MM/dd/yyyy (zzz)`    | `06/10/2026 (PDT)`    |
-| `ISO_DATE`                | `yyyy-MM-dd`          | `2025-03-09`          |
-| `DATETIME`                | `yyyy-MM-dd HH:mm`    | `2025-03-09 14:30`    |
-| `DATETIME_SECONDS`        | `yyyy-MM-dd HH:mm:ss` | `2025-03-09 14:30:45` |
-| `TIME`                    | `HH:mm`               | `14:30`               |
-| `TIME_SECONDS`            | `HH:mm:ss`            | `14:30:45`            |
-
-```ts
-import { DATE_FORMAT, formatDate } from '@bosinc/shared';
-
-formatDate('2025-03-09T14:30:00', { format: DATE_FORMAT.DATETIME });
-```
-
-## TIMEZONE
-
-Common IANA timezone identifiers.
-
-| Property              | IANA ID               | Region / notes             |
-| --------------------- | --------------------- | -------------------------- |
-| `UTC`                 | `UTC`                 | Coordinated Universal Time |
-| `AMERICA_LOS_ANGELES` | `America/Los_Angeles` | US Pacific (PST/PDT)       |
-| `ASIA_SHANGHAI`       | `Asia/Shanghai`       | China (CST)                |
-
-```ts
-import { TIMEZONE } from '@bosinc/shared';
-
-TIMEZONE.AMERICA_LOS_ANGELES; // 'America/Los_Angeles'
-```
+See [Constants](/constants) for `DATE_FORMAT`, `TIMEZONE_MAP`, and `DEFAULT_TIMEZONE`.
 
 ## formatDate
 
@@ -90,7 +53,7 @@ Format a date in a specific IANA timezone. Returns `''` for invalid input. Requi
 | value            | Date to format   | `Date \| number \| string` | `✅`     | `-`                            |
 | options          | Format options   | `object`                   | `-`      | `-`                            |
 | options.format   | date-fns pattern | `string`                   | `-`      | `DATE_FORMAT.DATETIME`         |
-| options.timeZone | IANA timezone    | `string`                   | `-`      | `TIMEZONE.AMERICA_LOS_ANGELES` |
+| options.timeZone | IANA timezone    | `string`                   | `-`      | `TIMEZONE_MAP.AMERICA_LOS_ANGELES` |
 
 **Returns:** `string`
 
@@ -105,32 +68,30 @@ formatDateInTimeZone('2026-06-10T12:00:00Z', {
 
 ## formatDateTimeDisplay
 
-Format an instant for display. Only `Date` input is supported. Invalid or missing input returns `''`.
+Format a `Date` for display in a given timezone. Invalid or missing input returns `''`.
 
-`timeZone` is used for display conversion and defaults to `TIMEZONE.UTC`. If your business logic starts with an ISO string, convert it to `Date` before calling this method.
-
-| Param                | Description                                          | Type      | Required | Default                           |
-| -------------------- | ---------------------------------------------------- | --------- | -------- | --------------------------------- |
-| value                | Start date                                           | `Date`    | `-`      | `-`                               |
-| options              | Display options                                      | `object`  | `-`      | `-`                               |
-| options.end          | End date; identical start/end collapses to one value | `Date`    | `-`      | `-`                               |
-| options.timeZone     | IANA timezone used for display conversion            | `string`  | `-`      | `TIMEZONE.UTC`                    |
-| options.hideTimezone | Hide the timezone suffix                             | `boolean` | `-`      | `false`                           |
-| options.format       | Pattern for display                                  | `string`  | `-`      | `DATE_FORMAT.MONTH_DAY_YEAR_TIME` |
+| Param            | Description                                          | Type     | Required | Default        |
+| ---------------- | ---------------------------------------------------- | -------- | -------- | -------------- |
+| value            | Start date                                           | `Date`   | `-`      | `-`            |
+| options          | Display options                                      | `object` | `-`      | `-`            |
+| options.end      | End date; identical start/end collapses to one value | `Date`   | `-`      | `-`            |
+| options.timeZone | IANA timezone used for display                       | `string` | `-`      | `TIMEZONE_MAP.UTC` |
 
 **Returns:** `string`
 
 ```ts
-import { formatDateTimeDisplay, TIMEZONE } from '@bosinc/shared';
+import { formatDateTimeDisplay, TIMEZONE_MAP } from '@bosinc/shared';
 
 formatDateTimeDisplay(new Date('2026-09-22T18:00:00Z'), {
-  timeZone: TIMEZONE.AMERICA_LOS_ANGELES,
-}); // 'Sep 22, 2026 11:00AM (PDT)'
+  timeZone: TIMEZONE_MAP.AMERICA_LOS_ANGELES,
+});
+// 'Sep 22, 2026 11:00AM (PDT)'
 
 formatDateTimeDisplay(new Date('2026-09-22T18:00:00Z'), {
   end: new Date('2026-09-22T20:00:00Z'),
-  timeZone: TIMEZONE.AMERICA_LOS_ANGELES,
-}); // 'Sep 22, 2026 11:00AM - Sep 22, 2026 1:00PM (PDT)'
+  timeZone: TIMEZONE_MAP.AMERICA_LOS_ANGELES,
+});
+// 'Sep 22, 2026 11:00AM - Sep 22, 2026 1:00PM (PDT)'
 ```
 
 ## utcToZonedDate
@@ -141,7 +102,7 @@ Convert a UTC date to a `Date` in the target timezone. Requires `date-fns-tz`.
 | ---------------- | -------------- | -------------------------- | -------- | ------------------------------ |
 | value            | UTC date input | `Date \| number \| string` | `✅`     | `-`                            |
 | options          | Options        | `object`                   | `-`      | `-`                            |
-| options.timeZone | IANA timezone  | `string`                   | `-`      | `TIMEZONE.AMERICA_LOS_ANGELES` |
+| options.timeZone | IANA timezone  | `string`                   | `-`      | `TIMEZONE_MAP.AMERICA_LOS_ANGELES` |
 
 **Returns:** `Date | null`
 
@@ -159,15 +120,15 @@ Convert a date interpreted in a timezone to UTC. Requires `date-fns-tz`.
 | ---------------- | ------------- | -------------------------- | -------- | ------------------------------ |
 | value            | Local date    | `Date \| number \| string` | `✅`     | `-`                            |
 | options          | Options       | `object`                   | `-`      | `-`                            |
-| options.timeZone | IANA timezone | `string`                   | `-`      | `TIMEZONE.AMERICA_LOS_ANGELES` |
+| options.timeZone | IANA timezone | `string`                   | `-`      | `TIMEZONE_MAP.AMERICA_LOS_ANGELES` |
 
 **Returns:** `Date | null`
 
 ```ts
-import { TIMEZONE, zonedToUtc } from '@bosinc/shared';
+import { TIMEZONE_MAP, zonedToUtc } from '@bosinc/shared';
 
 zonedToUtc('2025-03-09 14:30');
-zonedToUtc('2025-03-09 14:30', { timeZone: TIMEZONE.ASIA_SHANGHAI });
+zonedToUtc('2025-03-09 14:30', { timeZone: TIMEZONE_MAP.ASIA_SHANGHAI });
 ```
 
 ## getLocalTimezone

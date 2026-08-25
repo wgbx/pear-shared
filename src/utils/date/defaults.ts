@@ -1,4 +1,4 @@
-import { DATE_FORMAT, DEFAULT_TIMEZONE, TIMEZONE } from './constants';
+import { DATE_FORMAT, DEFAULT_TIMEZONE, TIMEZONE_MAP } from './constants';
 import type {
   FormatDateInTimeZoneOptions,
   FormatDateOptions,
@@ -21,9 +21,7 @@ export const DEFAULT_ZONED_DATE_OPTIONS: Required<ZonedDateOptions> = {
 };
 
 export const DEFAULT_FORMAT_DATE_TIME_DISPLAY_OPTIONS: Required<
-  Pick<FormatDateTimeDisplayOptions, 'hideTimezone' | 'format' | 'timeZone'>
+  Pick<FormatDateTimeDisplayOptions, 'timeZone'>
 > = {
-  hideTimezone: false,
-  format: DATE_FORMAT.MONTH_DAY_YEAR_TIME,
-  timeZone: TIMEZONE.UTC,
+  timeZone: TIMEZONE_MAP.UTC,
 };

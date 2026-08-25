@@ -13,10 +13,10 @@ import type { DateInput, ZonedDateOptions } from './types';
  *
  * @example
  * ```ts
- * import { zonedToUtc, TIMEZONE } from '@bosinc/shared';
+ * import { zonedToUtc, TIMEZONE_MAP } from '@bosinc/shared';
  *
  * zonedToUtc('2025-03-09 14:30')
- * zonedToUtc('2025-03-09 14:30', { timeZone: TIMEZONE.ASIA_SHANGHAI })
+ * zonedToUtc('2025-03-09 14:30', { timeZone: TIMEZONE_MAP.ASIA_SHANGHAI })
  * ```
  */
 export function zonedToUtc(
