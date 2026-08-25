@@ -5,6 +5,14 @@ order: 2
 
 # Changelog
 
+## [0.1.23](https://github-work/bosinc/pear-shared/compare/0.1.22...0.1.23) (2026-08-25)
+
+### Features
+
+- **date:** add formatDateTimeDisplay function for formatting date and time with timezone support, update constants and documentation ([636e575](https://github-work/bosinc/pear-shared/commit/636e5752ca3b64c835639ca0cca64c022035d80c))
+- **date:** introduce DATE_FORMAT and TIMEZONE_MAP constants, along with DEFAULT_TIMEZONE; update documentation and refactor date utilities for improved timezone handling ([fd17676](https://github-work/bosinc/pear-shared/commit/fd17676e57e36cc557a2c2b48e2ca9825d3f113a))
+- **IconButton:** introduce IconButton component with customizable aria-label and enhanced padding for better accessibility, including comprehensive documentation ([5679a28](https://github-work/bosinc/pear-shared/commit/5679a288e4dd02471c5ed6a87d49d9d1e5908fea))
+
 ## [0.1.22](https://github-work/bosinc/pear-shared/compare/0.1.21...0.1.22) (2026-08-03)
 
 ### Features
