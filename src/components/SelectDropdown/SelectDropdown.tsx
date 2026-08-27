@@ -2,8 +2,8 @@ import { Menu as MuiMenu, styled } from '@mui/material';
 import { useMemoizedFn } from 'ahooks';
 import { type ReactElement } from 'react';
 
-import { getThinScrollbarStyles } from '../../styles';
-import { isObject } from '../../utils/function';
+import { getThinScrollbarStyles } from '@/styles';
+import { isObject } from '@/utils/function';
 import { SelectDropdownOptionItem } from './SelectDropdownOptionItem';
 import type { SelectDropdownOption, SelectDropdownProps } from './type';
 

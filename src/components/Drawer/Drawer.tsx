@@ -1,5 +1,5 @@
 import { Box, Stack, styled } from '@mui/material';
-import { useIsDesktop } from '../../hooks/useIsDesktop';
+import { useIsDesktop } from '@/hooks/useIsDesktop';
 import { DrawerContainer } from './DrawerContainer';
 import { DrawerHeader } from './DrawerHeader';
 import { type DrawerProps } from './type';

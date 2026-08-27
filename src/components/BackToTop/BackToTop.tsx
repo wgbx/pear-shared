@@ -6,8 +6,8 @@ import { useMemoizedFn, useScroll } from 'ahooks';
 import { getTargetElement, type BasicTarget } from 'ahooks/es/utils/domTarget';
 import type { MouseEvent, ReactNode } from 'react';
 
-import { isBrowser } from '@utils/device';
-import { isNil } from '@utils/function';
+import { isBrowser } from '@/utils/device';
+import { isNil } from '@/utils/function';
 
 const StyledIconButton = styled(IconButton, {
   name: 'BackToTop',

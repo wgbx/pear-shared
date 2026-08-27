@@ -1,4 +1,4 @@
-import { CLOUDINARY_QUALITY_MODE } from '../../constants/cloudinary';
+import { CLOUDINARY_QUALITY_MODE } from '@/constants';
 
 export type CloudinaryQuality =
   typeof CLOUDINARY_QUALITY_MODE[keyof typeof CLOUDINARY_QUALITY_MODE];

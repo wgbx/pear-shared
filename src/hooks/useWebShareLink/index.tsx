@@ -3,9 +3,9 @@ import { useMemoizedFn } from 'ahooks';
 import {
   WEB_SHARE_LINK_DEFAULT_ERROR_MESSAGE,
   WEB_SHARE_LINK_DEFAULT_SUCCESS_MESSAGE,
-} from '@constants';
-import { useAlert } from '../../components/Alert';
-import { useCopyToClipboard } from '../useCopyToClipboard';
+} from '@/constants';
+import { useAlert } from '@/components/Alert';
+import { useCopyToClipboard } from '@/hooks/useCopyToClipboard';
 
 interface UseWebShareLinkOptions {
   url: string;

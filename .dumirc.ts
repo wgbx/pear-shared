@@ -6,11 +6,7 @@ const absSrc = path.resolve(__dirname, 'src');
 export default defineConfig({
   locales: [{ id: 'en-US', name: 'English' }],
   alias: {
-    '@svg': path.join(absSrc, 'svg'),
-    '@hooks': path.join(absSrc, 'hooks'),
-    '@components': path.join(absSrc, 'components'),
-    '@constants': path.join(absSrc, 'constants'),
-    '@utils': path.join(absSrc, 'utils'),
+    '@': absSrc,
   },
   chainWebpack(memo: any) {
     memo.module

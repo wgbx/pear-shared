@@ -1,8 +1,8 @@
 import { styled } from '@mui/material';
 import { useMemoizedFn, useTimeout } from 'ahooks';
 import { type ReactElement, useState } from 'react';
-import { isPromiseLike } from '../../utils/function';
-import { Button } from '../Button';
+import { isPromiseLike } from '@/utils/function';
+import { Button } from '@/components/Button';
 import { type DrawerFooterItemButtonProps } from './type';
 
 const PENDING_CLEAR_DELAY_MS = 100;

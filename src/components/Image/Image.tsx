@@ -10,8 +10,8 @@ import {
   type SyntheticEvent,
 } from 'react';
 
-import { DEFAULT_IMAGE_FALLBACK } from '../../constants/image';
-import { useOptimizedImageUrl } from '../../hooks/useOptimizedImageUrl';
+import { DEFAULT_IMAGE_FALLBACK, isDebug } from '@/constants';
+import { useOptimizedImageUrl } from '@/hooks/useOptimizedImageUrl';
 
 import type { ImageProps } from './type';
 
@@ -23,6 +23,12 @@ const StyledImage = styled('img', {
   display: 'block',
   objectFit: 'cover',
   ...(fill ? { width: '100%', height: '100%' } : undefined),
+  ...(isDebug
+    ? {
+        outline: '3px solid #39FF14',
+        outlineOffset: '2px',
+      }
+    : undefined),
 }));
 
 export const Image = memo(
@@ -77,6 +83,7 @@ export const Image = memo(
         fill={fill}
         loading={loading ?? 'lazy'}
         onError={handleError}
+        {...(isDebug ? { 'data-is-debug': '1' } : undefined)}
       />
     );
   }),

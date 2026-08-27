@@ -1,6 +1,6 @@
 import { formatInTimeZone } from 'date-fns-tz';
 
-import { isNil } from '../function/isNil';
+import { isNil } from '@/utils/function';
 import { DATE_FORMAT } from './constants';
 import { DEFAULT_FORMAT_DATE_TIME_DISPLAY_OPTIONS } from './defaults';
 import { getTimeZoneAbbr } from './getTimeZoneAbbr';

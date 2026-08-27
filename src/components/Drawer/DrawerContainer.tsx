@@ -1,6 +1,6 @@
 import { Dialog, Drawer } from '@mui/material';
 import { type ReactElement } from 'react';
-import { useIsDesktop } from '../../hooks/useIsDesktop';
+import { useIsDesktop } from '@/hooks/useIsDesktop';
 import { type DrawerContainerProps } from './type';
 
 export function DrawerContainer({

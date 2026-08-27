@@ -1,6 +1,6 @@
 import { useMemoizedFn } from 'ahooks';
 
-import { isPromiseLike } from '../../utils/function';
+import { isPromiseLike } from '@/utils/function';
 import { MenuItem } from './MenuItem';
 import type { MenuDropdownItem } from './type';
 

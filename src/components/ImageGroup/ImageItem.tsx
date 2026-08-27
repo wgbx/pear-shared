@@ -7,9 +7,9 @@ import {
 } from '@mui/material';
 import { useMemoizedFn } from 'ahooks';
 
-import { Image } from '../Image';
-import type { ImageProps } from '../Image/type';
-import { MaybeClickable } from '../MaybeClickable';
+import { Image } from '@/components/Image';
+import type { ImageProps } from '@/components/Image/type';
+import { MaybeClickable } from '@/components/MaybeClickable';
 
 const DEFAULT_ITEM_SIZE = 24;
 

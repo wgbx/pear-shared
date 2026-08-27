@@ -6,16 +6,11 @@
     "esModuleInterop": true,
     "jsx": "react-jsx",
     "baseUrl": ".",
-    "ignoreDeprecations": "5.0",
+    "ignoreDeprecations": "6.0",
     "paths": {
       "@@/*": ["./.dumi/tmp/*"],
       "@bosinc/shared": ["./src"],
-      "@svg/*": ["./src/svg/*"],
-      "@hooks/*": ["./src/hooks/*"],
-      "@components/*": ["./src/components/*"],
-      "@constants": ["./src/constants"],
-      "@constants/*": ["./src/constants/*"],
-      "@utils/*": ["./src/utils/*"]
+      "@/*": ["./src/*"]
     }
   },
   "include": [".dumirc.ts", ".fatherrc.ts", "src/**/*", ".dumi/theme"]

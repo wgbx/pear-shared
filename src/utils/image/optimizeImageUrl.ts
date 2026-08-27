@@ -9,7 +9,7 @@ import {
   CLOUDINARY_IMAGE_UPLOAD_PATH_PART,
   CLOUDINARY_QUALITY_MODE,
   CLOUDINARY_VIDEO_UPLOAD_PATH_PART,
-} from '../../constants/cloudinary';
+} from '@/constants';
 
 import type { CloudinaryQuality, OptimizeImageOptions } from './types';
 

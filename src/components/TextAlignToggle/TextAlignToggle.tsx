@@ -5,7 +5,7 @@ import {
 } from '@mingcute/react';
 import { useMemo, type ReactElement } from 'react';
 
-import { IconToggle, type IconToggleProps } from '../IconToggle';
+import { IconToggle, type IconToggleProps } from '@/components/IconToggle';
 
 import { TextAlign, type TextAlignOption } from './type';
 export { TextAlign } from './type';

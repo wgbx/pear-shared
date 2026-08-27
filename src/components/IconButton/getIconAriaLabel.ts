@@ -1,6 +1,6 @@
 import { Children, isValidElement, type ReactNode } from 'react';
 
-import { isString } from '@utils/function';
+import { isString } from '@/utils/function';
 
 function getComponentName(type: unknown): string | undefined {
   if (!type || isString(type)) {

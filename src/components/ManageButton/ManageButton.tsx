@@ -10,8 +10,8 @@ import {
 import { Settings5Line } from '@mingcute/react';
 import type { ElementType, ReactNode } from 'react';
 
-import { Tooltip } from '../Tooltip';
-import type { TooltipProps } from '../Tooltip/type';
+import { Tooltip } from '@/components/Tooltip';
+import type { TooltipProps } from '@/components/Tooltip/type';
 
 const StyledIconButton = styled(IconButton, {
   name: 'ManageButton',

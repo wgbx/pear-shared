@@ -6,7 +6,7 @@ import type { ReactElement } from 'react';
 
 import { Tooltip } from './Tooltip';
 import type { InfoTooltipProps } from './type';
-import { isString } from '../../utils/function';
+import { isString } from '@/utils/function';
 
 const StyledInformationLine = styled(InformationLine)({
   cursor: 'pointer',

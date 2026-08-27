@@ -6,7 +6,7 @@ import {
   type SvgIconProps,
   type TypographyProps,
 } from '@mui/material';
-import { BookmarkSquareIcon } from '@svg/index';
+import { BookmarkSquareIcon } from '@/svg/index';
 import { type ComponentType, type ReactNode } from 'react';
 
 const BannerContainer = styled(Stack, {

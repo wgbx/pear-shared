@@ -1,8 +1,8 @@
 import { useMemoizedFn } from 'ahooks';
 import { useState } from 'react';
 
-import { type SelectDropdownOption } from '../../components/SelectDropdown/type';
-import { useAnchorEl, type UseAnchorElReturn } from '../useAnchorEl';
+import { type SelectDropdownOption } from '@/components/SelectDropdown/type';
+import { useAnchorEl, type UseAnchorElReturn } from '@/hooks/useAnchorEl';
 
 export interface UseSelectDropdownOptions<T = string | number> {
   value?: T;

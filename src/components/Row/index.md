@@ -13,7 +13,7 @@ Minimal 24-column layout helpers inspired by Ant Design Grid. `Row` controls ali
 ### Default
 
 ```tsx
-import { Row, Col } from '../Row';
+import { Row, Col } from '@bosinc/shared';
 import { Box } from '@mui/material';
 
 const cellSx = {
@@ -43,7 +43,7 @@ export default () => {
 ### Basic Usage
 
 ```tsx
-import { Row, Col } from '../Row';
+import { Row, Col } from '@bosinc/shared';
 import { Box } from '@mui/material';
 
 const cellSx = {
@@ -79,7 +79,7 @@ export default () => {
 ### Gutter and Offset
 
 ```tsx
-import { Row, Col } from '../Row';
+import { Row, Col } from '@bosinc/shared';
 import { Box } from '@mui/material';
 
 const cellSx = {
@@ -109,7 +109,7 @@ export default () => {
 ### Justify and Align
 
 ```tsx
-import { Row, Col } from '../Row';
+import { Row, Col } from '@bosinc/shared';
 import { Box } from '@mui/material';
 
 export default () => {

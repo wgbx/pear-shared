@@ -1,4 +1,4 @@
-import { type IconToggleOption } from '../IconToggle';
+import { type IconToggleOption } from '@/components/IconToggle';
 
 export enum TextAlign {
   LEFT = 'left',

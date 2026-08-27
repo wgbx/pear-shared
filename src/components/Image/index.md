@@ -104,3 +104,7 @@ export default function DemoFallback() {
 | slotProps       | Props for the root `<img>`                        | `{ root?: ... }`    | `-`      | `-`                      |
 
 See also {@link optimizeImageUrl} and {@link useOptimizedImageUrl}.
+
+## Debug
+
+Flip {@link isDebug} to `true` in `@bosinc/shared` to outline every shared `Image` and set `data-is-debug="1"`.

@@ -4,4 +4,4 @@ export {
   TIMEZONE_MAP,
   type DateFormat,
   type TimezoneMapId,
-} from '../../constants/date';
+} from '@/constants';

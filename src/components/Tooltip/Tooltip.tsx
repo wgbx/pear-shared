@@ -14,7 +14,7 @@ import {
 
 import { DefaultContent } from './DefaultContent';
 import { TooltipProps } from './type';
-import { isFunction } from '../../utils/function';
+import { isFunction } from '@/utils/function';
 
 type TooltipChildProps = {
   onClick?: (event: MouseEvent<HTMLElement>) => void;

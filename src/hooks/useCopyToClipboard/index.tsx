@@ -1,10 +1,10 @@
 import { useMemoizedFn } from 'ahooks';
 
-import { useAlert } from '@components/Alert';
+import { useAlert } from '@/components/Alert';
 import {
   COPY_TO_CLIPBOARD_DEFAULT_ERROR_MESSAGE,
   COPY_TO_CLIPBOARD_DEFAULT_SUCCESS_MESSAGE,
-} from '@constants';
+} from '@/constants';
 
 export interface UseCopyToClipboardWithAlertOptions {
   showMessage?: boolean;

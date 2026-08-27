@@ -8,7 +8,7 @@ import {
 } from '@mui/material';
 import { useBoolean } from 'ahooks';
 import { forwardRef, isValidElement } from 'react';
-import { isPromiseLike } from '../../utils/function';
+import { isPromiseLike } from '@/utils/function';
 import type { MenuItemProps } from './type';
 
 const ICON_STYLES = {

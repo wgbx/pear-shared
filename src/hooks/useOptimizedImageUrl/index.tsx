@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 
-import { optimizeImageUrl, type OptimizeImageOptions } from '../../utils/image';
+import { optimizeImageUrl, type OptimizeImageOptions } from '@/utils/image';
 
 export function useOptimizedImageUrl(
   src: string,

@@ -2,7 +2,7 @@ import { Stack, styled, type BoxProps, type StackProps } from '@mui/material';
 import type { Theme } from '@mui/material/styles';
 import { useCreation } from 'ahooks';
 
-import { MaybeClickable } from '../MaybeClickable';
+import { MaybeClickable } from '@/components/MaybeClickable';
 import {
   ImageItem,
   type ImageGroupImgSlotProps,
