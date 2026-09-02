@@ -25,8 +25,10 @@ const StyledImage = styled('img', {
   ...(fill ? { width: '100%', height: '100%' } : undefined),
   ...(isDebug
     ? {
-        outline: '3px solid #39FF14',
-        outlineOffset: '2px',
+        // Negative offset keeps the ring inside the box (survives overflow:hidden).
+        // Prefer outline over inset box-shadow — inset shadow often does not paint on <img>.
+        outline: '3px solid #1d9b06',
+        outlineOffset: '-3px',
       }
     : undefined),
 }));
