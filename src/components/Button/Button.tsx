@@ -36,7 +36,7 @@ export function Button({
   loading,
   disabled,
   appearance = BUTTON_APPEARANCE.PRIMARY,
-  size = UI_SIZE.LARGE,
+  size = UI_SIZE.MEDIUM,
   disableRipple = true,
   sx,
   ...restProps

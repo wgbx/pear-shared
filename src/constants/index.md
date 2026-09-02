@@ -82,10 +82,10 @@ Pear Design shared component size scale. Reused across Button and future UI comp
 
 | Key      | Value    | Figma | Height |
 | -------- | -------- | ----- | ------ |
-| `XLARGE` | `xlarge` | L-48  | 48px   |
-| `LARGE`  | `large`  | L-42  | 42px   |
-| `MEDIUM` | `medium` | M-32  | 32px   |
-| `SMALL`  | `small`  | S-24  | 24px   |
+| `LARGE`  | `large`  | L-48  | 48px   |
+| `MEDIUM` | `medium` | L-42  | 42px   |
+| `SMALL`  | `small`  | M-32  | 32px   |
+| `XSMALL` | `xsmall` | S-24  | 24px   |
 
 ```ts
 import { UI_SIZE, Button, BUTTON_APPEARANCE } from '@bosinc/shared';

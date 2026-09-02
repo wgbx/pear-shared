@@ -32,10 +32,10 @@ export type ButtonSizeToken =
   (typeof BUTTON_SIZE_TOKEN)[keyof typeof BUTTON_SIZE_TOKEN];
 
 export const UI_SIZE_TO_BUTTON_TOKEN: Record<UiSize, ButtonSizeToken> = {
-  [UI_SIZE.XLARGE]: BUTTON_SIZE_TOKEN.L48,
-  [UI_SIZE.LARGE]: BUTTON_SIZE_TOKEN.L42,
-  [UI_SIZE.MEDIUM]: BUTTON_SIZE_TOKEN.M32,
-  [UI_SIZE.SMALL]: BUTTON_SIZE_TOKEN.S24,
+  [UI_SIZE.LARGE]: BUTTON_SIZE_TOKEN.L48,
+  [UI_SIZE.MEDIUM]: BUTTON_SIZE_TOKEN.L42,
+  [UI_SIZE.SMALL]: BUTTON_SIZE_TOKEN.M32,
+  [UI_SIZE.XSMALL]: BUTTON_SIZE_TOKEN.S24,
 };
 
 export interface ButtonSizeConfig {
@@ -101,5 +101,5 @@ export function resolveButtonSizeToken(size: unknown): ButtonSizeToken {
     return UI_SIZE_TO_BUTTON_TOKEN[size];
   }
 
-  return UI_SIZE_TO_BUTTON_TOKEN[UI_SIZE.LARGE];
+  return UI_SIZE_TO_BUTTON_TOKEN[UI_SIZE.MEDIUM];
 }
