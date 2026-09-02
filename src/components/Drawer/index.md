@@ -135,7 +135,7 @@ export default () => {
         onClose={() => setOpen(false)}
         footer={
           <Stack sx={{ p: 2 }} onClick={() => setOpen(false)}>
-            <Button variant="contained">Save changes</Button>
+            <Button label="Save changes" />
           </Stack>
         }
       >

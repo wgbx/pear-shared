@@ -74,6 +74,37 @@ formatDateTimeDisplay(new Date(), { timeZone: TIMEZONE_MAP.AMERICA_NEW_YORK });
 | `ERROR`   | `error`   |
 | `INFO`    | `info`    |
 
+## UI Size
+
+`UI_SIZE`
+
+Pear Design shared component size scale. Reused across Button and future UI components.
+
+| Key      | Value    | Figma | Height |
+| -------- | -------- | ----- | ------ |
+| `XLARGE` | `xlarge` | L-48  | 48px   |
+| `LARGE`  | `large`  | L-42  | 42px   |
+| `MEDIUM` | `medium` | M-32  | 32px   |
+| `SMALL`  | `small`  | S-24  | 24px   |
+
+```ts
+import { UI_SIZE, Button, BUTTON_APPEARANCE } from '@bosinc/shared';
+
+<Button appearance={BUTTON_APPEARANCE.GHOST} size={UI_SIZE.MEDIUM} label="Cancel" />;
+```
+
+## Button Map
+
+`BUTTON_APPEARANCE`
+
+Btn-CTA appearance only (button-specific).
+
+| Key       | Value     |
+| --------- | --------- |
+| `PRIMARY` | `primary` |
+| `GHOST`   | `ghost`   |
+| `OUTLINE` | `outline` |
+
 ## Cloudinary Quality
 
 `CLOUDINARY_CLOUD_NAME`

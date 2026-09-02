@@ -2,7 +2,7 @@ import { styled } from '@mui/material';
 import { useMemoizedFn, useTimeout } from 'ahooks';
 import { type ReactElement, useState } from 'react';
 import { isPromiseLike } from '@/utils/function';
-import { Button } from '@/components/Button';
+import { LegacyButton } from '@/components/Button';
 import { type DrawerFooterItemButtonProps } from './type';
 
 const PENDING_CLEAR_DELAY_MS = 100;
@@ -16,7 +16,7 @@ const ERROR_ITEM_SX = {
   },
 } as const;
 
-const StyledFooterItemButton = styled(Button)(() => ({
+const StyledFooterItemButton = styled(LegacyButton)(() => ({
   flex: 1,
   minWidth: 0,
   fontWeight: 700,

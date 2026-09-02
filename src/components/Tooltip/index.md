@@ -118,9 +118,7 @@ export default () => {
             </Typography>
           </Stack>
           <Stack sx={{ alignSelf: 'flex-end' }}>
-            <Button size="small" variant="contained">
-              Action
-            </Button>
+            <Button size="small" label="Action" />
           </Stack>
         </Stack>
       }
