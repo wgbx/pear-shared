@@ -5,6 +5,12 @@ order: 2
 
 # Changelog
 
+## [0.1.24](https://github-work/bosinc/pear-shared/compare/0.1.23...0.1.24) (2026-09-02)
+
+### Features
+
+- **Button:** enhance Button component with new appearance and size options, introduce LegacyButton for backward compatibility, and update documentation for improved usage examples ([a5c2c70](https://github-work/bosinc/pear-shared/commit/a5c2c70fe170cf23e5eea3d7d16abd851777f979))
+
 ## [0.1.23](https://github-work/bosinc/pear-shared/compare/0.1.22...0.1.23) (2026-08-25)
 
 ### Features
