@@ -11,7 +11,7 @@ Pear Design **Btn-CTA** button for primary actions, with `primary`, `ghost`, and
 ### Basic
 
 ```tsx
-import { Button } from '@bosinc/shared';
+import { BUTTON_APPEARANCE, Button } from '@bosinc/shared';
 import { Stack } from '@mui/material';
 
 export default () => (
@@ -24,8 +24,8 @@ export default () => (
     }}
   >
     <Button label="Primary" />
-    <Button appearance="ghost" label="Ghost" />
-    <Button appearance="outline" label="Outline" />
+    <Button appearance={BUTTON_APPEARANCE.GHOST} label="Ghost" />
+    <Button appearance={BUTTON_APPEARANCE.OUTLINE} label="Outline" />
     <Button label="Primary" disabled />
     <Button label="Button" loading />
   </Stack>
@@ -35,7 +35,7 @@ export default () => (
 ### Size
 
 ```tsx
-import { Button } from '@bosinc/shared';
+import { Button, UI_SIZE } from '@bosinc/shared';
 import { Stack } from '@mui/material';
 
 export default () => (
@@ -47,10 +47,10 @@ export default () => (
       alignItems: 'center',
     }}
   >
-    <Button label="Primary" size="large"/>
-    <Button label="Primary" size="medium"/>
-    <Button label="Primary" size="small"/>
-    <Button label="Primary" size="xsmall"/>
+    <Button label="Primary" size={UI_SIZE.LARGE} />
+    <Button label="Primary" size={UI_SIZE.MEDIUM} />
+    <Button label="Primary" size={UI_SIZE.SMALL} />
+    <Button label="Primary" size={UI_SIZE.XSMALL} />
   </Stack>
 );
 ```
@@ -58,7 +58,7 @@ export default () => (
 ### With icon
 
 ```tsx
-import { Button } from '@bosinc/shared';
+import { BUTTON_APPEARANCE, Button } from '@bosinc/shared';
 import { AddFill } from '@mingcute/react';
 import { Stack } from '@mui/material';
 
@@ -72,8 +72,8 @@ export default () => (
     }}
   >
     <Button label="Create" icon={<AddFill />} />
-    <Button appearance="ghost" label="Create" icon={<AddFill />} />
-    <Button appearance="outline" label="Create" icon={<AddFill />} />
+    <Button appearance={BUTTON_APPEARANCE.GHOST} label="Create" icon={<AddFill />} />
+    <Button appearance={BUTTON_APPEARANCE.OUTLINE} label="Create" icon={<AddFill />} />
   </Stack>
 );
 ```
@@ -83,7 +83,7 @@ export default () => (
 > `sx` is supported, but limit it to layout (margin, width, etc.); use `appearance` and `size` for visuals—overriding color, height, or hover breaks design consistency.
 
 ```tsx
-import { Button } from '@bosinc/shared';
+import { BUTTON_APPEARANCE, Button } from '@bosinc/shared';
 import { Stack } from '@mui/material';
 
 export default () => (
@@ -96,7 +96,11 @@ export default () => (
     }}
   >
     <Button label="Continue" sx={{ minWidth: 300 }} />
-    <Button appearance="outline" label="Close" sx={{ width: 400, borderColor: 'red.700' }} />
+    <Button
+      appearance={BUTTON_APPEARANCE.OUTLINE}
+      label="Close"
+      sx={{ width: 400, borderColor: 'red.700' }}
+    />
   </Stack>
 );
 ```
