@@ -5,13 +5,22 @@
     "skipLibCheck": true,
     "esModuleInterop": true,
     "jsx": "react-jsx",
-    "baseUrl": ".",
-    "ignoreDeprecations": "5.0",
     "paths": {
-      "@@/*": ["./.dumi/tmp/*"],
-      "@bosinc/shared": ["./src"],
-      "@/*": ["./src/*"]
+      "@@/*": [
+        "./.dumi/tmp/*"
+      ],
+      "@bosinc/shared": [
+        "./src"
+      ],
+      "@/*": [
+        "./src/*"
+      ]
     }
   },
-  "include": [".dumirc.ts", ".fatherrc.ts", "src/**/*", ".dumi/theme"]
+  "include": [
+    ".dumirc.ts",
+    ".fatherrc.ts",
+    "src/**/*",
+    ".dumi/theme"
+  ]
 }
