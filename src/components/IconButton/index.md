@@ -4,7 +4,7 @@ title: IconButton
 
 # IconButton
 
-A clickable icon wrapper based on MUI `IconButton`, with a default `8px` padding to enlarge the tap target on mobile.
+A clickable icon button with `icon` + `label` API and three `UI_SIZE` tokens mapped to icon sizes 16 / 24 / 48. Padding stays at `8px`.
 
 ## Examples
 
@@ -18,48 +18,58 @@ import { Stack } from '@mui/material';
 export default () => {
   return (
     <Stack sx={{ flexDirection: 'row', alignItems: 'center', gap: 1 }}>
-      <IconButton onClick={() => alert('clicked')}>
-        <CloseLine />
-      </IconButton>
+      <IconButton
+        icon={<CloseLine />}
+        label="Close"
+        onClick={() => alert('clicked')}
+      />
     </Stack>
   );
 };
 ```
 
-### Compare tap target
+### Size
 
-The extra padding expands the hit area without changing the icon size.
+`size` reuses `UI_SIZE` (`small` / `medium` / `large`). `xsmall` is not supported.
+
+| `UI_SIZE` | Icon |
+| --------- | ---- |
+| `SMALL`   | 16px |
+| `MEDIUM`  | 24px (default) |
+| `LARGE`   | 48px |
 
 ```tsx
-import { IconButton } from '@bosinc/shared';
-import { CloseLine, Settings5Line } from '@mingcute/react';
-import { Stack, Typography } from '@mui/material';
+import { IconButton, UI_SIZE } from '@bosinc/shared';
+import { Settings5Line } from '@mingcute/react';
+import { Stack } from '@mui/material';
 
 export default () => {
   return (
-    <Stack sx={{ flexDirection: 'row', alignItems: 'center', gap: 3 }}>
-      <Stack sx={{ alignItems: 'center' }}>
-        <CloseLine />
-        <Typography variant="caption">icon only</Typography>
-      </Stack>
-      <Stack sx={{ alignItems: 'center' }}>
-        <IconButton onClick={() => {}}>
-          <CloseLine />
-        </IconButton>
-        <Typography variant="caption">with 8px padding</Typography>
-      </Stack>
-      <Stack sx={{ alignItems: 'center' }}>
-        <IconButton onClick={() => {}}>
-          <Settings5Line />
-        </IconButton>
-        <Typography variant="caption">another icon</Typography>
-      </Stack>
+    <Stack sx={{ flexDirection: 'row', alignItems: 'center', gap: 2 }}>
+      <IconButton
+        icon={<Settings5Line />}
+        label="Settings"
+        size={UI_SIZE.SMALL}
+        onClick={() => {}}
+      />
+      <IconButton
+        icon={<Settings5Line />}
+        label="Settings"
+        size={UI_SIZE.MEDIUM}
+        onClick={() => {}}
+      />
+      <IconButton
+        icon={<Settings5Line />}
+        label="Settings"
+        size={UI_SIZE.LARGE}
+        onClick={() => {}}
+      />
     </Stack>
   );
 };
 ```
 
-### Override label
+### Accessible label
 
 Defaults to the icon component name (e.g. `Settings5Line`). Pass `label` to override.
 
@@ -69,42 +79,30 @@ import { CloseLine } from '@mingcute/react';
 
 export default () => {
   return (
-    <IconButton label="Dismiss banner" onClick={() => {}}>
-      <CloseLine />
-    </IconButton>
-  );
-};
-```
-
-### Override padding
-
-```tsx
-import { IconButton } from '@bosinc/shared';
-import { CloseLine } from '@mingcute/react';
-
-export default () => {
-  return (
-    <IconButton onClick={() => {}} sx={{ padding: 0.5 }}>
-      <CloseLine />
-    </IconButton>
+    <IconButton
+      icon={<CloseLine />}
+      label="Dismiss banner"
+      onClick={() => {}}
+    />
   );
 };
 ```
 
 ## API
 
-All props from MUI `IconButton` are supported. See [MUI IconButton API](https://mui.com/material-ui/api/icon-button/) for complete documentation.
+| Property      | Description                                          | Type                                      | Required | Default             |
+| ------------- | ---------------------------------------------------- | ----------------------------------------- | -------- | ------------------- |
+| icon          | Icon content                                         | `ReactNode`                               | ✅       | `-`                 |
+| label         | Accessible label. Overrides the icon component name. | `string`                                  | `-`      | icon component name |
+| size          | Icon size token (`UI_SIZE`, no `xsmall`)             | `IconButtonSize`                          | `-`      | `UI_SIZE.MEDIUM`    |
+| onClick       | Click handler                                        | `function`                                | `-`      | `-`                 |
+| disableRipple | Disable the ripple effect                            | `boolean`                                 | `-`      | `true`              |
+| disabled      | Disable the button                                   | `boolean`                                 | `-`      | `false`             |
 
-| Property      | Description                                          | Type        | Required | Default             |
-| ------------- | ---------------------------------------------------- | ----------- | -------- | ------------------- |
-| children      | Icon content                                         | `ReactNode` | ✅       | `-`                 |
-| label         | Accessible label. Overrides the icon component name. | `string`    | `-`      | icon component name |
-| onClick       | Click handler                                        | `function`  | `-`      | `-`                 |
-| disableRipple | Disable the ripple effect                            | `boolean`   | `-`      | `true`              |
-| disabled      | Disable the button                                   | `boolean`   | `-`      | `false`             |
+Also accepts other MUI `IconButton` props except `children` and MUI `size`.
 
 Default styles:
 
-- Padding `8px` (`theme.spacing(1)`), including `size="small"` / `size="large"`
-- Hover / focus-visible / touch-active uses `shades.100` so the tap target is visible
+- Padding `8px` (`theme.spacing(1)`)
+- Hover / focus-visible / touch-active uses `shades.100`
 - Ripple disabled by default
