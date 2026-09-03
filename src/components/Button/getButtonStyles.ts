@@ -46,18 +46,21 @@ export function getButtonStyles(
       '&:hover': {
         boxShadow: 'none',
         backgroundColor: palette.green[900],
+        color: palette.white.a100,
         backgroundImage:
           'linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2))',
       },
       '&:focus-visible': {
         boxShadow: 'none',
         backgroundColor: palette.green[900],
+        color: palette.white.a100,
         backgroundImage: 'none',
       },
       [`@media (hover: none)`]: {
         '&:active': {
           boxShadow: 'none',
           backgroundColor: palette.green[900],
+          color: palette.white.a100,
           backgroundImage:
             'linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2))',
         },
@@ -79,12 +82,14 @@ export function getButtonStyles(
       '&:hover': {
         boxShadow: 'none',
         backgroundColor: palette.shades[50],
+        color: palette.green[900],
         borderColor: palette.green[900],
         backgroundImage: `linear-gradient(${palette.black.a10}, ${palette.black.a10})`,
       },
       '&:focus-visible': {
         boxShadow: 'none',
         backgroundColor: palette.shades[50],
+        color: palette.green[900],
         borderColor: palette.green[900],
         backgroundImage: 'none',
       },
@@ -92,6 +97,7 @@ export function getButtonStyles(
         '&:active': {
           boxShadow: 'none',
           backgroundColor: palette.shades[50],
+          color: palette.green[900],
           borderColor: palette.green[900],
           backgroundImage: `linear-gradient(${palette.black.a10}, ${palette.black.a10})`,
         },
@@ -112,17 +118,20 @@ export function getButtonStyles(
     '&:hover': {
       boxShadow: 'none',
       backgroundColor: palette.green[50],
+      color: palette.green[900],
       backgroundImage: `linear-gradient(${palette.black.a10}, ${palette.black.a10})`,
     },
     '&:focus-visible': {
       boxShadow: 'none',
       backgroundColor: palette.green[50],
+      color: palette.green[900],
       backgroundImage: 'none',
     },
     [`@media (hover: none)`]: {
       '&:active': {
         boxShadow: 'none',
         backgroundColor: palette.green[50],
+        color: palette.green[900],
         backgroundImage: `linear-gradient(${palette.black.a10}, ${palette.black.a10})`,
       },
     },

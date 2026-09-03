@@ -53,6 +53,7 @@ export function Button({
       appearance={appearance}
       sizeToken={sizeToken}
       variant="contained"
+      color="inherit"
       disableRipple={disableRipple}
       startIcon={showLoading ? undefined : startIcon ?? icon}
       endIcon={showLoading ? undefined : endIcon}
