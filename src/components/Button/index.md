@@ -72,9 +72,35 @@ export default () => (
     }}
   >
     <Button label="Create" icon={<AddFill />} />
-    <Button appearance={BUTTON_APPEARANCE.GHOST} label="Create" icon={<AddFill />} />
-    <Button appearance={BUTTON_APPEARANCE.OUTLINE} label="Create" icon={<AddFill />} />
+    <Button
+      appearance={BUTTON_APPEARANCE.GHOST}
+      label="Create"
+      icon={<AddFill />}
+    />
+    <Button
+      appearance={BUTTON_APPEARANCE.OUTLINE}
+      label="Create"
+      icon={<AddFill />}
+    />
   </Stack>
+);
+```
+
+### Async click (`isAsync`)
+
+When `isAsync` is set, the button shows loading automatically if `onClick` returns a Promise—no manual `loading` state needed for save/submit.
+
+```tsx
+import { Button } from '@bosinc/shared';
+
+export default () => (
+  <Button
+    isAsync
+    label="Save"
+    onClick={async () => {
+      await new Promise((resolve) => setTimeout(resolve, 1500));
+    }}
+  />
 );
 ```
 
@@ -109,11 +135,12 @@ export default () => (
 
 ### ButtonProps
 
-| Property   | Description                           | Type                                         | Default     |
-| ---------- | ------------------------------------- | -------------------------------------------- | ----------- |
-| label      | Button text when `children` is absent | `ReactNode`                                  | `-`         |
-| icon       | Icon shorthand for `startIcon`        | `ReactNode`                                  | `-`         |
-| loading    | Shows spinner and disables button     | `boolean`                                    | `-`         |
+| Property   | Description                           | Type                                     | Default                     |
+| ---------- | ------------------------------------- | ---------------------------------------- | --------------------------- |
+| label      | Button text when `children` is absent | `ReactNode`                              | `-`                         |
+| icon       | Icon shorthand for `startIcon`        | `ReactNode`                              | `-`                         |
+| loading    | Shows spinner and disables button     | `boolean`                                | `-`                         |
+| isAsync    | Auto-loading while `onClick` Promise  | `boolean`                                | `-`                         |
 | appearance | Btn-CTA style                         | `ButtonAppearance` (`BUTTON_APPEARANCE`) | `BUTTON_APPEARANCE.PRIMARY` |
 | size       | Component size                        | `UiSize` (`UI_SIZE`)                     | `UI_SIZE.MEDIUM`            |
 

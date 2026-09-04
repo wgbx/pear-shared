@@ -1,9 +1,8 @@
-import {
-  CircularProgress,
-  Button as MuiButton,
-  styled,
-} from '@mui/material';
-import { type ReactElement } from 'react';
+import { CircularProgress, Button as MuiButton, styled } from '@mui/material';
+import { useBoolean, useMemoizedFn } from 'ahooks';
+import { type MouseEvent, type ReactElement } from 'react';
+
+import { isPromiseLike } from '@/utils/function';
 
 import { getButtonStyles } from './getButtonStyles';
 import {
@@ -34,14 +33,44 @@ export function Button({
   startIcon,
   endIcon,
   loading,
+  isAsync,
   disabled,
   appearance = BUTTON_APPEARANCE.PRIMARY,
   size = UI_SIZE.MEDIUM,
   disableRipple = true,
   sx,
+  onClick,
   ...restProps
 }: ButtonProps): ReactElement {
-  const showLoading = Boolean(loading);
+  const [autoLoading, { setTrue: startLoading, setFalse: stopLoading }] =
+    useBoolean(false);
+
+  const handleClick = useMemoizedFn(
+    async (event: MouseEvent<HTMLButtonElement>) => {
+      if (!onClick) {
+        return;
+      }
+
+      let shouldStopLoading = false;
+
+      try {
+        const result = onClick(event);
+        if (!isAsync || !isPromiseLike(result)) {
+          return result;
+        }
+
+        startLoading();
+        shouldStopLoading = true;
+        return await result;
+      } finally {
+        if (shouldStopLoading) {
+          stopLoading();
+        }
+      }
+    },
+  );
+
+  const showLoading = Boolean(loading) || autoLoading;
   const sizeToken = resolveButtonSizeToken(size);
   const loadingSize = BUTTON_SIZE_CONFIG[sizeToken].loadingSize;
   const loadingColor =
@@ -58,6 +87,7 @@ export function Button({
       startIcon={showLoading ? undefined : startIcon ?? icon}
       endIcon={showLoading ? undefined : endIcon}
       disabled={Boolean(disabled) || showLoading}
+      onClick={handleClick}
       sx={sx}
     >
       {showLoading ? (

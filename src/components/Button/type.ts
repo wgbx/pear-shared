@@ -23,6 +23,10 @@ export interface ButtonProps
   label?: ReactNode;
   icon?: ReactNode;
   loading?: boolean;
+  /**
+   * When true, automatically shows loading while `onClick` returns a Promise.
+   */
+  isAsync?: boolean;
   appearance?: ButtonAppearance;
   size?: UiSize;
 }
