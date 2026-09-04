@@ -7,3 +7,4 @@ export * from './isObject';
 export * from './isPromiseLike';
 export * from './isString';
 export * from './isUndefined';
+export * from './isUrl';

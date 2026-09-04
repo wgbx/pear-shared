@@ -83,6 +83,23 @@ isString('foo'); // true
 isString(42); // false
 ```
 
+## isUrl
+
+Check whether a value is an `http(s)` or `mailto` URL with a **plausible domain** (at least `name.tld`). Bare domains like `instagram.com/qiao` are accepted and treated as `https`.
+
+Rejects hosts without a real-looking TLD (e.g. `https://213214`), single-label hosts (`localhost`), and IP addresses.
+
+```ts
+import { isUrl } from '@bosinc/shared';
+
+isUrl('https://example.com'); // true
+isUrl('instagram.com/qiao'); // true
+isUrl('mailto:a@b.com'); // true
+isUrl('https://213214'); // false
+isUrl('http://127.0.0.1'); // false
+isUrl('not a url'); // false
+```
+
 ## isFunction
 
 Check whether a value is a function. Useful as a type guard before invoking an optional callback.
