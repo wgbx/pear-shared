@@ -5,6 +5,19 @@ order: 2
 
 # Changelog
 
+## [0.1.25](https://github-work/bosinc/pear-shared/compare/0.1.24...0.1.25) (2026-09-08)
+
+### Bug Fixes
+
+- **Button:** update Button component documentation to use constants for appearance and size properties, ensuring consistency and clarity in examples ([c01e3e8](https://github-work/bosinc/pear-shared/commit/c01e3e815a72f537e198b735eff8a36a797ccebe))
+
+### Features
+
+- **Button:** add color property to Button component and update styles for hover and focus states to enhance visual feedback ([9330fbb](https://github-work/bosinc/pear-shared/commit/9330fbbfebb3caf66fc738332e5d32491fb44fe4))
+- **Button:** add isAsync for automatic loading on Promise onClick ([03f575a](https://github-work/bosinc/pear-shared/commit/03f575a9bafab02413b285bd294ad1aca5555236))
+- **function:** add isUrl helper for http(s)/mailto with domain checks ([984019d](https://github-work/bosinc/pear-shared/commit/984019d141270d75214d44a88c384e6507d00477))
+- **IconButton:** implement icon and label API, add size configuration for improved accessibility and usability ([e4ac949](https://github-work/bosinc/pear-shared/commit/e4ac94931935d441c3a1ec7dd56d34991013d810))
+
 ## [0.1.24](https://github-work/bosinc/pear-shared/compare/0.1.23...0.1.24) (2026-09-02)
 
 ### Features
