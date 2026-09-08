@@ -88,9 +88,13 @@ Pear Design shared component size scale. Reused across Button and future UI comp
 | `XSMALL` | `xsmall` | S-24  | 24px   |
 
 ```ts
-import { UI_SIZE, Button, BUTTON_APPEARANCE } from '@bosinc/shared';
+import { UI_SIZE, MainButton, BUTTON_APPEARANCE } from '@bosinc/shared';
 
-<Button appearance={BUTTON_APPEARANCE.GHOST} size={UI_SIZE.MEDIUM} label="Cancel" />;
+<MainButton
+  appearance={BUTTON_APPEARANCE.GHOST}
+  size={UI_SIZE.MEDIUM}
+  label="Cancel"
+/>;
 ```
 
 ## Button Map
