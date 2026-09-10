@@ -5,6 +5,17 @@ order: 2
 
 # Changelog
 
+## [0.1.26](https://github-work/bosinc/pear-shared/compare/0.1.25...0.1.26) (2026-09-10)
+
+### Bug Fixes
+
+- **ErrorBoundary:** export as ComponentClass for cross-package JSX types ([6930c47](https://github-work/bosinc/pear-shared/commit/6930c476395846ba3723bc681ec485a6c6f46e05))
+
+### Features
+
+- **ErrorBoundary:** add ErrorBoundary component with docs ([9bb9986](https://github-work/bosinc/pear-shared/commit/9bb9986ada5384772687cdc25b0e79e474b6cea3))
+- **function:** add isEmail helper with shared plausible domain check ([bcebebc](https://github-work/bosinc/pear-shared/commit/bcebebcacaf03df2d67c7687b7b732c49a45a10a))
+
 ## [0.1.25](https://github-work/bosinc/pear-shared/compare/0.1.24...0.1.25) (2026-09-08)
 
 ### Bug Fixes
