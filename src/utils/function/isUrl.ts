@@ -1,33 +1,7 @@
+import { isPlausibleDomain } from './isPlausibleDomain';
 import { isString } from './isString';
 
 const HAS_SCHEME = /^(https?:\/\/|mailto:)/i;
-const IPV4 = /^(?:\d{1,3}\.){3}\d{1,3}$/;
-/** DNS label: 1–63 chars, alnum, hyphens not at ends. */
-const DOMAIN_LABEL = /^(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?)$/i;
-/** Public TLD: at least 2 letters (rejects numeric / single-char). */
-const TLD = /^[a-z]{2,}$/i;
-
-/**
- * Hostname must look like a domain (`example.com`), not a bare label,
- * numeric host, or IP address.
- */
-function isPlausibleDomainHostname(hostname: string): boolean {
-  if (!hostname || hostname.includes(':') || IPV4.test(hostname)) {
-    return false;
-  }
-
-  const labels = hostname.split('.');
-  if (labels.length < 2) {
-    return false;
-  }
-
-  const tld = labels[labels.length - 1];
-  if (!TLD.test(tld)) {
-    return false;
-  }
-
-  return labels.every((label) => DOMAIN_LABEL.test(label));
-}
 
 /**
  * Checks whether a value is an http(s) or mailto URL with a plausible domain.
@@ -67,12 +41,12 @@ export function isUrl(value: unknown): boolean {
       if (at <= 0 || at === address.length - 1) {
         return false;
       }
-      return isPlausibleDomainHostname(address.slice(at + 1));
+      return isPlausibleDomain(address.slice(at + 1));
     }
 
     return (
       (url.protocol === 'http:' || url.protocol === 'https:') &&
-      isPlausibleDomainHostname(url.hostname)
+      isPlausibleDomain(url.hostname)
     );
   } catch {
     return false;

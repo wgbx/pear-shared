@@ -83,6 +83,22 @@ isString('foo'); // true
 isString(42); // false
 ```
 
+## isEmail
+
+Check whether a value looks like a practical email address (`local@domain`). Uses a common local-part shape (HTML living standard–style characters, max 64 chars) and the same **plausible domain** rules as `isUrl`.
+
+Not a full RFC 5322 parser — confirm deliverability with a verification email when it matters.
+
+```ts
+import { isEmail } from '@bosinc/shared';
+
+isEmail('user@example.com'); // true
+isEmail('user+tag@example.com'); // true
+isEmail('not-an-email'); // false
+isEmail('user@localhost'); // false
+isEmail('user@127.0.0.1'); // false
+```
+
 ## isUrl
 
 Check whether a value is an `http(s)` or `mailto` URL with a **plausible domain** (at least `name.tld`). Bare domains like `instagram.com/qiao` are accepted and treated as `https`.

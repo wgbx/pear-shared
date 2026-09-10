@@ -1,4 +1,5 @@
 export * from './getSettledResultValue';
+export * from './isEmail';
 export * from './isEmpty';
 export * from './isFunction';
 export * from './isNil';
