@@ -1,4 +1,9 @@
-import { Component, type ErrorInfo, type ReactNode } from 'react';
+import {
+  Component,
+  type ComponentClass,
+  type ErrorInfo,
+  type ReactNode,
+} from 'react';
 
 export interface ErrorBoundaryProps {
   children: ReactNode;
@@ -11,7 +16,7 @@ interface ErrorBoundaryState {
   info: ErrorInfo | null;
 }
 
-export class ErrorBoundary extends Component<
+class ErrorBoundaryImpl extends Component<
   ErrorBoundaryProps,
   ErrorBoundaryState
 > {
@@ -40,3 +45,7 @@ export class ErrorBoundary extends Component<
     return children;
   }
 }
+
+/** Typed as ComponentClass so consumers don't hit dual-@types/react JSX errors. */
+export const ErrorBoundary: ComponentClass<ErrorBoundaryProps> =
+  ErrorBoundaryImpl;
