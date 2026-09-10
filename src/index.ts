@@ -2,6 +2,7 @@ export * from './components/Alert';
 export * from './components/Button';
 export * from './components/Collapse';
 export * from './components/Drawer';
+export * from './components/ErrorBoundary';
 export * from './components/ExternalLink';
 export * from './components/Flex';
 export * from './components/BackToTop';
