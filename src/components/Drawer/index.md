@@ -8,6 +8,38 @@ Unified responsive drawer component that renders a `Dialog` on desktop and a `Dr
 
 ## Example
 
+### Basic Usage
+
+```tsx
+import { Button, Drawer } from '@bosinc/shared';
+import { useState } from 'react';
+import { Stack } from '@mui/material';
+
+export default () => {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <>
+      <Button onClick={() => setOpen(true)}>Edit settings</Button>
+      <Drawer
+        title="Setting"
+        open={open}
+        onClose={() => setOpen(false)}
+        footer={
+          <Stack sx={{ p: 2 }} onClick={() => setOpen(false)}>
+            <Button label="Save changes" />
+          </Stack>
+        }
+      >
+        <Stack sx={{ p: 2, py: 1, gap: 1 }}>
+          <span>Update a few options and save when you’re done.</span>
+        </Stack>
+      </Drawer>
+    </>
+  );
+};
+```
+
 ### Action Drawer
 
 ```tsx
@@ -25,6 +57,50 @@ export default () => {
         title="Setting"
         open={open}
         onClose={() => setOpen(false)}
+        actions={[
+          {
+            label: 'Cancel',
+            onClick: () => setOpen(false),
+          },
+          {
+            label: 'Save changes',
+            variant: 'contained',
+            onClick: async () => {
+              await new Promise<void>((resolve) => {
+                setTimeout(resolve, 2000);
+              });
+              setOpen(false);
+            },
+          },
+        ]}
+      >
+        <Stack sx={{ p: 2, py: 1, gap: 1 }}>
+          <span>Update a few options and save when you’re done.</span>
+        </Stack>
+      </ActionDrawer>
+    </>
+  );
+};
+```
+
+### Main style
+
+```tsx
+import { Button, ActionDrawer, DRAWER_STYLE_TYPE } from '@bosinc/shared';
+import { useState } from 'react';
+import { Stack } from '@mui/material';
+
+export default () => {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <>
+      <Button onClick={() => setOpen(true)}>Edit settings</Button>
+      <ActionDrawer
+        title="Setting"
+        open={open}
+        onClose={() => setOpen(false)}
+        styleType={DRAWER_STYLE_TYPE.MAIN}
         actions={[
           {
             label: 'Cancel',
@@ -116,52 +192,21 @@ export default () => {
 };
 ```
 
-### Basic Usage
-
-```tsx
-import { Button, Drawer } from '@bosinc/shared';
-import { useState } from 'react';
-import { Stack } from '@mui/material';
-
-export default () => {
-  const [open, setOpen] = useState(false);
-
-  return (
-    <>
-      <Button onClick={() => setOpen(true)}>Edit settings</Button>
-      <Drawer
-        title="Setting"
-        open={open}
-        onClose={() => setOpen(false)}
-        footer={
-          <Stack sx={{ p: 2 }} onClick={() => setOpen(false)}>
-            <Button label="Save changes" />
-          </Stack>
-        }
-      >
-        <Stack sx={{ p: 2, py: 1, gap: 1 }}>
-          <span>Update a few options and save when you’re done.</span>
-        </Stack>
-      </Drawer>
-    </>
-  );
-};
-```
-
 ## API
 
 ### Drawer
 
-| Property     | Description                                                                     | Type              | Default |
-| ------------ | ------------------------------------------------------------------------------- | ----------------- | ------- |
-| open         | Controls visibility                                                             | `boolean`         | `true`  |
-| onClose      | Called when the drawer should close (mask click, escape, etc.)                  | `() => void`      | —       |
-| children     | Scrollable main content                                                         | `ReactNode`       | —       |
-| title        | Centered heading in `DrawerHeader` when provided                                | `ReactNode`       | —       |
-| footer       | Optional sticky footer area below content                                       | `ReactNode`       | —       |
-| stableHeight | Fixed `90dvh` height with scrollable content area; use for async-loaded content | `boolean`         | —       |
-| showHeader   | Renders `DrawerHeader` (close row) when `true`                                  | `boolean`         | `true`  |
-| slotProps    | Slots: `container`, `header`, `content`, `footer` (see below)                   | `DrawerSlotProps` | —       |
+| Property     | Description                                                                     | Type              | Default   |
+| ------------ | ------------------------------------------------------------------------------- | ----------------- | --------- |
+| open         | Controls visibility                                                             | `boolean`         | `true`    |
+| onClose      | Called when the drawer should close (mask click, escape, etc.)                  | `() => void`      | —         |
+| children     | Scrollable main content                                                         | `ReactNode`       | —         |
+| title        | Centered heading in `DrawerHeader` when provided                                | `ReactNode`       | —         |
+| footer       | Optional sticky footer area below content                                       | `ReactNode`       | —         |
+| stableHeight | Fixed `90dvh` height with scrollable content area; use for async-loaded content | `boolean`         | —         |
+| showHeader   | Renders `DrawerHeader` (close row) when `true`                                  | `boolean`         | `true`    |
+| styleType    | Footer button style: `default` keeps current `Button`; `main` uses `MainButton` | `DrawerStyleType` | `default` |
+| slotProps    | Slots: `container`, `header`, `content`, `footer` (see below)                   | `DrawerSlotProps` | —         |
 
 #### `slotProps`
 
@@ -228,11 +273,14 @@ export default () => {
 
 #### `DrawerFooterItem`
 
-| Property      | Description                     | Type                                         | Default |
-| ------------- | ------------------------------- | -------------------------------------------- | ------- |
-| `label`       | Button label                    | `ReactNode`                                  | —       |
-| `onClick`     | Click handler (may be async)    | `() => void \| Promise<void>`                | —       |
-| `disabled`    | Disables the item               | `boolean`                                    | —       |
-| `variant`     | MUI button variant              | `ButtonProps['variant']`                     | —       |
-| `type`        | Visual variant, e.g. `'danger'` | `'danger'`                                   | —       |
-| `buttonProps` | Extra props for the button      | `Omit<ButtonProps, 'children' \| 'onClick'>` | —       |
+| Property      | Description                                                                 | Type                                         | Default |
+| ------------- | --------------------------------------------------------------------------- | -------------------------------------------- | ------- |
+| `label`       | Button label                                                                | `ReactNode`                                  | —       |
+| `onClick`     | Click handler (may be async)                                                | `() => void \| Promise<void>`                | —       |
+| `disabled`    | Disables the item                                                           | `boolean`                                    | —       |
+| `variant`     | MUI button variant (`default` style). Also maps to `appearance` when `main` | `ButtonProps['variant']`                     | —       |
+| `appearance`  | Pear `MainButton` appearance when `styleType` is `main`                     | `ButtonAppearance`                           | —       |
+| `type`        | Visual variant, e.g. `'danger'`                                             | `'danger'`                                   | —       |
+| `buttonProps` | Extra props for the button                                                  | `Omit<ButtonProps, 'children' \| 'onClick'>` | —       |
+
+`DrawerFooter` also accepts `styleType` (falls back to the parent Drawer’s `styleType` via context).

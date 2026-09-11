@@ -2,7 +2,8 @@ import { Box, Stack, styled } from '@mui/material';
 import { useIsDesktop } from '@/hooks/useIsDesktop';
 import { DrawerContainer } from './DrawerContainer';
 import { DrawerHeader } from './DrawerHeader';
-import { type DrawerProps } from './type';
+import { DrawerStyleTypeContext } from './DrawerStyleTypeContext';
+import { DRAWER_STYLE_TYPE, type DrawerProps } from './type';
 
 const DRAWER_PAPER_BASE_SX = {
   maxHeight: '90dvh',
@@ -47,6 +48,7 @@ export function Drawer({
   stableHeight,
   slotProps,
   showHeader = true,
+  styleType = DRAWER_STYLE_TYPE.DEFAULT,
 }: DrawerProps) {
   const {
     container: containerSlotProps,
@@ -59,46 +61,48 @@ export function Drawer({
   const showDrawerHeader = showHeader || Boolean(title);
 
   return (
-    <DrawerContainer
-      open={open}
-      onClose={onClose}
-      {...containerSlotProps}
-      PaperProps={{
-        ...containerSlotProps?.PaperProps,
-        sx: {
-          ...DRAWER_PAPER_BASE_SX,
-          ...(stableHeight ? DRAWER_PAPER_STABLE_HEIGHT_SX : {}),
-          ...(isDesktop
-            ? { minWidth: 500, borderRadius }
-            : {
-                borderTopLeftRadius: 20,
-                borderTopRightRadius: 20,
-              }),
-          ...containerSlotProps?.PaperProps?.sx,
-        },
-      }}
-    >
-      {showDrawerHeader ? (
-        <DrawerHeader
-          title={title}
-          onClose={showHeader ? onClose : undefined}
-          {...headerSlotProps}
-          sx={{
-            ...(stableHeight ? { flexShrink: 0 } : {}),
-            ...(headerSlotProps?.sx ?? {}),
-          }}
-        />
-      ) : null}
+    <DrawerStyleTypeContext.Provider value={styleType}>
+      <DrawerContainer
+        open={open}
+        onClose={onClose}
+        {...containerSlotProps}
+        PaperProps={{
+          ...containerSlotProps?.PaperProps,
+          sx: {
+            ...DRAWER_PAPER_BASE_SX,
+            ...(stableHeight ? DRAWER_PAPER_STABLE_HEIGHT_SX : {}),
+            ...(isDesktop
+              ? { minWidth: 500, borderRadius }
+              : {
+                  borderTopLeftRadius: 20,
+                  borderTopRightRadius: 20,
+                }),
+            ...containerSlotProps?.PaperProps?.sx,
+          },
+        }}
+      >
+        {showDrawerHeader ? (
+          <DrawerHeader
+            title={title}
+            onClose={showHeader ? onClose : undefined}
+            {...headerSlotProps}
+            sx={{
+              ...(stableHeight ? { flexShrink: 0 } : {}),
+              ...(headerSlotProps?.sx ?? {}),
+            }}
+          />
+        ) : null}
 
-      <DrawerContent sx={contentSlotProps?.sx}>{children}</DrawerContent>
+        <DrawerContent sx={contentSlotProps?.sx}>{children}</DrawerContent>
 
-      {footer ? (
-        <DrawerFooter sx={footerSlotProps?.sx}>
-          <DrawerFooterContent sx={footerSlotProps?.contentSx}>
-            {footer}
-          </DrawerFooterContent>
-        </DrawerFooter>
-      ) : null}
-    </DrawerContainer>
+        {footer ? (
+          <DrawerFooter sx={footerSlotProps?.sx}>
+            <DrawerFooterContent sx={footerSlotProps?.contentSx}>
+              {footer}
+            </DrawerFooterContent>
+          </DrawerFooter>
+        ) : null}
+      </DrawerContainer>
+    </DrawerStyleTypeContext.Provider>
   );
 }

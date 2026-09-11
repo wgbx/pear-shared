@@ -1,6 +1,7 @@
 import { Stack, styled } from '@mui/material';
 import { type ReactElement } from 'react';
 import { DrawerFooterItemButton } from './DrawerFooterItemButton';
+import { useDrawerStyleType } from './DrawerStyleTypeContext';
 import { type DrawerFooterProps } from './type';
 
 const FooterActions = styled(Stack, {
@@ -13,11 +14,20 @@ const FooterActions = styled(Stack, {
   padding: theme.spacing(2),
 }));
 
-export function DrawerFooter({ items }: DrawerFooterProps): ReactElement {
+export function DrawerFooter({
+  items,
+  styleType: styleTypeProp,
+}: DrawerFooterProps): ReactElement {
+  const styleType = useDrawerStyleType(styleTypeProp);
+
   return (
     <FooterActions>
       {items.map((item, itemIndex) => (
-        <DrawerFooterItemButton key={itemIndex} item={item} />
+        <DrawerFooterItemButton
+          key={itemIndex}
+          item={item}
+          styleType={styleType}
+        />
       ))}
     </FooterActions>
   );

@@ -8,6 +8,15 @@ import {
   type TypographyProps,
 } from '@mui/material';
 import { type ReactNode } from 'react';
+import { type ButtonAppearance } from '@/constants/button';
+
+export const DRAWER_STYLE_TYPE = {
+  DEFAULT: 'default',
+  MAIN: 'main',
+} as const;
+
+export type DrawerStyleType =
+  typeof DRAWER_STYLE_TYPE[keyof typeof DRAWER_STYLE_TYPE];
 
 export interface DrawerHeaderProps {
   title?: ReactNode;
@@ -65,6 +74,12 @@ export interface DrawerProps {
   stableHeight?: boolean;
   slotProps?: DrawerSlotProps;
   showHeader?: boolean;
+  /**
+   * Footer button visual system.
+   * - `default`: existing `Button` + `variant` (unchanged)
+   * - `main`: Pear Design `MainButton` + `appearance`
+   */
+  styleType?: DrawerStyleType;
 }
 
 export interface DrawerActionItem {
@@ -72,16 +87,23 @@ export interface DrawerActionItem {
   onClick?: () => void | Promise<void>;
   disabled?: boolean;
   variant?: ButtonProps['variant'];
+  /**
+   * Used when drawer `styleType` is `main`. Falls back from `variant`
+   * (`contained` → `primary`, otherwise `outline`) when omitted.
+   */
+  appearance?: ButtonAppearance;
   type?: 'danger';
   buttonProps?: Omit<ButtonProps, 'children' | 'onClick'>;
 }
 
 export interface DrawerFooterItemButtonProps {
   item: DrawerActionItem;
+  styleType?: DrawerStyleType;
 }
 
 export interface DrawerFooterProps {
   items: DrawerActionItem[];
+  styleType?: DrawerStyleType;
 }
 
 export interface CustomDrawerProps extends Omit<DrawerProps, 'showHeader'> {
