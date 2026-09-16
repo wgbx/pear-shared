@@ -5,6 +5,12 @@ order: 2
 
 # Changelog
 
+## [0.1.27](https://github-work/bosinc/pear-shared/compare/0.1.26...0.1.27) (2026-09-16)
+
+### Features
+
+- **Drawer:** add styleType for MainButton footer ([9405a16](https://github-work/bosinc/pear-shared/commit/9405a166b21f12dbd3cb8678fa670f37a5eb29eb))
+
 ## [0.1.26](https://github-work/bosinc/pear-shared/compare/0.1.25...0.1.26) (2026-09-10)
 
 ### Bug Fixes
