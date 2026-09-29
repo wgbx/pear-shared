@@ -5,6 +5,12 @@ order: 2
 
 # Changelog
 
+## [0.1.28](https://github-work/bosinc/pear-shared/compare/0.1.27...0.1.28) (2026-09-29)
+
+### Features
+
+- **hooks:** use 744px viewport threshold for useIsDesktop and useIsMobile ([712b2c9](https://github-work/bosinc/pear-shared/commit/712b2c9e043c8968b9b8d47b313b0fe81e5a4253))
+
 ## [0.1.27](https://github-work/bosinc/pear-shared/compare/0.1.26...0.1.27) (2026-09-16)
 
 ### Features
