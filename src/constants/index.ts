@@ -6,5 +6,5 @@ export * from './debug';
 export * from './image';
 export * from './statusTag';
 export * from './size';
+export * from './viewport';
 export * from './webShareLink';
-

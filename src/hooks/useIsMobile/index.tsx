@@ -1,8 +1,8 @@
-import { useMediaQuery, useTheme } from '@mui/material';
+import { useMediaQuery } from '@mui/material';
+import { MOBILE_MAX_WIDTH } from '@/constants';
 
 export function useIsMobile() {
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+  const isMobile = useMediaQuery(`(max-width: ${MOBILE_MAX_WIDTH}px)`);
 
   return isMobile;
 }

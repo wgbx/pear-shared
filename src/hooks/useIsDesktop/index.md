@@ -4,7 +4,7 @@ title: useIsDesktop
 
 # useIsDesktop
 
-Returns whether the current viewport width is at or above a given MUI breakpoint.
+Returns whether the current viewport is desktop. By default, viewport widths greater than `744px` are desktop and widths less than or equal to `744px` are mobile. Pass a MUI breakpoint to use that breakpoint instead.
 
 ## Example
 
@@ -38,8 +38,8 @@ export default function DemoCustomBreakpoint() {
 
 | Parameter  | Description                           | Type         | Required | Default |
 | ---------- | ------------------------------------- | ------------ | -------- | ------- |
-| breakpoint | MUI breakpoint used for desktop check | `Breakpoint` | `-`      | `'md'`  |
+| breakpoint | MUI breakpoint used for desktop check | `Breakpoint` | `-`      | `-`     |
 
 ### Return
 
-- `boolean` - `true` when viewport is `>= breakpoint`, otherwise `false`.
+- `boolean` - Without `breakpoint`: `true` when viewport width is `> 744px`, otherwise `false`. With `breakpoint`: `true` when viewport is `>= breakpoint`, otherwise `false`.

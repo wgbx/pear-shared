@@ -97,6 +97,18 @@ import { UI_SIZE, MainButton, BUTTON_APPEARANCE } from '@bosinc/shared';
 />;
 ```
 
+## Viewport
+
+`MOBILE_MAX_WIDTH`
+
+Mobile / desktop viewport threshold: `744` (px). Viewport widths `<= 744px` are mobile, wider viewports are desktop. Used by `useIsMobile` and `useIsDesktop`.
+
+```ts
+import { MOBILE_MAX_WIDTH } from '@bosinc/shared';
+
+const isMobile = window.innerWidth <= MOBILE_MAX_WIDTH;
+```
+
 ## Button Map
 
 `BUTTON_APPEARANCE`
