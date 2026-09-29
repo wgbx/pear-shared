@@ -226,15 +226,6 @@ export default () => {
 | `actions`  | Footer action buttons                | `DrawerActionItem[]` | —       |
 | _(others)_ | Same as `Drawer`, except no `footer` | —                    | —       |
 
-### FullDrawer
-
-`FullDrawerProps` is the same as `ActionDrawerProps`. A wrapper around `ActionDrawer` that applies a full-height layout: no backdrop, no border radius, full height, desktop max width `744` with centered margins. Extra `slotProps` are merged and can override the defaults.
-
-| Property   | Description            | Type                 | Default |
-| ---------- | ---------------------- | -------------------- | ------- |
-| `actions`  | Footer action buttons  | `DrawerActionItem[]` | —       |
-| _(others)_ | Same as `ActionDrawer` | —                    | —       |
-
 ### CustomDrawer
 
 `CustomDrawerProps` extends `Omit<DrawerProps, 'showHeader'>`. The underlying `Drawer` always uses `showHeader={false}`; a top-right close control is rendered when `onClose` is provided.
