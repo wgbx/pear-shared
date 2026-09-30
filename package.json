@@ -32,8 +32,10 @@
     "lint:css": "stylelint --allow-empty-input \"{src,test}/**/*.{css,less}\"",
     "lint:es": "eslint \"{src,test}/**/*.{js,jsx,ts,tsx}\"",
     "prepare": "husky install && dumi setup",
-    "prepublish": "father doctor && npm run build",
-    "release": "release-it"
+    "prepublish": "father doctor && npm run test && npm run build",
+    "release": "release-it",
+    "test": "vitest run",
+    "test:watch": "vitest"
   },
   "commitlint": {
     "extends": [
@@ -83,7 +85,9 @@
     "prettier-plugin-organize-imports": "3.0.0",
     "prettier-plugin-packagejson": "2.2.18",
     "release-it": "20.0.0",
-    "stylelint": "14.9.1"
+    "stylelint": "14.9.1",
+    "vite": "8.3.1",
+    "vitest": "5.0.2"
   },
   "peerDependencies": {
     "@cloudinary/url-gen": "1.21.0",
