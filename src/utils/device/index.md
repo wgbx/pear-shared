@@ -55,3 +55,13 @@ import { isSafari } from '@bosinc/shared';
 
 isSafari(); // true in desktop/mobile Safari
 ```
+
+## isInIframe
+
+Check whether the current page is running inside an iframe (including cross-origin iframes).
+
+```ts
+import { isInIframe } from '@bosinc/shared';
+
+isInIframe(); // true when embedded in an iframe
+```
