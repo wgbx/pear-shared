@@ -1,5 +1,10 @@
 import currency from 'currency.js';
 
+import { isNil } from '@/utils/function';
+
+/** Decimal places kept when parsing inputs for batch multiplication. */
+const MULTIPLY_INPUT_PRECISION = 6;
+
 /**
  * Numeric utilities using currency.js for precise monetary calculations
  *
@@ -66,7 +71,8 @@ export function numericSubtract(
  * numericMultiply('100', '1.5') // 150
  *
  * // For percentage calculations, use higher precision
- * numericMultiply(1000, 0.1234, { precision: 6 }) // 123.400000
+ * numericMultiply(1000, 0.123456)                   // 123.46
+ * numericMultiply(1000, 0.123456, { precision: 6 }) // 123.456
  * ```
  */
 export function numericMultiply(
@@ -91,7 +97,8 @@ export function numericMultiply(
  * numericDivide('100', '3')  // 33.33
  *
  * // For percentage calculations, use higher precision
- * numericDivide(33.33, 100, { precision: 6 }) // 0.333300
+ * numericDivide(33.33, 100)                  // 0.33
+ * numericDivide(33.33, 100, { precision: 6 }) // 0.3333
  * ```
  */
 export function numericDivide(
@@ -103,24 +110,39 @@ export function numericDivide(
 }
 
 /**
- * Format as currency with thousand separator
+ * Format as currency with thousand separator. Uses the `$` symbol unless
+ * `symbol` is overridden.
  *
  * @param value - Value to format
- * @param opts - Currency.js format options
+ * @param opts - Currency.js format options, or a custom format function
  * @returns Formatted currency string
  *
  * @example
  * ```ts
- * numericFormat(1234.56)                    // "1,234.56"
- * numericFormat(1000)                       // "1,000.00"
- * numericFormat(1234.56, { symbol: '¥' })   // "¥1,234.56"
+ * numericFormat(1234.56)                           // "$1,234.56"
+ * numericFormat(1000)                              // "$1,000.00"
+ * numericFormat(-12.5)                             // "-$12.50"
+ * numericFormat(1234.56, { symbol: '¥' })          // "¥1,234.56"
+ * numericFormat(1234.56, { symbol: '' })           // "1,234.56"
+ * numericFormat(1234, { symbol: '¥', precision: 0 }) // "¥1,234"
  * ```
  */
 export function numericFormat(
   value: number | string,
   opts?: currency.Options | currency.Format,
 ): string {
-  return currency(value).format({ separator: ',', ...opts });
+  if (typeof opts === 'function') {
+    return currency(value).format(opts);
+  }
+
+  // Only `precision` goes to the constructor: custom `decimal`/`separator`
+  // there would change how string inputs are parsed.
+  const precision = opts?.precision;
+
+  return currency(value, isNil(precision) ? undefined : { precision }).format({
+    separator: ',',
+    ...opts,
+  });
 }
 
 /**
@@ -137,7 +159,10 @@ export function numericFormat(
  * ```
  */
 export function numericAddMany(values: (number | string)[]): number {
-  return values.reduce((sum: number, value) => currency(sum).add(value).value, 0);
+  return values.reduce(
+    (sum: number, value) => currency(sum).add(value).value,
+    0,
+  );
 }
 
 /**
@@ -155,11 +180,15 @@ export function numericAddMany(values: (number | string)[]): number {
 export function numericSubtractMany(values: (number | string)[]): number {
   if (values.length === 0) return 0;
   const [first, ...rest] = values;
-  return rest.reduce((result: number, value) => currency(result).subtract(value).value, currency(first).value);
+  return rest.reduce(
+    (result: number, value) => currency(result).subtract(value).value,
+    currency(first).value,
+  );
 }
 
 /**
- * Batch multiplication: multiply all values
+ * Batch multiplication: multiply all values. Only the final product is rounded
+ * to 2 decimal places; inputs keep up to 6 decimal places.
  *
  * @param values - Array of numbers to multiply
  * @returns Product of all values
@@ -168,14 +197,17 @@ export function numericSubtractMany(values: (number | string)[]): number {
  * ```ts
  * numericMultiplyMany([2, 3, 4])         // 24
  * numericMultiplyMany([100, 0.5, 0.1])   // 5
+ * numericMultiplyMany([0.004, 1000])     // 4
  * ```
  */
 export function numericMultiplyMany(values: (number | string)[]): number {
   if (values.length === 0) return 0;
-  return values.slice(1).reduce(
-    (product: number, value) => currency(product).multiply(value).value,
-    currency(values[0]).value,
+  const product = values.reduce<number>(
+    (result, value) =>
+      result * currency(value, { precision: MULTIPLY_INPUT_PRECISION }).value,
+    1,
   );
+  return currency(product).value;
 }
 
 /**

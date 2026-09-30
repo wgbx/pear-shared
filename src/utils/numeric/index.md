@@ -21,10 +21,10 @@ For scenarios requiring higher precision, pass the `precision` option:
 
 ```ts
 // Percentage calculation (recommended precision: 4-6)
-numericMultiply(100, 0.1234, { precision: 6 }); // 12.340000
+numericMultiply(1000, 0.123456, { precision: 6 }); // 123.456
 
 // Default precision (2 decimal places)
-numericMultiply(100, 0.1234); // 12.34 (may lose precision)
+numericMultiply(1000, 0.123456); // 123.46 (loses precision)
 ```
 
 ## Examples
@@ -63,9 +63,10 @@ numericAddMany([100, 50, 25]); // 175
 numericSubtractMany([100, 20, 5]); // 75 (100 - 20 - 5)
 numericSubtractMany([1000, 100, 50]); // 850
 
-// Batch multiplication: multiply all values
+// Batch multiplication: multiply all values (only the final product is rounded)
 numericMultiplyMany([2, 3, 4]); // 24
 numericMultiplyMany([100, 0.5, 0.1]); // 5
+numericMultiplyMany([0.004, 1000]); // 4
 ```
 
 **Real-world example - Shopping cart total:**
@@ -88,7 +89,7 @@ const price = 1000;
 const discounts = [50, 20, 10]; // Multiple discounts
 const finalPrice = numericSubtractMany([price, ...discounts]); // 920
 
-console.log(numericFormat(finalPrice)); // "920.00"
+console.log(numericFormat(finalPrice)); // "$920.00"
 ```
 
 ### Currency Formatting
@@ -96,21 +97,27 @@ console.log(numericFormat(finalPrice)); // "920.00"
 ```ts
 import { numericFormat } from '@bosinc/shared';
 
-// Default: no symbol
-numericFormat(1234.56); // "1,234.56"
-numericFormat(1000); // "1,000.00"
+// Default: `$` symbol
+numericFormat(1234.56); // "$1,234.56"
+numericFormat(1000); // "$1,000.00"
+numericFormat(-12.5); // "-$12.50"
 
 // With custom symbol
 numericFormat(1234.56, { symbol: '¥' }); // "¥1,234.56"
-numericFormat(1234.56, { symbol: '$' }); // "$1,234.56"
 numericFormat(1234.56, { symbol: '€' }); // "€1,234.56"
+
+// Without symbol
+numericFormat(1234.56, { symbol: '' }); // "1,234.56"
 
 // Adjust precision
 numericFormat(1234, { symbol: '¥', precision: 0 }); // "¥1,234"
-numericFormat(1234.567, { precision: 3 }); // "1,234.567"
+numericFormat(1234.567, { precision: 3 }); // "$1,234.567"
 
 // Change decimal and thousand separators
-numericFormat(1234.56, { decimal: ',', separator: '.' }); // "1.234,56"
+numericFormat(1234.56, { decimal: ',', separator: '.' }); // "$1.234,56"
+
+// Custom format function
+numericFormat(1234.56, (value) => `USD ${value?.value}`); // "USD 1234.56"
 ```
 
 ### Using numeric Object
@@ -122,7 +129,7 @@ numeric.add(100, 50); // 150
 numeric.subtract(100, 30); // 70
 numeric.multiply(100, 0.3); // 30
 numeric.divide(100, 4); // 25
-numeric.format(1234.56); // "1,234.56"
+numeric.format(1234.56); // "$1,234.56"
 ```
 
 ### Real-world Example
@@ -139,7 +146,7 @@ const subtotal = numericMultiply(price, quantity); // 300
 const tax = numericMultiply(subtotal, taxRate); // 30
 const total = numericAdd(subtotal, tax); // 330
 
-console.log(numericFormat(total)); // "330.00"
+console.log(numericFormat(total)); // "$330.00"
 ```
 
 ### Percentage Calculation (Higher Precision)
@@ -147,15 +154,16 @@ console.log(numericFormat(total)); // "330.00"
 ```ts
 import { numericMultiply, numericDivide } from '@bosinc/shared';
 
-// ❌ Not recommended: precision loss
-const rate = numericDivide(33.33, 100); // 0.33
+// ❌ Not recommended: the rate is rounded to 2 decimals too early
+const roughRate = numericDivide(1, 3); // 0.33
+numericMultiply(1000, roughRate); // 330
 
-// ✅ Recommended: specify higher precision
-const rate = numericDivide(33.33, 100, { precision: 6 }); // 0.333300
-const commission = numericMultiply(1000, rate, { precision: 6 }); // 333.300000
+// ✅ Recommended: specify higher precision for intermediate values
+const rate = numericDivide(1, 3, { precision: 6 }); // 0.333333
+const commission = numericMultiply(1000, rate, { precision: 6 }); // 333.333
 
 // Final result: round to 2 decimal places
-const finalCommission = Math.round(commission * 100) / 100; // 333.33
+const finalCommission = numericMultiply(commission, 1); // 333.33
 ```
 
 ## API
@@ -216,12 +224,12 @@ Division: a ÷ b
 
 ### numericFormat
 
-Format as currency with thousand separator
+Format as currency with thousand separator. Uses the `$` symbol by default; pass `{ symbol: '' }` to omit it.
 
-| Param | Description                | Type                                  | Required | Default              |
-| ----- | -------------------------- | ------------------------------------- | -------- | -------------------- |
-| value | Value to format            | `number \| string`                    | `✅`     | `-`                  |
-| opts  | Currency.js format options | `currency.Options \| currency.Format` | `-`      | `{ separator: ',' }` |
+| Param | Description                                             | Type                                  | Required | Default                           |
+| ----- | ------------------------------------------------------- | ------------------------------------- | -------- | --------------------------------- |
+| value | Value to format                                         | `number \| string`                    | `✅`     | `-`                               |
+| opts  | Currency.js format options, or a custom format function | `currency.Options \| currency.Format` | `-`      | `{ symbol: '$', separator: ',' }` |
 
 **Returns:** `string` - Formatted currency string
 
@@ -253,7 +261,7 @@ Batch subtraction: subtract all values from first value
 
 Batch multiplication: multiply all values in array
 
-**Precision:** 2 decimal places by default
+**Precision:** Only the final product is rounded to 2 decimal places. Inputs keep up to 6 decimal places, so `[0.004, 1000]` returns `4`.
 
 | Param  | Description                  | Type                   | Required | Default |
 | ------ | ---------------------------- | ---------------------- | -------- | ------- |
