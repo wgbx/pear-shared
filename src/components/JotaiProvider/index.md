@@ -5,13 +5,13 @@ docStatus: risky
 
 # JotaiProvider
 
-Creates an isolated Jotai store scope for a business module. Wrap the module root so internal components share the same data source (typically from an API) and stay in sync after CRUD — without props drilling.
+为业务模块创建一个隔离的 Jotai store 作用域。在模块根节点包裹后，内部组件可以共享同一份数据源（通常来自 API），并在增删改查后保持同步——无需 props 逐层传递。
 
-## Examples
+## 示例
 
-### Basic Usage
+### 基础用法
 
-Wrap a module once. Components inside read and update the same atom without passing props.
+只需在模块根节点包裹一次。内部组件即可读取和更新同一个 atom，无需传递 props。
 
 ```tsx
 import { atom, useAtom } from 'jotai';
@@ -36,9 +36,9 @@ export default function DemoJotaiProviderBasic() {
 }
 ```
 
-### Multiple Instances
+### 多个实例
 
-Each `<JotaiProvider>` mount gets its own isolated store:
+每个 `<JotaiProvider>` 挂载都会获得各自独立的 store：
 
 ```tsx | pure
 export default function Page() {
@@ -51,7 +51,7 @@ export default function Page() {
 }
 ```
 
-### Custom Store (SSR / testing)
+### 自定义 Store（SSR / 测试）
 
 ```tsx | pure
 import { createStore } from 'jotai';
@@ -74,12 +74,12 @@ export default function OrderModule({ store }: { store: JotaiStore }) {
 
 ### JotaiProviderProps
 
-| Parameter | Description                                                               | Type         | Required | Default |
-| --------- | ------------------------------------------------------------------------- | ------------ | -------- | ------- |
-| children  | Module subtree                                                            | `ReactNode`  | `-`      | `-`     |
-| store     | External store for SSR / testing. Creates an isolated store when omitted. | `JotaiStore` | `-`      | `-`     |
+| 参数     | 说明                                                      | 类型         | 是否必填 | 默认值 |
+| -------- | --------------------------------------------------------- | ------------ | -------- | ------ |
+| children | 模块子树                                                  | `ReactNode`  | `-`      | `-`    |
+| store    | 用于 SSR / 测试的外部 store。省略时会创建一个隔离的 store | `JotaiStore` | `-`      | `-`    |
 
-### Types
+### 类型定义
 
 ```typescript
 import type { createStore } from 'jotai';

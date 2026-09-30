@@ -4,11 +4,11 @@ title: function
 
 # function
 
-Function and promise utilities: type guards and helpers for working with settled promise results.
+函数与 Promise 工具函数：类型守卫，以及处理已敲定 Promise 结果的辅助函数。
 
 ## isUndefined
 
-Check whether a value is `undefined`.
+检测某个值是否为 `undefined`。
 
 ```ts
 import { isUndefined } from '@bosinc/shared';
@@ -19,7 +19,7 @@ isUndefined(null); // false
 
 ## isNull
 
-Check whether a value is `null`.
+检测某个值是否为 `null`。
 
 ```ts
 import { isNull } from '@bosinc/shared';
@@ -30,7 +30,7 @@ isNull(undefined); // false
 
 ## isObject
 
-Check whether a value is a plain object (`{}`). Arrays, `null`, and other object-like values return `false`.
+检测某个值是否为普通对象（`{}`）。数组、`null` 及其他类对象值都返回 `false`。
 
 ```ts
 import { isObject } from '@bosinc/shared';
@@ -44,7 +44,7 @@ isObject(new Date()); // false
 
 ## isNil
 
-Check whether a value is `null` or `undefined`.
+检测某个值是否为 `null` 或 `undefined`。
 
 ```ts
 import { isNil } from '@bosinc/shared';
@@ -57,9 +57,9 @@ isNil(''); // false
 
 ## isEmpty
 
-Check whether a value is empty (`null`, `undefined`, `''`, `[]`, or `{}`).
+检测某个值是否为空（`null`、`undefined`、`''`、`[]` 或 `{}`）。
 
-> **Note:** `null` and `undefined` are treated as empty. This differs from Ramda's `isEmpty`, which returns `false` for both. Use `isNil` when you only need to check for missing values without treating `''`, `[]`, or `{}` as empty.
+> **注意：** `null` 和 `undefined` 都被视为空值，这与 Ramda 的 `isEmpty` 不同（后者对二者都返回 `false`）。如果只需要判断值是否缺失，而不想把 `''`、`[]`、`{}` 也算作空，请使用 `isNil`。
 
 ```ts
 import { isEmpty } from '@bosinc/shared';
@@ -74,7 +74,7 @@ isEmpty(0); // false
 
 ## isString
 
-Check whether a value is a string.
+检测某个值是否为字符串。
 
 ```ts
 import { isString } from '@bosinc/shared';
@@ -85,9 +85,9 @@ isString(42); // false
 
 ## isEmail
 
-Check whether a value looks like a practical email address (`local@domain`). Uses a common local-part shape (HTML living standard–style characters, max 64 chars) and the same **plausible domain** rules as `isUrl`.
+检测某个值是否形似一个实用的邮箱地址（`local@domain`）。采用常见的 local-part 格式（HTML living standard 风格字符，最长 64 个字符），并使用与 `isUrl` 相同的 **合理域名** 规则。
 
-Not a full RFC 5322 parser — confirm deliverability with a verification email when it matters.
+并非完整的 RFC 5322 解析器——如果需要确保可送达，请通过验证邮件确认。
 
 ```ts
 import { isEmail } from '@bosinc/shared';
@@ -101,9 +101,9 @@ isEmail('user@127.0.0.1'); // false
 
 ## isUrl
 
-Check whether a value is an `http(s)` or `mailto` URL with a **plausible domain** (at least `name.tld`). Bare domains like `instagram.com/qiao` are accepted and treated as `https`.
+检测某个值是否为带有 **合理域名**（至少 `name.tld`）的 `http(s)` 或 `mailto` URL。像 `instagram.com/qiao` 这样的裸域名也会被接受并视为 `https`。
 
-Rejects hosts without a real-looking TLD (e.g. `https://213214`), single-label hosts (`localhost`), and IP addresses.
+会拒绝没有真实 TLD 的主机（例如 `https://213214`）、单段主机名（`localhost`）以及 IP 地址。
 
 ```ts
 import { isUrl } from '@bosinc/shared';
@@ -118,7 +118,7 @@ isUrl('not a url'); // false
 
 ## isFunction
 
-Check whether a value is a function. Useful as a type guard before invoking an optional callback.
+检测某个值是否为函数。在调用可选回调前作为类型守卫使用很方便。
 
 ```ts
 import { isFunction } from '@bosinc/shared';
@@ -133,7 +133,7 @@ function safeCall(cb?: () => void) {
 
 ## isPromiseLike
 
-Check whether a value is thenable (promise-like). Also matches native `Promise`.
+检测某个值是否为 thenable（类 Promise）。原生 `Promise` 也会匹配。
 
 ```ts
 import { isPromiseLike } from '@bosinc/shared';
@@ -143,7 +143,7 @@ isPromiseLike({ then: (cb) => cb(1) }); // true
 isPromiseLike(42); // false
 ```
 
-Common use case — handle both sync and async callbacks uniformly:
+常见用例——统一处理同步和异步回调：
 
 ```ts
 import { isPromiseLike } from '@bosinc/shared';
@@ -159,7 +159,7 @@ function handleClick(onClick?: () => unknown) {
 
 ## getSettledResultValue
 
-Extract the fulfilled value from a `PromiseSettledResult`. Returns `undefined` when rejected.
+从 `PromiseSettledResult` 中提取已完成（fulfilled）的值。被拒绝（rejected）时返回 `undefined`。
 
 ```ts
 import { getSettledResultValue } from '@bosinc/shared';

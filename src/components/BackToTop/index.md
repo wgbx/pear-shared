@@ -4,7 +4,7 @@ title: BackToTop
 
 # BackToTop
 
-A circular "back to top" floating button. Drop in with no layout props for typical page scroll:
+一个圆形的“回到顶部”悬浮按钮。常规页面滚动场景下无需传任何布局属性，直接放入即可：
 
 ```tsx
 import { BackToTop } from '@bosinc/shared';
@@ -12,24 +12,24 @@ import { BackToTop } from '@bosinc/shared';
 export default () => <BackToTop />;
 ```
 
-It fades in after scrolling past a threshold (default `250`) and smoothly scrolls back to the top.
+滚动超过阈值（默认 `250`）后淡入显示，点击可平滑滚动回顶部。
 
-## Default placement
+## 默认位置
 
-Pinned to the viewport (`position: fixed`), size always `36×36`.
+固定在视口内（`position: fixed`），尺寸始终为 `36×36`。
 
-One inset for both viewports (`right: 27`, `bottom: 80`):
+两种视口共用同一组偏移值（`right: 27`、`bottom: 80`）：
 
-| Viewport | `right`                                                                    | `bottom` |
-| -------- | -------------------------------------------------------------------------- | -------- |
-| `< md`   | `27`                                                                       | `80`     |
-| `≥ md`   | `calc(50% - 345px)` (= `50% - 372px + 27`, relative to 744 content column) | `80`     |
+| 视口   | `right`                                                               | `bottom` |
+| ------ | --------------------------------------------------------------------- | -------- |
+| `< md` | `27`                                                                  | `80`     |
+| `≥ md` | `calc(50% - 345px)`（即 `50% - 372px + 27`，相对于 744 宽度的内容列） | `80`     |
 
-Override with `sx` only when a page needs a different offset (e.g. competing bottom CTAs). Pass `target` only when scrolling happens inside a container instead of the page.
+仅当页面需要不同偏移时（例如与底部其他 CTA 冲突）才用 `sx` 覆盖。仅当滚动发生在容器内而非整个页面时才传 `target`。
 
-## Examples
+## 示例
 
-### Default (page scroll)
+### 默认（页面滚动）
 
 ```tsx
 import { BackToTop } from '@bosinc/shared';
@@ -54,7 +54,7 @@ export default () => {
 };
 ```
 
-### Inside a scrollable container
+### 在可滚动容器内
 
 ```tsx
 import { useRef } from 'react';
@@ -97,10 +97,10 @@ export default () => {
 
 ## API
 
-### BackToTopProps (extends MUI IconButtonProps)
+### BackToTopProps（继承自 MUI IconButtonProps）
 
-| Property  | Description                                                                 | Type                    | Required | Default    |
-| --------- | --------------------------------------------------------------------------- | ----------------------- | -------- | ---------- |
-| threshold | Show the button after scrolling past this many pixels                       | `number`                | `-`      | `250`      |
-| target    | Scroll container (`Element` / `Document` / ref / getter). Defaults to page. | `BackToTopScrollTarget` | `-`      | `document` |
-| sx        | Optional overrides when a page needs a custom offset                        | `SxProps`               | `-`      | `-`        |
+| 属性      | 说明                                                            | 类型                    | 必填 | 默认值     |
+| --------- | --------------------------------------------------------------- | ----------------------- | ---- | ---------- |
+| threshold | 滚动超过该像素数后显示按钮                                      | `number`                | `-`  | `250`      |
+| target    | 滚动容器（`Element` / `Document` / ref / getter）。默认为页面。 | `BackToTopScrollTarget` | `-`  | `document` |
+| sx        | 页面需要自定义偏移时的可选覆盖项                                | `SxProps`               | `-`  | `-`        |

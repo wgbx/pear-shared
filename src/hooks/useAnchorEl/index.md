@@ -4,13 +4,13 @@ title: useAnchorEl
 
 # useAnchorEl
 
-Generic hook for any UI that positions itself with an `anchorEl` (MUI `Menu` / `Popover` / `Popper`, or shared wrappers like `MenuDropdown`, `SelectDropdown`, `Popover`).
+用于任何通过 `anchorEl` 定位自身的 UI 的通用 Hook（MUI 的 `Menu` / `Popover` / `Popper`，或共享封装组件如 `MenuDropdown`、`SelectDropdown`、`Popover`）。
 
-Return shape matches overlay props (`anchorEl` / `open` / `onClose`), so you keep `onClick` for the trigger and spread the rest onto the overlay.
+返回值的结构与浮层组件的 props 一致（`anchorEl` / `open` / `onClose`），因此触发元素保留 `onClick`，其余属性展开到浮层组件上即可。
 
-## Examples
+## 示例
 
-### With MenuDropdown
+### 配合 MenuDropdown 使用
 
 ```tsx
 import { Button, MenuDropdown, useAnchorEl } from '@bosinc/shared';
@@ -35,9 +35,9 @@ export default () => {
 };
 ```
 
-### With SelectDropdown
+### 配合 SelectDropdown 使用
 
-Prefer `useSelectDropdown` when you also need selected value state. With `useAnchorEl` only:
+如果还需要选中值的状态，优先使用 `useSelectDropdown`。仅使用 `useAnchorEl` 时：
 
 ```tsx
 import { useState } from 'react';
@@ -65,7 +65,7 @@ export default () => {
 };
 ```
 
-### With Popover
+### 配合 Popover 使用
 
 ```tsx
 import { Button, Popover, useAnchorEl } from '@bosinc/shared';
@@ -90,11 +90,11 @@ export default () => {
 
 ## API
 
-### Returns
+### 返回值
 
-| Property | Description                                     | Type                             |
-| -------- | ----------------------------------------------- | -------------------------------- |
-| anchorEl | Current anchor element                          | `T \| null`                      |
-| open     | Whether the overlay should be open              | `boolean`                        |
-| onClick  | Set anchor from a click event (for the trigger) | `(event: MouseEvent<T>) => void` |
-| onClose  | Clear anchor (close)                            | `() => void`                     |
+| 参数     | 说明                                 | 类型                             |
+| -------- | ------------------------------------ | -------------------------------- |
+| anchorEl | 当前的锚点元素                       | `T \| null`                      |
+| open     | 浮层是否应该展开                     | `boolean`                        |
+| onClick  | 根据点击事件设置锚点（用于触发元素） | `(event: MouseEvent<T>) => void` |
+| onClose  | 清除锚点（关闭）                     | `() => void`                     |

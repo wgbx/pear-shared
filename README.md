@@ -53,7 +53,7 @@ The primary APIs and examples are provided via the `dumi` documentation (compone
 $ pnpm install
 
 # develop library by docs demo
-$ pnpm start
+$ pnpm dev
 
 # build library source code
 $ pnpm run build
@@ -94,7 +94,7 @@ If you want teammates to quickly learn "how to run" and "how to publish", keep s
 pnpm install
 
 # 2) start docs/dev site
-pnpm start
+pnpm dev
 ```
 
 Common URLs and commands are printed by dumi in terminal after startup.

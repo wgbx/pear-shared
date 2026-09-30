@@ -4,9 +4,9 @@ title: useIsMobile
 
 # useIsMobile
 
-Returns whether the current viewport is mobile: `true` when viewport width is `<= 744px` (`MOBILE_MAX_WIDTH`), otherwise `false`. Always the inverse of `useIsDesktop()` without arguments.
+返回当前视口是否为移动端：视口宽度 `<= 744px`（`MOBILE_MAX_WIDTH`）时为 `true`，否则为 `false`。始终与不传参数的 `useIsDesktop()` 结果相反。
 
-## Example
+## 示例
 
 ```tsx
 import { useIsMobile } from '@bosinc/shared';

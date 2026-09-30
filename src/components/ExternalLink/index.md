@@ -4,11 +4,11 @@ title: ExternalLink
 
 # ExternalLink
 
-A component for rendering external links, built on MUI `Link` with style passthrough, opening in a new tab by default.
+用于渲染外部链接的组件，基于 MUI `Link` 构建并透传样式，默认在新标签页打开。
 
-## Examples
+## 示例
 
-### Basic Usage
+### 基础用法
 
 ```tsx
 import { ExternalLink } from '@bosinc/shared';
@@ -27,9 +27,9 @@ export default () => {
 
 ### ExternalLinkProps
 
-| Property | Description                 | Type        | Required | Default                 |
-| -------- | --------------------------- | ----------- | -------- | ----------------------- |
-| children | Link display content        | `ReactNode` | `✅`     | `-`                     |
-| href     | Link URL                    | `string`    | `✅`     | `-`                     |
-| target   | How the link opens          | `string`    | `-`      | `'_blank'`              |
-| rel      | Link relationship attribute | `string`    | `-`      | `'noopener noreferrer'` |
+| 属性     | 说明                  | 类型        | 必填 | 默认值                  |
+| -------- | --------------------- | ----------- | ---- | ----------------------- |
+| children | 链接展示内容          | `ReactNode` | `✅` | `-`                     |
+| href     | 链接地址              | `string`    | `✅` | `-`                     |
+| target   | 链接打开方式          | `string`    | `-`  | `'_blank'`              |
+| rel      | 链接的 `rel` 关系属性 | `string`    | `-`  | `'noopener noreferrer'` |

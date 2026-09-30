@@ -4,13 +4,13 @@ title: ErrorBoundary
 
 # ErrorBoundary
 
-Catches render errors in the child tree and shows a fallback instead of crashing the whole page. Implemented with React's class-based error boundary API.
+捕获子组件树中渲染时抛出的错误，展示 fallback 内容而不是让整个页面崩溃。基于 React 的 class 组件 error boundary API 实现。
 
-## Examples
+## 示例
 
-### Basic Usage
+### 基础用法
 
-By default `fallbackComponent` is `null` — after an error, the region renders nothing. Click **Trigger error** to throw during render; click **Reset** to remount and recover.
+`fallbackComponent` 默认值为 `null` —— 出错后该区域不渲染任何内容。点击 **Trigger error** 在渲染时抛出错误；点击 **Reset** 重新挂载并恢复。
 
 ```tsx
 import { useState } from 'react';
@@ -49,9 +49,9 @@ export default () => {
 };
 ```
 
-### Custom Fallback
+### 自定义 Fallback
 
-Pass `fallbackComponent` to show a custom UI when a child throws.
+传入 `fallbackComponent` 可以在子组件抛出错误时展示自定义 UI。
 
 ```tsx
 import { useState } from 'react';
@@ -93,13 +93,13 @@ export default () => {
 
 ### ErrorBoundaryProps
 
-| Property          | Description                                                                  | Type        | Required | Default |
-| ----------------- | ---------------------------------------------------------------------------- | ----------- | -------- | ------- |
-| children          | Subtree to protect                                                           | `ReactNode` | `✅`     | `-`     |
-| fallbackComponent | UI shown when a child throws during render. Renders `null` when not provided | `ReactNode` | `-`      | `null`  |
+| 属性              | 说明                                                 | 类型        | 必填 | 默认值 |
+| ----------------- | ---------------------------------------------------- | ----------- | ---- | ------ |
+| children          | 需要保护的子树                                       | `ReactNode` | `✅` | `-`    |
+| fallbackComponent | 子组件渲染时抛出错误后展示的 UI。未提供时渲染 `null` | `ReactNode` | `-`  | `null` |
 
-## Notes
+## 注意事项
 
-- Only catches errors thrown during **render** of descendants.
-- Does **not** catch errors in event handlers, async code (`setTimeout`, Promise), or server-side rendering.
-- Must be a class component under the hood; React has no function-component equivalent for this API.
+- 仅捕获子孙组件在 **渲染** 阶段抛出的错误。
+- **不会** 捕获事件处理函数、异步代码（`setTimeout`、Promise）或服务端渲染中的错误。
+- 底层必须是 class 组件；React 目前没有对应的函数组件 API。

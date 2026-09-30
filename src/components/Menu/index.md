@@ -4,13 +4,13 @@ title: Menu
 
 # Menu
 
-Dropdown menu built on MUI `Menu` and `MenuItem`, with grouped items and optional per-item `autoClose`. Pair with `useAnchorEl` for anchor state.
+基于 MUI `Menu` 和 `MenuItem` 构建的下拉菜单，支持分组项以及每项可选的 `autoClose`。搭配 `useAnchorEl` 管理锚点状态。
 
-## Examples
+## 示例
 
-### Basic Dropdown
+### 基础下拉菜单
 
-With default **`autoClose: true`**, `MenuDropdown` calls **`onClose` after your `onClick`**. You normally do **not** call the same dismiss function again inside `onClick`.
+在默认 **`autoClose: true`** 的情况下，`MenuDropdown` 会在你的 **`onClick` 执行之后调用 `onClose`**。通常你**不需要**在 `onClick` 内部再次调用同一个关闭函数。
 
 ```tsx
 import { Button, MenuDropdown, useAnchorEl } from '@bosinc/shared';
@@ -51,11 +51,11 @@ export default () => {
 };
 ```
 
-### Async click, loading & autoClose
+### 异步点击、loading 与 autoClose
 
-By default **`autoClose` is `true`**: **`MenuDropdown` invokes `onClose` after your `onClick` completes** (for async handlers, that means after `await` settles). You usually **do not** call your dismiss helper (e.g. `onClose`) again inside `onClick`.
+默认情况下 **`autoClose` 为 `true`**：**`MenuDropdown` 会在你的 `onClick` 执行完成之后调用 `onClose`**（对异步处理函数来说，即 `await` 完成之后）。你通常**不需要**在 `onClick` 内部再次调用你的关闭函数（如 `onClose`）。
 
-With **`autoClose: false`**, that item’s click **does not** trigger `onClose` from `MenuDropdown`. When you are ready to dismiss (for example after `await`), **call `onClose()` yourself** inside `onClick`.
+设置 **`autoClose: false`** 后，该项的点击**不会**触发 `MenuDropdown` 的 `onClose`。当你准备好要关闭时（例如 `await` 完成后），**自行在 `onClick` 内调用 `onClose()`**。
 
 ```tsx
 import { Button, MenuDropdown, useAnchorEl } from '@bosinc/shared';
@@ -103,9 +103,9 @@ export default () => {
 };
 ```
 
-### Custom label & icon style
+### 自定义文字与图标样式
 
-Override the label via **`slotProps.text.sx`** and icon via **`slotProps.icon.sx`**. With default **`autoClose`**, omit calling **`onClose`** inside **`onClick`**; `MenuDropdown` will call it after `onClick`.
+通过 **`slotProps.text.sx`** 覆盖文字样式，通过 **`slotProps.icon.sx`** 覆盖图标样式。在默认 **`autoClose`** 下，无需在 **`onClick`** 内调用 **`onClose`**；`MenuDropdown` 会在 `onClick` 之后自动调用。
 
 ```tsx
 import { Button, MenuDropdown, useAnchorEl } from '@bosinc/shared';
@@ -181,30 +181,30 @@ export default () => {
 
 ### MenuDropdownProps
 
-| Property  | Description                                                                                                                                                                                                                                                                       | Type                                                      | Required | Default |
-| --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------- | -------- | ------- |
-| anchorEl  | Anchor element for dropdown positioning                                                                                                                                                                                                                                           | `HTMLElement \| null`                                     | `true`   | `-`     |
-| open      | Controls menu open state                                                                                                                                                                                                                                                          | `boolean`                                                 | `true`   | `-`     |
-| onClose   | Called when the menu should close (e.g. backdrop, Escape). For an item with default **`autoClose`**, `MenuDropdown` calls **`onClose` after that item’s `onClick` completes** (async handlers are awaited). Items with **`autoClose: false`** do not trigger this automatic call. | `() => void`                                              | `true`   | `-`     |
-| items     | Grouped menu item list (array of groups)                                                                                                                                                                                                                                          | `MenuDropdownItem[][]`                                    | `true`   | `-`     |
-| slotProps | Optional style and prop overrides for menu                                                                                                                                                                                                                                        | `{ paper?: SxProps<Theme>; menu?: Omit<MenuProps, ...> }` | `-`      | `-`     |
+| 属性      | 说明                                                                                                                                                                                                                        | 类型                                                      | Required | 默认值 |
+| --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------- | -------- | ------ |
+| anchorEl  | 下拉菜单定位所用的锚点元素                                                                                                                                                                                                  | `HTMLElement \| null`                                     | `true`   | `-`    |
+| open      | 控制菜单展开状态                                                                                                                                                                                                            | `boolean`                                                 | `true`   | `-`    |
+| onClose   | 菜单应关闭时调用（如点击遮罩、按 Escape）。对于使用默认 **`autoClose`** 的项，`MenuDropdown` 会在**该项的 `onClick` 执行完成后调用 `onClose`**（异步处理函数会被 await）。**`autoClose: false`** 的项不会触发这一自动调用。 | `() => void`                                              | `true`   | `-`    |
+| items     | 分组菜单项列表（分组的数组）                                                                                                                                                                                                | `MenuDropdownItem[][]`                                    | `true`   | `-`    |
+| slotProps | 菜单的可选样式与属性覆盖                                                                                                                                                                                                    | `{ paper?: SxProps<Theme>; menu?: Omit<MenuProps, ...> }` | `-`      | `-`    |
 
 ### MenuDropdownItem
 
-Same shape as **`MenuItemProps`**, plus optional **`autoClose`** (see below). All other columns match **`MenuItemProps`**.
+与 **`MenuItemProps`** 结构相同，额外增加可选的 **`autoClose`**（见下文）。其余列与 **`MenuItemProps`** 一致。
 
-| Property  | Description                                                                                                                                                                            | Type       | Required | Default |
-| --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- | -------- | ------- |
-| autoClose | `true` (default): `MenuDropdown` calls `onClose` after your `onClick`. `false`: does not call `onClose` for that item; call your dismiss function inside `onClick` when you are ready. | `boolean`  | `-`      | `true`  |
-| type      | Item semantic type. Set `type: 'string'` to render label text in `red.700`.                                                                                                            | `'string'` | `-`      | `-`     |
+| 属性      | 说明                                                                                                                                                 | 类型       | Required | 默认值 |
+| --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- | -------- | ------ |
+| autoClose | `true`（默认）：`MenuDropdown` 会在你的 `onClick` 之后调用 `onClose`。`false`：不会为该项调用 `onClose`；准备好后请在 `onClick` 内自行调用关闭函数。 | `boolean`  | `-`      | `true` |
+| type      | 菜单项语义类型。设置 `type: 'string'` 可将文字以 `red.700` 颜色渲染。                                                                                | `'string'` | `-`      | `-`    |
 
 ### MenuItemProps
 
-| Property  | Description                                                                 | Type                                                                 | Required | Default |
-| --------- | --------------------------------------------------------------------------- | -------------------------------------------------------------------- | -------- | ------- |
-| icon      | Leading icon. Pass component reference, e.g. `ProfileLine`.                 | `ElementType`                                                        | `-`      | `-`     |
-| label     | Item text                                                                   | `ReactNode`                                                          | `true`   | `-`     |
-| onClick   | Click callback for enabled item                                             | `() => void \| Promise<void>`                                        | `-`      | `-`     |
-| disabled  | Disable click interaction                                                   | `boolean`                                                            | `-`      | `false` |
-| type      | Item semantic type. Set `type: 'string'` to render label text in `red.700`. | `'string'`                                                           | `-`      | `-`     |
-| slotProps | Optional style overrides                                                    | `{ icon?: { sx?: SxProps<Theme> }; text?: { sx?: SxProps<Theme> } }` | `-`      | `-`     |
+| 属性      | 说明                                                                  | 类型                                                                 | Required | 默认值  |
+| --------- | --------------------------------------------------------------------- | -------------------------------------------------------------------- | -------- | ------- |
+| icon      | 前置图标。传入组件引用，例如 `ProfileLine`。                          | `ElementType`                                                        | `-`      | `-`     |
+| label     | 菜单项文字                                                            | `ReactNode`                                                          | `true`   | `-`     |
+| onClick   | 启用状态下的点击回调                                                  | `() => void \| Promise<void>`                                        | `-`      | `-`     |
+| disabled  | 禁用点击交互                                                          | `boolean`                                                            | `-`      | `false` |
+| type      | 菜单项语义类型。设置 `type: 'string'` 可将文字以 `red.700` 颜色渲染。 | `'string'`                                                           | `-`      | `-`     |
+| slotProps | 可选样式覆盖                                                          | `{ icon?: { sx?: SxProps<Theme> }; text?: { sx?: SxProps<Theme> } }` | `-`      | `-`     |

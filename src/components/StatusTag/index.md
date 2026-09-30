@@ -4,11 +4,11 @@ title: StatusTag
 
 # StatusTag
 
-A status tag component for displaying different status states with color-coded badges, built on MUI `Stack` and `Typography`.
+一个状态标签组件，基于 MUI `Stack` 和 `Typography` 构建，用带颜色的徽章展示不同的状态。
 
-## Examples
+## 示例
 
-### Basic Usage
+### 基础用法
 
 ```tsx
 import { STATUS_TAG_MAP, StatusTag } from '@bosinc/shared';
@@ -26,7 +26,7 @@ export default () => {
 };
 ```
 
-### With Custom Map
+### 自定义映射
 
 ```tsx
 import { StatusTag } from '@bosinc/shared';
@@ -49,7 +49,7 @@ export default () => {
 };
 ```
 
-### With Business Status Config
+### 结合业务状态配置
 
 ```tsx
 import { STATUS_TAG_MAP, StatusTag } from '@bosinc/shared';
@@ -92,7 +92,7 @@ export default () => {
 };
 ```
 
-### With Custom Style
+### 自定义样式
 
 ```tsx
 import { StatusTag } from '@bosinc/shared';
@@ -136,19 +136,19 @@ export default () => {
 
 ### StatusTagProps
 
-| Property  | Description                               | Type                                                       | Required | Default     |
-| --------- | ----------------------------------------- | ---------------------------------------------------------- | -------- | ----------- |
-| type      | Status type determining base color scheme | `'default' \| 'success' \| 'warning' \| 'error' \| 'info'` | `-`      | `'default'` |
-| label     | Display text for the tag                  | `string`                                                   | `-`      | `-`         |
-| config    | Override config for `label/bgColor/color` | `{ label?: string; bgColor?: string; color?: string }`     | `-`      | `-`         |
-| slotProps | Slots props for customization             | `{ root?, text? }`                                         | `-`      | `-`         |
+| 属性      | 说明                              | 类型                                                       | 是否必填 | 默认值      |
+| --------- | --------------------------------- | ---------------------------------------------------------- | -------- | ----------- |
+| type      | 决定基础配色方案的状态类型        | `'default' \| 'success' \| 'warning' \| 'error' \| 'info'` | `-`      | `'default'` |
+| label     | 标签展示文字                      | `string`                                                   | `-`      | `-`         |
+| config    | 覆盖 `label/bgColor/color` 的配置 | `{ label?: string; bgColor?: string; color?: string }`     | `-`      | `-`         |
+| slotProps | 用于自定义的插槽属性              | `{ root?, text? }`                                         | `-`      | `-`         |
 
-### Status Types
+### 状态类型
 
-| Type      | Background   | Text Color  | Use Case                       |
-| --------- | ------------ | ----------- | ------------------------------ |
-| `default` | Gray         | Dark Gray   | Neutral or upcoming states     |
-| `success` | Light Green  | Dark Green  | Completed or successful states |
-| `warning` | Light Orange | Dark Orange | Paused or pending states       |
-| `error`   | Red          | White       | Canceled or failed states      |
-| `info`    | Light Blue   | Dark Blue   | Informational states           |
+| 类型      | 背景色 | 文字颜色 | 适用场景             |
+| --------- | ------ | -------- | -------------------- |
+| `default` | 灰色   | 深灰色   | 中性或即将开始的状态 |
+| `success` | 浅绿色 | 深绿色   | 已完成或成功的状态   |
+| `warning` | 浅橙色 | 深橙色   | 暂停或待处理的状态   |
+| `error`   | 红色   | 白色     | 已取消或失败的状态   |
+| `info`    | 浅蓝色 | 深蓝色   | 提示信息类状态       |

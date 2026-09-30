@@ -4,13 +4,13 @@ title: useSelectDropdown
 
 # useSelectDropdown
 
-Combines `useAnchorEl` with selected-value state for `SelectDropdown`. Supports controlled (`value`) and uncontrolled (`defaultValue`) modes.
+将 `useAnchorEl` 与 `SelectDropdown` 所需的选中值状态结合在一起。支持受控（`value`）和非受控（`defaultValue`）两种模式。
 
-Keep `onClick` for the trigger; spread the rest (including `value`) onto `SelectDropdown`.
+触发元素保留 `onClick`；其余属性（包括 `value`）展开到 `SelectDropdown` 上。
 
-## Examples
+## 示例
 
-### Basic Usage
+### 基础用法
 
 ```tsx
 import { Button, SelectDropdown, useSelectDropdown } from '@bosinc/shared';
@@ -36,7 +36,7 @@ export default () => {
 };
 ```
 
-### Controlled
+### 受控模式
 
 ```tsx
 import { useState } from 'react';
@@ -64,7 +64,7 @@ export default () => {
 };
 ```
 
-### Fixed trigger label
+### 固定触发文案
 
 ```tsx
 import { Stack, Typography } from '@mui/material';
@@ -105,19 +105,19 @@ export default () => {
 
 ### UseSelectDropdownOptions
 
-| Property     | Description                     | Type                                        | Required | Default |
-| ------------ | ------------------------------- | ------------------------------------------- | -------- | ------- |
-| value        | Controlled selected value       | `T`                                         | `-`      | `-`     |
-| defaultValue | Uncontrolled initial value      | `T`                                         | `-`      | `-`     |
-| onChange     | Called with the selected option | `(option: SelectDropdownOption<T>) => void` | `-`      | `-`     |
+| 参数         | 说明                 | 类型                                        | 是否必填 | 默认值 |
+| ------------ | -------------------- | ------------------------------------------- | -------- | ------ |
+| value        | 受控模式下的选中值   | `T`                                         | `-`      | `-`    |
+| defaultValue | 非受控模式下的初始值 | `T`                                         | `-`      | `-`    |
+| onChange     | 选中项变化时调用     | `(option: SelectDropdownOption<T>) => void` | `-`      | `-`    |
 
-### Returns
+### 返回值
 
-| Property | Description                                                           | Type                                        |
-| -------- | --------------------------------------------------------------------- | ------------------------------------------- |
-| anchorEl | Current anchor element                                                | `T \| null`                                 |
-| open     | Whether the menu should be open                                       | `boolean`                                   |
-| onClick  | Set anchor from a click event (for the trigger)                       | `(event: MouseEvent<E>) => void`            |
-| onClose  | Clear anchor (close)                                                  | `() => void`                                |
-| value    | Current selected value                                                | `T \| undefined`                            |
-| onChange | Update selection (also included when spreading onto `SelectDropdown`) | `(option: SelectDropdownOption<T>) => void` |
+| 参数     | 说明                                             | 类型                                        |
+| -------- | ------------------------------------------------ | ------------------------------------------- |
+| anchorEl | 当前的锚点元素                                   | `T \| null`                                 |
+| open     | 菜单是否应该展开                                 | `boolean`                                   |
+| onClick  | 根据点击事件设置锚点（用于触发元素）             | `(event: MouseEvent<E>) => void`            |
+| onClose  | 清除锚点（关闭）                                 | `() => void`                                |
+| value    | 当前选中值                                       | `T \| undefined`                            |
+| onChange | 更新选中项（展开到 `SelectDropdown` 时也会包含） | `(option: SelectDropdownOption<T>) => void` |

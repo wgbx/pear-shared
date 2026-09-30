@@ -4,11 +4,11 @@ title: device
 
 # device
 
-Browser and device detection utilities. All functions are SSR-safe and return `false` when `window` / `navigator` are unavailable.
+浏览器与设备检测工具函数。所有函数都是 SSR 安全的，`window` / `navigator` 不可用时返回 `false`。
 
 ## isBrowser
 
-Check whether code is running in a browser environment.
+检测代码是否运行在浏览器环境中。
 
 ```ts
 import { isBrowser } from '@bosinc/shared';
@@ -18,7 +18,7 @@ isBrowser(); // true in browser, false in SSR/Node
 
 ## isIOS
 
-Check whether the current device is running iOS (iPhone, iPod, or iPad).
+检测当前设备是否运行 iOS（iPhone、iPod 或 iPad）。
 
 ```ts
 import { isIOS } from '@bosinc/shared';
@@ -28,7 +28,7 @@ isIOS(); // true on iPhone, iPod, or iPad
 
 ## isIPad
 
-Check whether the current device is an iPad. Includes iPadOS 13+ devices that report as Macintosh in the user agent.
+检测当前设备是否为 iPad，包括 user agent 显示为 Macintosh 的 iPadOS 13+ 设备。
 
 ```ts
 import { isIPad } from '@bosinc/shared';
@@ -38,7 +38,7 @@ isIPad(); // true on iPad
 
 ## isAndroid
 
-Check whether the current device is running Android.
+检测当前设备是否运行 Android。
 
 ```ts
 import { isAndroid } from '@bosinc/shared';
@@ -48,7 +48,7 @@ isAndroid(); // true on Android phones and tablets
 
 ## isSafari
 
-Check whether the current browser is Safari (excluding Chrome, Firefox, Edge, and other Chromium-based browsers).
+检测当前浏览器是否为 Safari（不包括 Chrome、Firefox、Edge 及其他 Chromium 内核浏览器）。
 
 ```ts
 import { isSafari } from '@bosinc/shared';
@@ -58,7 +58,7 @@ isSafari(); // true in desktop/mobile Safari
 
 ## isInIframe
 
-Check whether the current page is running inside an iframe (including cross-origin iframes).
+检测当前页面是否运行在 iframe 中（包括跨域 iframe）。
 
 ```ts
 import { isInIframe } from '@bosinc/shared';

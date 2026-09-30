@@ -4,13 +4,13 @@ title: Alert
 
 # Alert
 
-An alert component built on `jotai` + MUI. Call `useAlert()` to trigger alerts.
+基于 `jotai` + MUI 构建的提示组件。调用 `useAlert()` 来触发提示。
 
-> Note: If you have already mounted `AlertContainer` globally in your app, the examples here only demonstrate how to trigger alerts.
+> 注意：如果你已经在应用中全局挂载了 `AlertContainer`，这里的示例仅演示如何触发提示。
 
-## Examples
+## 示例
 
-### Basic Usage
+### 基础用法
 
 ```tsx
 import { Button, useAlert } from '@bosinc/shared';
@@ -40,7 +40,7 @@ export default function DemoAlertSimple() {
 }
 ```
 
-### With Title
+### 带标题
 
 ```tsx
 import { Button, useAlert } from '@bosinc/shared';
@@ -87,7 +87,7 @@ export default function DemoAlertDetail() {
 }
 ```
 
-### With Close Button
+### 带关闭按钮
 
 ```tsx
 import { Button, useAlert } from '@bosinc/shared';
@@ -139,33 +139,33 @@ export default function DemoAlertWithClose() {
 
 ## API
 
-### useAlert Return Value
+### useAlert 返回值
 
-| Property   | Description                          | Type                                                                  | Required | Default |
-| ---------- | ------------------------------------ | --------------------------------------------------------------------- | -------- | ------- |
-| error      | Trigger an error alert               | `(params: string \| AlertCloseProps \| AlertWithActionProps) => void` | `✅`     | `-`     |
-| success    | Trigger a success alert              | `(params: string \| AlertCloseProps \| AlertWithActionProps) => void` | `✅`     | `-`     |
-| warning    | Trigger a warning alert              | `(params: string \| AlertCloseProps \| AlertWithActionProps) => void` | `✅`     | `-`     |
-| customize  | Trigger a custom (no severity) alert | `(params: string \| AlertCloseProps \| AlertWithActionProps) => void` | `✅`     | `-`     |
-| closeAlert | Manually close the current alert     | `() => void`                                                          | `✅`     | `-`     |
+| 属性       | 说明                         | 类型                                                                  | 必填 | 默认值 |
+| ---------- | ---------------------------- | --------------------------------------------------------------------- | ---- | ------ |
+| error      | 触发一个错误提示             | `(params: string \| AlertCloseProps \| AlertWithActionProps) => void` | `✅` | `-`    |
+| success    | 触发一个成功提示             | `(params: string \| AlertCloseProps \| AlertWithActionProps) => void` | `✅` | `-`    |
+| warning    | 触发一个警告提示             | `(params: string \| AlertCloseProps \| AlertWithActionProps) => void` | `✅` | `-`    |
+| customize  | 触发一个自定义（无级别）提示 | `(params: string \| AlertCloseProps \| AlertWithActionProps) => void` | `✅` | `-`    |
+| closeAlert | 手动关闭当前提示             | `() => void`                                                          | `✅` | `-`    |
 
 ### AlertCloseProps
 
-| Property  | Description                      | Type                                | Required | Default |
-| --------- | -------------------------------- | ----------------------------------- | -------- | ------- |
-| text      | Alert body text                  | `string`                            | `✅`     | `-`     |
-| hideAfter | Auto-close delay in seconds      | `number`                            | `-`      | `-`     |
-| title     | Alert title                      | `string`                            | `-`      | `-`     |
-| sx        | Alert style override             | `AlertBannerProps['sx']`            | `-`      | `-`     |
-| showClose | Whether to show the close button | `AlertBannerWithClose['showClose']` | `-`      | `-`     |
-| icon      | Custom icon                      | `AlertBannerWithClose['icon']`      | `-`      | `-`     |
+| 属性      | 说明               | 类型                                | 必填 | 默认值 |
+| --------- | ------------------ | ----------------------------------- | ---- | ------ |
+| text      | 提示正文文本       | `string`                            | `✅` | `-`    |
+| hideAfter | 自动关闭延时（秒） | `number`                            | `-`  | `-`    |
+| title     | 提示标题           | `string`                            | `-`  | `-`    |
+| sx        | 提示样式覆盖       | `AlertBannerProps['sx']`            | `-`  | `-`    |
+| showClose | 是否显示关闭按钮   | `AlertBannerWithClose['showClose']` | `-`  | `-`    |
+| icon      | 自定义图标         | `AlertBannerWithClose['icon']`      | `-`  | `-`    |
 
 ### AlertWithActionProps
 
-| Property  | Description                        | Type                              | Required | Default |
-| --------- | ---------------------------------- | --------------------------------- | -------- | ------- |
-| text      | Alert body text                    | `string`                          | `✅`     | `-`     |
-| action    | Custom action area render function | `AlertBannerWithAction['action']` | `✅`     | `-`     |
-| hideAfter | Auto-close delay in seconds        | `number`                          | `-`      | `-`     |
-| title     | Alert title                        | `string`                          | `-`      | `-`     |
-| sx        | Alert style override               | `AlertBannerProps['sx']`          | `-`      | `-`     |
+| 属性      | 说明                   | 类型                              | 必填 | 默认值 |
+| --------- | ---------------------- | --------------------------------- | ---- | ------ |
+| text      | 提示正文文本           | `string`                          | `✅` | `-`    |
+| action    | 自定义操作区域渲染函数 | `AlertBannerWithAction['action']` | `✅` | `-`    |
+| hideAfter | 自动关闭延时（秒）     | `number`                          | `-`  | `-`    |
+| title     | 提示标题               | `string`                          | `-`  | `-`    |
+| sx        | 提示样式覆盖           | `AlertBannerProps['sx']`          | `-`  | `-`    |

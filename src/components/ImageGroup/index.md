@@ -4,11 +4,11 @@ title: ImageGroup
 
 # ImageGroup
 
-Displays a row of square thumbnails. When `items.length > max`, the overflow count is rendered as an overlay on the last visible item (e.g. `10+`).
+以一行方形缩略图展示图片。当 `items.length > max` 时，超出的数量会以蒙层形式叠加在最后一个可见项上（例如 `10+`）。
 
-## Examples
+## 示例
 
-### Basic Usage
+### 基础用法
 
 ```tsx
 import { ImageGroup } from '@bosinc/shared';
@@ -29,7 +29,7 @@ export default () => {
 };
 ```
 
-### Click ImageGroup
+### 点击整个 ImageGroup
 
 ```tsx
 import { ImageGroup, useAlert } from '@bosinc/shared';
@@ -54,7 +54,7 @@ export default () => {
 };
 ```
 
-### Click Item
+### 点击单个图片项
 
 ```tsx
 import { ImageGroup, useAlert } from '@bosinc/shared';
@@ -79,7 +79,7 @@ export default () => {
 };
 ```
 
-### Customize Style
+### 自定义样式
 
 ```tsx
 import { ImageGroup } from '@bosinc/shared';
@@ -120,11 +120,11 @@ export default () => {
 
 ### ImageGroupProps
 
-| Property    | Description                                                            | Type                              | Required | Default |
-| ----------- | ---------------------------------------------------------------------- | --------------------------------- | -------- | ------- |
-| items       | Image items                                                            | `{ src: string; alt?: string }[]` | `✅`     | `-`     |
-| max         | Max number of visible items (overflow renders on the last visible one) | `number`                          | `-`      | `4`     |
-| overlap     | Overlap offset (MUI spacing units). Set `0` to disable overlap         | `number`                          | `-`      | `1`     |
-| onClick     | Click handler for the whole group                                      | `() => void`                      | `-`      | `-`     |
-| onItemClick | Click handler for each visible item                                    | `(item: ImageGroupItem) => void`  | `-`      | `-`     |
-| slotProps   | Fine-grained props override for internal slots                         | `root/item/img/count`             | `-`      | `-`     |
+| 属性        | 说明                                                     | 类型                              | 是否必填 | 默认值 |
+| ----------- | -------------------------------------------------------- | --------------------------------- | -------- | ------ |
+| items       | 图片项列表                                               | `{ src: string; alt?: string }[]` | `✅`     | `-`    |
+| max         | 最多显示的图片数量（超出的数量会叠加在最后一个可见项上） | `number`                          | `-`      | `4`    |
+| overlap     | 重叠偏移量（MUI 间距单位）。设为 `0` 可关闭重叠效果      | `number`                          | `-`      | `1`    |
+| onClick     | 整个图片组的点击回调                                     | `() => void`                      | `-`      | `-`    |
+| onItemClick | 每个可见图片项的点击回调                                 | `(item: ImageGroupItem) => void`  | `-`      | `-`    |
+| slotProps   | 内部插槽的细粒度 props 覆盖                              | `root/item/img/count`             | `-`      | `-`    |

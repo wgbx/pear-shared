@@ -2,13 +2,13 @@
 title: Constants
 ---
 
-## Date Format
+## 日期格式
 
 `DATE_FORMAT`
 
-Common [date-fns](https://date-fns.org/) format pattern constants. Used by `@utils/date` formatters.
+常用的 [date-fns](https://date-fns.org/) 格式模式常量。供 `@utils/date` 格式化函数使用。
 
-| Property                  | Pattern               | Example               |
+| 属性                      | 格式                  | 示例                  |
 | ------------------------- | --------------------- | --------------------- |
 | `MONTH_DAY_YEAR`          | `MMM dd, yyyy`        | `Mar 09, 2025`        |
 | `MONTH_DAY_YEAR_TIME`     | `MMM dd, yyyy h:mma`  | `Sep 22, 2026 6:00PM` |
@@ -27,13 +27,13 @@ import { DATE_FORMAT, formatDate } from '@bosinc/shared';
 formatDate('2025-03-09T14:30:00', { format: DATE_FORMAT.DATETIME });
 ```
 
-## Default Timezone
+## 默认时区
 
 `DEFAULT_TIMEZONE`
 
-Default business timezone: `'America/Los_Angeles'` (US Pacific). Equivalent to `TIMEZONE_MAP.AMERICA_LOS_ANGELES`.
+默认业务时区：`'America/Los_Angeles'`（美国太平洋时区）。等同于 `TIMEZONE_MAP.AMERICA_LOS_ANGELES`。
 
-Used as the default `timeZone` for `formatDateInTimeZone`, `utcToZonedDate`, and `zonedToUtc`.
+作为 `formatDateInTimeZone`、`utcToZonedDate`、`zonedToUtc` 的默认 `timeZone`。
 
 ```ts
 import { DEFAULT_TIMEZONE, formatDateInTimeZone } from '@bosinc/shared';
@@ -42,18 +42,18 @@ formatDateInTimeZone(new Date(), { timeZone: DEFAULT_TIMEZONE });
 // Uses America/Los_Angeles when timeZone is omitted
 ```
 
-## Timezone Map
+## 时区映射
 
 `TIMEZONE_MAP`
 
-Common IANA timezone identifiers for `@utils/date` formatters and converters.
+供 `@utils/date` 格式化和转换函数使用的常见 IANA 时区标识符。
 
-| Property              | IANA ID               | Region / notes             |
-| --------------------- | --------------------- | -------------------------- |
-| `UTC`                 | `UTC`                 | Coordinated Universal Time |
-| `AMERICA_LOS_ANGELES` | `America/Los_Angeles` | US Pacific (PST/PDT)       |
-| `AMERICA_NEW_YORK`    | `America/New_York`    | US Eastern (EST/EDT)       |
-| `ASIA_SHANGHAI`       | `Asia/Shanghai`       | China (CST)                |
+| 属性                  | IANA ID               | 地区 / 备注               |
+| --------------------- | --------------------- | ------------------------- |
+| `UTC`                 | `UTC`                 | 协调世界时                |
+| `AMERICA_LOS_ANGELES` | `America/Los_Angeles` | 美国太平洋时区（PST/PDT） |
+| `AMERICA_NEW_YORK`    | `America/New_York`    | 美国东部时区（EST/EDT）   |
+| `ASIA_SHANGHAI`       | `Asia/Shanghai`       | 中国（CST）               |
 
 ```ts
 import { TIMEZONE_MAP, formatDateTimeDisplay } from '@bosinc/shared';
@@ -62,11 +62,11 @@ formatDateTimeDisplay(new Date(), { timeZone: TIMEZONE_MAP.AMERICA_NEW_YORK });
 // e.g. 'Aug 25, 2026 5:00PM (EDT)'
 ```
 
-## StatusTag Map
+## 状态标签映射
 
 `STATUS_TAG_MAP`
 
-| Key       | Value     |
+| 键        | 值        |
 | --------- | --------- |
 | `DEFAULT` | `default` |
 | `SUCCESS` | `success` |
@@ -74,18 +74,18 @@ formatDateTimeDisplay(new Date(), { timeZone: TIMEZONE_MAP.AMERICA_NEW_YORK });
 | `ERROR`   | `error`   |
 | `INFO`    | `info`    |
 
-## UI Size
+## UI 尺寸
 
 `UI_SIZE`
 
-Pear Design shared component size scale. Reused across Button and future UI components.
+Pear Design 共享组件尺寸规格，Button 及未来的 UI 组件均复用该规格。
 
-| Key      | Value    | Figma | Height |
-| -------- | -------- | ----- | ------ |
-| `LARGE`  | `large`  | L-48  | 48px   |
-| `MEDIUM` | `medium` | L-42  | 42px   |
-| `SMALL`  | `small`  | M-32  | 32px   |
-| `XSMALL` | `xsmall` | S-24  | 24px   |
+| 键       | 值       | Figma | 高度 |
+| -------- | -------- | ----- | ---- |
+| `LARGE`  | `large`  | L-48  | 48px |
+| `MEDIUM` | `medium` | L-42  | 42px |
+| `SMALL`  | `small`  | M-32  | 32px |
+| `XSMALL` | `xsmall` | S-24  | 24px |
 
 ```ts
 import { UI_SIZE, MainButton, BUTTON_APPEARANCE } from '@bosinc/shared';
@@ -97,11 +97,11 @@ import { UI_SIZE, MainButton, BUTTON_APPEARANCE } from '@bosinc/shared';
 />;
 ```
 
-## Viewport
+## 视口
 
 `MOBILE_MAX_WIDTH`
 
-Mobile / desktop viewport threshold: `744` (px). Viewport widths `<= 744px` are mobile, wider viewports are desktop. Used by `useIsMobile` and `useIsDesktop`.
+移动端/桌面端视口分界值：`744`（px）。视口宽度 `<= 744px` 为移动端，更宽则为桌面端。供 `useIsMobile` 和 `useIsDesktop` 使用。
 
 ```ts
 import { MOBILE_MAX_WIDTH } from '@bosinc/shared';
@@ -109,52 +109,52 @@ import { MOBILE_MAX_WIDTH } from '@bosinc/shared';
 const isMobile = window.innerWidth <= MOBILE_MAX_WIDTH;
 ```
 
-## Button Map
+## 按钮映射
 
 `BUTTON_APPEARANCE`
 
-Btn-CTA appearance only (button-specific).
+仅用于 Btn-CTA 的外观（按钮专属）。
 
-| Key       | Value     |
+| 键        | 值        |
 | --------- | --------- |
 | `PRIMARY` | `primary` |
 | `GHOST`   | `ghost`   |
 | `OUTLINE` | `outline` |
 
-## Cloudinary Quality
+## Cloudinary 质量
 
 `CLOUDINARY_CLOUD_NAME`
 
-Default Cloudinary cloud name (`dr9io1zjv`). Override with `NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME`.
+默认 Cloudinary cloud 名称（`dr9io1zjv`）。可通过 `NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME` 覆盖。
 
 `CLOUDINARY_IMAGE_UPLOAD_PATH_PART` / `CLOUDINARY_VIDEO_UPLOAD_PATH_PART`
 
-Path segments used when normalizing Cloudinary upload URLs.
+规范化 Cloudinary 上传 URL 时使用的路径片段。
 
 `C_FIT_MAX_DIMENSION`
 
-When `c_fit` width or height exceeds this value (default `150`), optimization skips `w_`/`h_` to avoid soft images with CSS `object-fit: cover`.
+当 `c_fit` 的宽或高超过该值（默认 `150`）时，优化会跳过 `w_`/`h_`，以避免配合 CSS `object-fit: cover` 时图片模糊。
 
 `C_FIT_RETINA_DPR`
 
-Default device pixel ratio (`2`) applied to small `c_fit` thumbnails.
+应用于小尺寸 `c_fit` 缩略图的默认设备像素比（`2`）。
 
 `C_DEFAULT_SCALE_WIDTH`
 
-Default `c_scale` width (`1024`) when no dimensions are provided. Matches katana `ImageWithFallback` fallback optimization.
+未提供尺寸时的默认 `c_scale` 宽度（`1024`）。与 katana `ImageWithFallback` 的兜底优化保持一致。
 
 `CLOUDINARY_QUALITY_AUTO`
 
-The value `auto`, corresponding to `q_auto` in the Cloudinary URL, which enables the intelligent quality and encoding algorithms.
+值为 `auto`，对应 Cloudinary URL 中的 `q_auto`，用于启用智能质量与编码算法。
 
 `CLOUDINARY_QUALITY_MODE`
 
-Fine-tuning options for automatic quality selection:
+自动质量选择的精细调节选项：
 
-| Key  | Value       | Description                                                                                                                                           | Target audience example                                   |
-| ---- | ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------- |
-| AUTO | `auto`      | Optimal balance between file size and visual quality. Defaults to the same as `GOOD`, but may automatically switch to the more aggressive `ECO` mode. | General                                                   |
-| BEST | `auto:best` | Less aggressive algorithm. Produces larger files but better visual quality.                                                                           | Photography sites showcasing high-quality images          |
-| GOOD | `auto:good` | Relatively small file size while maintaining good visual quality.                                                                                     | General                                                   |
-| ECO  | `auto:eco`  | More aggressive algorithm. Produces smaller files with slightly reduced visual quality.                                                               | High-traffic sites and social networks                    |
-| LOW  | `auto:low`  | Most aggressive algorithm. Produces the smallest files with lower visual quality.                                                                     | Sites using thumbnails that link to higher-quality images |
+| 键   | 值          | 说明                                                                                              | 适用场景示例                 |
+| ---- | ----------- | ------------------------------------------------------------------------------------------------- | ---------------------------- |
+| AUTO | `auto`      | 文件大小与视觉质量之间的最佳平衡。默认效果与 `GOOD` 相同，但可能会自动切换到更激进的 `ECO` 模式。 | 通用                         |
+| BEST | `auto:best` | 更保守的算法。生成的文件更大，但视觉质量更好。                                                    | 展示高质量图片的摄影类网站   |
+| GOOD | `auto:good` | 在保持良好视觉质量的同时文件体积相对较小。                                                        | 通用                         |
+| ECO  | `auto:eco`  | 更激进的算法。生成更小的文件，视觉质量略有下降。                                                  | 高流量网站和社交网络         |
+| LOW  | `auto:low`  | 最激进的算法。生成最小的文件，但视觉质量较低。                                                    | 缩略图链接到高质量原图的网站 |

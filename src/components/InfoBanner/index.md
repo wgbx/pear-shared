@@ -4,11 +4,11 @@ title: InfoBanner
 
 # InfoBanner
 
-Displays an information banner container. You can quickly render text via `description`, or customize content via `children`.
+展示一个信息横幅容器。可以通过 `description` 快速渲染文本，也可以通过 `children` 自定义内容。
 
-## Examples
+## 示例
 
-### Basic Usage
+### 基础用法
 
 ```tsx
 import { InfoBanner } from '@bosinc/shared';
@@ -20,7 +20,7 @@ export default () => {
 };
 ```
 
-### Custom Content with children
+### 使用 children 自定义内容
 
 ```tsx
 import { InfoBanner } from '@bosinc/shared';
@@ -40,9 +40,9 @@ export default () => {
 
 ### InfoBannerProps
 
-| Property    | Description                                                 | Type                                                                                   | Required | Default              |
-| ----------- | ----------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------- | -------------------- |
-| children    | Custom content; rendered when `description` is not provided | `ReactNode`                                                                            | `-`      | `-`                  |
-| description | Description text/node; takes priority when provided         | `ReactNode`                                                                            | `-`      | `-`                  |
-| icon        | Top-right icon component                                    | `ComponentType<SVGProps<SVGSVGElement>>`                                               | `-`      | `BookmarkSquareIcon` |
-| slotProps   | Props passed to each slot                                   | `{ root?: StackProps; description?: TypographyProps; icon?: SVGProps<SVGSVGElement> }` | `-`      | `-`                  |
+| 属性        | 说明                                    | 类型                                                                                   | 是否必填 | 默认值               |
+| ----------- | --------------------------------------- | -------------------------------------------------------------------------------------- | -------- | -------------------- |
+| children    | 自定义内容；未传入 `description` 时渲染 | `ReactNode`                                                                            | `-`      | `-`                  |
+| description | 描述文本/节点；传入时优先展示           | `ReactNode`                                                                            | `-`      | `-`                  |
+| icon        | 右上角图标组件                          | `ComponentType<SVGProps<SVGSVGElement>>`                                               | `-`      | `BookmarkSquareIcon` |
+| slotProps   | 传给各个插槽的 props                    | `{ root?: StackProps; description?: TypographyProps; icon?: SVGProps<SVGSVGElement> }` | `-`      | `-`                  |

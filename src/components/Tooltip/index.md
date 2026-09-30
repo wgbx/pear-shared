@@ -4,11 +4,11 @@ title: Tooltip
 
 # Tooltip
 
-Displays informative content when users click the trigger element. Built on MUI `Tooltip` with custom styling. Use `trigger="hover"` to restore hover/focus behavior.
+在用户点击触发元素时展示提示信息。基于 MUI `Tooltip` 构建并做了自定义样式。使用 `trigger="hover"` 可恢复悬停/聚焦触发行为。
 
-## Examples
+## 示例
 
-### Basic Usage
+### 基础用法
 
 ```tsx
 import { Tooltip } from '@bosinc/shared';
@@ -22,7 +22,7 @@ export default () => {
 };
 ```
 
-### With Title
+### 带标题
 
 ```tsx
 import { Tooltip } from '@bosinc/shared';
@@ -41,7 +41,7 @@ export default () => {
 
 ### InfoTooltip
 
-A preset `InformationLine` icon trigger for common help hints beside labels or form controls.
+一个预设了 `InformationLine` 图标作为触发器的组件，常用于在标签或表单控件旁边展示帮助提示。
 
 ```tsx
 import { InfoTooltip } from '@bosinc/shared';
@@ -56,9 +56,9 @@ export default () => {
 };
 ```
 
-### Custom icon style
+### 自定义图标样式
 
-Use `sx` to adjust the icon color and size.
+使用 `sx` 调整图标的颜色和大小。
 
 ```tsx
 import { InfoTooltip } from '@bosinc/shared';
@@ -73,7 +73,7 @@ export default () => {
 };
 ```
 
-### Custom Content
+### 自定义内容
 
 ```tsx
 import { Tooltip } from '@bosinc/shared';
@@ -131,9 +131,9 @@ export default () => {
 
 ### EllipsisTooltip
 
-Shows the full text in a tooltip only when the content is truncated. Defaults to hover trigger.
+仅当内容被截断时，才在提示框中展示完整文本。默认使用悬停触发。
 
-Truncation uses `-webkit-line-clamp` + `overflow-wrap: anywhere` (not `white-space: nowrap`), so long unbroken strings do not expand flex/grid ancestors.
+截断使用 `-webkit-line-clamp` + `overflow-wrap: anywhere`（而非 `white-space: nowrap`），因此过长且不可换行的字符串不会撑开 flex/grid 的父容器。
 
 ```tsx
 import { EllipsisTooltip } from '@bosinc/shared';
@@ -152,7 +152,7 @@ export default () => {
 };
 ```
 
-### EllipsisTooltip in a flex row
+### 在 flex 行中使用 EllipsisTooltip
 
 ```tsx
 import { EllipsisTooltip } from '@bosinc/shared';
@@ -174,7 +174,7 @@ export default () => {
 };
 ```
 
-### Multi-line Ellipsis
+### 多行省略
 
 ```tsx
 import { EllipsisTooltip } from '@bosinc/shared';
@@ -192,9 +192,9 @@ export default () => {
 };
 ```
 
-### Hover Trigger
+### 悬停触发
 
-Pass `trigger="hover"` to show the tooltip on hover or focus instead of click.
+传入 `trigger="hover"`，可让提示框在悬停或聚焦时显示，而不是点击时。
 
 ```tsx
 import { Tooltip } from '@bosinc/shared';
@@ -215,28 +215,28 @@ export default () => {
 
 ### TooltipProps
 
-| Property      | Description                                  | Type                 | Required | Default   |
-| ------------- | -------------------------------------------- | -------------------- | -------- | --------- |
-| children      | Element that triggers the tooltip            | `ReactElement`       | `✅`     | `-`       |
-| description   | Tooltip content                              | `ReactNode`          | `✅`     | `-`       |
-| title         | Optional title displayed above description   | `ReactNode`          | `-`      | `-`       |
-| action        | Optional action button or element            | `ReactNode`          | `-`      | `-`       |
-| customContent | Fully custom tooltip content (overrides all) | `ReactNode`          | `-`      | `-`       |
-| arrow         | Display arrow pointing to element            | `boolean`            | `-`      | `true`    |
-| trigger       | How the tooltip is triggered                 | `'click' \| 'hover'` | `-`      | `'click'` |
+| 属性          | 说明                                       | 类型                 | 是否必填 | 默认值    |
+| ------------- | ------------------------------------------ | -------------------- | -------- | --------- |
+| children      | 触发提示框的元素                           | `ReactElement`       | `✅`     | `-`       |
+| description   | 提示框内容                                 | `ReactNode`          | `✅`     | `-`       |
+| title         | 展示在 description 上方的可选标题          | `ReactNode`          | `-`      | `-`       |
+| action        | 可选的操作按钮或元素                       | `ReactNode`          | `-`      | `-`       |
+| customContent | 完全自定义的提示框内容（覆盖其他所有内容） | `ReactNode`          | `-`      | `-`       |
+| arrow         | 是否显示指向元素的箭头                     | `boolean`            | `-`      | `true`    |
+| trigger       | 提示框的触发方式                           | `'click' \| 'hover'` | `-`      | `'click'` |
 
-Supports all other MUI Tooltip props (e.g., `open`, `placement`, `disableHoverListener`, etc.).
+支持其他所有 MUI Tooltip 属性（如 `open`、`placement`、`disableHoverListener` 等）。
 
 ### EllipsisTooltipProps
 
-Extends MUI `TypographyProps` (except `children`).
+继承 MUI `TypographyProps`（`children` 除外）。
 
-| Property     | Description                                            | Type                                              | Default |
-| ------------ | ------------------------------------------------------ | ------------------------------------------------- | ------- |
-| children     | Text content to render                                 | `ReactNode`                                       | —       |
-| tooltip      | Tooltip content when truncated. Defaults to `children` | `ReactNode`                                       | —       |
-| lines        | Max visible lines before truncation                    | `number`                                          | `1`     |
-| tooltipProps | Props forwarded to the wrapping `Tooltip`              | `Omit<TooltipProps, 'children' \| 'description'>` | —       |
-| ...          | Other MUI `Typography` props                           | `TypographyProps`                                 | —       |
+| 属性         | 说明                                    | 类型                                              | 默认值 |
+| ------------ | --------------------------------------- | ------------------------------------------------- | ------ |
+| children     | 要渲染的文本内容                        | `ReactNode`                                       | —      |
+| tooltip      | 截断时展示的提示内容，默认取 `children` | `ReactNode`                                       | —      |
+| lines        | 截断前允许显示的最大行数                | `number`                                          | `1`    |
+| tooltipProps | 透传给内部 `Tooltip` 的属性             | `Omit<TooltipProps, 'children' \| 'description'>` | —      |
+| ...          | 其他 MUI `Typography` 属性              | `TypographyProps`                                 | —      |
 
-`tooltipProps` defaults: `trigger="hover"`, `placement="bottom"`. When the text is not truncated, the wrapping `Tooltip` is not mounted.
+`tooltipProps` 的默认值为：`trigger="hover"`、`placement="bottom"`。当文本未被截断时，内部的 `Tooltip` 不会被挂载。

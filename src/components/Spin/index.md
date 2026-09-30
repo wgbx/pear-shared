@@ -4,11 +4,11 @@ title: Spin
 
 # Spin
 
-A loading spinner component built with MUI CircularProgress, providing flexible loading states for your application.
+基于 MUI CircularProgress 构建的加载指示器组件，为应用提供灵活的加载状态展示。
 
-## Examples
+## 示例
 
-### Basic Usage
+### 基础用法
 
 ```tsx
 import { useState } from 'react';
@@ -29,7 +29,7 @@ export default function BasicExample() {
 }
 ```
 
-### With Content Wrapper
+### 包裹内容
 
 ```tsx
 import { useState } from 'react';
@@ -52,7 +52,7 @@ export default function WrapperExample() {
 }
 ```
 
-### Custom Size
+### 自定义尺寸
 
 ```tsx
 import { useState } from 'react';
@@ -80,7 +80,7 @@ export default function CustomSizeExample() {
 }
 ```
 
-### With Tip
+### 带提示文字
 
 ```tsx
 import { useState } from 'react';
@@ -99,7 +99,7 @@ export default function TipExample() {
 }
 ```
 
-### Fullscreen Mode
+### 全屏模式
 
 ```tsx
 import { useState } from 'react';
@@ -128,7 +128,7 @@ export default function FullscreenExample() {
 }
 ```
 
-### Custom Indicator
+### 自定义指示器
 
 ```tsx
 import { useState } from 'react';
@@ -148,7 +148,7 @@ export default function CustomIndicatorExample() {
 }
 ```
 
-### Determinate Progress
+### 确定进度
 
 ```tsx
 import { useState, useEffect } from 'react';
@@ -204,11 +204,11 @@ export default function ProgressExample() {
 
 ### SpinProps
 
-| Parameter  | Description                      | Type      | Required | Default |
-| ---------- | -------------------------------- | --------- | -------- | ------- |
-| children   | Content to be wrapped (optional) | ReactNode | ❌       | -       |
-| loading    | Whether to show loading state    | boolean   | ❌       | true    |
-| size       | Size of the spinner in pixels    | number    | ❌       | -       |
-| indicator  | Custom loading indicator         | ReactNode | ❌       | -       |
-| tip        | Description text below spinner   | ReactNode | ❌       | -       |
-| fullscreen | Show fullscreen backdrop         | boolean   | ❌       | false   |
+| 参数       | 说明                   | 类型      | 是否必填 | 默认值 |
+| ---------- | ---------------------- | --------- | -------- | ------ |
+| children   | 需要包裹的内容（可选） | ReactNode | ❌       | -      |
+| loading    | 是否显示加载状态       | boolean   | ❌       | true   |
+| size       | 指示器尺寸（像素）     | number    | ❌       | -      |
+| indicator  | 自定义加载指示器       | ReactNode | ❌       | -      |
+| tip        | 指示器下方的说明文字   | ReactNode | ❌       | -      |
+| fullscreen | 显示全屏遮罩           | boolean   | ❌       | false  |

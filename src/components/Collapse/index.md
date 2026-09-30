@@ -4,13 +4,13 @@ title: Collapse
 
 # Collapse
 
-A compact expand/collapse block built on MUI `Stack`, `ButtonBase`, and `Collapse`. Pass a custom `trigger` node for the clickable header area, optional `actions` for the right side of the header row, and `children` for the animated content panel.
+基于 MUI `Stack`、`ButtonBase` 和 `Collapse` 构建的紧凑型展开/收起区块。通过 `trigger` 传入可点击的头部节点，通过可选的 `actions` 在头部右侧添加内容，`children` 则是带动画效果的内容面板。
 
-When `expanded` is omitted, `Collapse` manages its own state and starts closed. When `expanded` is provided, use `onChange` to update the controlled state.
+省略 `expanded` 时，`Collapse` 会自行管理状态，且默认关闭。传入 `expanded` 时，需配合 `onChange` 更新受控状态。
 
-## Examples
+## 示例
 
-### Basic Usage
+### 基础用法
 
 ```tsx
 import { Collapse } from '@bosinc/shared';
@@ -57,7 +57,7 @@ export default () => (
 );
 ```
 
-### With Actions
+### 带操作按钮
 
 ```tsx
 import { Collapse } from '@bosinc/shared';
@@ -75,7 +75,7 @@ export default () => {
 };
 ```
 
-### Disabled
+### 禁用状态
 
 ```tsx
 import { Collapse } from '@bosinc/shared';
@@ -97,9 +97,9 @@ export default () => {
 };
 ```
 
-### Custom Slots
+### 自定义插槽
 
-Use `slotProps` to pass props to the root `Stack`, the trigger `ButtonBase`, and the inner MUI `Collapse`.
+通过 `slotProps` 向根节点 `Stack`、触发器 `ButtonBase` 以及内部的 MUI `Collapse` 传递属性。
 
 ```tsx
 import { Collapse } from '@bosinc/shared';
@@ -138,23 +138,23 @@ export default () => {
 
 ### CollapseProps
 
-| Property        | Description                                                     | Type                                                                           | Required | Default |
-| --------------- | --------------------------------------------------------------- | ------------------------------------------------------------------------------ | -------- | ------- |
-| trigger         | Clickable trigger UI or render function `(state) => ReactNode`  | `ReactNode \| (({ expanded, disabled }) => ReactNode)`                         | `✅`     | `-`     |
-| actions         | Optional content rendered on the right side of the header row   | `ReactNode`                                                                    | `-`      | `-`     |
-| children        | Content rendered inside the animated collapse panel             | `ReactNode`                                                                    | `✅`     | `-`     |
-| defaultExpanded | Initial expanded state in uncontrolled mode                     | `boolean`                                                                      | `-`      | `false` |
-| expanded        | Controlled expanded state; omit it to use internal state        | `boolean`                                                                      | `-`      | `-`     |
-| onChange        | Called with the next expanded state when the trigger is clicked | `(expanded: boolean) => void`                                                  | `-`      | `-`     |
-| disabled        | Prevents toggling and disables the trigger                      | `boolean`                                                                      | `-`      | `false` |
-| slotProps       | Slot props for `root`, `trigger`, and `content`                 | `{ root?: StackProps; trigger?: ButtonBaseProps; content?: MuiCollapseProps }` | `-`      | `-`     |
+| 属性            | 说明                                                | 类型                                                                           | 必填 | 默认值  |
+| --------------- | --------------------------------------------------- | ------------------------------------------------------------------------------ | ---- | ------- |
+| trigger         | 可点击的触发器 UI 或渲染函数 `(state) => ReactNode` | `ReactNode \| (({ expanded, disabled }) => ReactNode)`                         | `✅` | `-`     |
+| actions         | 渲染在头部行右侧的可选内容                          | `ReactNode`                                                                    | `-`  | `-`     |
+| children        | 渲染在带动画效果的收起面板内的内容                  | `ReactNode`                                                                    | `✅` | `-`     |
+| defaultExpanded | 非受控模式下的初始展开状态                          | `boolean`                                                                      | `-`  | `false` |
+| expanded        | 受控展开状态；省略则使用内部状态                    | `boolean`                                                                      | `-`  | `-`     |
+| onChange        | 点击触发器时以下一个展开状态调用                    | `(expanded: boolean) => void`                                                  | `-`  | `-`     |
+| disabled        | 阻止切换并禁用触发器                                | `boolean`                                                                      | `-`  | `false` |
+| slotProps       | `root`、`trigger`、`content` 的插槽属性             | `{ root?: StackProps; trigger?: ButtonBaseProps; content?: MuiCollapseProps }` | `-`  | `-`     |
 
-Other props extend `Omit<StackProps, 'children' | 'onChange'>` and are forwarded to the root `Stack`. Values passed through `slotProps.root` are spread after the root props.
+其他属性继承自 `Omit<StackProps, 'children' | 'onChange'>`，会透传给根节点 `Stack`。通过 `slotProps.root` 传入的值会在根节点属性之后展开合并。
 
 ### slotProps
 
-| Key       | Description                                                                             |
-| --------- | --------------------------------------------------------------------------------------- |
-| `root`    | Passed to the root `Stack`; typed as `Omit<StackProps, 'children'>`                     |
-| `trigger` | Passed to the `ButtonBase` that wraps `trigger`; typed without `children` and `onClick` |
-| `content` | Passed to the inner MUI `Collapse`; typed without `children` and `in`                   |
+| 键        | 说明                                                                       |
+| --------- | -------------------------------------------------------------------------- |
+| `root`    | 传递给根节点 `Stack`；类型为 `Omit<StackProps, 'children'>`                |
+| `trigger` | 传递给包裹 `trigger` 的 `ButtonBase`；类型中去除了 `children` 和 `onClick` |
+| `content` | 传递给内部的 MUI `Collapse`；类型中去除了 `children` 和 `in`               |

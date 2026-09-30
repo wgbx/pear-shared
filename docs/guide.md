@@ -1,25 +1,25 @@
 ---
-title: Guide
+title: 指南
 order: 1
 ---
 
-# Getting Started
+# 快速开始
 
-`@bosinc/shared` is a lightweight React component library built for reuse.
+`@bosinc/shared` 是一个为复用而生的轻量级 React 组件库。
 
-## Installation
+## 安装
 
-Install the package with your preferred package manager:
+使用你喜欢的包管理器安装：
 
 ```bash
 pnpm add @bosinc/shared
 ```
 
-This library relies on peer dependencies like React, MUI, Emotion, `jotai`, and `ahooks`.
+本库依赖 React、MUI、Emotion、`jotai`、`ahooks` 等 peer dependencies。
 
-## Global Alert Setup
+## 全局 Alert 配置
 
-If you want to use `useAlert()` (and also `useCopyToClipboard()`), mount `AlertContainer` once at the app root.
+如果你想使用 `useAlert()`（以及 `useCopyToClipboard()`），需要在应用根节点挂载一次 `AlertContainer`。
 
 ```tsx
 import { AlertContainer } from '@bosinc/shared';
@@ -34,14 +34,14 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
 }
 ```
 
-## Doc status
+## 文档状态说明
 
-Sidebar entries with a ⚠ icon are not ready yet — review before adopting.
+侧边栏中带 ⚠ 图标的条目尚未完善，采用前请先自行确认。
 
 ## Shared
 
-For the full APIs and examples, please refer to the docs:
+完整的 API 和用法示例请参考文档：
 
-- [Components](/components/external-link)
+- [组件](/components/external-link)
 
 - [Hooks](/hooks/use-copy-to-clipboard)

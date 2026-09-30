@@ -4,13 +4,13 @@ title: Row
 
 # Row / Col
 
-> **Not exported yet.** This component is under development and is not available from `@bosinc/shared`. Do not import it in product code until it is publicly exported.
+> **尚未导出。** 该组件仍在开发中，暂时无法从 `@bosinc/shared` 中获取。在正式导出之前，请勿在产品代码中引入。
 
-Minimal 24-column layout helpers inspired by Ant Design Grid. `Row` controls alignment and gutters; `Col` controls span and offset. Responsive breakpoint props are not included yet.
+受 Ant Design Grid 启发的极简 24 栅格布局工具。`Row` 控制对齐方式和间距（gutter）；`Col` 控制跨度（span）和偏移（offset）。响应式断点属性尚未支持。
 
-## Example
+## 示例
 
-### Default
+### 默认
 
 ```tsx
 import { Row, Col } from '@bosinc/shared';
@@ -40,7 +40,7 @@ export default () => {
 };
 ```
 
-### Basic Usage
+### 基础用法
 
 ```tsx
 import { Row, Col } from '@bosinc/shared';
@@ -76,7 +76,7 @@ export default () => {
 };
 ```
 
-### Gutter and Offset
+### 间距与偏移
 
 ```tsx
 import { Row, Col } from '@bosinc/shared';
@@ -106,7 +106,7 @@ export default () => {
 };
 ```
 
-### Justify and Align
+### 水平与垂直对齐
 
 ```tsx
 import { Row, Col } from '@bosinc/shared';
@@ -133,20 +133,20 @@ export default () => {
 
 ### Row
 
-| Property | Description                                    | Type                                                                                  | Default   |
-| -------- | ---------------------------------------------- | ------------------------------------------------------------------------------------- | --------- |
-| gutter   | Horizontal gutter, or `[horizontal, vertical]` | `number \| [number, number]`                                                          | `0`       |
-| justify  | Horizontal alignment                           | `'start' \| 'end' \| 'center' \| 'space-around' \| 'space-between' \| 'space-evenly'` | `'start'` |
-| align    | Vertical alignment                             | `'top' \| 'middle' \| 'bottom' \| 'stretch'`                                          | `'top'`   |
-| wrap     | Whether columns wrap                           | `boolean`                                                                             | `true`    |
-| children | Usually `Col` nodes                            | `ReactNode`                                                                           | —         |
-| ...      | Other MUI `Box` props                          | `BoxProps`                                                                            | —         |
+| 属性     | 说明                        | 类型                                                                                  | 默认值    |
+| -------- | --------------------------- | ------------------------------------------------------------------------------------- | --------- |
+| gutter   | 水平间距，或 `[水平, 垂直]` | `number \| [number, number]`                                                          | `0`       |
+| justify  | 水平对齐方式                | `'start' \| 'end' \| 'center' \| 'space-around' \| 'space-between' \| 'space-evenly'` | `'start'` |
+| align    | 垂直对齐方式                | `'top' \| 'middle' \| 'bottom' \| 'stretch'`                                          | `'top'`   |
+| wrap     | 是否允许换行                | `boolean`                                                                             | `true`    |
+| children | 通常为 `Col` 节点           | `ReactNode`                                                                           | —         |
+| ...      | 其他 MUI `Box` props        | `BoxProps`                                                                            | —         |
 
 ### Col
 
-| Property | Description                                    | Type        | Default |
-| -------- | ---------------------------------------------- | ----------- | ------- |
-| span     | Columns to occupy (1–24). `0` hides the column | `number`    | —       |
-| offset   | Columns to offset from the left                | `number`    | `0`     |
-| children | Column content                                 | `ReactNode` | —       |
-| ...      | Other MUI `Box` props                          | `BoxProps`  | —       |
+| 属性     | 说明                             | 类型        | 默认值 |
+| -------- | -------------------------------- | ----------- | ------ |
+| span     | 占据的栏数（1–24）。`0` 隐藏该列 | `number`    | —      |
+| offset   | 相对左侧的偏移栏数               | `number`    | `0`    |
+| children | 列内容                           | `ReactNode` | —      |
+| ...      | 其他 MUI `Box` props             | `BoxProps`  | —      |

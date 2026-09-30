@@ -4,21 +4,21 @@ title: date
 
 # date
 
-Date formatting utilities powered by [date-fns](https://date-fns.org/) and [date-fns-tz](https://github.com/marnusw/date-fns-tz) for timezone support. Invalid input returns `''` for formatters and `null` for parsers.
+基于 [date-fns](https://date-fns.org/) 和 [date-fns-tz](https://github.com/marnusw/date-fns-tz)（用于时区支持）的日期格式化工具。无效输入时，格式化函数返回 `''`，解析函数返回 `null`。
 
-See [Constants](/constants) for `DATE_FORMAT`, `TIMEZONE_MAP`, and `DEFAULT_TIMEZONE`.
+`DATE_FORMAT`、`TIMEZONE_MAP`、`DEFAULT_TIMEZONE` 请参见 [Constants](/constants)。
 
 ## formatDate
 
-Format a date with a date-fns pattern. Returns `''` for invalid input.
+用 date-fns 格式模式格式化日期。无效输入返回 `''`。
 
-| Param          | Description      | Type                       | Required | Default                |
-| -------------- | ---------------- | -------------------------- | -------- | ---------------------- |
-| value          | Date to format   | `Date \| number \| string` | `✅`     | `-`                    |
-| options        | Format options   | `{ format?: string }`      | `-`      | `DATE_FORMAT.DATETIME` |
-| options.format | date-fns pattern | `string`                   | `-`      | `DATE_FORMAT.DATETIME` |
+| 参数           | 说明              | 类型                       | 必填 | 默认值                 |
+| -------------- | ----------------- | -------------------------- | ---- | ---------------------- |
+| value          | 待格式化的日期    | `Date \| number \| string` | `✅` | `-`                    |
+| options        | 格式化选项        | `{ format?: string }`      | `-`  | `DATE_FORMAT.DATETIME` |
+| options.format | date-fns 格式模式 | `string`                   | `-`  | `DATE_FORMAT.DATETIME` |
 
-**Returns:** `string`
+**返回值：** `string`
 
 ```ts
 import { DATE_FORMAT, formatDate } from '@bosinc/shared';
@@ -29,13 +29,13 @@ formatDate('2025-03-09', { format: DATE_FORMAT.MONTH_DAY_YEAR });
 
 ## toDate
 
-Normalize input into a valid `Date`, or `null` when invalid.
+将输入规范化为有效的 `Date`，无效时返回 `null`。
 
-| Param | Description | Type                       | Required |
-| ----- | ----------- | -------------------------- | -------- |
-| value | Date input  | `Date \| number \| string` | `✅`     |
+| 参数  | 说明     | 类型                       | 必填 |
+| ----- | -------- | -------------------------- | ---- |
+| value | 日期输入 | `Date \| number \| string` | `✅` |
 
-**Returns:** `Date | null`
+**返回值：** `Date | null`
 
 ```ts
 import { toDate } from '@bosinc/shared';
@@ -46,16 +46,16 @@ toDate('invalid'); // null
 
 ## formatDateInTimeZone
 
-Format a date in a specific IANA timezone. Returns `''` for invalid input. Requires `date-fns-tz`.
+在指定的 IANA 时区中格式化日期。无效输入返回 `''`。需要 `date-fns-tz`。
 
-| Param            | Description      | Type                       | Required | Default                        |
-| ---------------- | ---------------- | -------------------------- | -------- | ------------------------------ |
-| value            | Date to format   | `Date \| number \| string` | `✅`     | `-`                            |
-| options          | Format options   | `object`                   | `-`      | `-`                            |
-| options.format   | date-fns pattern | `string`                   | `-`      | `DATE_FORMAT.DATETIME`         |
-| options.timeZone | IANA timezone    | `string`                   | `-`      | `TIMEZONE_MAP.AMERICA_LOS_ANGELES` |
+| 参数             | 说明              | 类型                       | 必填 | 默认值                             |
+| ---------------- | ----------------- | -------------------------- | ---- | ---------------------------------- |
+| value            | 待格式化的日期    | `Date \| number \| string` | `✅` | `-`                                |
+| options          | 格式化选项        | `object`                   | `-`  | `-`                                |
+| options.format   | date-fns 格式模式 | `string`                   | `-`  | `DATE_FORMAT.DATETIME`             |
+| options.timeZone | IANA 时区         | `string`                   | `-`  | `TIMEZONE_MAP.AMERICA_LOS_ANGELES` |
 
-**Returns:** `string`
+**返回值：** `string`
 
 ```ts
 import { DATE_FORMAT, formatDateInTimeZone } from '@bosinc/shared';
@@ -68,16 +68,16 @@ formatDateInTimeZone('2026-06-10T12:00:00Z', {
 
 ## formatDateTimeDisplay
 
-Format a `Date` for display in a given timezone. Invalid or missing input returns `''`.
+将 `Date` 按指定时区格式化用于展示。输入无效或缺失时返回 `''`。
 
-| Param            | Description                                          | Type     | Required | Default        |
-| ---------------- | ---------------------------------------------------- | -------- | -------- | -------------- |
-| value            | Start date                                           | `Date`   | `-`      | `-`            |
-| options          | Display options                                      | `object` | `-`      | `-`            |
-| options.end      | End date; identical start/end collapses to one value | `Date`   | `-`      | `-`            |
-| options.timeZone | IANA timezone used for display                       | `string` | `-`      | `TIMEZONE_MAP.UTC` |
+| 参数             | 说明                               | 类型     | 必填 | 默认值             |
+| ---------------- | ---------------------------------- | -------- | ---- | ------------------ |
+| value            | 起始日期                           | `Date`   | `-`  | `-`                |
+| options          | 展示选项                           | `object` | `-`  | `-`                |
+| options.end      | 结束日期；起止相同时会合并为一个值 | `Date`   | `-`  | `-`                |
+| options.timeZone | 用于展示的 IANA 时区               | `string` | `-`  | `TIMEZONE_MAP.UTC` |
 
-**Returns:** `string`
+**返回值：** `string`
 
 ```ts
 import { formatDateTimeDisplay, TIMEZONE_MAP } from '@bosinc/shared';
@@ -96,15 +96,15 @@ formatDateTimeDisplay(new Date('2026-09-22T18:00:00Z'), {
 
 ## utcToZonedDate
 
-Convert a UTC date to a `Date` in the target timezone. Requires `date-fns-tz`.
+将 UTC 日期转换为目标时区下的 `Date`。需要 `date-fns-tz`。
 
-| Param            | Description    | Type                       | Required | Default                        |
-| ---------------- | -------------- | -------------------------- | -------- | ------------------------------ |
-| value            | UTC date input | `Date \| number \| string` | `✅`     | `-`                            |
-| options          | Options        | `object`                   | `-`      | `-`                            |
-| options.timeZone | IANA timezone  | `string`                   | `-`      | `TIMEZONE_MAP.AMERICA_LOS_ANGELES` |
+| 参数             | 说明         | 类型                       | 必填 | 默认值                             |
+| ---------------- | ------------ | -------------------------- | ---- | ---------------------------------- |
+| value            | UTC 日期输入 | `Date \| number \| string` | `✅` | `-`                                |
+| options          | 选项         | `object`                   | `-`  | `-`                                |
+| options.timeZone | IANA 时区    | `string`                   | `-`  | `TIMEZONE_MAP.AMERICA_LOS_ANGELES` |
 
-**Returns:** `Date | null`
+**返回值：** `Date | null`
 
 ```ts
 import { utcToZonedDate } from '@bosinc/shared';
@@ -114,15 +114,15 @@ utcToZonedDate('2025-03-09T14:30:00Z'); // default America/Los_Angeles
 
 ## zonedToUtc
 
-Convert a date interpreted in a timezone to UTC. Requires `date-fns-tz`.
+将按某时区解读的日期转换为 UTC。需要 `date-fns-tz`。
 
-| Param            | Description   | Type                       | Required | Default                        |
-| ---------------- | ------------- | -------------------------- | -------- | ------------------------------ |
-| value            | Local date    | `Date \| number \| string` | `✅`     | `-`                            |
-| options          | Options       | `object`                   | `-`      | `-`                            |
-| options.timeZone | IANA timezone | `string`                   | `-`      | `TIMEZONE_MAP.AMERICA_LOS_ANGELES` |
+| 参数             | 说明      | 类型                       | 必填 | 默认值                             |
+| ---------------- | --------- | -------------------------- | ---- | ---------------------------------- |
+| value            | 本地日期  | `Date \| number \| string` | `✅` | `-`                                |
+| options          | 选项      | `object`                   | `-`  | `-`                                |
+| options.timeZone | IANA 时区 | `string`                   | `-`  | `TIMEZONE_MAP.AMERICA_LOS_ANGELES` |
 
-**Returns:** `Date | null`
+**返回值：** `Date | null`
 
 ```ts
 import { TIMEZONE_MAP, zonedToUtc } from '@bosinc/shared';
@@ -133,9 +133,9 @@ zonedToUtc('2025-03-09 14:30', { timeZone: TIMEZONE_MAP.ASIA_SHANGHAI });
 
 ## getLocalTimezone
 
-Get the local IANA timezone ID via `Intl` (e.g. `Asia/Shanghai`).
+通过 `Intl` 获取本地 IANA 时区 ID（例如 `Asia/Shanghai`）。
 
-**Returns:** `string`
+**返回值：** `string`
 
 ```ts
 import { getLocalTimezone } from '@bosinc/shared';

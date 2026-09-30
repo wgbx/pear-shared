@@ -4,11 +4,11 @@ title: Popover
 
 # Popover
 
-A popover component built on MUI `Popover` with custom styling. API is fully compatible with MUI Popover.
+基于 MUI `Popover` 构建、带有自定义样式的浮层组件。API 与 MUI Popover 完全兼容。
 
-## Examples
+## 示例
 
-### Basic Usage
+### 基础用法
 
 ```tsx
 import { Button, Popover, useAnchorEl } from '@bosinc/shared';
@@ -39,23 +39,23 @@ export default function Demo() {
 
 ## API
 
-All props from MUI `Popover` are supported. See [MUI Popover API](https://mui.com/material-ui/api/popover/) for complete documentation.
+支持 MUI `Popover` 的所有 props。完整文档参见 [MUI Popover API](https://mui.com/material-ui/api/popover/)。
 
-| Property        | Type                                                                                     | Default                                   | Description                                             |
-| --------------- | ---------------------------------------------------------------------------------------- | ----------------------------------------- | ------------------------------------------------------- |
-| anchorEl        | `HTMLElement \| null`                                                                    | -                                         | The element used to set the position of the popover     |
-| open            | `boolean`                                                                                | `false`                                   | If `true`, the component is shown                       |
-| onClose         | `(event: {}, reason: 'escapeKeyDown' \| 'backdropClick') => void`                        | -                                         | Callback fired when the component requests to be closed |
-| anchorOrigin    | `{ vertical: 'top' \| 'center' \| 'bottom', horizontal: 'left' \| 'center' \| 'right' }` | `{ vertical: 'top', horizontal: 'left' }` | Anchor position                                         |
-| transformOrigin | `{ vertical: 'top' \| 'center' \| 'bottom', horizontal: 'left' \| 'center' \| 'right' }` | `{ vertical: 'top', horizontal: 'left' }` | Transform origin                                        |
-| children        | `ReactNode`                                                                              | -                                         | The content of the component                            |
+| 属性            | 类型                                                                                     | 默认值                                    | 说明                       |
+| --------------- | ---------------------------------------------------------------------------------------- | ----------------------------------------- | -------------------------- |
+| anchorEl        | `HTMLElement \| null`                                                                    | -                                         | 用于确定浮层位置的锚点元素 |
+| open            | `boolean`                                                                                | `false`                                   | 若为 `true`，则显示组件    |
+| onClose         | `(event: {}, reason: 'escapeKeyDown' \| 'backdropClick') => void`                        | -                                         | 组件请求关闭时触发的回调   |
+| anchorOrigin    | `{ vertical: 'top' \| 'center' \| 'bottom', horizontal: 'left' \| 'center' \| 'right' }` | `{ vertical: 'top', horizontal: 'left' }` | 锚点位置                   |
+| transformOrigin | `{ vertical: 'top' \| 'center' \| 'bottom', horizontal: 'left' \| 'center' \| 'right' }` | `{ vertical: 'top', horizontal: 'left' }` | 变换原点                   |
+| children        | `ReactNode`                                                                              | -                                         | 组件的内容                 |
 
-## Custom Styles
+## 自定义样式
 
-This component applies custom styles:
+该组件应用了如下自定义样式：
 
-- Rounded corners (`borderRadius: 16px`)
-- Enhanced shadow (`boxShadow: theme.shadows[4]`)
-- Top margin (`marginTop: 8px`)
+- 圆角（`borderRadius: 16px`）
+- 增强阴影（`boxShadow: theme.shadows[4]`）
+- 顶部外边距（`marginTop: 8px`）
 
-You can override these styles using the `slotProps.paper.sx` prop.
+可以通过 `slotProps.paper.sx` 属性覆盖这些样式。

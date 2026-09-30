@@ -4,15 +4,15 @@ title: ManageButton
 
 # ManageButton
 
-A reusable icon button with tooltip, designed for compact "Manage" actions alongside form controls (e.g., checkboxes, switches). Replaces text-based "Manage" links with a small icon button that shows a tooltip on **desktop hover only**. Defaults to a `Settings5Line` icon.
+一个带提示的可复用图标按钮，专为表单控件（如复选框、开关）旁边紧凑的“管理”操作而设计。用小巧的图标按钮取代文字型“管理”链接，**仅在桌面端 hover 时**显示提示。默认使用 `Settings5Line` 图标。
 
-> **Note:** The tooltip is displayed only on devices that support hover (PC/desktop). On touch devices (mobile), only the icon button is rendered without a tooltip.
+> **说明：** 提示仅在支持 hover 的设备（PC/桌面端）上显示。在触屏设备（移动端）上只渲染图标按钮，不显示提示。
 
-## Examples
+## 示例
 
-### Basic usage
+### 基础用法
 
-No need to pass `tooltip` — defaults to `"Manage"`. On desktop, hovering shows the "Manage" tooltip.
+无需传入 `tooltip`——默认值为 `"Manage"`。在桌面端 hover 时会显示 “Manage” 提示。
 
 ```tsx
 import { ManageButton } from '@bosinc/shared';
@@ -28,7 +28,7 @@ export default () => {
 };
 ```
 
-### Custom tooltip text
+### 自定义提示文案
 
 ```tsx
 import { ManageButton } from '@bosinc/shared';
@@ -47,9 +47,9 @@ export default () => {
 };
 ```
 
-### Custom Tooltip props
+### 自定义 Tooltip 属性
 
-Pass `tooltipProps` to customize the Tooltip behaviour (placement, arrow, custom content, etc.).
+传入 `tooltipProps` 可自定义 Tooltip 的行为（位置、箭头、自定义内容等）。
 
 ```tsx
 import { ManageButton } from '@bosinc/shared';
@@ -74,9 +74,9 @@ export default () => {
 };
 ```
 
-### Disable tooltip
+### 禁用提示
 
-Pass `tooltip={false}` to completely disable the tooltip on all devices.
+传入 `tooltip={false}` 可在所有设备上完全禁用提示。
 
 ```tsx
 import { ManageButton } from '@bosinc/shared';
@@ -92,9 +92,9 @@ export default () => {
 };
 ```
 
-### Custom icon
+### 自定义图标
 
-Pass any icon component via the `Icon` prop. `iconProps` lets you tweak the icon sizing or color.
+通过 `Icon` prop 传入任意图标组件。`iconProps` 可用于调整图标大小或颜色。
 
 ```tsx
 import { ManageButton } from '@bosinc/shared';
@@ -116,7 +116,7 @@ export default () => {
 };
 ```
 
-### Disabled state
+### 禁用状态
 
 ```tsx
 import { ManageButton } from '@bosinc/shared';
@@ -132,9 +132,9 @@ export default () => {
 };
 ```
 
-### Inside a form checkbox item
+### 在表单复选框中使用
 
-A typical real-world usage: the Manage button sits next to a checkbox to open a management drawer.
+一个典型的实际用法：管理按钮位于复选框旁边，用于打开管理抽屉。
 
 ```tsx
 import { ManageButton } from '@bosinc/shared';
@@ -177,7 +177,7 @@ export default () => {
 };
 ```
 
-### Multiple manage buttons in a form
+### 表单中的多个管理按钮
 
 ```tsx
 import { ManageButton } from '@bosinc/shared';
@@ -218,9 +218,9 @@ export default () => {
 
 ### ManageButtonProps (extends MUI IconButtonProps)
 
-| Property     | Description                                                                                      | Type                             | Required | Default         |
-| ------------ | ------------------------------------------------------------------------------------------------ | -------------------------------- | -------- | --------------- |
-| Icon         | The icon to render                                                                               | `ElementType<SvgIconProps>`      | `-`      | `Settings5Line` |
-| tooltip      | Tooltip text on desktop hover only. Defaults to `"Manage"`. Pass `false` to disable              | `ReactNode \| false`             | `-`      | `"Manage"`      |
-| iconProps    | Additional props forwarded to the icon element                                                   | `SvgIconProps`                   | `-`      | `-`             |
-| tooltipProps | Props forwarded to the wrapping `Tooltip`. Ignored when `tooltip` is `false` or on touch devices | `Omit<TooltipProps, 'children'>` | `-`      | `-`             |
+| 属性         | 说明                                                                            | 类型                             | 是否必填 | 默认值          |
+| ------------ | ------------------------------------------------------------------------------- | -------------------------------- | -------- | --------------- |
+| Icon         | 要渲染的图标                                                                    | `ElementType<SvgIconProps>`      | `-`      | `Settings5Line` |
+| tooltip      | 仅在桌面端 hover 时显示的提示文本。默认为 `"Manage"`。传入 `false` 可禁用       | `ReactNode \| false`             | `-`      | `"Manage"`      |
+| iconProps    | 转发给图标元素的额外 props                                                      | `SvgIconProps`                   | `-`      | `-`             |
+| tooltipProps | 转发给内部 `Tooltip` 的 props。当 `tooltip` 为 `false` 或在触屏设备上时会被忽略 | `Omit<TooltipProps, 'children'>` | `-`      | `-`             |

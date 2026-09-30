@@ -4,11 +4,11 @@ title: Tabs
 
 # Tabs
 
-A controlled tabs strip built on MUI `Tabs` / `Tab`. Use `value` and `onChange` to switch the active tab. This component only renders the tab labels; render panel content yourself based on `value` (see Basic Usage).
+一个基于 MUI `Tabs` / `Tab` 构建的受控标签页组件。使用 `value` 和 `onChange` 切换当前激活的标签。该组件只渲染标签页的标题，面板内容需要你自己根据 `value` 渲染（见基础用法）。
 
-## Examples
+## 示例
 
-### Basic Usage
+### 基础用法
 
 ```tsx
 import { Tabs } from '@bosinc/shared';
@@ -59,9 +59,9 @@ export default () => {
 };
 ```
 
-### Custom Styles
+### 自定义样式
 
-Use `slotProps` to style the root `Tabs`, each `Tab`, and the underline indicator. `slotProps.tab` applies to **every** tab.
+使用 `slotProps` 为根节点 `Tabs`、每个 `Tab` 以及下划线指示器设置样式。`slotProps.tab` 会应用到**每一个**标签。
 
 ```tsx
 import { Tabs } from '@bosinc/shared';
@@ -122,30 +122,30 @@ export default () => {
 
 ### TabsProps
 
-| Property  | Description                                          | Type                          | Required | Default       |
-| --------- | ---------------------------------------------------- | ----------------------------- | -------- | ------------- |
-| value     | Active tab value                                     | `T`                           | `✅`     | `-`           |
-| onChange  | Called when the active tab changes                   | `(value: T) => void`          | `✅`     | `-`           |
-| items     | Tab definitions                                      | `TabOption<T>[]`              | `✅`     | `-`           |
-| variant   | `underline` shows the indicator; `standard` hides it | `'underline' \| 'standard'`   | `-`      | `'underline'` |
-| centered  | Center the tab strip                                 | `boolean`                     | `-`      | `false`       |
-| disabled  | Disable all tabs (per-tab `disabled` still applies)  | `boolean`                     | `-`      | `false`       |
-| slotProps | Slot props forwarded to MUI                          | `{ root?, tab?, indicator? }` | `-`      | `-`           |
+| 属性      | 说明                                            | 类型                          | 是否必填 | 默认值        |
+| --------- | ----------------------------------------------- | ----------------------------- | -------- | ------------- |
+| value     | 当前激活的标签值                                | `T`                           | `✅`     | `-`           |
+| onChange  | 激活标签变化时触发                              | `(value: T) => void`          | `✅`     | `-`           |
+| items     | 标签定义列表                                    | `TabOption<T>[]`              | `✅`     | `-`           |
+| variant   | `underline` 显示下划线指示器；`standard` 则隐藏 | `'underline' \| 'standard'`   | `-`      | `'underline'` |
+| centered  | 使标签栏居中                                    | `boolean`                     | `-`      | `false`       |
+| disabled  | 禁用所有标签（单个标签的 `disabled` 仍然生效）  | `boolean`                     | `-`      | `false`       |
+| slotProps | 透传给 MUI 的插槽属性                           | `{ root?, tab?, indicator? }` | `-`      | `-`           |
 
 ### slotProps
 
-| Key         | Description                                                                     |
-| ----------- | ------------------------------------------------------------------------------- |
-| `root`      | Passed to the MUI `Tabs` root (e.g. `sx`, and other props not duplicated above) |
-| `tab`       | Passed to each `Tab` (e.g. `sx`, `disableRipple`); shared by all items          |
-| `indicator` | Passed to the MUI tabs indicator; hidden when `variant="standard"`              |
+| Key         | 说明                                                                   |
+| ----------- | ---------------------------------------------------------------------- |
+| `root`      | 传给 MUI `Tabs` 根节点（如 `sx`，以及上文未列出的其他属性）            |
+| `tab`       | 传给每个 `Tab`（如 `sx`、`disableRipple`）；所有标签共用               |
+| `indicator` | 传给 MUI 标签指示器；`variant="standard"` 时该属性不生效（指示器隐藏） |
 
 ### TabOption
 
-| Property | Description                                           | Type        | Required | Default |
-| -------- | ----------------------------------------------------- | ----------- | -------- | ------- |
-| value    | Unique tab id                                         | `T`         | `✅`     | `-`     |
-| label    | Tab label text                                        | `string`    | `✅`     | `-`     |
-| content  | Optional data only; not rendered as a panel by `Tabs` | `ReactNode` | `-`      | `-`     |
-| icon     | Optional icon before the label                        | `ReactNode` | `-`      | `-`     |
-| disabled | Disable this tab                                      | `boolean`   | `-`      | `false` |
+| 属性     | 说明                                     | 类型        | 是否必填 | 默认值  |
+| -------- | ---------------------------------------- | ----------- | -------- | ------- |
+| value    | 标签唯一标识                             | `T`         | `✅`     | `-`     |
+| label    | 标签文字                                 | `string`    | `✅`     | `-`     |
+| content  | 仅作为数据使用，不会被 `Tabs` 渲染为面板 | `ReactNode` | `-`      | `-`     |
+| icon     | 标签文字前的可选图标                     | `ReactNode` | `-`      | `-`     |
+| disabled | 禁用该标签                               | `boolean`   | `-`      | `false` |

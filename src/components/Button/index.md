@@ -4,18 +4,18 @@ title: Button
 
 # Button
 
-Two button styles:
+两种按钮样式：
 
-- **Button** — thin MUI wrapper (`variant` / `color` / `loading`)
-- **MainButton** — Pear Design Btn-CTA (`appearance` / `UI_SIZE` / `isAsync`)
+- **Button** — 轻量的 MUI 封装（`variant` / `color` / `loading`）
+- **MainButton** — Pear Design 的 Btn-CTA（`appearance` / `UI_SIZE` / `isAsync`）
 
 ## Button
 
-Thin MUI button wrapper with `label` / `icon` / `loading`.
+带 `label` / `icon` / `loading` 的轻量 MUI 按钮封装。
 
-## Examples
+## 示例
 
-### Basic
+### 基础
 
 ```tsx
 import { Button } from '@bosinc/shared';
@@ -40,23 +40,23 @@ export default () => (
 
 ### ButtonProps
 
-| Property | Description                           | Type        | Default |
-| -------- | ------------------------------------- | ----------- | ------- |
-| label    | Button text when `children` is absent | `ReactNode` | `-`     |
-| icon     | Icon shorthand for `startIcon`        | `ReactNode` | `-`     |
-| loading  | Shows spinner and disables button     | `boolean`   | `-`     |
+| 属性    | 说明                           | 类型        | 默认值 |
+| ------- | ------------------------------ | ----------- | ------ |
+| label   | 无 `children` 时显示的按钮文本 | `ReactNode` | `-`    |
+| icon    | `startIcon` 的简写             | `ReactNode` | `-`    |
+| loading | 显示加载图标并禁用按钮         | `boolean`   | `-`    |
 
-Also accepts standard MUI button props (including `variant`, `color`, `size`, `sx`).
+同时接受标准 MUI 按钮属性（包括 `variant`、`color`、`size`、`sx`）。
 
 ---
 
 # MainButton
 
-Pear Design **Btn-CTA** button for primary actions, with `primary`, `ghost`, and `outline` appearances.
+用于主要操作的 Pear Design **Btn-CTA** 按钮，支持 `primary`、`ghost`、`outline` 三种外观。
 
-## Examples
+## 示例
 
-### Basic
+### 基础
 
 ```tsx
 import { BUTTON_APPEARANCE, MainButton } from '@bosinc/shared';
@@ -80,7 +80,7 @@ export default () => (
 );
 ```
 
-### Size
+### 尺寸
 
 ```tsx
 import { MainButton, UI_SIZE } from '@bosinc/shared';
@@ -103,7 +103,7 @@ export default () => (
 );
 ```
 
-### With icon
+### 带图标
 
 ```tsx
 import { BUTTON_APPEARANCE, MainButton } from '@bosinc/shared';
@@ -134,9 +134,9 @@ export default () => (
 );
 ```
 
-### Async click (`isAsync`)
+### 异步点击（`isAsync`）
 
-When `isAsync` is set, the button shows loading automatically if `onClick` returns a Promise—no manual `loading` state needed for save/submit.
+设置 `isAsync` 后，如果 `onClick` 返回一个 Promise，按钮会自动显示加载状态——保存/提交场景无需手动维护 `loading` 状态。
 
 ```tsx
 import { MainButton } from '@bosinc/shared';
@@ -152,9 +152,9 @@ export default () => (
 );
 ```
 
-### Custom styling (`sx`)
+### 自定义样式（`sx`）
 
-> `sx` is supported, but limit it to layout (margin, width, etc.); use `appearance` and `size` for visuals—overriding color, height, or hover breaks design consistency.
+> 支持 `sx`，但请仅用于布局相关（margin、width 等）；视觉效果请使用 `appearance` 和 `size`——覆盖颜色、高度或 hover 效果会破坏设计一致性。
 
 ```tsx
 import { BUTTON_APPEARANCE, MainButton } from '@bosinc/shared';
@@ -183,22 +183,22 @@ export default () => (
 
 ### MainButtonProps
 
-| Property   | Description                           | Type                                     | Default                     |
-| ---------- | ------------------------------------- | ---------------------------------------- | --------------------------- |
-| label      | Button text when `children` is absent | `ReactNode`                              | `-`                         |
-| icon       | Icon shorthand for `startIcon`        | `ReactNode`                              | `-`                         |
-| loading    | Shows spinner and disables button     | `boolean`                                | `-`                         |
-| isAsync    | Auto-loading while `onClick` Promise  | `boolean`                                | `-`                         |
-| appearance | Btn-CTA style                         | `ButtonAppearance` (`BUTTON_APPEARANCE`) | `BUTTON_APPEARANCE.PRIMARY` |
-| size       | Component size                        | `UiSize` (`UI_SIZE`)                     | `UI_SIZE.MEDIUM`            |
+| 属性       | 说明                              | 类型                                     | 默认值                      |
+| ---------- | --------------------------------- | ---------------------------------------- | --------------------------- |
+| label      | 无 `children` 时显示的按钮文本    | `ReactNode`                              | `-`                         |
+| icon       | `startIcon` 的简写                | `ReactNode`                              | `-`                         |
+| loading    | 显示加载图标并禁用按钮            | `boolean`                                | `-`                         |
+| isAsync    | `onClick` 返回 Promise 时自动加载 | `boolean`                                | `-`                         |
+| appearance | Btn-CTA 样式                      | `ButtonAppearance` (`BUTTON_APPEARANCE`) | `BUTTON_APPEARANCE.PRIMARY` |
+| size       | 组件尺寸                          | `UiSize` (`UI_SIZE`)                     | `UI_SIZE.MEDIUM`            |
 
-Shared size scale lives in `UI_SIZE` — other Pear components reuse the same values. MainButton-specific Figma mapping is internal.
+共享的尺寸规格定义在 `UI_SIZE` 中——其他 Pear 组件复用同一套数值。MainButton 专属的 Figma 映射为内部使用。
 
-| `UI_SIZE` key | Figma | Height |
-| ------------- | ----- | ------ |
-| `LARGE`       | L-48  | 48px   |
-| `MEDIUM`      | L-42  | 42px   |
-| `SMALL`       | M-32  | 32px   |
-| `XSMALL`      | S-24  | 24px   |
+| `UI_SIZE` 取值 | Figma | 高度 |
+| -------------- | ----- | ---- |
+| `LARGE`        | L-48  | 48px |
+| `MEDIUM`       | L-42  | 42px |
+| `SMALL`        | M-32  | 32px |
+| `XSMALL`       | S-24  | 24px |
 
-Also accepts standard MUI button props except `variant` and MUI `size`, including `sx` (see [Custom styling](#custom-styling-sx)).
+同时接受标准 MUI 按钮属性（`variant` 和 MUI 的 `size` 除外），包括 `sx`（参见[自定义样式](#自定义样式sx)）。

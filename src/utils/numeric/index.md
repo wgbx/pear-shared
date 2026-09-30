@@ -4,20 +4,20 @@ title: numeric
 
 # numeric
 
-Numeric utilities using `currency.js` for precise monetary calculations, avoiding floating-point precision issues.
+基于 `currency.js` 的数值工具函数，用于精确的货币计算，避免浮点数精度问题。
 
-## ⚠️ Precision Notice
+## ⚠️ 精度提示
 
-**Default precision is 2 decimal places**, optimized for monetary calculations (cents).
+**默认精度为 2 位小数**，针对货币计算（分）做了优化。
 
-This precision is **NOT suitable** for:
+以下场景**不适合**使用该精度：
 
-- **Percentage calculations** (e.g., commission rates, tax rates) - use `{ precision: 4 }` or higher
-- **Exchange rate conversions** - may require 4+ decimal places
-- **Interest calculations** - accumulation errors over time
-- **Scientific computations** - consider using a dedicated math library
+- **百分比计算**（如佣金比例、税率）——请使用 `{ precision: 4 }` 或更高精度
+- **汇率换算**——可能需要 4 位以上小数
+- **利息计算**——长期累积会产生误差
+- **科学计算**——建议使用专门的数学库
 
-For scenarios requiring higher precision, pass the `precision` option:
+对于需要更高精度的场景，可传入 `precision` 选项：
 
 ```ts
 // Percentage calculation (recommended precision: 4-6)
@@ -27,9 +27,9 @@ numericMultiply(1000, 0.123456, { precision: 6 }); // 123.456
 numericMultiply(1000, 0.123456); // 123.46 (loses precision)
 ```
 
-## Examples
+## 示例
 
-### Basic Math Operations
+### 基础数学运算
 
 ```ts
 import {
@@ -46,7 +46,7 @@ numericMultiply(100, 0.3); // 30
 numericDivide(100, 4); // 25
 ```
 
-### Batch Operations
+### 批量运算
 
 ```ts
 import {
@@ -69,7 +69,7 @@ numericMultiplyMany([100, 0.5, 0.1]); // 5
 numericMultiplyMany([0.004, 1000]); // 4
 ```
 
-**Real-world example - Shopping cart total:**
+**实际示例 - 购物车总价：**
 
 ```ts
 import { numericAddMany, numericFormat } from '@bosinc/shared';
@@ -80,7 +80,7 @@ const total = numericAddMany(cartItems); // 169.99
 console.log(numericFormat(total, { symbol: '¥' })); // "¥169.99"
 ```
 
-**Real-world example - Calculating discount:**
+**实际示例 - 计算折扣：**
 
 ```ts
 import { numericSubtractMany, numericFormat } from '@bosinc/shared';
@@ -92,7 +92,7 @@ const finalPrice = numericSubtractMany([price, ...discounts]); // 920
 console.log(numericFormat(finalPrice)); // "$920.00"
 ```
 
-### Currency Formatting
+### 货币格式化
 
 ```ts
 import { numericFormat } from '@bosinc/shared';
@@ -120,7 +120,7 @@ numericFormat(1234.56, { decimal: ',', separator: '.' }); // "$1.234,56"
 numericFormat(1234.56, (value) => `USD ${value?.value}`); // "USD 1234.56"
 ```
 
-### Using numeric Object
+### 使用 numeric 对象
 
 ```ts
 import { numeric } from '@bosinc/shared';
@@ -132,7 +132,7 @@ numeric.divide(100, 4); // 25
 numeric.format(1234.56); // "$1,234.56"
 ```
 
-### Real-world Example
+### 实际示例
 
 ```ts
 import { numericAdd, numericMultiply, numericFormat } from '@bosinc/shared';
@@ -149,7 +149,7 @@ const total = numericAdd(subtotal, tax); // 330
 console.log(numericFormat(total)); // "$330.00"
 ```
 
-### Percentage Calculation (Higher Precision)
+### 百分比计算（更高精度）
 
 ```ts
 import { numericMultiply, numericDivide } from '@bosinc/shared';
@@ -170,116 +170,116 @@ const finalCommission = numericMultiply(commission, 1); // 333.33
 
 ### numericAdd
 
-Addition: a + b
+加法：a + b
 
-**Precision:** 2 decimal places by default
+**精度：** 默认为 2 位小数
 
-| Param | Description          | Type               | Required | Default |
-| ----- | -------------------- | ------------------ | -------- | ------- |
-| a     | First number         | `number \| string` | `✅`     | `-`     |
-| b     | Second number to add | `number \| string` | `✅`     | `-`     |
+| 参数 | 说明               | 类型               | 必填 | 默认值 |
+| ---- | ------------------ | ------------------ | ---- | ------ |
+| a    | 第一个数字         | `number \| string` | `✅` | `-`    |
+| b    | 待相加的第二个数字 | `number \| string` | `✅` | `-`    |
 
-**Returns:** `number` - Sum of a and b
+**返回值：** `number` - a 与 b 的和
 
 ### numericSubtract
 
-Subtraction: a - b
+减法：a - b
 
-**Precision:** 2 decimal places by default
+**精度：** 默认为 2 位小数
 
-| Param | Description | Type               | Required | Default |
-| ----- | ----------- | ------------------ | -------- | ------- |
-| a     | Minuend     | `number \| string` | `✅`     | `-`     |
-| b     | Subtrahend  | `number \| string` | `✅`     | `-`     |
+| 参数 | 说明   | 类型               | 必填 | 默认值 |
+| ---- | ------ | ------------------ | ---- | ------ |
+| a    | 被减数 | `number \| string` | `✅` | `-`    |
+| b    | 减数   | `number \| string` | `✅` | `-`    |
 
-**Returns:** `number` - Difference of a and b
+**返回值：** `number` - a 与 b 的差
 
 ### numericMultiply
 
-Multiplication: a × b
+乘法：a × b
 
-**Precision:** 2 decimal places by default. Use `{ precision: 4-6 }` for percentage calculations.
+**精度：** 默认为 2 位小数。百分比计算请使用 `{ precision: 4-6 }`。
 
-| Param | Description         | Type               | Required | Default            |
-| ----- | ------------------- | ------------------ | -------- | ------------------ |
-| a     | First factor        | `number \| string` | `✅`     | `-`                |
-| b     | Second factor       | `number \| string` | `✅`     | `-`                |
-| opts  | Currency.js options | `currency.Options` | `-`      | `{ precision: 2 }` |
+| 参数 | 说明             | 类型               | 必填 | 默认值             |
+| ---- | ---------------- | ------------------ | ---- | ------------------ |
+| a    | 第一个因数       | `number \| string` | `✅` | `-`                |
+| b    | 第二个因数       | `number \| string` | `✅` | `-`                |
+| opts | Currency.js 选项 | `currency.Options` | `-`  | `{ precision: 2 }` |
 
-**Returns:** `number` - Product of a and b
+**返回值：** `number` - a 与 b 的积
 
 ### numericDivide
 
-Division: a ÷ b
+除法：a ÷ b
 
-**Precision:** 2 decimal places by default. Use `{ precision: 4-6 }` for percentage calculations.
+**精度：** 默认为 2 位小数。百分比计算请使用 `{ precision: 4-6 }`。
 
-| Param | Description         | Type               | Required | Default            |
-| ----- | ------------------- | ------------------ | -------- | ------------------ |
-| a     | Dividend            | `number \| string` | `✅`     | `-`                |
-| b     | Divisor             | `number \| string` | `✅`     | `-`                |
-| opts  | Currency.js options | `currency.Options` | `-`      | `{ precision: 2 }` |
+| 参数 | 说明             | 类型               | 必填 | 默认值             |
+| ---- | ---------------- | ------------------ | ---- | ------------------ |
+| a    | 被除数           | `number \| string` | `✅` | `-`                |
+| b    | 除数             | `number \| string` | `✅` | `-`                |
+| opts | Currency.js 选项 | `currency.Options` | `-`  | `{ precision: 2 }` |
 
-**Returns:** `number` - Quotient of a and b
+**返回值：** `number` - a 与 b 的商
 
 ### numericFormat
 
-Format as currency with thousand separator. Uses the `$` symbol by default; pass `{ symbol: '' }` to omit it.
+格式化为带千分位分隔符的货币字符串。默认使用 `$` 符号；传入 `{ symbol: '' }` 可省略符号。
 
-| Param | Description                                             | Type                                  | Required | Default                           |
-| ----- | ------------------------------------------------------- | ------------------------------------- | -------- | --------------------------------- |
-| value | Value to format                                         | `number \| string`                    | `✅`     | `-`                               |
-| opts  | Currency.js format options, or a custom format function | `currency.Options \| currency.Format` | `-`      | `{ symbol: '$', separator: ',' }` |
+| 参数  | 说明                                       | 类型                                  | 必填 | 默认值                            |
+| ----- | ------------------------------------------ | ------------------------------------- | ---- | --------------------------------- |
+| value | 待格式化的值                               | `number \| string`                    | `✅` | `-`                               |
+| opts  | Currency.js 格式化选项，或自定义格式化函数 | `currency.Options \| currency.Format` | `-`  | `{ symbol: '$', separator: ',' }` |
 
-**Returns:** `string` - Formatted currency string
+**返回值：** `string` - 格式化后的货币字符串
 
 ### numericAddMany
 
-Batch addition: sum all values in array
+批量加法：对数组中所有值求和
 
-**Precision:** 2 decimal places by default
+**精度：** 默认为 2 位小数
 
-| Param  | Description             | Type                   | Required | Default |
-| ------ | ----------------------- | ---------------------- | -------- | ------- |
-| values | Array of numbers to add | `(number \| string)[]` | `✅`     | `-`     |
+| 参数   | 说明             | 类型                   | 必填 | 默认值 |
+| ------ | ---------------- | ---------------------- | ---- | ------ |
+| values | 待相加的数字数组 | `(number \| string)[]` | `✅` | `-`    |
 
-**Returns:** `number` - Sum of all values
+**返回值：** `number` - 所有值之和
 
 ### numericSubtractMany
 
-Batch subtraction: subtract all values from first value
+批量减法：用第一个值依次减去其余各值
 
-**Precision:** 2 decimal places by default
+**精度：** 默认为 2 位小数
 
-| Param  | Description                                        | Type                   | Required | Default |
-| ------ | -------------------------------------------------- | ---------------------- | -------- | ------- |
-| values | Array where first is minuend, rest are subtrahends | `(number \| string)[]` | `✅`     | `-`     |
+| 参数   | 说明                             | 类型                   | 必填 | 默认值 |
+| ------ | -------------------------------- | ---------------------- | ---- | ------ |
+| values | 数组，第一个为被减数，其余为减数 | `(number \| string)[]` | `✅` | `-`    |
 
-**Returns:** `number` - Result after subtracting all values from first
+**返回值：** `number` - 第一个值依次减去其余各值后的结果
 
 ### numericMultiplyMany
 
-Batch multiplication: multiply all values in array
+批量乘法：对数组中所有值求积
 
-**Precision:** Only the final product is rounded to 2 decimal places. Inputs keep up to 6 decimal places, so `[0.004, 1000]` returns `4`.
+**精度：** 仅最终乘积会被四舍五入到 2 位小数，中间输入保留最多 6 位小数，因此 `[0.004, 1000]` 返回 `4`。
 
-| Param  | Description                  | Type                   | Required | Default |
-| ------ | ---------------------------- | ---------------------- | -------- | ------- |
-| values | Array of numbers to multiply | `(number \| string)[]` | `✅`     | `-`     |
+| 参数   | 说明             | 类型                   | 必填 | 默认值 |
+| ------ | ---------------- | ---------------------- | ---- | ------ |
+| values | 待相乘的数字数组 | `(number \| string)[]` | `✅` | `-`    |
 
-**Returns:** `number` - Product of all values
+**返回值：** `number` - 所有值之积
 
 ### numeric
 
-Object containing all numeric utilities
+包含全部数值工具函数的对象
 
-| Property     | Description             | Type                                                                              |
-| ------------ | ----------------------- | --------------------------------------------------------------------------------- |
-| add          | Addition function       | `(a: number \| string, b: number \| string) => number`                            |
-| subtract     | Subtraction function    | `(a: number \| string, b: number \| string) => number`                            |
-| multiply     | Multiplication function | `(a: number \| string, b: number \| string, opts?: currency.Options) => number`   |
-| divide       | Division function       | `(a: number \| string, b: number \| string, opts?: currency.Options) => number`   |
-| format       | Format function         | `(value: number \| string, opts?: currency.Options \| currency.Format) => string` |
-| addMany      | Batch addition          | `(values: (number \| string)[]) => number`                                        |
-| subtractMany | Batch subtraction       | `(values: (number \| string)[]) => number`                                        |
-| multiplyMany | Batch multiplication    | `(values: (number \| string)[]) => number`                                        |
+| 属性         | 说明       | 类型                                                                              |
+| ------------ | ---------- | --------------------------------------------------------------------------------- |
+| add          | 加法函数   | `(a: number \| string, b: number \| string) => number`                            |
+| subtract     | 减法函数   | `(a: number \| string, b: number \| string) => number`                            |
+| multiply     | 乘法函数   | `(a: number \| string, b: number \| string, opts?: currency.Options) => number`   |
+| divide       | 除法函数   | `(a: number \| string, b: number \| string, opts?: currency.Options) => number`   |
+| format       | 格式化函数 | `(value: number \| string, opts?: currency.Options \| currency.Format) => string` |
+| addMany      | 批量加法   | `(values: (number \| string)[]) => number`                                        |
+| subtractMany | 批量减法   | `(values: (number \| string)[]) => number`                                        |
+| multiplyMany | 批量乘法   | `(values: (number \| string)[]) => number`                                        |

@@ -4,11 +4,11 @@ title: useOptimizedImageUrl
 
 # useOptimizedImageUrl
 
-React hook wrapper around {@link optimizeImageUrl}. Memoizes the resolved URL.
+对 {@link optimizeImageUrl} 的 React Hook 封装，会对解析后的 URL 做缓存（memoize）。
 
-## Examples
+## 示例
 
-### Basic optimization
+### 基础优化
 
 ```tsx
 import { useOptimizedImageUrl } from '@bosinc/shared';
@@ -21,7 +21,7 @@ export default function Demo() {
 }
 ```
 
-### Thumbnail
+### 缩略图
 
 ```tsx
 import { CLOUDINARY_QUALITY_MODE, useOptimizedImageUrl } from '@bosinc/shared';
@@ -39,7 +39,7 @@ export default function DemoThumbnail() {
 }
 ```
 
-### Skip optimization
+### 跳过优化
 
 ```tsx
 import { useOptimizedImageUrl } from '@bosinc/shared';
