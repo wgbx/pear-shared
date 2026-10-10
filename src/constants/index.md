@@ -33,7 +33,7 @@ formatDate('2025-03-09T14:30:00', { format: DATE_FORMAT.DATETIME });
 
 默认业务时区：`'America/Los_Angeles'`（美国太平洋时区）。等同于 `TIMEZONE_MAP.AMERICA_LOS_ANGELES`。
 
-作为 `formatDateInTimeZone`、`utcToZonedDate`、`zonedToUtc` 的默认 `timeZone`。
+作为 `formatDateInTimeZone`、`formatDateTimeDisplay`、`utcToZonedDate`、`zonedToUtc` 的默认 `timeZone`。
 
 ```ts
 import { DEFAULT_TIMEZONE, formatDateInTimeZone } from '@bosinc/shared';

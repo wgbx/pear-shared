@@ -7,8 +7,8 @@ const start = new Date('2026-09-22T18:00:00Z');
 const end = new Date('2026-09-22T20:00:00Z');
 
 describe('formatDateTimeDisplay', () => {
-  it('defaults to UTC', () => {
-    expect(formatDateTimeDisplay(start)).toBe('Sep 22, 2026 6:00PM (UTC)');
+  it('defaults to DEFAULT_TIMEZONE', () => {
+    expect(formatDateTimeDisplay(start)).toBe('Sep 22, 2026 11:00AM (PDT)');
   });
 
   it('formats a single value in the given timezone', () => {
@@ -30,16 +30,16 @@ describe('formatDateTimeDisplay', () => {
 
   it('collapses identical start and end', () => {
     expect(formatDateTimeDisplay(start, { end: new Date(start) })).toBe(
-      'Sep 22, 2026 6:00PM (UTC)',
+      'Sep 22, 2026 11:00AM (PDT)',
     );
   });
 
   it('ignores a null or invalid end', () => {
     expect(formatDateTimeDisplay(start, { end: null })).toBe(
-      'Sep 22, 2026 6:00PM (UTC)',
+      'Sep 22, 2026 11:00AM (PDT)',
     );
     expect(formatDateTimeDisplay(start, { end: new Date('invalid') })).toBe(
-      'Sep 22, 2026 6:00PM (UTC)',
+      'Sep 22, 2026 11:00AM (PDT)',
     );
   });
 

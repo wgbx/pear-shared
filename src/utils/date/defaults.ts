@@ -1,4 +1,4 @@
-import { DATE_FORMAT, DEFAULT_TIMEZONE, TIMEZONE_MAP } from './constants';
+import { DATE_FORMAT, DEFAULT_TIMEZONE } from './constants';
 import type {
   FormatDateInTimeZoneOptions,
   FormatDateOptions,
@@ -23,5 +23,5 @@ export const DEFAULT_ZONED_DATE_OPTIONS: Required<ZonedDateOptions> = {
 export const DEFAULT_FORMAT_DATE_TIME_DISPLAY_OPTIONS: Required<
   Pick<FormatDateTimeDisplayOptions, 'timeZone'>
 > = {
-  timeZone: TIMEZONE_MAP.UTC,
+  timeZone: DEFAULT_TIMEZONE,
 };
