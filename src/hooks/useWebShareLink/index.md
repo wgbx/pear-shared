@@ -90,4 +90,3 @@ export default function DemoWithPayload() {
 
 - 必须由**用户手势**触发（例如 `click`）；避免在无关的 `setTimeout` 之后、脱离手势上下文时调用。
 - 剪贴板和分享功能要求处于**安全上下文**（HTTPS 或 localhost）。
-- 需要挂载全局的 `Alert` / `AlertContainer`，以便 `useAlert` 能够显示消息。

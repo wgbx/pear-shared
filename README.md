@@ -22,23 +22,6 @@ pnpm add @bosinc/shared
 > //npm.pkg.github.com/:_authToken=${NPM_TOKEN}
 > ```
 
-### 配置全局通知
-
-使用 `useAlert()` 或 `useCopyToClipboard()` 时，需要在应用中挂载一次 `AlertContainer`，通常放在根布局或根组件中。
-
-```tsx
-import { AlertContainer } from '@bosinc/shared';
-
-export default function AppLayout({ children }: { children: React.ReactNode }) {
-  return (
-    <>
-      <AlertContainer />
-      {children}
-    </>
-  );
-}
-```
-
 ## API 与示例
 
 主要 API 和示例请参阅 `dumi` 文档，其中包含组件属性、Hooks 用法和使用示例。

@@ -6,8 +6,6 @@ title: Alert
 
 基于 `jotai` + MUI 构建的提示组件。调用 `useAlert()` 来触发提示。
 
-> 注意：如果你已经在应用中全局挂载了 `AlertContainer`，这里的示例仅演示如何触发提示。
-
 ## 示例
 
 ### 基础用法

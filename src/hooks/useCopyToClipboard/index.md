@@ -4,7 +4,7 @@ title: useCopyToClipboard
 
 # useCopyToClipboard
 
-将文本复制到剪贴板，并在成功或失败时触发 `Alert` 提示（需要在应用中全局挂载 `AlertContainer`）。
+将文本复制到剪贴板，并在成功或失败时触发 `Alert` 提示。
 
 ## 示例
 
