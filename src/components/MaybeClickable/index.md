@@ -4,11 +4,11 @@ title: MaybeClickable
 
 # MaybeClickable
 
-包裹内容并提供可选的点击行为。当 `onClick` 是一个函数时，会显示手型指针光标。
+Wraps content with optional click behavior. When `onClick` is a function, it shows a pointer cursor.
 
-## 示例
+## Examples
 
-### 基础
+### Basic
 
 ```tsx
 import { MaybeClickable, useAlert } from '@bosinc/shared';
@@ -22,7 +22,7 @@ export default () => {
 };
 ```
 
-### 不可点击
+### Not Clickable
 
 ```tsx
 import { MaybeClickable } from '@bosinc/shared';
@@ -36,11 +36,11 @@ export default () => {
 
 ### MaybeClickableProps
 
-继承 MUI `BoxProps`（不包含 `children` 和 `onClick`）。
+Extends MUI `BoxProps` (excluding `children` and `onClick`).
 
-| 属性      | 说明                                       | 类型                    | Required | 默认值  |
-| --------- | ------------------------------------------ | ----------------------- | -------- | ------- |
-| children  | 内容                                       | `ReactNode`             | `✅`     | `-`     |
-| enabled   | 强制启用/禁用可点击行为                    | `boolean`               | `-`      | `true`  |
-| onClick   | 点击回调。若不是函数，则自动禁用可点击行为 | `unknown`               | `-`      | `-`     |
-| component | 底层元素/组件                              | `BoxProps['component']` | `-`      | `'div'` |
+| Property  | Description                                                                          | Type                    | Required | Default |
+| --------- | ------------------------------------------------------------------------------------ | ----------------------- | -------- | ------- |
+| children  | Content                                                                              | `ReactNode`             | `✅`     | `-`     |
+| enabled   | Force enable/disable clickable behavior                                              | `boolean`               | `-`      | `true`  |
+| onClick   | Click handler. If it is not a function, clickable behavior is disabled automatically | `unknown`               | `-`      | `-`     |
+| component | Underlying element/component                                                         | `BoxProps['component']` | `-`      | `'div'` |

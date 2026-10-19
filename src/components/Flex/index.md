@@ -4,21 +4,21 @@ title: Flex
 
 # Flex
 
-对 MUI `Stack` 的轻量封装，提供更适合横向布局的默认值。
+Thin wrapper around MUI `Stack` with layout-friendly defaults for horizontal composition.
 
-与 `Stack` 相比的默认值：
+Defaults vs `Stack`:
 
-| 属性         | `Stack`     | `Flex`     |
+| Prop         | `Stack`     | `Flex`     |
 | ------------ | ----------- | ---------- |
 | `direction`  | `'column'`  | `'row'`    |
 | `alignItems` | `'stretch'` | `'center'` |
 | `useFlexGap` | `false`     | `true`     |
 
-## 示例
+## Example
 
-### 默认
+### Default
 
-不传任何 props —— 行布局，垂直居中。
+No props — row layout, vertically centered.
 
 ```tsx
 import { Flex } from '@bosinc/shared';
@@ -41,9 +41,9 @@ export default () => {
 };
 ```
 
-### 间距
+### Spacing
 
-使用 `spacing` 控制子元素之间的间距（通过 `useFlexGap` 使用 CSS `gap` 实现）。
+Use `spacing` for gaps between children (CSS `gap` via `useFlexGap`).
 
 ```tsx
 import { Flex } from '@bosinc/shared';
@@ -66,7 +66,7 @@ export default () => {
 };
 ```
 
-### 两端对齐
+### Space Between
 
 ```tsx
 import { Flex } from '@bosinc/shared';
@@ -89,9 +89,9 @@ export default () => {
 };
 ```
 
-### 垂直拉伸
+### Vertical Stretch
 
-纵向排列时通常希望子元素占满宽度 —— 可以用 `stretch` 覆盖默认的 `alignItems="center"`。
+Vertical stacks usually want full-width children — override the default `alignItems="center"` with `stretch`.
 
 ```tsx
 import { Flex } from '@bosinc/shared';
@@ -114,7 +114,7 @@ export default () => {
 };
 ```
 
-### 换行
+### Wrap
 
 ```tsx
 import { Flex } from '@bosinc/shared';
@@ -144,12 +144,12 @@ export default () => {
 
 ### FlexProps
 
-继承自 MUI `StackProps`。
+Extends MUI `StackProps`.
 
-| 属性       | 说明                       | 类型                       | 默认值     |
-| ---------- | -------------------------- | -------------------------- | ---------- |
-| direction  | 排列方向                   | `StackProps['direction']`  | `'row'`    |
-| alignItems | 交叉轴对齐方式             | `StackProps['alignItems']` | `'center'` |
-| useFlexGap | 使用 CSS `gap` 代替 margin | `boolean`                  | `true`     |
-| spacing    | 子元素间距（主题 spacing） | `StackProps['spacing']`    | —          |
-| ...        | 其他 MUI `Stack` 属性      | `StackProps`               | —          |
+| Property   | Description                          | Type                       | Default    |
+| ---------- | ------------------------------------ | -------------------------- | ---------- |
+| direction  | Flex direction                       | `StackProps['direction']`  | `'row'`    |
+| alignItems | Cross-axis alignment                 | `StackProps['alignItems']` | `'center'` |
+| useFlexGap | Use CSS `gap` instead of margins     | `boolean`                  | `true`     |
+| spacing    | Gap between children (theme spacing) | `StackProps['spacing']`    | —          |
+| ...        | Other MUI `Stack` props              | `StackProps`               | —          |

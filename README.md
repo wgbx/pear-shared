@@ -1,116 +1,116 @@
 # @bosinc/shared
 
-[![NPM 版本](https://img.shields.io/npm/v/@bosinc/shared.svg?style=flat)](https://npmjs.org/package/@bosinc/shared/)
-[![NPM 下载量](http://img.shields.io/npm/dm/@bosinc/shared.svg?style=flat)](https://npmjs.org/package/@bosinc/shared)
+[![NPM version](https://img.shields.io/npm/v/@bosinc/shared.svg?style=flat)](https://npmjs.org/package/@bosinc/shared/)
+[![NPM downloads](http://img.shields.io/npm/dm/@bosinc/shared.svg?style=flat)](https://npmjs.org/package/@bosinc/shared)
 
-一个轻量级的 React 公共组件与 Hooks 库，使用 dumi 构建文档。
+A lightweight React shared component and hooks library, built with dumi docs.
 
-## 使用方法
+## Usage
 
-### 安装
+### Install
 
 ```bash
 pnpm add @bosinc/shared
 ```
 
-> 如果这是一个私有包（GitHub Packages），需要在环境中设置 `NPM_TOKEN`，并确保 `.npmrc` 指向 GitHub Packages 的包仓库。
+> If this is a private package (GitHub Packages), you need to set `NPM_TOKEN` in your environment and make sure `.npmrc` points to the GitHub Packages registry.
 >
-> 示例（`.npmrc`）：
+> Example (`.npmrc`):
 >
 > ```text
 > registry=https://npm.pkg.github.com
 > //npm.pkg.github.com/:_authToken=${NPM_TOKEN}
 > ```
 
-## API 与示例
+## Options
 
-主要 API 和示例请参阅 `dumi` 文档，其中包含组件属性、Hooks 用法和使用示例。
+The primary APIs and examples are provided via the `dumi` documentation (component props, hook usage, and examples are defined there).
 
-- [组件](/components/external-link)
-- [Hooks 使用文档](/hooks/use-copy-to-clipboard)
+- [Components](/components/external-link)
+- [Hooks](/hooks/use-copy-to-clipboard)
 
-## 开发
+## Development
 
 ```bash
-# 安装依赖
+# install dependencies
 $ pnpm install
 
-# 通过文档中的示例开发组件库
+# develop library by docs demo
 $ pnpm dev
 
-# 构建组件库
+# build library source code
 $ pnpm run build
 
-# 监听源码变化并持续构建组件库
+# build library source code in watch mode
 $ pnpm run build:watch
 
-# 构建文档站点
+# build docs
 $ pnpm run docs:build
 
-# 在本地预览构建后的文档站点
+# Locally preview the production build.
 $ pnpm run docs:preview
 
-# 检查项目中的潜在问题
+# check your project for potential problems
 $ pnpm run doctor
 ```
 
-## 发布
+## publish
 
 ```shell
 npm run release -- --ci
 ```
 
-## 文档组织
+## Where to write docs
 
-建议按以下方式组织文档：
+Recommended split:
 
-- `README.md`：面向所有人的快速入门，介绍包的用途、安装与使用方法，以及常用命令。
-- `docs/guide.md`：面向使用者的使用指南。
-- `docs/maintainer.md`：面向维护者的工作流程，包括版本发布、包发布和问题排查。
+- `README.md`: quick start for everyone (what this package is, how to install/use, and the most common commands).
+- `docs/guide.md`: usage guide for consumers.
+- `docs/maintainer.md`: maintainer-only workflow (release, publish, troubleshooting).
 
-为了让团队成员快速了解如何运行和发布项目，可以在 `README.md` 中保留简要说明，并链接到 `docs/maintainer.md` 查看完整步骤。
+If you want teammates to quickly learn "how to run" and "how to publish", keep short entries in `README.md` and link to `docs/maintainer.md` for full steps.
 
-## 本地运行
+## Run this project locally
 
 ```bash
-# 1）安装依赖
+# 1) install dependencies
 pnpm install
 
-# 2）启动文档与开发站点
+# 2) start docs/dev site
 pnpm dev
 ```
 
-启动后，dumi 会在终端中输出访问地址和常用命令。
+Common URLs and commands are printed by dumi in terminal after startup.
 
-## 发布包
+## Publish package
 
-本项目通过 `publishConfig.registry` 配置发布到 GitHub Packages。
+This package is configured to publish to GitHub Packages (`publishConfig.registry`).
 
-发布前请完成以下准备：
+Before publishing:
 
-1. 确认你拥有目标组织或仓库的发布权限。
-2. 确认已设置 `NPM_TOKEN`，且该令牌具有包发布权限。
-3. 为当前终端环境配置发布认证（仓库中的 `.npmrc` 未包含令牌，以避免 CI/Vercel 安装时出现警告）。
-4. 更新 `package.json` 中的版本号。
-5. 在本地执行检查和构建。
+1. Ensure you have publish permission to the target org/repo.
+2. Ensure `NPM_TOKEN` is set and has package publish permission.
+3. Configure publish auth for the current shell (repo `.npmrc` intentionally omits the token so CI/Vercel installs do not warn):
+4. Bump version in `package.json`.
+5. Run checks/build locally.
 
 ```bash
-# 为当前终端环境设置令牌
+# set token for current shell
 export NPM_TOKEN=YOUR_GITHUB_PACKAGES_TOKEN
 npm config set //npm.pkg.github.com/:_authToken "$NPM_TOKEN" --location=user
 
-# 质量检查
+# quality check
 pnpm run doctor
 
-# 构建产物
+# build output
 pnpm run build
 
-# 发布包（同时会执行发布前脚本）
+# publish (will also run prepublishOnly)
 npm publish
 ```
 
-详细发布说明请参阅 `docs/maintainer.md`。
+Detailed release instructions: see `docs/maintainer.md`.
 
-## 许可证
+## LICENSE
 
 MIT

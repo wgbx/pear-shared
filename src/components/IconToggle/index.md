@@ -4,13 +4,13 @@ title: IconToggle
 
 # IconToggle
 
-通用且高度可复用的 toggle 组件，可以自定义任意选项和图标。同时支持受控和非受控用法。
+A generic and highly reusable toggle component that can be customized with any options and icons. Supports both controlled and uncontrolled usage.
 
-## 示例
+## Examples
 
-### 自定义选项
+### Custom Options
 
-可以传入自定义选项，把它当作通用 toggle 组件使用。
+You can pass custom options to use it as a generic toggle component.
 
 ```tsx
 import { IconToggle, type IconToggleOption } from '@bosinc/shared';
@@ -36,9 +36,9 @@ export default function DemoCustomOptions() {
 }
 ```
 
-### 禁用状态
+### Disabled State
 
-可以禁用整个 toggle 组，也可以禁用单个选项。
+You can disable the entire toggle group or individual options.
 
 ```tsx
 import { IconToggle, type IconToggleOption } from '@bosinc/shared';
@@ -67,24 +67,24 @@ export default function DemoDisabled() {
 
 ### IconToggle Props
 
-| 属性         | 说明                        | 类型                    | 必填   | 默认值             |
-| ------------ | --------------------------- | ----------------------- | ------ | ------------------ |
-| value        | 受控值                      | `T`                     | `-`    | `-`                |
-| onChange     | 值变化时的回调              | `(value: T) => void`    | `-`    | `-`                |
-| defaultValue | 非受控模式下的初始值        | `T`                     | `-`    | `options[0].value` |
-| options      | toggle 的自定义选项         | `IconToggleOption<T>[]` | `true` | `-`                |
-| slotProps    | 用于自定义的可选 slot props | `SlotProps`             | `-`    | `-`                |
-| disabled     | 禁用所有按钮                | `boolean`               | `-`    | `false`            |
+| Property     | Description                           | Type                    | Required | Default            |
+| ------------ | ------------------------------------- | ----------------------- | -------- | ------------------ |
+| value        | Controlled value                      | `T`                     | `-`      | `-`                |
+| onChange     | Callback when value changes           | `(value: T) => void`    | `-`      | `-`                |
+| defaultValue | Initial value for uncontrolled mode   | `T`                     | `-`      | `options[0].value` |
+| options      | Custom options for the toggle         | `IconToggleOption<T>[]` | `true`   | `-`                |
+| slotProps    | Optional slot props for customization | `SlotProps`             | `-`      | `-`                |
+| disabled     | Disable all buttons                   | `boolean`               | `-`      | `false`            |
 
 ### SlotProps
 
-| 属性   | 说明                    | 类型               |
-| ------ | ----------------------- | ------------------ |
-| root   | 根节点 ButtonGroup 属性 | `ButtonGroupProps` |
-| button | 单个按钮属性            | `IconButtonProps`  |
-| icon   | 图标属性                | `SvgIconProps`     |
+| Property | Description             | Type               |
+| -------- | ----------------------- | ------------------ |
+| root     | Root ButtonGroup props  | `ButtonGroupProps` |
+| button   | Individual button props | `IconButtonProps`  |
+| icon     | Icon props              | `SvgIconProps`     |
 
-### 类型定义
+### Types
 
 ```typescript
 import { type ElementType } from 'react';

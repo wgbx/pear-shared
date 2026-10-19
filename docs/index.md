@@ -1,10 +1,10 @@
 ---
 hero:
   title: Shared
-  description: 一个轻量级的 React 共享组件与 Hooks 库，基于 dumi 构建文档。
+  description: A lightweight React shared component and hooks library, built with dumi docs.
   actions:
-    - text: 快速开始
+    - text: Quick Start
       link: /guide
-    - text: 组件
+    - text: Components
       link: /components/jotai-provider
 ---

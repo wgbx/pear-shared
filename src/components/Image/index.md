@@ -4,13 +4,13 @@ title: Image
 
 # Image
 
-基于 Cloudinary 优化的 `<img>`，当 `src` 缺失或加载失败时会自动回退。
+Cloudinary-optimized `<img>` with automatic fallback when `src` is missing or fails to load.
 
-未传入 `width` / `height` 时，Cloudinary URL 会使用 `c_scale,w_1024`（`C_DEFAULT_SCALE_WIDTH`）进行优化。传入尺寸可以控制下载大小，缩略图（≤150px）会使用 `c_fit` + 2x DPR。
+Without `width` / `height`, Cloudinary URLs are optimized with `c_scale,w_1024` (`C_DEFAULT_SCALE_WIDTH`). Pass dimensions to control download size for thumbnails (≤150px uses `c_fit` + 2x DPR).
 
-## 示例
+## Examples
 
-### 缩略图
+### Thumbnail
 
 ```tsx
 import { CLOUDINARY_QUALITY_MODE, Image } from '@bosinc/shared';
@@ -31,7 +31,7 @@ export default function Demo() {
 }
 ```
 
-### 大图预览
+### Large preview
 
 ```tsx
 import { Image } from '@bosinc/shared';
@@ -46,7 +46,7 @@ export default function DemoLarge() {
 }
 ```
 
-### 撑满父容器
+### Fill parent
 
 ```tsx
 import { Image } from '@bosinc/shared';
@@ -66,9 +66,9 @@ export default function DemoFill() {
 }
 ```
 
-### 自定义回退图
+### Custom fallback
 
-`src` 加载失败时会切换到 `fallbackSrc`。默认使用 `DEFAULT_IMAGE_FALLBACK`。
+Falls back to `fallbackSrc` when `src` fails to load. Uses `DEFAULT_IMAGE_FALLBACK` by default.
 
 ```tsx
 import { Image } from '@bosinc/shared';
@@ -89,22 +89,22 @@ export default function DemoFallback() {
 
 ### ImageProps
 
-| 属性            | 说明                               | 类型                | 是否必填 | 默认值                   |
-| --------------- | ---------------------------------- | ------------------- | -------- | ------------------------ |
-| src             | 图片地址                           | `string`            | `-`      | `-`                      |
-| alt             | 无障碍描述文本                     | `string`            | `✅`     | `-`                      |
-| fallbackSrc     | `src` 为空或加载失败时显示的回退图 | `string`            | `-`      | `DEFAULT_IMAGE_FALLBACK` |
-| width           | CSS 宽度；同时用于 Cloudinary 优化 | `number`            | `-`      | `-`                      |
-| height          | CSS 高度；同时用于 Cloudinary 优化 | `number`            | `-`      | `-`                      |
-| fill            | 拉伸铺满父容器的 100%              | `boolean`           | `-`      | `false`                  |
-| disableOptimize | 跳过 Cloudinary URL 优化           | `boolean`           | `-`      | `false`                  |
-| quality         | Cloudinary 画质模式                | `CloudinaryQuality` | `-`      | `auto:best`              |
-| strategy        | 设置尺寸时的缩放策略               | `'fit' \| 'scale'`  | `-`      | `'fit'`                  |
-| loading         | 原生懒加载                         | `'lazy' \| 'eager'` | `-`      | `'lazy'`                 |
-| slotProps       | 传给根 `<img>` 元素的 props        | `{ root?: ... }`    | `-`      | `-`                      |
+| Property        | Description                                       | Type                | Required | Default                  |
+| --------------- | ------------------------------------------------- | ------------------- | -------- | ------------------------ |
+| src             | Image URL                                         | `string`            | `-`      | `-`                      |
+| alt             | Accessible description                            | `string`            | `✅`     | `-`                      |
+| fallbackSrc     | Shown when `src` is empty or fails                | `string`            | `-`      | `DEFAULT_IMAGE_FALLBACK` |
+| width           | CSS width; also used for Cloudinary optimization  | `number`            | `-`      | `-`                      |
+| height          | CSS height; also used for Cloudinary optimization | `number`            | `-`      | `-`                      |
+| fill            | Stretch to 100% of parent                         | `boolean`           | `-`      | `false`                  |
+| disableOptimize | Skip Cloudinary URL optimization                  | `boolean`           | `-`      | `false`                  |
+| quality         | Cloudinary quality mode                           | `CloudinaryQuality` | `-`      | `auto:best`              |
+| strategy        | Resize strategy when dimensions apply             | `'fit' \| 'scale'`  | `-`      | `'fit'`                  |
+| loading         | Native lazy loading                               | `'lazy' \| 'eager'` | `-`      | `'lazy'`                 |
+| slotProps       | Props for the root `<img>`                        | `{ root?: ... }`    | `-`      | `-`                      |
 
-另见 {@link optimizeImageUrl} 和 {@link useOptimizedImageUrl}。
+See also {@link optimizeImageUrl} and {@link useOptimizedImageUrl}.
 
-## 调试
+## Debug
 
-在 `@bosinc/shared` 中将 {@link isDebug} 设为 `true`，即可为所有共享 `Image` 加上描边并设置 `data-is-debug="1"`。
+Flip {@link isDebug} to `true` in `@bosinc/shared` to outline every shared `Image` and set `data-is-debug="1"`.

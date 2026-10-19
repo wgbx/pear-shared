@@ -1,30 +1,30 @@
 ---
-title: 指南
+title: Guide
 order: 1
 ---
 
-# 快速开始
+# Getting Started
 
-`@bosinc/shared` 是一个为复用而生的轻量级 React 组件库。
+`@bosinc/shared` is a lightweight React component library built for reuse.
 
-## 安装
+## Installation
 
-使用你喜欢的包管理器安装：
+Install the package with your preferred package manager:
 
 ```bash
 pnpm add @bosinc/shared
 ```
 
-本库依赖 React、MUI、Emotion、`jotai`、`ahooks` 等 peer dependencies。
+This library relies on peer dependencies like React, MUI, Emotion, `jotai`, and `ahooks`.
 
-## 文档状态说明
+## Doc status
 
-侧边栏中带 ⚠ 图标的条目尚未完善，采用前请先自行确认。
+Sidebar entries with a ⚠ icon are not ready yet — review before adopting.
 
 ## Shared
 
-完整的 API 和用法示例请参考文档：
+For the full APIs and examples, please refer to the docs:
 
-- [组件](/components/external-link)
+- [Components](/components/external-link)
 
 - [Hooks](/hooks/use-copy-to-clipboard)

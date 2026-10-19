@@ -4,11 +4,11 @@ title: styles
 
 # styles
 
-Pear UI 的共享样式辅助函数。
+Shared style helpers for Pear UI.
 
 ## getThinScrollbarStyles
 
-用于溢出容器的细滚动条样式。
+Thin scrollbar for overflow containers.
 
 ```tsx
 import { Box, styled } from '@mui/material';

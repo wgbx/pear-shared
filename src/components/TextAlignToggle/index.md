@@ -4,13 +4,13 @@ title: TextAlignToggle
 
 # TextAlignToggle
 
-一个用于选择文本对齐方式（左、中、右）的切换组件，支持受控和非受控两种用法。
+A toggle component for text alignment selection (left, center, right). Supports both controlled and uncontrolled usage.
 
-## 示例
+## Examples
 
-### 非受控用法
+### Uncontrolled Usage
 
-状态由组件内部管理。
+State managed internally by the component.
 
 ```tsx
 import { TextAlignToggle } from '@bosinc/shared';
@@ -25,9 +25,9 @@ export default function DemoUncontrolled() {
 }
 ```
 
-### 受控用法
+### Controlled Usage
 
-状态由父组件管理。
+State managed by parent component.
 
 ```tsx
 import { TextAlignToggle, TextAlign } from '@bosinc/shared';
@@ -45,9 +45,9 @@ export default function DemoControlled() {
 }
 ```
 
-### 限定可选项
+### Specific Options
 
-通过给 `options` 属性传入 `TextAlign` 值数组，可以限制展示的选项。组件只会渲染基于默认配置中指定的对齐方式。
+You can restrict the displayed options by providing an array of `TextAlign` values to the `options` prop. The component will only render the specified alignments based on the default configuration.
 
 ```tsx
 import { TextAlignToggle, TextAlign } from '@bosinc/shared';
@@ -68,7 +68,7 @@ export default function DemoSpecificOptions() {
 }
 ```
 
-### 禁用状态
+### Disabled
 
 ```tsx
 import { TextAlignToggle } from '@bosinc/shared';
@@ -78,7 +78,7 @@ export default function DemoDisabled() {
 }
 ```
 
-### 自定义样式
+### Custom Styles
 
 ```tsx
 import { TextAlignToggle } from '@bosinc/shared';
@@ -107,24 +107,24 @@ export default function DemoCustomStyles() {
 
 ### TextAlignToggle Props
 
-| 属性         | 说明                     | 类型                         | 是否必填 | 默认值                  |
-| ------------ | ------------------------ | ---------------------------- | -------- | ----------------------- |
-| value        | 受控模式下的值           | `TextAlign`                  | `-`      | `-`                     |
-| onChange     | 值变化时的回调           | `(value: TextAlign) => void` | `-`      | `-`                     |
-| defaultValue | 非受控模式下的初始值     | `TextAlign`                  | `-`      | `'left'`                |
-| options      | 限制展示的选项           | `TextAlign[]`                | `-`      | `[LEFT, CENTER, RIGHT]` |
-| slotProps    | 用于自定义的可选插槽属性 | `SlotProps`                  | `-`      | `-`                     |
-| disabled     | 禁用所有按钮             | `boolean`                    | `-`      | `false`                 |
+| Property     | Description                           | Type                         | Required | Default                 |
+| ------------ | ------------------------------------- | ---------------------------- | -------- | ----------------------- |
+| value        | Controlled value                      | `TextAlign`                  | `-`      | `-`                     |
+| onChange     | Callback when value changes           | `(value: TextAlign) => void` | `-`      | `-`                     |
+| defaultValue | Initial value for uncontrolled mode   | `TextAlign`                  | `-`      | `'left'`                |
+| options      | Restrict the displayed options        | `TextAlign[]`                | `-`      | `[LEFT, CENTER, RIGHT]` |
+| slotProps    | Optional slot props for customization | `SlotProps`                  | `-`      | `-`                     |
+| disabled     | Disable all buttons                   | `boolean`                    | `-`      | `false`                 |
 
 ### SlotProps
 
-| 属性   | 说明                    | 类型               |
-| ------ | ----------------------- | ------------------ |
-| root   | 根节点 ButtonGroup 属性 | `ButtonGroupProps` |
-| button | 单个按钮的属性          | `IconButtonProps`  |
-| icon   | 图标属性                | `SvgIconProps`     |
+| Property | Description             | Type               |
+| -------- | ----------------------- | ------------------ |
+| root     | Root ButtonGroup props  | `ButtonGroupProps` |
+| button   | Individual button props | `IconButtonProps`  |
+| icon     | Icon props              | `SvgIconProps`     |
 
-### TextAlign 枚举
+### TextAlign Enum
 
 ```typescript
 enum TextAlign {

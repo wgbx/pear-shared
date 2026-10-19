@@ -4,9 +4,9 @@ title: useIsDesktop
 
 # useIsDesktop
 
-返回当前视口是否为桌面端。默认情况下，视口宽度大于 `744px` 为桌面端，小于或等于 `744px` 为移动端。传入 MUI 的 breakpoint 可改用该断点判断。
+Returns whether the current viewport is desktop. By default, viewport widths greater than `744px` are desktop and widths less than or equal to `744px` are mobile. Pass a MUI breakpoint to use that breakpoint instead.
 
-## 示例
+## Example
 
 ```tsx
 import { useIsDesktop } from '@bosinc/shared';
@@ -30,16 +30,16 @@ export default function DemoCustomBreakpoint() {
 
 ## API
 
-### 签名
+### Signature
 
 `useIsDesktop(breakpoint?: Breakpoint): boolean`
 
-### 参数
+### Parameters
 
-| 参数       | 说明                      | 类型         | 是否必填 | 默认值 |
-| ---------- | ------------------------- | ------------ | -------- | ------ |
-| breakpoint | 用于桌面端判断的 MUI 断点 | `Breakpoint` | `-`      | `-`    |
+| Parameter  | Description                           | Type         | Required | Default |
+| ---------- | ------------------------------------- | ------------ | -------- | ------- |
+| breakpoint | MUI breakpoint used for desktop check | `Breakpoint` | `-`      | `-`     |
 
-### 返回值
+### Return
 
-- `boolean` - 不传 `breakpoint` 时：视口宽度 `> 744px` 为 `true`，否则为 `false`。传入 `breakpoint` 时：视口 `>= breakpoint` 为 `true`，否则为 `false`。
+- `boolean` - Without `breakpoint`: `true` when viewport width is `> 744px`, otherwise `false`. With `breakpoint`: `true` when viewport is `>= breakpoint`, otherwise `false`.
