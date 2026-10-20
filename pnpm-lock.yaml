@@ -187,6 +187,12 @@ importers:
       currency.js:
         specifier: 2.0.4
         version: 2.0.4
+      date-fns:
+        specifier: 2.30.0
+        version: 2.30.0
+      date-fns-tz:
+        specifier: 2.0.1
+        version: 2.0.1(date-fns@2.30.0)
       jotai:
         specifier: 2.9.3
         version: 2.9.3(@types/react@19.2.14)(react@19.2.4)
@@ -212,21 +218,12 @@ importers:
       '@types/react':
         specifier: 19.2.14
         version: 19.2.14
-      '@types/react-dom':
-        specifier: 19.2.3
-        version: 19.2.3(@types/react@19.2.14)
       '@typescript/native':
         specifier: npm:typescript@7.0.2
         version: typescript@7.0.2
       '@umijs/lint':
         specifier: 4.7.25
         version: 4.7.25(eslint@8.57.1(supports-color@8.1.1))(stylelint@14.16.1(supports-color@8.1.1))(supports-color@8.1.1)(typescript@5.9.3)
-      date-fns:
-        specifier: 2.30.0
-        version: 2.30.0
-      date-fns-tz:
-        specifier: 2.0.1
-        version: 2.0.1(date-fns@2.30.0)
       dumi:
         specifier: 2.4.50
         version: 2.4.50(@babel/core@7.29.0(supports-color@8.1.1))(@swc/helpers@0.5.15)(@types/node@25.5.0)(@types/react@19.2.14)(jiti@2.6.1)(lightningcss@1.33.0)(prettier@3.9.10)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(rolldown@1.2.14)(rollup@4.64.10)(styled-jsx@5.1.7(@babel/core@7.29.0(supports-color@8.1.1))(babel-plugin-macros@3.1.0)(react@19.2.4))(supports-color@8.1.1)(type-fest@2.19.0)(typescript@5.9.3)(webpack@5.105.4(@swc/core@1.9.2(@swc/helpers@0.5.15))(esbuild@0.28.2)(uglify-js@3.19.3))(yaml@2.9.1)
@@ -3234,11 +3231,6 @@ packages:
 
   '@types/ramda@0.29.3':
     resolution: {integrity: sha512-Yh/RHkjN0ru6LVhSQtTkCRo6HXkfL9trot/2elzM/yXLJmbLm2v6kJc8yftTnwv1zvUob6TEtqI2cYjdqG3U0Q==}
-
-  '@types/react-dom@19.2.3':
-    resolution: {integrity: sha512-jp2L/eY6fn+KgVVQAOqYItbF0VY/YApe5Mz2F0aykSO8gx31bYCZyvSeYxCHKvzHG5eZjc+zyaS5BrBWya2+kQ==}
-    peerDependencies:
-      '@types/react': ^19.2.0
 
   '@types/react-transition-group@4.4.12':
     resolution: {integrity: sha512-8TV6R3h2j7a91c+1DXdJi3Syo69zzIZbz7Lg5tORM5LEJG7X/E6a1V3drRyBRZq7/utz7A+c4OgYLiLcYGHG6w==}
@@ -12258,10 +12250,6 @@ snapshots:
   '@types/ramda@0.29.3':
     dependencies:
       types-ramda: 0.29.10
-
-  '@types/react-dom@19.2.3(@types/react@19.2.14)':
-    dependencies:
-      '@types/react': 19.2.14
 
   '@types/react-transition-group@4.4.12(@types/react@19.2.14)':
     dependencies:
