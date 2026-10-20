@@ -5,7 +5,6 @@ allowBuilds:
   core-js-pure: false
   esbuild: true
 minimumReleaseAgeExclude:
-  - father@4.6.41
   - '@oxlint/binding-android-arm-eabi@1.89.0'
   - '@oxlint/binding-android-arm64@1.89.0'
   - '@oxlint/binding-darwin-arm64@1.89.0'

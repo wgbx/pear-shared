@@ -31,10 +31,20 @@ The primary APIs and examples are provided via the `dumi` documentation (compone
 
 ## Development
 
-Use Node.js 22.22.1 or newer and pnpm 12.14.0 for development. Library builds
-use TypeScript 7 to check types and generate declarations. TypeScript 5 is
-installed only through older tools' transitive dependencies. The published
-entry points and peer dependencies are unchanged.
+Use Node.js 22.22.1 or a supported newer release (24.11+ or 26+) and pnpm
+12.14.0 for development. Library builds use tsdown (Rolldown/Oxc) in unbundle
+mode, preserving the source module structure and `'use client'` directives.
+The package publishes ESM with the existing `dist/index.js` and
+`dist/index.d.ts` entry points. JavaScript is compiled to ES2015 syntax;
+runtime APIs are not polyfilled. Peer dependencies remain external, and SVG
+component imports and their assets are preserved for the consumer's SVGR
+loader. Configure these behaviors in `tsdown.config.mts`.
+
+TypeScript 7 checks types and generates declarations. Declaration generation
+uses tsdown's `tsgo` integration with the existing `@typescript/native` alias;
+full type checking runs separately. `tsconfig.build.json` limits declaration
+generation to library sources. TypeScript 5 remains a transitive dependency
+of older tooling.
 
 JavaScript and TypeScript linting uses Oxlint, with explicit rules in
 `.oxlintrc.json` adapted from the previous Umi ESLint preset. Oxfmt handles
@@ -83,7 +93,8 @@ $ pnpm run docs:build
 # Locally preview the production build.
 $ pnpm run docs:preview
 
-# check your project for potential problems
+# validate the built package's entry points and module formats
+$ pnpm run build
 $ pnpm run doctor
 ```
 
@@ -132,11 +143,11 @@ Before publishing:
 export NPM_TOKEN=YOUR_GITHUB_PACKAGES_TOKEN
 npm config set //npm.pkg.github.com/:_authToken "$NPM_TOKEN" --location=user
 
-# quality check
-pnpm run doctor
-
 # build output
 pnpm run build
+
+# validate the built package
+pnpm run doctor
 
 # publish (will also run prepublishOnly)
 npm publish

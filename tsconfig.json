@@ -5,6 +5,8 @@
     "rootDir": ".",
     "skipLibCheck": true,
     "esModuleInterop": true,
+    "module": "ESNext",
+    "moduleResolution": "bundler",
     "jsx": "react-jsx",
     "paths": {
       "@@/*": ["./.dumi/tmp/*"],
@@ -12,6 +14,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["src/**/*", "types/**/*.d.ts", ".dumirc.ts", ".fatherrc.ts"],
+  "include": ["src/**/*", "types/**/*.d.ts", ".dumirc.ts", "tsdown.config.mts"],
   "exclude": ["src/**/*.test.ts", "src/**/*.test.tsx"]
 }
