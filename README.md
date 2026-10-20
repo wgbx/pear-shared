@@ -31,6 +31,11 @@ The primary APIs and examples are provided via the `dumi` documentation (compone
 
 ## Development
 
+Use Node.js 22.22.1 or newer and pnpm 11.28.2 for development. Library builds
+use TypeScript 7 to check types and generate declarations; TypeScript 5 remains
+available for tools that use the JavaScript Compiler API. The published entry
+points and peer dependencies are unchanged.
+
 ```bash
 # install dependencies
 $ pnpm install
@@ -40,6 +45,9 @@ $ pnpm dev
 
 # build library source code
 $ pnpm run build
+
+# check library types without generating files
+$ pnpm run typecheck
 
 # build library source code in watch mode
 $ pnpm run build:watch

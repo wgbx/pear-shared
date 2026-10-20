@@ -31,11 +31,12 @@
     "lint": "npm run lint:es && npm run lint:css",
     "lint:css": "stylelint --allow-empty-input \"{src,test}/**/*.{css,less}\"",
     "lint:es": "eslint \"{src,test}/**/*.{js,jsx,ts,tsx}\"",
-    "prepare": "husky install && dumi setup",
+    "prepare": "husky && dumi setup",
     "prepublish": "father doctor && npm run test && npm run build",
     "release": "release-it",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "typecheck": "node node_modules/@typescript/native/bin/tsc --noEmit -p tsconfig.json"
   },
   "commitlint": {
     "extends": [
@@ -67,27 +68,28 @@
     ]
   },
   "devDependencies": {
-    "@commitlint/cli": "17.1.2",
-    "@commitlint/config-conventional": "17.1.0",
-    "@release-it/conventional-changelog": "^11.0.1",
+    "@commitlint/cli": "21.2.4",
+    "@commitlint/config-conventional": "21.2.4",
+    "@release-it/conventional-changelog": "11.0.1",
     "@svgr/webpack": "8.1.0",
     "@types/react": "19.2.14",
     "@types/react-dom": "19.2.3",
-    "@umijs/lint": "4.0.0",
+    "@typescript/native": "npm:typescript@7.0.2",
+    "@umijs/lint": "4.7.25",
     "date-fns": "2.30.0",
     "date-fns-tz": "2.0.1",
-    "dumi": "2.4.44",
-    "eslint": "8.23.0",
-    "father": "4.6.17",
-    "husky": "8.0.1",
-    "lint-staged": "13.0.3",
-    "prettier": "2.7.1",
-    "prettier-plugin-organize-imports": "3.0.0",
-    "prettier-plugin-packagejson": "2.2.18",
-    "release-it": "20.0.0",
-    "stylelint": "14.9.1",
-    "vite": "8.3.1",
-    "vitest": "5.0.2"
+    "dumi": "2.4.50",
+    "eslint": "8.57.1",
+    "father": "4.6.41",
+    "husky": "9.1.7",
+    "lint-staged": "17.6.0",
+    "prettier": "3.9.10",
+    "prettier-plugin-packagejson": "3.0.2",
+    "release-it": "20.2.1",
+    "stylelint": "14.16.1",
+    "typescript": "5.9.3",
+    "vite": "8.3.4",
+    "vitest": "5.0.5"
   },
   "peerDependencies": {
     "@cloudinary/url-gen": "1.21.0",
@@ -103,6 +105,7 @@
     "react": "19.2.4",
     "react-dom": "19.2.4"
   },
+  "packageManager": "pnpm@11.28.2",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
   },

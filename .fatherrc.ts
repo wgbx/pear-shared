@@ -5,5 +5,8 @@ export default defineConfig({
   alias: {
     '@': './src',
   },
-  esm: { output: 'dist' },
+  esm: {
+    output: 'dist',
+    dts: { compiler: 'tsgo' },
+  },
 });

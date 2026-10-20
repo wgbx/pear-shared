@@ -2,25 +2,16 @@
   "compilerOptions": {
     "strict": true,
     "declaration": true,
+    "rootDir": ".",
     "skipLibCheck": true,
     "esModuleInterop": true,
     "jsx": "react-jsx",
     "paths": {
-      "@@/*": [
-        "./.dumi/tmp/*"
-      ],
-      "@bosinc/shared": [
-        "./src"
-      ],
-      "@/*": [
-        "./src/*"
-      ]
+      "@@/*": ["./.dumi/tmp/*"],
+      "@bosinc/shared": ["./src"],
+      "@/*": ["./src/*"]
     }
   },
-  "include": [
-    ".dumirc.ts",
-    ".fatherrc.ts",
-    "src/**/*",
-    ".dumi/theme"
-  ]
+  "include": ["src/**/*", "types/**/*.d.ts", ".dumirc.ts", ".fatherrc.ts"],
+  "exclude": ["src/**/*.test.ts", "src/**/*.test.tsx"]
 }
