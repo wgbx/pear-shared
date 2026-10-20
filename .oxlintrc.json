@@ -1,0 +1,100 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["typescript", "react", "jest", "vitest"],
+  "categories": {
+    "correctness": "off"
+  },
+  "env": {
+    "browser": true,
+    "node": true,
+    "es2022": true
+  },
+  "rules": {
+    "eslint/array-callback-return": "error",
+    "eslint/eqeqeq": "error",
+    "eslint/for-direction": "error",
+    "eslint/guard-for-in": "error",
+    "eslint/no-async-promise-executor": "error",
+    "eslint/no-case-declarations": "error",
+    "eslint/no-debugger": "error",
+    "eslint/no-delete-var": "error",
+    "eslint/no-dupe-else-if": "error",
+    "eslint/no-duplicate-case": "error",
+    "eslint/no-eval": "error",
+    "eslint/no-ex-assign": "error",
+    "eslint/no-global-assign": "error",
+    "eslint/no-invalid-regexp": "error",
+    "eslint/no-param-reassign": "error",
+    "eslint/no-promise-executor-return": "error",
+    "eslint/no-self-assign": "error",
+    "eslint/no-self-compare": "error",
+    "eslint/no-shadow-restricted-names": "error",
+    "eslint/no-sparse-arrays": "error",
+    "eslint/no-unsafe-finally": "error",
+    "eslint/no-unused-labels": "error",
+    "eslint/no-useless-catch": "error",
+    "eslint/no-useless-escape": "error",
+    "eslint/no-var": "error",
+    "eslint/no-with": "error",
+    "eslint/require-yield": "error",
+    "eslint/use-isnan": "error",
+    "react/button-has-type": "error",
+    "react/jsx-key": "error",
+    "react/jsx-no-comment-textnodes": "error",
+    "react/jsx-no-duplicate-props": "error",
+    "react/jsx-no-target-blank": "error",
+    "react/jsx-no-undef": "error",
+    "react/no-children-prop": "error",
+    "react/no-danger-with-children": "error",
+    "react/no-direct-mutation-state": "error",
+    "react/no-find-dom-node": "error",
+    "react/no-is-mounted": "error",
+    "react/no-string-refs": "error",
+    "react/no-render-return-value": "error",
+    "react/no-unescaped-entities": "error",
+    "react/no-unknown-property": "error",
+    "react/no-unsafe": "error",
+    "react/require-render-return": "error",
+    "react/rules-of-hooks": "error"
+  },
+  "overrides": [
+    {
+      "files": ["**/*.{ts,tsx}"],
+      "rules": {
+        "typescript/ban-types": "error",
+        "typescript/no-confusing-non-null-assertion": "error",
+        "eslint/no-dupe-class-members": "error",
+        "typescript/no-empty-interface": "error",
+        "eslint/no-loop-func": "error",
+        "typescript/no-misused-new": "error",
+        "typescript/no-namespace": "error",
+        "typescript/no-non-null-asserted-optional-chain": "error",
+        "eslint/no-redeclare": "error",
+        "typescript/no-this-alias": "error",
+        "eslint/no-unused-expressions": "error",
+        "eslint/no-unused-vars": "error",
+        "eslint/no-use-before-define": "error",
+        "eslint/no-useless-constructor": "error",
+        "typescript/triple-slash-reference": "error"
+      }
+    },
+    {
+      "files": ["**/*.{test,spec,unit,e2e}.{ts,tsx,js,jsx}"],
+      "rules": {
+        "vitest/no-conditional-expect": "error",
+        "jest/no-deprecated-functions": "error",
+        "jest/no-export": "error",
+        "vitest/no-focused-tests": "error",
+        "vitest/no-identical-title": "error",
+        "vitest/no-interpolation-in-snapshots": "error",
+        "jest/no-jasmine-globals": "error",
+        "vitest/no-mocks-import": "error",
+        "vitest/no-standalone-expect": "error",
+        "vitest/valid-describe-callback": "error",
+        "vitest/valid-expect-in-promise": "error",
+        "vitest/valid-expect": "error",
+        "vitest/valid-title": "error"
+      }
+    }
+  ]
+}

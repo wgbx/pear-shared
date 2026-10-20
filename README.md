@@ -36,6 +36,17 @@ use TypeScript 7 to check types and generate declarations; TypeScript 5 remains
 available for tools that use the JavaScript Compiler API. The published entry
 points and peer dependencies are unchanged.
 
+JavaScript and TypeScript linting uses Oxlint, with explicit rules in
+`.oxlintrc.json` adapted from the previous Umi ESLint preset. Prettier handles
+formatting; Stylelint still uses `@umijs/lint` for CSS and Less. Type checking
+continues to run separately with TypeScript 7.
+
+The migrated rules include React Hooks checks and Vitest-aware test checks.
+Rules merged into Oxlint's core use their core equivalents. The former
+`react/no-deprecated` rule is only partially covered by `react/no-unsafe`, and
+`@typescript-eslint/no-invalid-this` has no native equivalent; keep running
+`typecheck` for TypeScript diagnostics. JSX usage tracking is built into Oxlint.
+
 ```bash
 # install dependencies
 $ pnpm install
@@ -48,6 +59,9 @@ $ pnpm run build
 
 # check library types without generating files
 $ pnpm run typecheck
+
+# check source code and styles
+$ pnpm run lint
 
 # build library source code in watch mode
 $ pnpm run build:watch
