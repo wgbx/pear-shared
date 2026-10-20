@@ -40,6 +40,11 @@ runtime APIs are not polyfilled. Peer dependencies remain external, and SVG
 component imports and their assets are preserved for the consumer's SVGR
 loader. Configure these behaviors in `tsdown.config.mts`.
 
+Documentation development and production builds use dumi with Utoopack.
+Configure the documentation bundler in `.dumirc.ts`, including the SVGR rule
+for default SVG component imports from `src`. The `pnpm dev` and
+`pnpm run docs:build` commands remain the same.
+
 TypeScript 7 checks types and generates declarations. Declaration generation
 uses tsdown's `tsgo` integration with the existing `@typescript/native` alias;
 full type checking runs separately. `tsconfig.build.json` limits declaration

@@ -4,28 +4,29 @@ import path from 'path';
 const absSrc = path.resolve(__dirname, 'src');
 
 export default defineConfig({
+  utoopack: {
+    module: {
+      rules: {
+        // Keep dumi's named SVG exports outside the library sources.
+        '*.svg': {
+          condition: { not: { path: /(^|[/\\])src[/\\].*\.svg$/i } },
+        },
+        // Library SVG imports use the default export as a React component.
+        '**/src/**/*.svg': {
+          loaders: [
+            {
+              loader: require.resolve('@svgr/webpack'),
+              options: { typescript: true },
+            },
+          ],
+          as: '*.js',
+        },
+      },
+    },
+  },
   locales: [{ id: 'en-US', name: 'English' }],
   alias: {
     '@': absSrc,
-  },
-  chainWebpack(memo: any) {
-    memo.module
-      .rule('asset')
-      .oneOf('fallback')
-      .exclude.add(/\.svg$/i);
-    memo.module.rule('svgr').exclude.add(absSrc);
-    memo.module.rule('svg').exclude.add(absSrc);
-    memo.module
-      .rule('svg-src-as-component')
-      .enforce('pre')
-      .test(/\.svg$/i)
-      .include.add(absSrc)
-      .end()
-      .issuer(/\.[jt]sx?$/)
-      .type('javascript/auto')
-      .use('@svgr/webpack')
-      .loader(require.resolve('@svgr/webpack'))
-      .options({ typescript: true });
   },
   outputPath: 'docs-dist',
   themeConfig: {
