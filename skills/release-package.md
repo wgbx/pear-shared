@@ -10,11 +10,11 @@ description: >-
 
 ## Goal
 
-Run a **fully non-interactive** release: version bump → update `CHANGELOG.md` → build → git tag/push → `npm publish` to GitHub Packages → GitHub Release (body = changelog).
+Run a **fully non-interactive** release: version bump → update `docs/changelog.md` → tsdown build → `prepublishOnly` checks and `npm publish` to GitHub Packages → git commit/tag/push → GitHub Release (body = generated changelog).
 
 ## When to use
 
-User asks to release, publish, bump version, run `npm run release`, or references `@skills` release / `release-package`.
+Use when the user asks to release, publish, bump version, or run release-it for this package. A request to review or edit this document is documentation work.
 
 ## Version policy (default)
 
@@ -28,30 +28,27 @@ User asks to release, publish, bump version, run `npm run release`, or reference
 
 ## Critical rules
 
-1. **Never** use `pnpm run release -- --ci` — pnpm does not forward flags reliably; release-it will hang on interactive prompts.
-2. **Always** use the project script:
+1. Pass `--ci` directly to release-it so the release runs without prompts. Choose one command matching the requested increment/version:
    ```bash
-   ./skills/scripts/release.sh              # default patch
-   ./skills/scripts/release.sh minor
-   ./skills/scripts/release.sh 0.2.0
+   pnpm exec release-it --ci --increment patch
+   pnpm exec release-it --ci --increment minor
+   pnpm exec release-it --ci --increment 0.2.0
    ```
-   Or equivalent: `pnpm exec release-it --ci --increment patch`
-3. **Do not** create a separate git commit before release unless the user explicitly asked — release-it commits the version bump (and may include staged changes; `.release-it.json` has `requireCleanWorkingDir: false`).
-4. **Do not** push or publish without user intent in the message; releasing implies permission to push/publish.
+2. **Do not** create a separate git commit before release unless the user explicitly asked. Release-it stages tracked changes and commits the version bump; inspect the intended changes because `.release-it.json` has `requireCleanWorkingDir: false`.
+3. **Do not** push or publish without user intent in the message; releasing implies permission to push/publish.
 
 ## Prerequisites (verify before running)
 
-| Check                  | Command / action                                    |
-| ---------------------- | --------------------------------------------------- |
-| On `main`, synced      | `git status`, `git fetch origin`                    |
-| `NPM_TOKEN` set        | `npm whoami --registry=https://npm.pkg.github.com`  |
-| `GITHUB_TOKEN` or `gh` | Script auto-exports from `gh auth token` if missing |
-| Package manager        | **pnpm** (lockfile: `pnpm-lock.yaml`)               |
+| Check               | Command / action                                         |
+| ------------------- | -------------------------------------------------------- |
+| On `main`, synced   | `git status`, `git fetch origin`                         |
+| `NPM_TOKEN` set     | `test -n "${NPM_TOKEN:-}"`                               |
+| Registry auth       | `npm whoami --registry=https://npm.pkg.github.com`       |
+| GitHub Release auth | `.release-it.json` sets `github.tokenRef` to `NPM_TOKEN` |
+| Package manager     | **pnpm** (lockfile: `pnpm-lock.yaml`)                    |
+| Runtime             | Node.js 22.22.1, 24.11+, or 26+; pnpm 12.14.0            |
 
-Token scopes:
-
-- `NPM_TOKEN`: `write:packages` (publish to `https://npm.pkg.github.com`)
-- `GITHUB_TOKEN`: `repo` (create GitHub Release)
+`NPM_TOKEN` needs `write:packages` to publish and repository access to create the GitHub Release (`repo` for a private repository). Configure npm authentication for `npm.pkg.github.com` as described in [README.md](../README.md#publish-package); exporting the variable alone does not configure npm auth.
 
 ## Workflow (follow in order)
 
@@ -70,29 +67,46 @@ Report to the user:
 - Commits since last tag
 - Planned bump: **patch** unless the user specified otherwise
 
-### Step 2: Choose version
+### Step 2: Validate before changing the version
 
-1. User gave exact semver → `./skills/scripts/release.sh <version>`
-2. User said `minor` / `major` / `patch` → `./skills/scripts/release.sh <increment>`
-3. Otherwise → `./skills/scripts/release.sh` (patch default)
-
-### Step 3: Run release
+Run these checks in order and stop if one fails:
 
 ```bash
-chmod +x skills/scripts/release.sh
-export NPM_TOKEN="${NPM_TOKEN:-}"   # must already be in env
-./skills/scripts/release.sh           # default patch
+pnpm run format:check
+pnpm run lint
+pnpm run typecheck
+pnpm run test
+pnpm run build
+pnpm run doctor
 ```
 
-`block_until_ms` ≥ 300000 — build (`after:bump`: `pnpm run build`) can take several minutes.
+`build` uses tsdown (Rolldown/Oxc) and TypeScript 7 declaration generation. Declaration generation does not replace `typecheck`. `doctor` runs `publint --strict` against the built package, so it must run after `build`.
+
+If documentation or its build configuration changed, also run `pnpm run docs:build`.
+
+### Step 3: Choose the version and run release
+
+Use the requested exact semver or increment. Default to `patch` when neither was specified:
+
+```bash
+pnpm exec release-it --ci --increment patch
+```
+
+The current hooks execute as follows:
+
+1. `after:bump` runs `pnpm run build` to generate the versioned package's tsdown output.
+2. Release-it runs `npm publish`, which first executes `prepublishOnly`: `typecheck` → `test` → `build` → `doctor`. A failed check blocks publication.
+3. After publication, release-it creates the git commit/tag, pushes, and creates the GitHub Release.
+
+Both build invocations are expected with the current configuration. Allow enough time for checks and publishing; when a command returns a running session, continue reading its output until it completes.
 
 ### Step 4: Verify
 
 ```bash
 git log -1 --oneline
 git tag --sort=-v:refname | head -3
-npm view @bosinc/shared version --registry=https://npm.pkg.github.com
-gh release view "$(node -p "require('./package.json').version")" 2>/dev/null || true
+npm view "@bosinc/shared@$(node -p "require('./package.json').version")" version --registry=https://npm.pkg.github.com
+GH_TOKEN="$NPM_TOKEN" gh release view "$(git describe --tags --exact-match HEAD)" --json tagName,url
 head -40 docs/changelog.md
 ```
 
@@ -101,9 +115,13 @@ Summarize for the user: old version → new version, tag name, registry URL, Git
 ## Project config reference
 
 - **Script**: `package.json` → `"release": "release-it"`
+- **Build**: `pnpm run build` → `tsdown`; configuration: `tsdown.config.mts` and `tsconfig.build.json`
+- **Package check**: `pnpm run doctor` → `publint --strict` (requires current `dist` output)
+- **Publish lifecycle**: `prepublishOnly` → `typecheck` → `test` → `build` → `doctor`
 - **Config**: `.release-it.json`
   - `after:bump`: `pnpm run build`
   - `github.release`: true (release body = generated changelog)
+  - `github.tokenRef`: `NPM_TOKEN`
   - `git.requireCleanWorkingDir`: false
   - plugin `@release-it/conventional-changelog`:
     - `infile`: `docs/changelog.md` (English, Conventional Commits / angular preset; also linked as root `CHANGELOG.md`)
@@ -114,29 +132,13 @@ Summarize for the user: old version → new version, tag name, registry URL, Git
 
 ## Troubleshooting
 
-| Symptom                                        | Fix                                                                                 |
-| ---------------------------------------------- | ----------------------------------------------------------------------------------- |
-| Interactive “Select increment”                 | Used `pnpm run release`; switch to `./skills/scripts/release.sh`                    |
-| `GITHUB_TOKEN` warning / web fallback          | `export GITHUB_TOKEN=$(gh auth token)`                                              |
-| `npm ERR! 403` on publish                      | Set `NPM_TOKEN` with `write:packages` for `@bosinc`                                 |
-| `Unable to verify collaborator`                | Warning only; publish may still succeed if token is valid                           |
-| Build fails in `after:bump`                    | Fix `pnpm run build` locally, then re-run release                                   |
-| Release half-done (tag pushed, publish failed) | Do **not** re-run same version; fix error, bump or use release-it recovery per docs |
-
-## Example agent sessions
-
-**User**: Release / 发版
-
-1. Check `git status`, `NPM_TOKEN`, current version `0.1.8`
-2. Run `./skills/scripts/release.sh` (no args → patch)
-3. Report: `0.1.8` → `0.1.9`
-
-**User**: Release minor version
-
-1. Run `./skills/scripts/release.sh minor`
-2. Report: `0.1.8` → `0.2.0`
-
-**User**: Release version 0.2.0
-
-1. Run `./skills/scripts/release.sh 0.2.0`
-2. Report: published `0.2.0`
+| Symptom                              | Fix                                                                                                                                        |
+| ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| Interactive “Select increment”       | Use `pnpm exec release-it --ci --increment patch` (or the requested increment/version)                                                     |
+| GitHub token warning / web fallback  | Check `NPM_TOKEN`; it is the configured `github.tokenRef`                                                                                  |
+| `npm ERR! 403` on publish            | Set `NPM_TOKEN` with `write:packages` for `@bosinc`                                                                                        |
+| `Unable to verify collaborator`      | Warning only; publish may still succeed if token is valid                                                                                  |
+| Build fails in `after:bump`          | Fix `pnpm run build` and inspect the version/changelog before retrying; the version may already have been bumped                           |
+| `prepublishOnly` fails               | Fix the failing typecheck, test, build, or publint check before retrying                                                                   |
+| publint reports missing entry points | Run `pnpm run build`, then `pnpm run doctor`                                                                                               |
+| Release partially completed          | Inspect the registry version, local/remote tag, and GitHub Release before recovery; an already published version cannot be published again |
