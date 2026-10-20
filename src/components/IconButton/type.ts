@@ -33,8 +33,10 @@ export function resolveIconButtonSize(size: unknown): IconButtonSize {
   return UI_SIZE.MEDIUM;
 }
 
-export interface IconButtonProps
-  extends Omit<MuiIconButtonProps, 'children' | 'size'> {
+export interface IconButtonProps extends Omit<
+  MuiIconButtonProps,
+  'children' | 'size'
+> {
   /** Icon content. */
   icon: ReactNode;
   /** Accessible label. Defaults to the icon component name. */

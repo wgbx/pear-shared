@@ -16,5 +16,7 @@ export const UI_SIZES = [
 ] as const;
 
 export function isUiSize(size: unknown): size is UiSize {
-  return typeof size === 'string' && (UI_SIZES as readonly string[]).includes(size);
+  return (
+    typeof size === 'string' && (UI_SIZES as readonly string[]).includes(size)
+  );
 }

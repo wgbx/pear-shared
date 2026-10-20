@@ -33,7 +33,7 @@ export function Button({
     <StyledButton
       {...restProps}
       variant={variant}
-      startIcon={showLoading ? undefined : startIcon ?? icon}
+      startIcon={showLoading ? undefined : (startIcon ?? icon)}
       endIcon={showLoading ? undefined : endIcon}
       disabled={Boolean(disabled) || showLoading}
     >
@@ -44,7 +44,7 @@ export function Button({
           sx={{ color: 'action.disabled' }}
         />
       ) : (
-        children ?? label
+        (children ?? label)
       )}
     </StyledButton>
   );

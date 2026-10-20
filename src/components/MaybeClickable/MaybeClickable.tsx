@@ -1,8 +1,10 @@
 import { Box, type BoxProps } from '@mui/material';
 import type { ElementType, ReactNode } from 'react';
 
-export interface MaybeClickableProps
-  extends Omit<BoxProps, 'onClick' | 'children'> {
+export interface MaybeClickableProps extends Omit<
+  BoxProps,
+  'onClick' | 'children'
+> {
   children: ReactNode;
   component?: ElementType;
   enabled?: boolean;

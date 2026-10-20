@@ -1,0 +1,17 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "printWidth": 80,
+  "proseWrap": "never",
+  "singleQuote": true,
+  "trailingComma": "all",
+  "sortPackageJson": false,
+  "overrides": [
+    {
+      "files": ["**/*.md"],
+      "options": {
+        "proseWrap": "preserve"
+      }
+    }
+  ],
+  "ignorePatterns": ["/dist", "*.yaml"]
+}

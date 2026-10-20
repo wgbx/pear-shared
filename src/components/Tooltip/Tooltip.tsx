@@ -61,8 +61,8 @@ export function Tooltip(props: TooltipProps) {
     isClickTrigger && isControlled
       ? openProp
       : isClickTrigger
-      ? openInternal
-      : openProp;
+        ? openInternal
+        : openProp;
 
   const handleOpen = useMemoizedFn((event: Event | SyntheticEvent) => {
     if (isClickTrigger && !isControlled) {

@@ -24,7 +24,7 @@ export const DATE_FORMAT = {
   TIME_SECONDS: 'HH:mm:ss',
 } as const;
 
-export type DateFormat = typeof DATE_FORMAT[keyof typeof DATE_FORMAT];
+export type DateFormat = (typeof DATE_FORMAT)[keyof typeof DATE_FORMAT];
 
 /**
  * Common IANA timezone identifiers.
@@ -40,7 +40,7 @@ export const TIMEZONE_MAP = {
   ASIA_SHANGHAI: 'Asia/Shanghai',
 } as const;
 
-export type TimezoneMapId = typeof TIMEZONE_MAP[keyof typeof TIMEZONE_MAP];
+export type TimezoneMapId = (typeof TIMEZONE_MAP)[keyof typeof TIMEZONE_MAP];
 
 /**
  * Default business timezone (`America/Los_Angeles`, US Pacific).

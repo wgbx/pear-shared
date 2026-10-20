@@ -16,7 +16,7 @@ import { AlertAction } from './AlertAction';
 
 export const AlertSeverity = ['success', 'warning', 'error'] as const;
 
-type AlertSeverityType = typeof AlertSeverity[number];
+type AlertSeverityType = (typeof AlertSeverity)[number];
 
 export interface CommonAlertBannerProps extends Pick<SnackbarProps, 'onClose'> {
   icon?: ReactNode;

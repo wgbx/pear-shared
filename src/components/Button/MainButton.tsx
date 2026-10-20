@@ -87,7 +87,7 @@ export function MainButton({
       variant="contained"
       color="inherit"
       disableRipple={disableRipple}
-      startIcon={showLoading ? undefined : startIcon ?? icon}
+      startIcon={showLoading ? undefined : (startIcon ?? icon)}
       endIcon={showLoading ? undefined : endIcon}
       disabled={Boolean(disabled) || showLoading}
       onClick={handleClick}
@@ -100,7 +100,7 @@ export function MainButton({
           sx={{ color: loadingColor }}
         />
       ) : (
-        children ?? label
+        (children ?? label)
       )}
     </StyledMainButton>
   );

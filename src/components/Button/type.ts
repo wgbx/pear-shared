@@ -18,8 +18,10 @@ export {
 
 export { UI_SIZE, UI_SIZES, isUiSize } from '@/constants/size';
 
-export interface MainButtonProps
-  extends Omit<MuiButtonProps, 'loading' | 'size' | 'variant'> {
+export interface MainButtonProps extends Omit<
+  MuiButtonProps,
+  'loading' | 'size' | 'variant'
+> {
   label?: ReactNode;
   icon?: ReactNode;
   loading?: boolean;

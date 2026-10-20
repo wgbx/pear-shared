@@ -1,8 +1,4 @@
-import {
-  UI_SIZE,
-  type UiSize,
-  isUiSize,
-} from './size';
+import { UI_SIZE, type UiSize, isUiSize } from './size';
 
 /** Pear Design Btn-CTA appearance (Figma Primary / No Border). */
 export const BUTTON_APPEARANCE = {

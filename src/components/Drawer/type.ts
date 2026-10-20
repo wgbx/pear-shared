@@ -16,7 +16,7 @@ export const DRAWER_STYLE_TYPE = {
 } as const;
 
 export type DrawerStyleType =
-  typeof DRAWER_STYLE_TYPE[keyof typeof DRAWER_STYLE_TYPE];
+  (typeof DRAWER_STYLE_TYPE)[keyof typeof DRAWER_STYLE_TYPE];
 
 export interface DrawerHeaderProps {
   title?: ReactNode;
@@ -117,8 +117,10 @@ export interface ActionDrawerProps extends Omit<DrawerProps, 'footer'> {
 
 export type FullDrawerProps = ActionDrawerProps;
 
-export interface PromptDrawerProps
-  extends Omit<DrawerProps, 'children' | 'footer'> {
+export interface PromptDrawerProps extends Omit<
+  DrawerProps,
+  'children' | 'footer'
+> {
   heading?: ReactNode;
   description?: ReactNode;
   children?: ReactNode;
@@ -132,8 +134,10 @@ export interface PromptDrawerProps
   cancelButtonProps?: ButtonProps;
 }
 
-export interface NoticeDrawerProps
-  extends Omit<DrawerProps, 'children' | 'footer' | 'showHeader'> {
+export interface NoticeDrawerProps extends Omit<
+  DrawerProps,
+  'children' | 'footer' | 'showHeader'
+> {
   children?: ReactNode;
   label?: ReactNode;
 }

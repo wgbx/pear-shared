@@ -4,7 +4,8 @@ import { type ReactNode } from 'react';
 import { type CollapseProps } from './type';
 
 export interface CollapsibleSectionProps
-  extends Omit<CollapseProps, 'trigger' | 'expanded' | 'onChange'>,
+  extends
+    Omit<CollapseProps, 'trigger' | 'expanded' | 'onChange'>,
     Omit<StackProps, 'children' | 'onChange'> {
   label: ReactNode;
   sx?: SxProps<Theme>;

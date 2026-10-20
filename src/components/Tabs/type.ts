@@ -6,7 +6,10 @@ export interface TabOption {
   disabled?: boolean;
 }
 
-export interface TabsProps extends Omit<MuiTabsProps, 'slotProps' | 'onChange'> {
+export interface TabsProps extends Omit<
+  MuiTabsProps,
+  'slotProps' | 'onChange'
+> {
   items: TabOption[];
   onChange: (value: string) => void;
   disabled?: boolean;

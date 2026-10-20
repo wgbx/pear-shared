@@ -10,8 +10,10 @@ import { IconToggle, type IconToggleProps } from '@/components/IconToggle';
 import { TextAlign, type TextAlignOption } from './type';
 export { TextAlign } from './type';
 
-export interface TextAlignToggleProps
-  extends Omit<IconToggleProps<TextAlign>, 'options'> {
+export interface TextAlignToggleProps extends Omit<
+  IconToggleProps<TextAlign>,
+  'options'
+> {
   /**
    * The text alignment options to display.
    * If not provided, all default options (LEFT, CENTER, RIGHT) will be displayed.

@@ -4,7 +4,8 @@ import type { ImgHTMLAttributes } from 'react';
 import type { OptimizeImageOptions } from '@/utils/image';
 
 export interface ImageProps
-  extends Omit<
+  extends
+    Omit<
       ImgHTMLAttributes<HTMLImageElement>,
       'src' | 'width' | 'height' | 'alt'
     >,

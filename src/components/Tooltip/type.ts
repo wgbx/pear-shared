@@ -13,8 +13,10 @@ type TooltipChildProps = {
   ref?: Ref<HTMLElement>;
 };
 
-export interface TooltipProps
-  extends Omit<MuiTooltipProps, 'title' | 'children'> {
+export interface TooltipProps extends Omit<
+  MuiTooltipProps,
+  'title' | 'children'
+> {
   title?: ReactNode;
   description: ReactNode;
   action?: ReactNode;

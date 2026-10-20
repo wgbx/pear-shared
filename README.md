@@ -37,9 +37,14 @@ installed only through older tools' transitive dependencies. The published
 entry points and peer dependencies are unchanged.
 
 JavaScript and TypeScript linting uses Oxlint, with explicit rules in
-`.oxlintrc.json` adapted from the previous Umi ESLint preset. Prettier handles
+`.oxlintrc.json` adapted from the previous Umi ESLint preset. Oxfmt handles
 formatting; Stylelint still uses `@umijs/lint` for CSS and Less. Type checking
 continues to run separately with TypeScript 7.
+
+Oxfmt is configured in `.oxfmtrc.json`, preserving the existing 80-column,
+single-quote style and Markdown line wrapping. It respects `.gitignore`, and
+YAML files remain excluded. The pre-commit hook runs Oxfmt on staged files
+after the applicable lint fixes.
 
 The migrated rules include React Hooks checks and Vitest-aware test checks.
 Rules merged into Oxlint's core use their core equivalents. The former
@@ -62,6 +67,12 @@ $ pnpm run typecheck
 
 # check source code and styles
 $ pnpm run lint
+
+# format source code, configuration, and documentation
+$ pnpm run format
+
+# check formatting without changing files
+$ pnpm run format:check
 
 # build library source code in watch mode
 $ pnpm run build:watch

@@ -18,12 +18,17 @@ export function AlertAction({
   onClose,
   action,
   color,
-}: AlertActionProps) 
-{
+}: AlertActionProps) {
   if (showClose) {
     return (
       <IconButton onClick={onClose} size="small">
-        <CloseFill style={{ color: `${color} !important`,width: '20px', height: '20px' }} />
+        <CloseFill
+          style={{
+            color: `${color} !important`,
+            width: '20px',
+            height: '20px',
+          }}
+        />
       </IconButton>
     );
   }

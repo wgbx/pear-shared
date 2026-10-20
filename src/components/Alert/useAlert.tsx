@@ -5,7 +5,7 @@ import type { AlertCloseProps, AlertWithActionProps } from './alertAtom';
 import { alertAtom } from './alertAtom';
 import { AlertSeverity } from './AlertBanner';
 
-type AlertKind = typeof AlertSeverity[number];
+type AlertKind = (typeof AlertSeverity)[number];
 type AlertParams = string | AlertCloseProps | AlertWithActionProps;
 
 type NotifyFn = (params: AlertParams) => void;

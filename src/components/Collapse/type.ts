@@ -5,8 +5,10 @@ import {
 } from '@mui/material';
 import { type ReactNode } from 'react';
 
-export interface CollapseProps
-  extends Omit<StackProps, 'children' | 'onChange'> {
+export interface CollapseProps extends Omit<
+  StackProps,
+  'children' | 'onChange'
+> {
   trigger: ReactNode;
   actions?: ReactNode;
   children: ReactNode;

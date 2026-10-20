@@ -1,7 +1,7 @@
 import { CLOUDINARY_QUALITY_MODE } from '@/constants';
 
 export type CloudinaryQuality =
-  typeof CLOUDINARY_QUALITY_MODE[keyof typeof CLOUDINARY_QUALITY_MODE];
+  (typeof CLOUDINARY_QUALITY_MODE)[keyof typeof CLOUDINARY_QUALITY_MODE];
 
 export type OptimizeImageOptions = {
   /** Target width in CSS pixels. Applied with retina DPR when using `fit`. */

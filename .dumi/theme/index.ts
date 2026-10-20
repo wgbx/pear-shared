@@ -1,2 +1,2 @@
-export * from './palette'
-export * from './createPearTheme'
+export * from './palette';
+export * from './createPearTheme';

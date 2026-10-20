@@ -366,8 +366,10 @@ export { type PopoverProps } from '@mui/material';
 ```typescript
 import { type TabsProps as MuiTabsProps } from '@mui/material';
 
-export interface TabsProps
-  extends Omit<MuiTabsProps, 'slotProps' | 'onChange'> {
+export interface TabsProps extends Omit<
+  MuiTabsProps,
+  'slotProps' | 'onChange'
+> {
   items: TabOption[];
   onChange: (value: string) => void;
 }

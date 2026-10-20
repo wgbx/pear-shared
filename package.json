@@ -28,6 +28,8 @@
     "docs:build": "dumi build",
     "docs:preview": "dumi preview",
     "doctor": "father doctor",
+    "format": "oxfmt --write .",
+    "format:check": "oxfmt --check .",
     "lint": "npm run lint:es && npm run lint:css",
     "lint:css": "stylelint --allow-empty-input \"{src,test}/**/*.{css,less}\"",
     "lint:es": "oxlint src --deny-warnings",
@@ -51,20 +53,16 @@
     }
   },
   "lint-staged": {
-    "*.{md,json}": [
-      "prettier --write --no-error-on-unmatched-pattern"
+    "*.{md,mdx,json,jsonc,json5}": [
+      "oxfmt --write --no-error-on-unmatched-pattern"
     ],
     "*.{css,less}": [
       "stylelint --fix",
-      "prettier --write"
+      "oxfmt --write"
     ],
-    "*.{js,jsx}": [
+    "*.{js,jsx,mjs,cjs,ts,tsx,mts,cts}": [
       "oxlint --fix --deny-warnings",
-      "prettier --write"
-    ],
-    "*.{ts,tsx}": [
-      "oxlint --fix --deny-warnings",
-      "prettier --parser=typescript --write"
+      "oxfmt --write"
     ]
   },
   "devDependencies": {
@@ -79,8 +77,8 @@
     "father": "4.6.41",
     "husky": "9.1.7",
     "lint-staged": "17.6.0",
+    "oxfmt": "0.73.0",
     "oxlint": "1.89.0",
-    "prettier": "3.9.10",
     "release-it": "20.2.1",
     "stylelint": "14.16.1",
     "vite": "8.3.4",

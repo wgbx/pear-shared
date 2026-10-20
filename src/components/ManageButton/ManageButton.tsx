@@ -40,8 +40,10 @@ const StyledIconButton = styled(IconButton, {
   },
 }));
 
-export interface ManageButtonProps
-  extends Omit<IconButtonProps, 'title' | 'children'> {
+export interface ManageButtonProps extends Omit<
+  IconButtonProps,
+  'title' | 'children'
+> {
   /** The icon to render. Defaults to `Settings5Line`. */
   Icon?: ElementType<SvgIconProps>;
   /** Tooltip text shown on PC hover. Defaults to `"Manage"`. Pass `false` to disable. */
