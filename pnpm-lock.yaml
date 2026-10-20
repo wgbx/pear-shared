@@ -254,9 +254,6 @@ importers:
       stylelint:
         specifier: 14.16.1
         version: 14.16.1(supports-color@8.1.1)
-      typescript:
-        specifier: 5.9.3
-        version: 5.9.3
       vite:
         specifier: 8.3.4
         version: 8.3.4(@types/node@25.5.0)(esbuild@0.28.2)(jiti@2.6.1)(less@4.6.4)(sass@1.54.0)(terser@5.49.0)(yaml@2.9.1)

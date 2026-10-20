@@ -32,9 +32,9 @@ The primary APIs and examples are provided via the `dumi` documentation (compone
 ## Development
 
 Use Node.js 22.22.1 or newer and pnpm 12.14.0 for development. Library builds
-use TypeScript 7 to check types and generate declarations; TypeScript 5 remains
-available for tools that use the JavaScript Compiler API. The published entry
-points and peer dependencies are unchanged.
+use TypeScript 7 to check types and generate declarations. TypeScript 5 is
+installed only through older tools' transitive dependencies. The published
+entry points and peer dependencies are unchanged.
 
 JavaScript and TypeScript linting uses Oxlint, with explicit rules in
 `.oxlintrc.json` adapted from the previous Umi ESLint preset. Prettier handles
