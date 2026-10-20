@@ -16,6 +16,11 @@
       "preset": {
         "name": "angular"
       },
+      "context": {
+        "host": "https://github.com",
+        "owner": "bosinc",
+        "repository": "pear-shared"
+      },
       "infile": "docs/changelog.md",
       "header": "---\ntitle: Changelog\norder: 2\n---\n\n# Changelog",
       "ignoreRecommendedBump": true
