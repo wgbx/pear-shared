@@ -5,6 +5,18 @@ order: 2
 
 # Changelog
 
+## [0.1.29](https://github-work/bosinc/pear-shared/compare/0.1.28...0.1.29) (2026-10-20)
+
+### Bug Fixes
+
+- **date:** default formatDateTimeDisplay timeZone to DEFAULT_TIMEZONE ([c317c57](https://github-work/bosinc/pear-shared/commit/c317c572becc717701dfa27ee16fbc778a492345))
+- **numeric:** make numericFormat precision work and round numericMultiplyMany once ([0d7c891](https://github-work/bosinc/pear-shared/commit/0d7c89175b86a3ac9f9a07d725165496fe4a9b64))
+
+### Features
+
+- **SelectDropdown:** align menu to the right of anchor by default ([322d61e](https://github-work/bosinc/pear-shared/commit/322d61ebba1263a5db34230708dfc62b50cd4091))
+- **utils:** add isInIframe device util ([7cb7aa2](https://github-work/bosinc/pear-shared/commit/7cb7aa25ce2a870b6a37668b896f077c24640519))
+
 ## [0.1.28](https://github-work/bosinc/pear-shared/compare/0.1.27...0.1.28) (2026-09-29)
 
 ### Features
