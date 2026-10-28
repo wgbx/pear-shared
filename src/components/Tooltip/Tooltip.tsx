@@ -139,7 +139,10 @@ export function Tooltip(props: TooltipProps) {
           sx: {
             bgcolor: 'shades.800',
             borderRadius: 2,
+            boxSizing: 'border-box',
             p: 1.5,
+            width: { xs: 240, md: 320 },
+            maxWidth: { xs: 240, md: 320 },
             '& .MuiTooltip-arrow': {
               color: 'shades.800',
             },

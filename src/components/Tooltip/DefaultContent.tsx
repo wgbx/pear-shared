@@ -4,7 +4,7 @@ import { DefaultContentProps } from './type';
 export function DefaultContent(props: DefaultContentProps) {
   const { title, description, action } = props;
   return (
-    <Stack sx={{ gap: 1, maxWidth: 240 }}>
+    <Stack sx={{ gap: 1 }}>
       <Stack sx={{ gap: 1 }}>
         {title && (
           <Typography
