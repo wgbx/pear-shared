@@ -141,7 +141,7 @@ export function Tooltip(props: TooltipProps) {
             borderRadius: 2,
             boxSizing: 'border-box',
             p: 1.5,
-            width: { xs: 240, md: 320 },
+            width: 'fit-content',
             maxWidth: { xs: 240, md: 320 },
             '& .MuiTooltip-arrow': {
               color: 'shades.800',
