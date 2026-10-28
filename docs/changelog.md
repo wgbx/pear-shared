@@ -5,6 +5,14 @@ order: 2
 
 # Changelog
 
+## [0.1.30](https://github.com/bosinc/pear-shared/compare/0.1.29...0.1.30) (2026-10-28)
+
+### Bug Fixes
+
+- **release:** generate canonical GitHub changelog links ([728a9e0](https://github.com/bosinc/pear-shared/commit/728a9e08cc90bdf35c538d637569eb2b3bcee6de))
+- **tooltip:** set bubble width to 240px on xs and 320px on md ([f33decd](https://github.com/bosinc/pear-shared/commit/f33decdc73279f107e95050cebb2d28496ae123a))
+- **tooltip:** size bubble to content with a 240/320 max width ([b03fcaf](https://github.com/bosinc/pear-shared/commit/b03fcafdbb6dbcb61fe2e01003166c4890712040))
+
 ## [0.1.29](https://github.com/bosinc/pear-shared/compare/0.1.28...0.1.29) (2026-10-20)
 
 ### Bug Fixes
